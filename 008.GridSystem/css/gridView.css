@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* 그리드 뷰 - gridView.css */
+/* 그리스 시스템을 사용하는 웹페이지에 
+그리드를 화면에 보여주는 역할 */
+.grid{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 화면가로 중앙 이동 */
+
+    /* 크기지정 */
+    width: 960px;
+    /* 가로폭은 960px/1200px 또는 사용자지정 가로폭 */
+    height: 100%;
+
+    /* ul 3無 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: -1;/* 일반요소보다 아래 */
+    /* z-index: 9999; */
+    /* 필요할때 위로 올리기 */
+
+}
+
+
+
+/* li 12컬럼 설정 */
+.grid li{
+    float: left;
+    /* 옆으로 흐르게 */
+
+    width: 8.33%;/* 12등분 */
+    height: 100%;
+    background-color: rgba(0,0,225,0.5);
+    box-sizing: border-box;
+    /* 패딩과 보더가 포함 - 크기유지 */
+    padding: 0 10px;
+
+    background-clip: content-box;
+    /* 패딩영역의 배경색 빼기 */
+    /* 
+
+    css에서 추가된 새로운 배경속성!
+    background-clip : 배경색 영역설정 속성
+        선택값 옵션:
+        1) border-box 는 보더영역까지 배경색 넣기
+        2) padding-box 는 패딩영역까지 배경색 넣기(기본값)
+        3) content-box 는 컨텐트 영역까지만 배경색 넣기(보더,패딩제외)
+    
+    background-origin : 배경이미지 영역설정 속성
+        선택값 옵션:
+        1) border-box 는 보더영역까지 배경이미지 넣기
+        2) padding-box 는 패딩영역까지 배경이미지 넣기(기본값)
+        3) content-box 는 컨텐트 영역까지만 배경이미지 넣기(보더,패딩제외)
+
+    */
+
+}

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Robot PJ</title>
+    <style>
+        body {
+            /* 배경: 색이반고윙/크 */
+            background: url(images/bg.jpg) no-repeat fixed top/cover;
+            overflow-x: hidden;
+            /* x축 스크롤 안생김 */
+        }
+        /* div {
+            outline: 2px solid lime;
+        } */
+        /*  로봇 페이지 로고 */
+        #logo{
+            position: fixed;
+            /* 정중앙 위치이동 */
+            top: calc(50% - 100px);
+            left: calc(50% - 100px);
+            /* 나의 부모는? 보이는화면! */
+            /* 
+                [ 로고 정중앙에 보내기! ]
+                1. top값을 50%로 중앙라인에 보낸다
+                2. left값도 50%로 중앙라인에 보낸다
+                3. 이때 로고크기의 절반만큼 빼주면 정중앙에 위치한다
+                [ CSS 크기계산 방법 ]
+                - 표기법: calc(값 연산자 값)
+                - 연산자: 사칙연산기호(+,-,*,/)
+                - 표기상 유의 사항 : 
+                    더하기,빼기 기호 앞뒤에 반드시 한칸씩 
+                    띄어쓰기 해야함!!!
+                    (곱하기,나누기 기호는 붙여도 됨)
+                    예) width: calc(100% - 50px)
+                    - 유동적인 수치와 정해진 수치 사이에 계산이 필요할때
+                    주로 사용한다.(위의 예는 50px이 빠진 100%임)
+                
+                - 로고 정중앙 보내기 계산은?
+                top: calc(50% - 100px);
+                left: calc(50% - 100px);
+                화면의 절반(50%)를 보낸값에서 
+                로고크기의 절반(100px)을 뺀다
+            
+             */
+            z-index: 1;
+            /* 로봇보다 위 - z-index는 포지션이 있는경우에 적용됨*/
+            margin: 0;
+            width: 200px;
+            height: 200px;
+            background: pink url(images/robot_03.png) no-repeat;
+            /* 배경 : 색이반고윙/크 */
+            background-position: center 10px;/* 가로 세로 */
+            /* 배경위치 - 아래쪽에서 따로 잡음 */
+            background-size: 160px auto;/* 가로 세로 */
+            /* 배경사이즈 - 아래쪽에서 따로 잡음 */
+            border-radius: 50%;
+            /* 모서리 둥글리기 값으로 50%를 주면 원이된다! */
+            /* 글자설정 */
+            text-align: center;
+            /* 글자정렬 가로중앙 */
+            line-height: 200px;
+            /* 박스높이값으로 line-height를 주면 글자가 세로중앙에 온다 */
+            color: #fff;
+            /* 글자색 */
+            font-family: "vladimir script";
+            /* 글자체 - 필기체 */
+            font-size: 60px;
+            /* 글자크기 */
+            text-shadow: 2px 2px 2px #000;
+            /* 글자그림자: x y blur 색 */
+            box-shadow: 0 0 20px pink;
+            /* 박스그림자를 이용한 글로우효과! */
+            /* outline: 2px dotted lime; */
+            /* 
+            [트랜지션: 둘 사이의 속성변화를 애니메이션으로 보여주기]
+            1) 한번에 쓰기
+            transition: 속성 시간 이징 지연; 
+            2) 각각 쓰기
+            transition-property: 속성값;
+            transition-duration: 시간초단위s;
+            transition-timing-function: 가속도옵션(이징);
+            transition-delay: 지연시간초단위s;
+             */
+            transition: all 2s ease-in-out 1s;
+        }
+        /* body에 마우스 오버시 로고 왼쪽 위 위치로 이동하기 */
+        body:hover #logo {
+            top: 50px;
+            left: 50px;
+        }
+        /* 위로가기 버튼 */
+        #tbtn{
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            /* 나의 부모는 보이는 화면! */
+            display: block;
+            /* 디자인적용위해 - 인라인요소는 크기적용안됨 */
+            width: 100px;
+            height: 100px;
+            /* 가로 세로 텍스트 중앙정렬 */
+            text-align: center;
+            line-height: 100px;
+            font-family: arial;
+            /* 글자체 : 에어리얼체 */
+            font-weight: bold;
+            /* 글자두껍게 */
+            /* a요소 기본변경 */
+            color: #fff;
+            /* 글자색 */
+            text-decoration: none;
+            /* 기본밑줄없앰 */
+            background-color: #2370eb;
+            border-radius: 50%;
+            /* 원 */
+            /* 트랜지션: 속시이지 */
+            transition: .5s;
+            /* 시간만쓰면 속성은 자동 all */
+        }
+        /* 탑버튼에 마우스 오버시 배경색,글자색 변경 */
+        #tbtn:hover {
+            background-color: #ff0;
+            color: #00f;
+        }
+        /* 컨텐츠 유도 버튼(이동버튼) */
+        #goCont{
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            /* 나의 부모는? 보이는 화면(body조차 포지션없음) */
+            color: #fff;
+            /* 글자색 흰색 */
+            text-decoration: none;
+            /* 밑줄없앰 */
+            font: bold 40px arial;
+            /* 글자풀셋팅: 스두크/줄체 */
+            text-shadow: 0 0 10px #000;
+        }
+        /* 컨텐츠 유도 버튼 마우스 오버시 글자색변경, 밑줄넣기 */
+        #goCont:hover {
+            color: #f00;
+            text-decoration: underline;
+        }
+        /* 로봇머리 */
+        #head {
+            position: relative;
+            /* 부모자격 */
+            left: 100%;
+            /* 오른쪽 바깥에 처음에 나가있음 
+            가로스크롤바가 생기므로 body에 x축 스크롤바 숨기기*/
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            /* 블록박스 가로중앙정렬 - 마영오 */
+            margin-top: 100px;
+            background: url(images/metal01.jpg) no-repeat center/cover;
+
+            /* 트랜지션: 속시이지 - 나갈때는 지연시간 없음 */
+            transition: left 2s ease-in-out;
+        }
+        /* body에 마우스 오버시 로봇머리,몸통 등장 */
+        body:hover #head,
+        body:hover #body {
+            left: 0;
+            /* 포지션이 relative 이므로 left값을 0으로하면
+            원래있던 위치로 돌아온다! */
+
+            /* 트랜지션: 속시이지 */
+            transition: left 2s ease-in-out 1s;
+            /* 
+                마우스 오버시 트랜지션은 오버시에 셋팅
+                마우스 아웃시 트랜지션은 오버아닌 원본에 셋팅
+                (단, 원본에만 셋팅시 오버/아웃시 동일함)
+             */
+        }
+
+        /* 왼눈 */
+
+        #eye1 {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            /* 나의부모는? #head */
+            width: 50px;
+            height: 50px;
+            background: url(images/e1.jpg) no-repeat 0/100% 100%;
+        }
+        /* 오른눈 */
+        #eye2 {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            /* 나의부모는? #head */
+            width: 50px;
+            height: 50px;
+            background: url(images/e2.jpg) no-repeat 0/100% 100%;
+        }
+        /* 코 */
+        #nose {
+            position: absolute;
+            top: 108px;
+            left: 100px;
+            /* 나의부모는? #head */
+            width: 50px;
+            height: 70px;
+            background: url(images/nose.jpg) no-repeat 0/110% 100%;
+        }
+        /* 입 */
+        #mouth {
+            position: absolute;
+            bottom: 9px;
+            left: 74px;
+            /* 나의부모는? #head */
+            width: 100px;
+            height: 50px;
+            background: url(images/mouth.png) no-repeat 0/100% 100%;
+        }
+        /* 귀 공통 */
+        .ear {
+            position: absolute;
+            top: 80px;
+            /* 나의 부모는? #head */
+            width: 50px;
+            height: 80px;
+            background: url(images/metal02.jpg) no-repeat 0/100% 100%;
+        }
+        /* 왼귀 */
+        #ear1 {
+            left: -50px;
+        }
+        /* 오른귀 */
+        #ear2 {
+            right: -50px;
+        }
+        /* 로봇 몸통 */
+        #body {
+            position: relative;
+            /* 부모자격 */
+            left: -100%;
+            /* 몸통이 왼쪽바깥에 처음에 나가있음 */
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            /* 블록 가로중앙-마영오! */
+            margin-top: 50px;
+            background: url(images/metal01.jpg) no-repeat center/cover;
+
+            /* 트랜지션: 속시이지 - 나갈때는 지연시간 없음 */
+            transition: left 2s ease-in-out ;
+        }
+
+        /* 목 */
+
+    
+          
+            
+          
+    
+    
+  
+        #neck {
+            position: absolute;
+            top: -50px;
+            left: 100px;
+            /* 나의 부모는? #body */
+            width: 50px;
+            height: 50px;
+            background: url(images/metal02.jpg) no-repeat 0/100% 100%;
+        }
+        /* 팔다리 공통 */
+        .part {
+            position: absolute;
+            /* 나의 부모는? #body */
+            width: 50px;
+            height: 250px;
+            background: url(images/metal02.jpg) repeat-y 0/100%;
+        }
+        /* 왼팔 */
+        #arm1 {
+            left: -50px;
+        }
+        /* 오른팔 */
+        #arm2 {
+            right: -50px;
+        }
+        /* 왼다리 */
+        #leg1 {
+            top: 300px;
+        }
+        /* 오른다리 */
+        #leg2 {
+            top: 300px;
+            right: 0;
+        }
+        /* TV */
+        #tv {
+            position: absolute;
+            /* 부모자격 */
+            top: 50px;
+            left: 25px;
+            /* 나의 부모는? #body */
+            width: 200px;
+            height: 150px;
+            background: url(images/tv.jpg) no-repeat 0/100% 100%;
+        }
+        /* 스크린 */
+        #screen {
+            position: absolute;
+            top: 21px;
+            left: 13px;
+            /* 나의 부모는? #tv */
+            border-radius: 10px;
+            /* 모서리 둥글게 */
+            width: 136px;
+            height: 97px;
+            background-color: #000;
+            overflow: hidden;
+            /* 넘치는 자식요소 숨기기 */
+        }
+        /* 스크린 iframe */
+        #screen iframe {
+            position: relative;
+            top: -21%;
+            left: -47%;
+            /* 현재위치로 부터이동 */
+            width: 193%;
+            height: 134%;
+        }
+        /* 로봇 설명박스 */
+        #rdesc{
+            width: 800px;
+            margin: 0 auto;
+            /* 마영오! - 블록 가로중앙정렬 */
+            margin-top: 350px;
+            /* 로봇 몸통박스에서 내려온 다리만큼 공간주기 */
+            margin-bottom: 100px;
+            /* 하단여백 */
+            border: 3px solid #fff;
+            /* 테두리 */
+            border-radius: 20px;
+            /* 모서리 둥글게 */
+            padding: 15px 30px;
+            /* 패딩: 위아래 양쪽 */
+            color: #fff;
+            /* 글자색 */
+            text-shadow: 1px 1px 1px #000;
+            /* 글자그림자 */
+            /* text-shadow: x축 y축 블러 색; */
+            box-shadow: inset 0 0 66px cyan;
+            /*
+            box-shadow: 내부그림자 x축 y축 블러 거리 색;
+            - 내부그림자 - inset
+            - x축, y축 : 그림자 위치이동
+            - 블러(blur) : 그림자 경계선 흐림정도
+            - 거리(spread) : 그림자가 떨어진 정도(멀수록 그림자가 커짐)
+            참고) text-shadow는 거리가 없다!
+            - 색 : 그림자색 
+            응용) 그림자효과는 꼭 그림자만 들어가야 하는 것은 아니다!
+            글로우(빛남)효과도 그림자를 이용하여 준다!(색만 다른색) 
+            */
+            background-color: rgba(0, 0, 0, .5);
+            /* 배경색 반투명 -> alpha값이 0.5(0생략가능) */
+            /* 
+                반투명 효과 부르는 이름
+                1. 검색정 반투명: 오버레이(overlay)
+                2. 흰색 반투명: 트렌스페런트(transparent)
+             */
+        }
+        /* 로봇 설명 타이틀 */
+        #rdesc h2{
+            color: lime;
+            /* 글자색 */
+            font-size: 35px;
+            /* 글자크기 */
+            text-align: center;
+            /* 글자정렬 중앙 */
+        }
+        /* 로봇 설명 작은글자 */
+        #rdesc small{
+            display: block;
+            /* 원래 inline이어서 글자중앙정렬 적용위해 
+            block으로 전환함 - width:auto이므로 끝까지감 */
+            color: #ff0;
+            text-align: center;
+        }
+        /* 로봇 설명 문단박스 */
+        #rdesc p{
+            font-size: 15px;
+            /* 글자크기 */
+            line-height: 25px;
+            /* 줄간격 */
+            letter-spacing: 1px;
+            /* 자간 */
+            word-spacing: 2px;
+            /* 단어간격 */
+            /* 다단표기(다중열속성) */
+            column-count: 3;
+            /* 다중열개수 */
+            column-rule: 5px dotted lime;
+            /* 다중열구분선 - 값은 보더와 같다! */
+            /* column-rule: 두께 종류 색상; */
+            column-gap: 50px;
+            /* 다중열 사이간격 */
+            text-align: justify;
+            /* 양쪽정렬 */
+            word-break: break-all;
+            /* 단어단위를 글자로 깨주는 설정 */
+            text-indent: 20px;
+            /* 들여쓰기 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 로봇 페이지 로고 -->
+    <h1 id="logo">
+        R2D2
+    </h1>
+    <!-- 로봇머리 -->
+    <div id="head">
+        <div id="eye1"></div>
+        <div id="eye2"></div>
+        <div id="nose"></div>
+        <div id="mouth"></div>
+        <div id="ear1" class="ear"></div>
+        <div id="ear2" class="ear"></div>
+    </div>
+    <!-- 로봇몸통 -->
+    <div id="body">
+        <div id="neck"></div>
+        <div id="arm1" class="part"></div>
+        <div id="arm2" class="part"></div>
+        <div id="leg1" class="part"></div>
+        <div id="leg2" class="part"></div>
+        <div id="tv">
+            <div id="screen">
+                <!-- 유튜브동영상 -->
+                <iframe src="https://www.youtube.com/embed/pBuZEGYXA6E"></iframe>
+                <!-- 
+                    iframe 요소: inline frame
+                    - 웹 페이지 내부에 다른 페이지를
+                    삽입하여 표시할 수 있는 요소
+                    - src속성 : 페이지경로
+                 -->
+            </div>
+        </div>
+    </div>
+    <!-- 로봇 소개글 -->
+    <div id="rdesc">
+        <!-- 제목 -->
+        <h2>Robot</h2>
+        <!-- 출처 -->
+        <small>From Wikipedia, the free encyclopedia</small>
+        <!-- 내용단락 -->        
+        <p>
+            A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of
+                actions automatically.[2] Robots can be guided by an external control device or the control may be embedded
+                within. Robots may be constructed on the lines of human form, but most robots are machines designed to
+                perform a task with no regard to their aesthetics.
+            <br><br>
+            Robots can be autonomous or semi-autonomous and range from humanoids such as Honda's Advanced Step in
+                Innovative Mobility (ASIMO) and TOSY's TOSY Ping Pong Playing Robot (TOPIO) to industrial robots, medical
+                operating robots, patient assist robots, dog therapy robots, collectively programmed swarm robots, UAV
+                drones such as General Atomics MQ-1 Predator, and even microscopic nano robots. By mimicking a lifelike
+                appearance or automating movements, a robot may convey a sense of intelligence or thought of its own.
+                Autonomous things are expected to proliferate in the coming decade,[3] with home robotics and the autonomous
+                car as some of the main drivers.[4]
+                <br><br>
+            The branch of technology that deals with the design, construction, operation, and application of robots,[5]
+                as well as computer systems for their control, sensory feedback, and information processing is robotics.
+                These technologies deal with automated machines that can take the place of humans in dangerous environments
+                or manufacturing processes, or resemble humans in appearance, behavior, or cognition. Many of today's robots
+                are inspired by nature contributing to the field of bio-inspired robotics. These robots have also created a
+                newer branch of robotics: soft robotics.
+                <br><br>
+            From the time of ancient civilization, there have been many accounts of user-configurable automated devices
+                and even automata resembling humans and other animals, designed primarily as entertainment. As mechanical
+                techniques developed through the Industrial age, there appeared more practical applications such as
+                automated machines, remote-control and wireless remote-control.
+                <br><br>
+            The term comes from a Slavic root, robot-, with meanings associated with labor. The word 'robot' was first
+                used to denote a fictional humanoid in a 1920 Czech-language play R.U.R. (Rossumovi Univerzální Roboti -
+                Rossum's Universal Robots) by Karel Čapek, though it was Karel's brother Josef Čapek who was the word's true
+                inventor.[6][7][8] Electronics evolved into the driving force of development with the advent of the first
+                electronic autonomous robots created by William Grey Walter in Bristol, England in 1948, as well as Computer
+                Numerical Control (CNC) machine tools in the late 1940s by John T. Parsons and Frank L. Stulen. The first
+                commercial, digital and programmable robot was built by George Devol in 1954 and was named the Unimate. It
+                was sold to General Motors in 1961 where it was used to lift pieces of hot metal from die casting machines
+                at the Inland Fisher Guide Plant in the West Trenton section of Ewing Township, New Jersey.[9]
+                <br><br>
+            Robots have replaced humans[10] in performing repetitive and dangerous tasks which humans prefer not to do,
+                or are unable to do because of size limitations, or which take place in extreme environments such as outer
+                space or the bottom of the sea. There are concerns about the increasing use of robots and their role in
+                society. Robots are blamed for rising technological unemployment as they replace workers in increasing
+                numbers of functions.[11] The use of robots in military combat raises ethical concerns. The possibilities of
+                robot autonomy and potential repercussions have been addressed in fiction and may be a realistic concern in
+                the future.
+        </p>
+    </div>
+    <!-- 맨위로 이동버튼 -->
+    <a href="#" id="tbtn">TOP</a>
+    <!-- 글 내용 유도 메뉴 -->
+    <a href="#rdesc" id="goCont">What is Robot?</a>
+    <!-- 
+        a요소의 href 값의 #은 무엇인가?
+        - 원래 가지고 있는 이동 속성 중 같은 페이지내의
+        아이디요소로 바로 이동하는 href="#아이디명" 으로 표기시
+        클릭하면 바로 해당컨텐츠 박스의 위치로 이동한다
+        (#만 쓸 경우엔 맨위로 이동됨)
+     -->
+</body>
+</html>

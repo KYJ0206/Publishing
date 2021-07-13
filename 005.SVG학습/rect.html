@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사각형 SVG</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+        }
+
+        /* 이미지 박스 */
+        .ibox{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background: 
+            url(./images/img1.jpg) no-repeat center/cover;
+        }
+
+        /* 사각형 svg */
+        .rsvg{
+            width: 100%;
+            height: 100%;
+            /* svg는 보통 가로,세로 크기를 주는 것부터 시작
+            svg가 백터 그래픽의 스테이지다 */
+        }
+
+        /* rect요소 */
+        .rsvg rect{
+            fill: transparent;/* 투명 */
+            /* 채우기 속성 (기본색은 검정)
+            transparent - 투명, none - 없음 */
+
+            stroke: lime;
+            /* 선색 (안쓰면 안나옴) */
+
+            stroke-width: 10;
+            /* 사각형 기준선을 중심으로 그려짐
+            따라서 바깥쪽으로 5px 나가있음 -> 위치, 크기 조정필요!
+            X,Y축으로 각각 5px밀고 width, height를 각각 10px줄임! */
+
+            stroke-linecap: square;
+            /* 
+                stroke-linecap : 선끝옵션
+                1) butt - 끝에 중심선이 보임 ( 기본값 )
+                2) square - 끝에 사각형으로 덮음
+                3) round - 끝에 둥근모양으로 덮음
+             */
+
+
+
+            /* 
+                [ svg 라인 애니메이션을 위한 중요속성 2가지 ]
+
+                1. stroke-dasharray :
+                선과 공백으로 만드는 점선세팅
+                - 단위없이 숫자만 쓰면 px단위
+                - 숫자를 하나만 쓰면 선, 공백이 동일하게 세팅됨
+                - 숫자를 2개 이상 쓰면 선, 공백 순으로 크기를 세팅함
+                [ 만일 %단위를 쓰면? ]
+                -> 50%를 주고 몇조각 나는지 세어본다
+
+                2. stroke-dashoffset :
+                선, 공백 순서에서 시작위치 세팅 -> 공백부터 시작가능!
+             */
+
+
+
+            stroke-dasharray: 400% ;
+            /* 50%를 값으로 주고 몇조각? 8조각남
+            50% * 8 = 400% -> 결과적으로 선만 보임
+            공백이 숨어 있음 -> 시작위치를 밀어서 공백부터 보이게 함
+            -> stroke-dashoffset 으로 밀어준다 
+            -> stroke-dasharray 값과 같은값을 주면 공백부터 시작*/
+            stroke-dashoffset: 400%;
+
+            /* 트랜지션 : 속시이지 */
+            transition: all .7s ease-in-out;
+        }
+
+        /* 버튼에 마우스 오버시 */
+        .ib1:hover rect{
+            stroke-dashoffset: 0;
+            /* 선이 다시 나옴 */
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>사각형 SVG</h1>
+
+    <div class="ibox ib1">
+        <svg class="rsvg">
+            <rect width = "390" height = "290" x="5" y="5"></rect>
+        </svg>
+    </div>
+
+    <!-- 
+        [ SVG 란? ]
+        - Scalable Vector Graphic 의 줄임말
+        즉, 확대해도 깨짐이 없는 벡터 그래픽
+        - 이미지 그래픽은 2가지 종류 중 하나다!
+        (비트맵이미지-픽셀이미지, 벡터이미지-계산하여 화면에 그림)
+        - svg 라는 확장자를 사용함 (예: img1.svg)
+        - html5에서 SVG를 브라우저에 그릴 수 있도록 태그로 도입함!
+        [ svg 태그요소란? ]
+        - SVG를 그리는 공간
+        - 하위요소로 그릴 수 있는 여러가지 도형 포멧이 있음
+        1. 사각형 <rect>
+        2. 원 <circle>
+        3. 타원 <ellipse>
+        4. 직선 <line>
+        5. 다중선 <polyline>
+        6. 다각형 <polygon>
+        7. 선 <path> - 직선,곡선 등 다양한 선표현
+
+        [ svg 공통 속성 - 선과 면으로 된 백터그래픽 ]
+        1. 채우기색 : fill
+        2. 선두께 : stroke-width
+        3. 선색 : stroke
+
+        [ rect 요소 - 사각형을 그리는 svg ]
+        1. 구성요소 :
+            (1) 가로크기 - width
+            (2) 세로크기 - height
+            (3) X축 위치 - X
+            (4) Y축 위치 - Y
+        
+        2. 표현법 : 
+            - svg 요소 하위에 rect 요소를 코딩한다
+     -->
+
+</body>
+
+</html>

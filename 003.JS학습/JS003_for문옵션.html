@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>For문 옵션</title>
+    <style>
+        .forCls img{
+            height: 100px;
+        }
+    </style>
+    <script>
+        /*///////////////////////////////////////
+            함수명: addNum
+            기능: for문으로 숫자이미지를 추가한다
+        *////////////////////////////////////////
+        function addNum(num){ // num - 전달변수
+
+            //1.함수호출확인
+            console.log("숫자추가해!"+num);
+
+            //2. for문으로 숫자이미지 출력하기!
+
+            //2-1.대상: .forCls (몇번째에 출력할 것인가?)
+            var tg = document.querySelectorAll(".forCls");
+            console.log("대상의 개수는? "+tg.length);
+            // length는 컬렉션의 개수를 리턴함!
+
+            //2-2.대상에 for문으로 숫자이미지 넣기
+            for(var i=1;i<=10;i++){
+                console.log("for문내부의 i값:"+i);
+
+                // 4번과 7번 출력못하게하기!///////////////////
+                // || OR 논리연산자
+                // && AND 논리연산자
+                // num이 1번이고 i가 4이거나 7일때 continue
+                if(num===1 && (i===4 || i===7)) continue;
+                // [ continue 키워드 ]
+                // - for문 안에서 continue를 만나면 아래쪽 코드를
+                //  실행하지않고 for문 위로 다시올라간다
+                //  (다음조건실행)
+
+                //// 6번부터 안나오게하기! //////////////
+                if(num===2 && i===6) break;
+                // [ break 키워드 ]
+                // - for문 안에서 break를 만나면 for문을 빠져나감!
+                
+                // 출력하기: 대상 중 몇번째 .forCls에!
+                tg[num].innerHTML += '<img src="./images/num/num_0'+i+'.png" alt="숫자이미지">';
+
+            } ///// for문 ////////////////////////
+
+        } ///////// addNum함수 ///////////////////
+        //////////////////////////////////////////
+    </script>
+</head>
+<body>
+    <h1>for문 옵션</h1>
+<hr>
+    <button onclick="addNum(0)">기본호출</button>
+    <h2>기본for문</h2>
+    <div class="forCls"></div>
+<hr>
+    <button onclick="addNum(1)">for문옵션1</button>
+    <h2>4번과 7번빼고 돌리기</h2>
+    <div class="forCls"></div>
+<hr>
+    <button onclick="addNum(2)">for문옵션2</button>
+    <h2>5번까지만 돌리기</h2>
+    <div class="forCls"></div>
+<hr>
+    
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Gallery</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 높이값 기준(화면크기만큼) */
+        }
+        body{
+            background: url(./images/space.jpg) no-repeat center/auto 200%;
+        }
+        /* 공통 */
+        a{
+            text-decoration: none;
+            /* 밑줄없앰 */
+        }
+        img{
+            border: none;
+            /* 이미지링크시 보더없앰 */
+            vertical-align: middle;
+            /* 인라인요소가 오른쪽요소의 세로정렬
+            (middle은 세로중앙) */
+        }
+
+        /* 갤러리부모박스 */
+        #wrap{
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            /* outline: 2px dotted red; */
+        }
+        /* 메인 이미지 박스 */
+        #mbox{
+            display: inline-block;
+            /* block처럼 디자인적용되며
+            inline처럼 한줄에 온다! */
+        }
+        /* 이미지텍스트 출력박스 */
+        .imgtxt{
+            text-align: center;
+            color: red;
+            text-shadow: 1px 1px 1px #777;
+        }
+        /* 자동넘김 버튼박스 */
+        .btns{
+            text-align: center;
+        }
+    </style>
+    <script>
+        ////// 전역변수 구역 ///////////////////////
+        
+        // 이미지번호(현재이미지번호)
+        var inum = 1;// 처음할당된 값을 함수에서 변경!
+
+        // 이미지설명 배열변수 //
+        var txt = [
+            "노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~",
+            "분홍장미가 머리칼을 너풀너풀 날려요~",
+            "백조같은 거위가 뚱하니 바라보아요~",
+            "바이킹이 너무 어지러워 토가 나와요~",
+            "눈사람이 가짜인데 진짜같아 보여요~",
+            "이 양은 보통양이 아니고 복제양 돌리예요~",
+            "잉꼬 한쌍이 영화를 찍어요~"
+        ];
+
+        // 이미지설명 글자색 //
+        var tcolor = [
+            "red","orange","yellow","green",
+            "blue","navy","purple"
+        ];
+
+        ///////////////////////////////////////////
+
+        /*///////////////////////////////////////////////////
+            함수명: chgImg
+            기능: 이동버튼 클릭시 해당순번 이미지가 연속변경됨
+        *////////////////////////////////////////////////////
+        function chgImg(gubun){ //gubun - 구분값변수
+            // gubun 값이 0은 왼쪽, 1은 오른쪽
+            
+            // 1. 함수호출확인+전달값확인
+            console.log("이미지변경!"+gubun);
+
+            // 2. 변경대상: #mbox>img
+            var tg = document.querySelector("#mbox>img");
+
+            //document.getElementById("mbox")
+            //.getElementsByTagName("img").item(0);
+            // #mbox 아래 img태그 중 첫번째 요소 선택(0번)
+
+            // 3. 변경내용: 대상 이미지의 src속성을 변경한다!
+            // 방법: 전역변수에서 관리되는 inum변수로 이미지번호를
+            //      넣어준다!(넣기전에 1씩증가 또는 감소해서 넣음!)
+
+            // 오른쪽버튼일때 1씩증가
+            if(gubun===1){
+                inum++;//1씩증가
+                // 만약 증가하다가 끝번호 보다 커지면
+                // 즉, 8이되면 첫번호인 1로 변경함!
+                if(inum===8) inum = 1;
+                // if문에서 명령어가 하나이면 중괄호 생략가능!
+            } ///// if /////////////////
+            // 왼쪽버튼일때 1씩감소
+            else if(gubun===0){
+                inum--;//1씩감소
+                // 만약 감소하다가 첫번호 보다 작아지면
+                // 즉, 0이되면 끝번호인 7로 변경함!
+                if(inum===0) inum = 7;
+                // if문에서 명령어가 하나이면 중괄호 생략가능!
+            } ///// else if ///////////
+
+            console.log("inum확인:"+inum);
+
+            // 이미지 경로 변경적용하기 ////////
+            tg.setAttribute("src","./images/img"+inum+".jpg");
+            // setAttribute(속성명,속성값)
+            //tg.src = "./images/img"+inum+".jpg";
+
+            // 4. 추가변경대상: .imgtxt
+            var tg2 = document.getElementsByClassName("imgtxt")[0];
+            // 클래스이므로 컬렉션 순번을 써야함
+            // -> 선택요소.item(순번)  또는 선택요소[순번]
+            // 컬렉션도 배열은 아니지만 배열처럼 선택할 수 있다!
+
+            // 5. 추가변경내용: 
+
+            // 5-1.글자변경
+            tg2.innerHTML = txt[inum-1];
+            // 배열순번은 이미지번호 보다 1작으므로 1을 뺀다!
+
+            // 5-2.글자색변경
+            tg2.style.color = tcolor[inum-1];
+
+        } //////// chgImg함수 ////////////////////////////////
+        //////////////////////////////////////////////////////
+
+        // 인터발변수(멈출때필요!)
+        var autoI;//전역변수
+
+        /*///////////////////////////////////////////////////
+            함수명: autoSlide
+            기능: 이미지 자동넘기기 또는 멈추기
+        *////////////////////////////////////////////////////
+        function autoSlide(gubun){ // gubun (1-자동넘김,0-멈춤)
+            
+            // 1. 함수호출확인+전달값확인
+            console.log("자동넘기기!"+gubun);
+
+            // 2. 분기하기(자동넘김/멈춤)
+            if(gubun===1&&!autoI){ // 자동넘김
+                console.log("드루와~!");
+                // autoI변수에 할당되기전 "undefined"이며
+                // 이것은 if문에서 false를 나타낸다!
+                // false일때만 들어와야 하므로 
+                // !(NOT)연산자를 사용하여 반대로 만들어 준다!(true)
+                autoI = setInterval("chgImg(1)",1000);
+                // 인터발함수를 변수에 할당한다!
+                // 지울때 이 변수로 지운다!
+            } ////// if ///////////////
+            else if(gubun===0){ // 멈춤
+                clearInterval(autoI);
+                //인터발 변수 해제하기(초기화하기)
+                autoI = false;
+                // if문에서 undefined(할당안됨값)
+                // null(빈값)은 모두 false로 해석된다!
+                // autoI에 undefined/null/false 셋중 어떤것을 써도
+                // 모두 초기화할 수 있다!
+            } ///// else if ////////////
+
+            // 타이밍 함수 (JS내장함수)
+
+            // 1. setInterval(함수,시간)
+            // - 일정시간 간격으로 함수를 호출함
+            // - 인터발함수를 지울때는 변수에 담아서 
+            //      clearInterval(인터발변수) 를 호출함!
+
+            // 2. setTimeout(함수,시간)
+            // - 일정시간 후 함수를 한번 호출함
+            // - 타임아웃함수를 지울때는 변수에 담아서 
+            //      clearTimeout(타임아웃변수) 를 호출함!
+
+            // 인터발과 타임아웃함수의 시간은 1/1000초임
+            // 1초는 1000이라고 쓰면된다!
+
+        } /////////// autoSlide 함수 /////////////////////////
+        //////////////////////////////////////////////////////
+
+    </script>
+</head>
+<body>
+    <!-- 갤러리 부모박스 -->
+    <div id="wrap">
+        <!-- 타이틀 -->
+        <h1>Rolling Gallery</h1>
+        <!-- 왼쪽버튼 -->
+        <a href="#" class="btn lb" onclick="chgImg(0)">
+            <img src="./images/left_btn.png" alt="왼쪽이동버튼">
+        </a>
+        <!-- 메인이미지 -->
+        <div id="mbox">
+            <img src="./images/img1.jpg" alt="메인이미지">
+        </div>
+        <!-- 오른쪽버튼 -->
+        <a href="#" class="btn rb" onclick="chgImg(1)">
+            <img src="./images/right_btn.png" alt="오른쪽이동버튼">
+        </a>
+    </div><!-- #wrap -->
+
+    <!-- 이미지별 설명 테스트 출력박스 -->
+    <h2 class="imgtxt">
+        노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~
+    </h2>
+
+    <!-- 자동넘김 버튼박스 -->
+    <div class="btns">
+        <button class="start" onclick="autoSlide(1)">자동넘김</button>
+        <button class="stop" onclick="autoSlide(0)">멈춤</button>
+    </div>
+</body>
+</html>

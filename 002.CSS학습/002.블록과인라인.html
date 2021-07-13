@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>002.블록과 인라인</title>
+        <style>
+            /* 
+                [ CSS의 display 속성이란? ]
+                - 레이아웃을 위한 요소들의 표현방법
+                - 요소의 display 크게 2가지다!
+                1. block 요소
+                - 표현법:
+                    display: block;
+                - 기본적으로 block인 요소들
+                    h1~h6, div, p 등
+                - 특징: 옆에 다른요소가 올 수 없다!
+                내용을 구분하는 박스요소로 모든 디자인 속성이 적용된다!
+                (width,height,border,margin,padding)
+                이런 박스 디자인요소가 적용된다는 말!
+                2. inline 요소
+                - 표현법:
+                    display: inline;
+                - 기본적으로 inline인 요소들
+                    a, img, span, b, i, em, strong 등
+                - 특징: block요소를 포함할 수 없다!
+                    width,height를 적용할 수 없고
+                    margin은 양쪽만 적용됨
+                    padding은 적용되나 다른 인라인요소
+                    아랫줄 요소나 블록요소에 영향을
+                    줄 수 없다!
+                    - 특히 글자일 경우 위아래 간격은
+                    줄간격(line-height)을 사용하여
+                    조정해야한다!
+                    - 예외: img는 width,height,margin,padding 모두 적용됨
+                3. inline-block 요소
+                - 인라인의 모든 특징이 동일하지만
+                width, height의 크기가 적용되는 요소
+                (단, border,padding크기가 내부로 포함됨!)
+                - 기본적으로 inline-block인 요소:
+                button 등
+                -> 일반적으로 block요소는 border,padding으로 박스크기가 커진다!
+             */
+            /* 모든 요소에 디자인적용하기 */
+            /* 별(*)은 모든요소를 선택함 */
+            body * {
+                width: 200px;
+                height: 150px;
+                border: 10px solid blue;
+                margin: 20px;
+                padding: 20px;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <!-- 인라인 요소들 -->
+        <a href="#">나는 a다!</a>
+        <img src="imgs/blogo.png" alt="로고">
+        <span>나는 span이다!</span>
+        <b>나는 b다!</b>
+        <button>나는 button이다!</button>
+        <i>나는 i다!</i>
+        <em>나는 em이다!</em>
+        <strong>나는 strong이다!</strong>
+
+        <!-- 블록요소들 -->
+        <h1>나는 h1이다!</h1>
+        <h4>나는 h4다!</h4>
+        <div>나는 div다!</div>
+        <p>나는 p다!</p>
+        
+    </body>
+</html>

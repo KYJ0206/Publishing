@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 가상클래스</title>
+    <style>
+        /*         
+        [ 가상클래스란? ]
+        - Pseudo-class 슈도클래스 라고도함
+        - 의미: 마치 클래스를 준것 처럼
+        선택하여 디자인을 변경할 수 있다
+
+        1. 자식선택 가상클래스
+        - 조건: 한 부모요소 아래에 같은 종류의
+        태그로 구성되어 있어야함!
+        예) ul>li 이와 같이 ul아래 li로만 구성됨
+            div>div 같은 종류의 직계자식으로만
+            구성되어야함
+        - 선택방법:
+            요소:first-child 첫번째자식
+            요소:last-child 마지막자식
+            요소:nth-child(n) n번째자식
+                            - n은 1부터
+        *******************************
+        2. 종류가 다른 자식선택 가상클래스
+        - 한 가지가 아닌 여러 종류의 자식요소
+        로 구성된 경우 자식을 선택하는 방법
+        - 선택방법:
+        요소:first-of-type
+            - 같은타입(요소)중 첫번째
+        요소:last-of-type
+            - 같은타입(요소)중 마지막
+        요소:nth-of-type(n)
+            - 같은타입(요소)중 n번째
+                            - n은 1부터
+        ********************************
+        3. 마우스 오버시 요소 변경 가상클래스
+        - 마우스가 요소에 오버되면 자기자신 또는
+        자손요손 요소의 디자인을 변경할 수 있다
+        - 선택방법:
+        요소:hover
+        ************************************
+        4. a요소 관련 가상클래스
+        - a:hover 오버시
+        - a:link 링크시
+        - a:visited 방문후 표시
+        - a:active 마우스를 누르고 있을때 
+
+        5. 포커스 가상클래스
+        - 요소명:focus{}
+        - 포커스란 어떤 요소가 마우스로 클릭되거나
+        터치되었을때 그요소에 촛점이 가게 되는데
+        이런 상태를 포커스상태라고 한다!
+        - 이 상태에 대한 디자인을 별도로 줄 수 있다
+        - 입력폼요소에 많이 사용된다!
+        - 오해하지말자! 클릭이벤트와 다르다!
+        클릭이벤트는 클릭한 순간 이벤트가 사라지지만
+        포커스는 요소가 클릭되어 활성화된 상태를 유지함
+        - 포커스를 없애고 싶으면 다른요소를 클릭하면 됨
+        - 포커스가 없어지는 상태를 blur(블러)라고함
+
+    */
+
+        /* 큰제목, 시제목 */
+        h1,
+        h2 {
+            text-align: center;
+            /* 내부 인라인요소 중앙정렬 */
+        }
+
+        /* 시제목 링크 셋팅 */
+        /* h2 a:link{ */
+        h2 a {
+            /* :link보다 일반적으로 a요소에 셋팅함 */
+            color: green;
+            /* color는 글자색(예전엔 색은 모두 글자색임) */
+            text-decoration: none;
+            /* a요소는 기본적으로 밑줄이 셋팅되어 있으므로
+       이것을 없앤다 */
+        }
+
+        /* 마우스 오버시 */
+        h2 a:hover {
+            color: hotpink;
+            text-decoration: underline;
+            /* underline(밑줄)/overline(윗줄)
+        line-through(중간줄) */
+        }
+
+        /* 보통 :active, :visited 는 잘 셋팅하지 않는다 */
+        /* 마우스를 누르고 있을때 */
+        /* h2 a:active{
+        color: red;
+    } */
+        /* 방문후 변경 */
+        /* h2 a:visited{
+        color: purple;
+    } */
+
+        /* 포커스 가상클래스 */
+        h2 a:focus{
+            outline: 10px dotted orangered;
+        }
+
+        /* 시인이름 */
+        h3 {
+            width: 800px;
+            margin: 0 auto;
+            /* 마영오! 블록박스 가로중앙 */
+            /* 마영오를 쓸때는 가로크기가 있어야함! */
+
+            /* outline: 1px solid red; */
+            /* 아웃라인은 보더와 셋팅법은 같으나
+        주변요소에 아무런 영향을 주지 않는다!
+        반면 보더는 박스크기나 주변요소에 영향을 준다
+        박스모델의 포함속성이다! */
+
+            /* 내부 인라인 컨텐츠 정렬 */
+            text-align: right;
+        }
+
+        /* 첫번째 파트 */
+        ul.part1 {
+            width: 800px;
+            margin: 0 auto;
+            /* 마영오! */
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            /* 테두리(보더) */
+            border-radius: 15px;
+            /* 모서리 둥글게 */
+
+            /* 기본값 없애기 */
+            padding: 20px 0;
+            /* 위아래20px, 양쪽0 */
+            list-style: none;
+            /* 블릿옵션: none(없앰)/square(사각형)/circle(빈원) */
+
+            text-align: center;
+            /* 글자중앙 */
+        }
+
+        /* 1번 li */
+        ul.part1 li:first-child {
+            font-size: 40px;
+            font-family: "궁서";
+            color: red;
+        }
+
+        /* 마우스 오버시 글자크게하기 */
+        ul.part1 li:first-child:hover {
+            font-size: 50px;
+        }
+
+        /* 2번 li */
+        /* 글자크기 30px, 글자체 "굴림",
+    글자색 "blueviolet", 글자두껍게 */
+        ul.part1 li:nth-child(2) {
+            font-size: 30px;
+            font-family: "굴림";
+            color: blueviolet;
+            font-weight: bold;
+        }
+
+        /* 마우스 오버시 글자색 skyblue */
+        ul.part1 li:nth-child(2):hover {
+            color: skyblue;
+        }
+
+        /* 3번 li */
+        /* 글자크기 24px, 글자체 "돋움",
+    글자색 "brown", 글자두껍게, 이탤릭체 */
+        ul.part1 li:nth-child(3) {
+            font-size: 24px;
+            font-family: "돋움";
+            color: brown;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* 마우스 오버시 이탤릭을 노멀로! */
+        ul.part1 li:nth-child(3):hover {
+            font-style: normal;
+        }
+
+        /* 4번 li */
+        /* 글자크기 50px, 글자체 "궁서",
+    글자색 "dodgerblue" */
+        ul.part1 li:nth-child(4) {
+            font-size: 50px;
+            font-family: "궁서";
+            color: dodgerblue;
+        }
+
+        /* 마우스 오버시 배경색 yellow */
+        ul.part1 li:nth-child(4):hover {
+            background-color: #ff0;
+        }
+
+        /* 처음에 한글숨기기 */
+        ul.part1 li:nth-child(4) b {
+            display: none;
+        }
+
+        /* 마우스 오버시 한글보이고 한자숨기기 */
+        ul.part1 li:nth-child(4):hover b {
+            display: inline;
+        }
+
+        ul.part1 li:nth-child(4):hover span {
+            display: none;
+        }
+
+
+        /* 4번 이후 모든 li 전부셋팅 */
+        /* 틸드(~)를 사용한 다중형제요소 선택 */
+        ul.part1 li:nth-child(4)~li {
+            font-size: 25px;
+            font-family: "궁서";
+            color: orangered;
+        }
+
+        /* 4번 이후 li에 오버시 */
+        /* 글자크기 28px, 글자색 blue */
+        ul.part1 li:nth-child(4)~li:hover {
+            font-size: 28px;
+            color: blue;
+        }
+
+        /* 마지막 li */
+        /* 글자크기 40px, 글자체 "맑은 고딕", 글자색 coral */
+        /* 적용우선순위는? 더 위의 부모 body를 써서높임*/
+        body ul.part1 li:last-child {
+            font-size: 40px;
+            font-family: "맑은 고딕";
+            color: coral;
+        }
+
+        /* 두번째 파트 */
+        div.part2{
+            width: 800px;
+            /* 가로크기를 주지 않으면
+            기본 auto이므로 화면끝까지 자동채움
+            중앙정렬하려면(마영오를 쓰려면) 
+            반드시 가로 사이즈를 설정해야함*/
+            
+            border: 2px solid #ccc;
+            /* 
+                보더(테두리) : 두께 종류 색;
+                1. 두께 - 테두리 두께 (px)
+                2. 종류 - solid(선형), dotted(점선형)
+                          dashed(데쉬형), ridge(액자형)
+                          double(이중선형)
+                3. 색 - 보더색 (해시코드,reb등)
+             */
+
+            margin: 0 auto;
+            /* 블록박스 가로중앙정렬(마영오!) */
+            margin-top: 50px;/* 마진탑값만 덮어씀 */
+            margin-bottom: 120px;/* 마진버텀(아래쪽) */
+            border-radius: 15px;
+            /* 모서리 둥글게 */
+            text-align: center;
+            /* 인라인요소가 블록박스안에서 가로정렬 */
+
+        }
+
+        /* 두번째 파트 첫번째 div */
+        /* 
+            글자크기 30px, 글자체 "궁서", 
+            글자색 "blueviolet"
+         */
+         div.part2 div:first-of-type{
+            font-size: 30px;
+            font-family: "궁서";
+            color: blueviolet;
+         }
+
+
+        /* 두번째 파트 두번째 div */
+        /* 
+            글자크기 25px, 글자체 "굴림", 
+            글자색 "mediumvioletred"
+         */
+         div.part2 div:nth-of-type(2){
+             font-size: 25px;
+             font-family: "굴림";
+             color: mediumvioletred;
+         }
+
+        /* 두번째 파트 마지막 div */
+        /* 
+            글자크기 35px, 글자체 "돋움", 
+            글자색 "dodgerblue", 이탤릭체
+         */
+         
+         div.part2 div:last-of-type{
+             font-size: 35px;
+             font-family: "돋움";
+             color: dodgerblue;
+             font-style: italic;
+         }
+
+         /* 두번째 파트 첫번째 i */
+        /* 
+            글자크기 20px, 글자 두껍게 
+            글자색 "palevioletred"
+         */
+         div.part2 i:first-of-type{
+             font-size: 20px;
+             font-weight: bold;
+             color: palevioletred;
+         }
+
+         /* 두번째 파트 첫번째 i 이후의 i요소 모두 변경하기 */
+        /* 글자체 "궁서", 글자색 "red" */
+        div.part2 i:first-of-type~i{
+            color: red;
+            font-family: "궁서";
+        }
+
+        /* 
+            만약 
+            div.part2 i:first-of-type~span
+            이렇게 쓰면 첫번째 i요소 이후
+            span태그만 모두 선택하여 변경하라는 것!
+
+         */
+
+        /* 
+        [ CSS 선택자 우선순위 ]
+
+        - 기본적으로 같은 선택자일 경우 아래쪽에 코딩한
+        것이 기존값을 덮어쓴다!
+
+        - 코딩순서와 관계없이 아래의 순서로 우선권을 가진다
+        1.인라인코딩 : 요소 내부에 속성으로 style=""
+        2.아이디요소 : #아이디명
+        3.클래스요소 : .클래스명
+        4.타입요소 : 일반 태그명
+
+        인라인 > 아이디 > 클래스 > 타입
+
+        - 위의 일반적인 우선순위와 상관없이 무조건 적용
+        하기 위해 !important 키워드를 속성값 마지막에 
+        추가할 경우 무조건 적용된다
+        (주의: 되도록 쓰지 말것!)
+
+        - 같은 클래스일 경우 다른 선택자가 더 추가되면
+        우선순위가 올라간다!
+        
+        예) li:nth-child(3){코딩}
+            li:nth-child(3)~li{코딩} -> 우선권!
+            위의 선택자보다 한 단계 더 선택했으므로
+            우선순위가 상위다!
+
+        [ 우선순위 상위 적용방법 ]
+
+        1. 위의 우선순위를 봐서 부모요소를 써주면
+        기본 선택자보다 우선한다.(이 방법 추천!!!)
+
+        예) .my span{코딩}
+            #you .my span{코딩} -> 우선권!!!
+            -> 호가호위! 호랑이 앞에 여우!
+
+        2. 강제순위 올리기: 속성값 맨뒤에 !important
+        -> 주의사항: 인라인보다 더 강하므로 JS코딩시
+        이런 셋팅이 있으면 JS가 적용되지 않는 경우가
+        발생한다! 따라서 사용을 최대한 신중하게 해야함
+
+
+
+      */
+        #tit {
+            /* 아이디는 순서와 상관없이 클래스보다 우선권 */
+            color: purple;
+        }
+
+        .tit {
+            /*클래스는 순서와 상관없이 타입보다 우선권 */
+            color: green;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        h1 {
+            /* 같은 선택자일때 아래코딩 한것이 덮어씀 */
+            color: blue !important;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1 class="tit" id="tit" style="color: yellow;">CSS 가상클래스</h1>
+
+    <h2>
+        <a href="#">진달래꽃</a>
+    </h2>
+    <h3>김소월</h3>
+
+    <ul class="part1">
+        <li>나 보기가 역겨워</li>
+        <li>가실 때에는</li>
+        <li>말없이 고이 보내 드리우리다</li>
+        <li><b>영변</b><span>寧邊</span>에 <b>약산</b><span>藥山</span></li>
+        <li>진달래꽃</li>
+        <li>아름 따다 가실 길에 뿌리우리다</li>
+        <li>가시는 걸음 걸음</li>
+        <li>놓인 그 꽃을</li>
+        <li>사뿐히 즈려밟고 가시옵소서</li>
+        <li>나 보기가 역겨워</li>
+        <li>가실 때에는</li>
+        <li>죽어도 아니 눈물 흘리우리다</li>
+    </ul>
+
+    <div class="part2">
+        <div>나 보기가 역겨워</div>
+        <em>가실 때에는</em>
+        <div>말없이 고이 보내 드리우리다</div>
+        <em>영변에 약산</em>
+        <div>진달래꽃</div>
+        <i>아름 따다 가실 길에 뿌리우리다</i>
+        <div>가시는 걸음 걸음</div>
+        <i>놓인 그 꽃을</i>
+        <div>사뿐히 즈려밟고 가시옵소서</div>
+        <i>나 보기가 역겨워</i>
+        <div>가실 때에는</div>
+        <span>죽어도 아니 눈물 흘리우리다</span>
+    </div>
+
+</body>
+
+</html>

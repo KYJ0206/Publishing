@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>스타벅스 연습</title>
+    <style>
+        body {
+            background: #000 url(starbucks_img/reserve_bg.jpg) no-repeat top/100%;
+        }
+            #trans10{
+                width: 334px;
+                height: 334px;
+                margin: 100px auto;
+                /* 마영오! - 블록가로중앙정렬 */
+
+            }
+
+              /* 2개의 이미지를 겹치게 한다 */
+            #trans10 img{
+            position: absolute;
+            }
+            /* 가로크기가 100%이므로 변경 */
+            /* 
+                앱솔루트는 위치이동값(top,left등)을 잡거나 크기를 잡으면 부모요소를 찾아서 그 기준에 맞춘다!
+                반면!!! 위치값을 안주면 젠틀하다!!
+                젠틀하다는 의미는.......
+                앱솔루트 위의 스테틱요소를 존중하여 그 아래에 위치하거나 어떤 박스안에 있다면 그박스안에 그대로 있는것!!
+                -> 여기서는 위치값을 쓰지말고 젠틀하게 쓰자!
+             */
+        
+
+            /* 1. 별 처음상태 ( 돌아옴 ) */
+            #trans10 img:last-child {
+                /* y축 0도로 돌아옴 - 0.4s 기다림 */
+                transform: rotateY(0deg);
+                /* 트랜지션 - 속시이지 */
+                transition: transform .3s ease-in-out .3s;
+                /* 가속도 - 리저브매장 속도를 받아서 마지막에 천천히 */
+            }
+
+            /* 1. 별 오버상태 */
+            #trans10:hover img:last-child {
+                transform: rotateY(90deg);
+                /* 트랜지션 - 속시이지 */
+                transition: transfrom .3s ease-out;
+                /* 가속도 - 처음에 천천히 마지막에 원속도 */
+            }
+
+            /* 1. 리저브매장 처음상태 ( 돌아옴 ) */
+            /* 처음에 이미 y축 90도 회전상태 - 안보임 */
+            #trans10 img:first-child {
+                transform: rotateY(90deg);
+                /* 트랜지션 - 속시이지 */
+                transition: transform .3s ease-in;
+                /* 가속도 - 처음에 천천히 마지막에 원속도 */
+            }
+
+            /* 1. 리저브매장 오버상태 */
+            /* y축 0도로 회전 - 별 0.3s 돌동안 기다렸다가 0.3s 돌기 */
+            #trans10:hover img:first-child {
+                transform: rotateY(0deg);
+                transition: transform .3s ease-out .3s;
+                /* 가속도 - 별 원속도를 받아서 마지막에 천천히 */
+            }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="trans10">
+        <img src="starbucks_img/reserve_medal02.png" alt="리저브 매장">
+        <img src="starbucks_img/reserve_medal01.png" alt="별">
+    </div>
+
+</html>

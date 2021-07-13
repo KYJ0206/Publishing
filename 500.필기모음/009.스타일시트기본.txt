@@ -1,0 +1,189 @@
+[ CSS란 무엇인가? ]
+
+- 웹 페이지의 스타일을 지정하는 데 사용하는 언어
+- CSS는 Cascading Style Sheets를 의미합니다.
+- 마치 요리의 옵션을 쉐프에게 전달하면
+그것을 보고 요리를 하느 것과 같이
+브라우저가 html을 화면에 그릴때
+css옵션지를 보고 스타일을 변경하여 출력한다
+
+[ css를 쓰는 3가지 방법 ]
+
+1. 인라인방식 : 요소에 style속성으로 셋팅
+예) <div style="width:300px"></div>
+
+2. 인터널방식 : style요소를 사용하여 셋팅
+예) <style>
+        h1{color: red;}
+</style>
+
+3. 익스터널방식 : 외부CSS파일을 불러와서 사용하는 방식
+예)
+<link rel="stylesheet" href="css/style.css">
+
+[ 기본 표현법 ]
+
+선택자 {
+속성명: 값;
+}
+
+[ 선택자 사용법 ]
+1. 타입 선택자 : 요소명 하나만 쓰기
+예) h1{}
+
+2. 자손 선택자 : 띄어쓰기
+예) ul li a{}
+
+3. 자식 선택자 : 꺽쇠사용
+- 직계자식을 선택
+예) ul>li{}
+
+4. 인접선택자 : 플러스 기호 사용
+- 앞의 형제요소가 있는 요소 선택
+예) h1+div{}
+
+5. 인접다중선택자 : 틸드(~) 사용
+: 선택요소 다음부터 끝까지 선택함
+예) li:nth-child(4)~li{}
+
+6. 그룹 선택자 : 콤마(,) 사용
+- 다중요소 선택시
+예) h1, h4, span {}
+
+7. 아이디선택자 : 아이디요소
+- #을 사용(한 페이지 안에 하나만 사용!)
+예) #mlogo{}
+
+8. 클래스선택자 : 클래스요소
+- .을 사용(여러번 사용가능)
+예) .cat{}
+
+9. 종속 선택자 :
+- 요소명과 클래스명/아이디명을 같이씀
+- 주의사항: 모두 붙여서 씀!
+예) h1#mlogo {}
+-> 아이디가 mlogo인 h1요소
+-> 실수로 h1 #mlogo 라고 쓰면
+h1요소 아래에 자손 중 아이디가 mlogo인것
+- 종속선택자를 사용하는 이유는?
+: 특정 아이디나 클래스의 사용된 요소를
+css상에 명시하기 위해 사용하거나
+같은 이름의 클래스 중 별도로 적용하고자
+할 경우 종속선택자를 씀.
+
+10. 가상클래스 선택자
+- 가상클래서는 요소에 마치 class를 준것
+같다고 해서 붙여진 이름이다!
+- 콜론(:)을 요소명 뒤에 붙여서 표시
+예) a:hover{}
+-> :hover 마우스 오버시
+-> :nth-child(n) 몇번째 자식요소
+
+11. CSS주석은 슬래쉬 사이에 별두개! /*주석*/
+
+12. CSS 속성들
+(1) 마진(margin) : 요소 바깥쪽 여백
+- margin: 값1; 4방설정
+- margin: 값1 값2; 위아래 양쪽
+- margin: 값1 값2 값3; 위 양쪽 아래
+- margin: 값1 값2 값3 값4; 위 오른 아래 왼 
+- 방향별로 설정값을 따로 할 수 있음
+    margin-top, margin-right, 
+    margin-bottom, margin-left
+
+(2) 패딩(padding) : 요소 안쪽 여백
+- padding: 값1; 4방설정
+- padding: 값1 값2; 위아래 양쪽
+- padding: 값1 값2 값3; 위 양쪽 아래
+- padding: 값1 값2 값3 값4; 위 오른 아래 왼 
+- 방향별로 설정값을 따로 할 수 있음
+    padding-top, padding-right, 
+    padding-bottom, padding-left
+
+(3) 배경 : background
+ 1) 배경색 - background-color:색상;
+ 2) 배경이미지 - background-image: url(이미지경로);
+   - 배경이미지는 기본적으로 x,y축방향으로 반복됨
+   - 이미지 경로는 css파일이 외부파일일 경우 css파일
+   위치에서 부터 이미지 경로를 따져줘야함!
+ 3) 배경반복 - background-repeat: 선택값;
+   - 선택값: no-repeat (반복없음)
+            repeat(모두반복:기본값)
+            repeat-x (x축반복)
+            repeat-y (y축반복)
+ 4) 배경고정 - background-attachment: fixed;
+    - 스크롤시에 배경이 보이는 화면에 고정됨
+ 5) 배경위치 - background-position: 가로값 세로값;
+    - 가로값: 왼쪽끝기준 +값은 오른쪽방향(-는 왼쪽)
+            한번에 보내기값-left,center,right
+    - 세로값: 위쪽끝기준 +값은 아래쪽방향(-는 윗쪽)
+            한번에 보내기값-top,center,bottom
+    - %단위 일경우 정중앙은 50%임! (상대적으로 계산함)
+ 6) 배경크기 - background-size: 가로크기 세로크기;
+    - 가로크기: px, %, auto
+    - 세로크기: px, %, auto
+    - auto값은 이미지 고유비율을 유지한다는 의미
+    - cover값을 사용하면 이미지를 비율유지하여 
+    정중앙으로 채우기를 해준다.
+
+ 7)배경풀셋팅법 - background: 풀셋업;
+    background: 색 이미지 반복 고정 위치/크기;
+                (색이반고윙/크)
+
+ 8) 배경풀셋팅시 여러개의 배경이미지를 셋팅할 수 있다!(콤마로 구분)
+
+ 9) 여러개의 배경이미지를 셋팅할 경우 나중에 넣은 배경이
+    아래쪽에 위치한다!
+
+    [ 실제 적용코드 ]
+        /* background 설정 */
+
+        /* 1.배경색 (bgc) */
+        background-color: #e465dd;
+
+        /* 2.배경이미지 (bgi) */
+        background-image: url(imgs/dc1.png);
+
+        /* 3.배경반복 (bgr) */
+        background-repeat: no-repeat;
+
+        /* 4.배경고정 (bga) */
+        /* background-attachment: fixed; */
+
+        /* 5.배경위치 (bgp) */
+        background-position: center;
+
+        /* 6.배경크기 (bgz) */
+        background-size: cover;
+
+
+ 
+ [ 웹 색상표기법 ]
+    1. 해시코드 : #6자리숫자
+        (두자리가 같을 경우 3자리로 축약표현가능)
+
+    2. RGB 코드 : rgba(숫자,숫자,숫자,숫자)
+    - 0~255 까지 숫자중 사용
+    - red, green, blue
+    - 마지막 a는 alpha값 즉, 투명도
+    (0~1사이의 소숫점값들 사용)
+
+    3. HSL 코드 : hsla(숫자,숫자,숫자,숫자)
+    - hue(색상), saturation(채도), lightness(명도)
+    - 마지막은 alpha값
+    - 투명도 사용안할 경우 생략!
+
+    4. 웹색상명: 지정된 컬러명으로 색생을 셋팅
+    예) red, green, blue, pink, navy, 등
+    - 모든 색상은 w3schools.com의 색상참조로 가서확인!
+
+    [ 박스모델 ]
+    컨텐츠를 담는 block박스일 경우 박스모델로
+    요소를 분석한다.
+    - 구성요소: content(내용)+padding(안쪽여백)
+            +border(경계선)+margin(바깥여백)
+    - 블록박스의 가로크기(width)는 기본 auto는
+    화면의 끝까지 자리를 차지한다!
+    - 블록박스의 세로크기(height)는 기본 auto는
+    내용만큼 자동으로 커진다.
+    - 박스의 크기는 내용물크기+패딩값+보더값

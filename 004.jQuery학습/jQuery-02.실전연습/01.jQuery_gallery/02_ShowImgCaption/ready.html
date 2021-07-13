@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title> Sliding Captions 갤러리 </title>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script>
+		$(function () { // jQB ///////////////////////
+
+			// 설명글 숨기기
+			$(".thumbs em").hide();
+			// hide() 는 display:none 시킴
+
+			// 썸네일 a요소 클릭시 큰 이미지 변경하기 ///
+			// 이벤트 대상: .thumbs a
+			// 변경 대상: #largeImg img
+			$(".thumbs a").click(function (e) { // e-이벤트전달변수
+
+				// 1. a요소 기본 이동기능 막기!
+				e.preventDefault();
+				// preventDefault() 메서드 : 기본기능막기
+				// -> JS로는 코드 최하단에 return false 를 써도됨!
+
+				// 2. 큰 이미지 변경을 위해 a요소의 href의 값을 읽어옴
+				let isrc = $(this).attr("href");
+				// attr(속성명) -> 속성값 읽어오기
+
+				// 호출확인
+				// console.log("썸네일!" + isrc);
+
+				// 3. 변경대상인 큰 이미지 src를 href값으로 변경하기
+				$("#largeImg img").attr("src", isrc);
+				// attr(속성명,속성값) -> 속성값 변경하기
+
+				// 4. 캡션글 읽어오기
+				// 클릭된 a요소의 다음요소인 em요소의 text임!
+				let txt = $(this).next().text();
+				// console.log("캡션글:"+txt);
+
+				// 5. 캡션박스 만들어 넣기
+				// 5-1. 기존에 만들어졌을 수 있는 #caption지우기!
+				$("#caption").remove();
+				// 5-2. #caption인 div박스를 #largeImg에 추가해서 넣는다
+				$("#largeImg")
+					.append('<div id="caption"></div>');
+
+				// 6. 캡션박스에 텍스트 넣기
+				// #caption박스에 txt 변수값 넣기
+				$("#caption").text(txt);
+
+				// 7. 박스 높이를 구한다
+				// 박스 높이만큼 top값으로 캡션등장 애니메이션구현
+				let bxh = $("#caption").outerHeight(true);
+
+				// 8. 박스 높이값 만큼 top값 이동 애니메이션하기
+				// 윗방향 이므로 top값은 마이너스임!
+				// 변수에 마이너스를 붙이면 변수값의 반대부호가 됨
+				$("#caption").animate({
+					top: -bxh + "px"
+				},300); ///// animate ////
+
+				// 메서드별 높이값 확인 ////////////////
+				console.log("박스높이height():" +
+					$("#caption").height());
+				console.log("박스높이innerHeight():" +
+					$("#caption").innerHeight());
+				console.log("박스높이outerHeight():" +
+					$("#caption").outerHeight());
+				console.log("박스높이outerHeight(true):" +
+					$("#caption").outerHeight(true));
+
+				/* 
+					[ 제이쿼리에서 박스의 높이값 구하기 ]
+					1. height() : 순수한 높이값(패딩,보더제외높이)
+					2. innerHeight() : 패딩을 포함한 내부높이값
+					3. outerHeight() : 보더(마진)포함 총 높이값
+						유의) outerHeight(true) -> 마진까지포함
+
+					[ width도 동일함! ]
+					-> width(), innerWidth(), 
+					   outerWidth(), outerWidth(true)
+				*/
+
+			}); ///////// click /////////////
+
+
+
+		}); //////////// jQB ///////////////////////
+	</script>
+	<style type="text/css">
+		body {
+			margin: 20px auto;
+			padding: 0;
+			width: 620px;
+			background: #192839;
+		}
+
+		.thumbs {
+			width: 100px;
+			float: left;
+		}
+
+		.thumbs img {
+			border: solid 1px #ccc;
+			padding: 5px;
+			margin-bottom: 3px;
+		}
+
+		.thumbs img:hover {
+			border-color: #EF4018;
+		}
+
+		/* 큰 이미지 박스 */
+		#largeImg {
+			border: solid 1px #ccc;
+			width: 500px;
+			height: 280px;
+			padding: 5px;
+			margin-left: 110px;
+			overflow: hidden;
+		}
+
+		/* 이미지 설명박스 */
+		#caption {
+			position: relative;
+			/* top값을 쓰기위한 포지션 */
+			background: url(captionBg.png) repeat-y;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin-top: 3px;
+			margin-bottom: 5px;
+			color: #FFFFFF;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="thumbs">
+
+		<a href="images/pic1.jpg" title="image1"><img src="images/th_pic1.jpg" /></a>
+		<em>Lorem Ipsum is simply dummy text of the pdrinting and typesetting industry.</em>
+
+
+		<a href="images/pic2.jpg" title="image2"><img src="images/th_pic2.jpg" /></a>
+		<em> Lorem Ipsum is simply dummy tely dummy thely dummy tegxt of thely try.
+			Sed facilisis, sem a luctus bibendum, dui risus pellentesque velit, quis tempor magna
+			sem vel justo. Etiam eget ipsum ante. </em>
+
+		<a href="images/pic3.jpg" title="image3"><img src="images/th_pic3.jpg" /></a>
+		<em> Lorem Ipsum is simply dummy.</em>
+
+	</div>
+
+	<div id="largeImg">
+		<img src="images/pic1.jpg" alt="image1">
+	</div>
+
+
+	<!---------- jQuery code Start ---------->
+	<script>
+
+
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유연한 이미지1 - 이미지 2개</title>
+    <style>
+        /* 이미지로 테스트 하는 이유는?
+        이미지는 가로/세로 중 하나만 셋팅하면 나머지는
+        이미지 고유의 비율을 유지하면 자동변경된다!
+        이런 특성을 이용하여 연습한다 */
+        .lee{
+            display: block;
+            /* float:left적용위해 박스처럼변경함 */
+            width: 49%;/* 양쪽마진만큼 뺀다! */
+            /* height값은 비율에 맞게 자동으로 변한다! */
+            margin: 0.5%;/* 양쪽마진 1% */
+            float: left;
+        }
+
+        /* 미디어쿼리 800px이하일때 한줄에 하나만 오게하기 */
+        @media only screen and (max-width:800px) {
+            .lee{
+                width: 100%;
+                margin: 0;
+            }
+        }/* 미디어쿼리 800px이하 */
+
+    </style>
+</head>
+<body>
+    <img src="images/jeong5.jpg" alt="이정재" class="lee">
+    <img src="images/jeong4.jpg" alt="이정재" class="lee">
+    
+</body>
+</html>

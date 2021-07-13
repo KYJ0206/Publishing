@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>웹디기능사 유형A4</title>
+    <style>
+        htmlbody {
+            margin: 0;
+            padding: 0;
+        }
+
+        body * {
+            outline: 2px dotted blue;
+        }
+
+        /* 공통클래스 */
+        .ibx {
+            /* 중앙속박스 */
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .pbx {
+            /* 파티션박스 */
+            float: left;
+            height: 100%;
+        }
+
+        /* 개별세팅 */
+        /* 영역별 설정 */
+        /* A */
+        .top {
+            height: 100px;
+            line-height: 100px;
+        }
+
+        .top1 {
+            width: 200px;
+        }
+
+        .top2 {
+            width: 1000px;
+        }
+
+        /* B */
+        .ban {
+            height: 300px;
+            line-height: 300px;
+        }
+
+        /* C */
+        .cont {
+            height: 200px;
+            line-height: 200px;
+        }
+
+        .cont>.pbx {
+            width: 400px;
+        }
+
+        /* D */
+        .info {
+            height: 100px;
+        }
+
+        .info1>.pbxIn {
+            height: 50%;
+            line-height: 50px;
+        }
+
+        .info1 {
+            width: 900px;
+        }
+
+        .info2 {
+            width: 300px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- A. 상단영역 -->
+    <div class="ibx top">
+        <div class="pbx top1">로고</div>
+        <div class="pbx top2"></div>
+    </div>
+    <!-- B. 베너영역 -->
+    <div class="ibx ban">이미지 슬라이드</div>
+    <!-- C. 컨텐츠영역 -->
+    <div class="ibx cont">
+        <div class="pbx cont1">공지사항</div>
+        <div class="pbx cont2">갤러리</div>
+        <div class="pbx cont3">바로가기</div>
+    </div>
+    <!-- D. 하단영역 -->
+    <div class="ibx info">
+        <div class="pbx info1">
+            <div class="pbxIn">하단 메뉴</div>
+            <div class="pbxIn">Copyright</div>
+        </div>
+        <div class="pbx info2">패밀리사이트</div>
+    </div>
+</body>
+
+</html>

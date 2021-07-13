@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>블록요소의 정렬</title>
+        <style>
+            /* 큰박스 */
+            .bx{
+                margin: 15px;
+                padding: 15px;
+                border: 5px dashed blue;
+            }
+            /* 작은박스 */
+            .sbx{
+                width: 200px;
+                height: 200px;
+
+                /* 배경이미지 공통 */
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 300px;
+            }
+            /* 작은박스1 */
+            .sbx1{
+                background-color: cyan;
+                background-image: url(imgs/dc1.png);
+            }
+            /* 작은박스2 */
+            .sbx2{
+                background-color: orangered;
+                background-image: url(imgs/dc2.png);
+                /* 블록박스 중앙정렬 */
+                margin: 0 auto;
+                /* 마영오! - 양쪽마진을 auto처리할 경우 블록박스는
+                중앙에 위치하게 됨 */
+            }
+            /* 작은박스3 */
+            .sbx3{
+                background-color: burlywood;
+                background-image: url(imgs/dc3.png);
+                /* 블록박스 오른쪽 정렬 */
+                margin-left: auto;
+                /* 우리가볼때 박스의 왼쪽을 auto처리하면
+                박스는 부모박스의 오른쪽끝으로 위치하게됨 */
+                
+                margin-right: 100px;
+                /* 만약 오른쪽에서 조금 떨어져야할 경우 
+                margin-right으로 조정한다! */
+            }
+
+            /* 인라인요소의 오른쪽 정렬 */
+            h1 span{
+                color: red;
+                float: right;
+                /* 인라인요소를 오른쪽 끝으로 보낼때 float을 사용한다 */
+                margin-right: 50px;/* 오른쪽여백 */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            블록요소의 정렬
+            <span>♥♥♥♥♥♥♥</span>
+        </h1>
+        <div class="bx">
+            <div class="sbx sbx1"></div>
+        </div>
+        <div class="bx">
+            <div class="sbx sbx2"></div>
+        </div>
+        <div class="bx">
+            <div class="sbx sbx3"></div>
+        </div>
+
+    </body>
+</html>

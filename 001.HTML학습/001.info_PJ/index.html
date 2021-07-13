@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- 
+            meta 요소 : 문서요약 정보
+            - charset 속성  : 페이지 인코딩형식 지정
+            - "UTF-8" 2byte문자까지 처리해주는 형식
+            -> 한글이 깨지지 않게 반드시 써야함!
+         -->
+         <title>네이버 요약뉴스 - 메인페이지</title>
+         <!-- 
+             title 요소 : 브라우저 탭메뉴 제목출력
+          -->
+          <style>
+
+              /* 영역박스 디자인 */
+              body > div{
+                  width: 727px;
+                  margin: 0 auto;
+                  /* 마진 위아래0, 
+                  양쪽 자동(중앙위치) */
+              }
+              q{
+                  color: red;
+                  /* 글자색 빨간색 */
+              }
+          </style>
+          <!-- 
+            style 요소: 스타일 시트를 인터널방식으로 삽입하는 코딩구역
+            - 장점: 한번에 스타일을 컨트롤할 수 있다!
+            - 코딩형식:
+                선택요소{
+                    속성명: 값;
+                }
+           -->
+    </head>
+    <body>
+        <!-- 1. 상단부분 -->
+        <div>
+            <!-- 1-1.타이틀 -->
+            <h1>네이버 요약 뉴스 - 메인 페이지</h1>
+            <!-- 
+                h1~h6 요소 : 제목영역
+                큰 제목은 h1 부터 점점 작아짐
+                (heading)
+             -->
+            <!-- 1-2.로고 및 링크메뉴 -->
+            <h2>
+                <a href="index.html">
+                    <img src="images/KakaoTalk_20210406_111430781.png" alt="네이버로고"style="width:35px;vertical-align: middle;">
+                </a>
+                <a href="sub01.html">정치</a> |
+                <a href="sub05.html">경제</a> |
+                <a href="sub03.html">사회</a> |
+                <a href="sub04.html">IT/과학</a> |
+                <a href="sub02.html">TV/연예</a>
+    
+
+                <!-- 
+                    a 요소: 페이지이동
+                    - href 속성 : 이동페이지 정보
+                    - target 속성 : 창옵션(_blank새창)
+                    img 요소: 이미지 표시
+                    - src 속성: 이미지경로
+                    (source)
+                    - alt 속성: 이미지설명(웹접근성!)
+                    (alternative text:대체텍스트)
+                    style 공통속성(어느요소나 사용가능)
+                    - 스타일시트 설정을 인라인으로 셋팅함
+                    - 요소별 개별사용가능
+                    - 값형식
+                        속성명: 값;
+                 -->
+            </h2>
+            <!-- 1-3.구분선 -->
+            <hr>
+        </div>
+        <!-- 
+            div 요소 : 내용을 구분해주는 영역박스
+            (divide / division)
+         -->
+        <!-- 2. 내용부분 -->
+        <div>
+            <img src="images/main.jpg" alt="메인이미지" style="width: 600px;">
+        </div>
+        <!-- 3. 하단부분 -->
+        <div>
+            <hr>
+            <address>
+                서울시 강동구 천호동 1010-88 동원B <br>
+                대표: 김만만 <br>
+                전화번호: 02-333-7777
+            </address>
+            <!-- 
+                address 요소: 주소영역
+                br 요소: 줄바꿈(개행)
+                (break)
+             -->
+        </div>
+    </body>
+</html>

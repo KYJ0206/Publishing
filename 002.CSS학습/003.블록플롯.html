@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 블록요소의 float</title>
+        <style>
+            h1{
+                text-align: center;
+                /* 글자정렬 중앙 */
+            }
+            /* 부모박스 */
+            .wrap{
+                border: 5px dashed #e416c8;
+                /* 경계선 */
+                margin: 10px;
+                /* 바깥여백 */
+                padding: 10px;
+                /* 안쪽여백 */
+            }
+            /* 블록박스 공통 디자인 */
+            .bx{
+                width: 300px;
+                height: 200px;
+                border: 5px ridge #ccc;
+
+                /* 배경이미지공통 */
+                background-repeat: no-repeat;
+                /* 배경반복여부 */
+                background-position: center;
+                /* 배경위치 */
+                background-size: cover;
+                /* 배경크기 */
+            }
+            /*  개별박스 디자인 */
+            .bx1{
+                background-image: url(imgs/dc1.png);
+                float: left;
+            }
+            .bx2{
+                background-image: url(imgs/dc2.png);
+                float: right;
+            }
+            .bx3{
+                background-image: url(imgs/dc3.png);
+                clear: both;
+            }
+            .bx4{
+                background-image: url(imgs/dc4.png);
+            }
+            /* 두번째 큰 박스 하위 */
+            .bx5{
+                background-image: url(imgs/dc1.png);
+                float: left;
+            }
+            .bx6{
+                background-image: url(imgs/dc2.png);
+                float: left;
+            }
+            .bx7{
+                background-image: url(imgs/dc3.png);
+                float: left;
+            }
+            .bx8{
+                background-image: url(imgs/dc4.png);
+                clear: both;
+                
+            }
+            /* 세번째 큰 박스 하위 */
+            .bx9{
+                background-image: url(imgs/dc1.png);
+            }
+            .bx10{
+                background-image: url(imgs/dc2.png);
+            }
+            .bx11{
+                background-image: url(imgs/dc3.png);
+            }
+            .bx12{
+                background-image: url(imgs/dc4.png);
+            }
+
+            /* 세번째 박스 하위 .bx는 float:left */
+            .wrap3 .bx{
+                float: left;
+            }
+            /* float으로 인한 부모박스가 자식요소의 
+            높이값을 인식못할 경우 넘치는 자식요소 숨기기 설정을 해준다! */
+            .wrap3{
+                overflow: hidden;
+            }
+
+            /* 네번째 큰 박스 하위 */
+            .bx13{
+                background-image: url(imgs/dc1.png);
+            }
+            .bx14{
+                background-image: url(imgs/dc2.png);
+            }
+            .bx15{
+                background-image: url(imgs/dc3.png);
+                clear: left;
+                /* 
+                    [블록요소가 float:left로 옆으로
+                    흐르다가 줄바꿈을 하고 싶은 경우]
+
+                    줄바꿈을 할 요소에 clear를 셋팅함
+                    이때, left/right/both 중 무엇을 사용하나?
+
+                    직전요소의 float이 무엇인지가 중요!
+                    
+                    float:left 이므로 clear:left로함
+                    clear:both도 되는데 이유는
+                    양쪽을 모두 지우니 left도 지워짐
+                 */
+            }
+            .bx16{
+                background-image: url(imgs/dc4.png);
+            }
+
+            /* 네번째 박스 하위 .bx는 float:left */
+            .wrap4 .bx{
+                float: left;
+            }
+            /* 네번째 박스에 가상요소로 clear:both
+            설정하기 */
+            .wrap4::after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            /* 
+                 가상요소 after
+                 - 모든 요소는 가상요소를 2개 쓸 수 있다
+                 - 맨앞은 before
+                 - 맨뒤는 after
+                 - 표기법은 콜론을 2개하고 사용한다
+                 요소명::before / 요소명::after
+                 - 가상요소는 필수 속성으로 content를
+                 반드시 써야한다!!!
+                 - 일반적으로 content만 사용하면
+                 span태그를 쓴것과 비슷하게 inline임
+                 - display:block으로 설정하면
+                 마치 div태그를 쓴것과 비슷해진다
+                 - 맨끝에 오는 가상요소 after에다가
+                 clear:both를 적용하여 float을 해제함
+                 - 태그요소처럼 보이지 않기 때문에
+                 지워지거나 변경될 염려가 전혀없다!
+             */
+            
+
+            /* 
+                block 박스를 옆으로 흘러가게하기
+                float속성을 사용한다!
+                - block 요소를 옆으로 흐르게함
+                - 옵션: left - 나는 왼쪽에 있고
+                            너는 오른쪽으로 흘러가!
+                        right - 나는 오른쪽에 있고
+                            너는 왼쪽으로 흘러가!
+                - 블록요소 두개를 하나는 float:left
+                 또 하나는 float:right를 쓸 경우
+                 부모박스 양쪽 끝에 위치하게 된다!
+
+                - [중요사항!]
+                 -> float설정을 한 블록요소 아래의 
+                 형제 블록요소가 위의 float의 영향을
+                 받기 때문에 이를 지워야 한다!!!
+                 -> 지우는 방법은 clear속성을 사용함
+                 clear:both -> 양쪽방향의 float을
+                 모두 지운다는 의미
+                 (개별적으로 left,right가 있지만
+                  both일반적으로 많이 사용함!)
+
+                [중요사항 또하나!]
+                - 자식 블록요소가 모두 float:left로
+                흘러갈 경우 부모박스는 자식요소의 
+                높이값을 인식하지 못하고 높이값을
+                가지지 않게 된다. 자식요소는 모두
+                부모요소 바깥으로 나가 있게 된다!
+                -> 해결방법은?
+                1) 부모요소에게 overflow:hidden
+                을 준다. 즉 넘치는 자식요소 숨기기설정
+                으로 이 문제를 해결
+                2) float을 적용한 요소 아래에 
+                다른 블록요소를 만들고 clear:both를
+                설정한다.(일반적으로 가상요소로 처리함)
+             */
+        </style>
+    </head>
+    <body>
+        <h1>CSS 블록요소의 float</h1>
+
+        <div class="wrap">
+            <div class="bx bx1"></div>
+            <div class="bx bx2"></div>
+            <div class="bx bx3"></div>
+            <div class="bx bx4"></div>
+        </div>
+        <div class="wrap">
+            <div class="bx bx5"></div>
+            <div class="bx bx6"></div>
+            <div class="bx bx7"></div>
+            <div class="bx bx8"></div>
+        </div>
+        <div class="wrap wrap3">
+            <div class="bx bx9"></div>
+            <div class="bx bx10"></div>
+            <div class="bx bx11"></div>
+            <div class="bx bx12"></div>
+            <!-- <div style="clear: both;"></div> -->
+        </div>
+        <div class="wrap wrap4">
+            <div class="bx bx13"></div>
+            <div class="bx bx14"></div>
+            <div class="bx bx15"></div>
+            <div class="bx bx16"></div>
+        </div>
+    </body>
+</html>

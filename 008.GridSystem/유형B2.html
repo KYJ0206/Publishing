@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    
+        <title>웹디기능사 - 유형B2</title>
+        <style>
+            html, body{
+                margin: 0;
+                padding: 0;
+            }
+
+            body *{
+                outline: 2px dotted blue;
+            }
+            /* 공통 */
+            .ibx{
+                width: 1200px;
+                margin: 0 auto;
+
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .pbx{
+                float: left;
+                height: 100%;
+            }
+
+            /* 개별 */
+            /* A */
+            #top{
+                background-color: lightyellow;
+            }
+            .top{
+                height: 100px;
+                line-height: 100px;
+            }
+            .top1{
+                width: 200px;
+            }
+            .top2{
+                width: 1000px;
+            }
+
+            /* B */
+            .ban{
+                height: 300px;
+                line-height: 300px;
+            }
+
+            /* C */
+            .cont{
+                height: 200px;
+                line-height: 200px;
+            }
+            .cont>.pbx{
+                width: 400px;
+            }
+            /* D */
+            #info{
+                background-color: lightpink;
+            }
+            .info{
+                height: 100px;
+            }
+            .info1{
+                width: 1000px;
+                line-height: 100px;
+            }
+            .info2{
+                width: 200px;
+            }
+            .info2>.pbxIn{
+                height: 50%;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- A -->
+        <div id="top">
+            <div class="ibx top">
+                <div class="pbx top1">로고</div>
+                <div class="pbx top2"></div>
+            </div>
+        </div>
+        <!-- B -->
+        <div class="ibx ban">이미지 슬라이드</div>
+        <!-- C -->
+        <div class="ibx cont">
+            <div class="pbx cont1">공지사항</div>
+            <div class="pbx cont2">갤러리</div>
+            <div class="pbx cont3">바로가기</div>
+        </div>
+        <!-- D -->
+        <div id="info">
+            <div class="ibx info">
+                <div class="pbx info1">Copyright</div>
+                <div class="pbx info2">
+                    <div class="pbxIn">SNS</div>
+                    <div class="pbxIn">패밀리사이트</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

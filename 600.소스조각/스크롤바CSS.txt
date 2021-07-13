@@ -1,0 +1,15 @@
+/* 스크롤바 트랙 디자인변경 class */
+.scbar::-webkit-scrollbar {
+    width: 5px;
+    /* 스크롤바 가로크기 */
+}
+.scbar::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 5px;
+    /* 스크롤바 배경색, 모서리 둥글게 */
+}
+.scbar::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 5px;
+    /* 스크롤바 트랙 배경색, 모서리 둥글게 */
+}

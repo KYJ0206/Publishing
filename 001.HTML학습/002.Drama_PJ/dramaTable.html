@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>한국 최신 드라마 리스트</title>
+    <style>
+        /* 테이블 공통 디자인 */
+        .tbl {
+            font-family: "궁서체", "굴림";
+            /* 글자체 */
+            font-size: 14px;
+            /* 글자크기 - 기본값은 16px */
+            color: #222;
+            /* 글자색 */
+
+
+            /* 테이블 td사이공백 없애기 */
+            border-collapse: collapse;
+            /* 
+                    기본값이 separate 이고 사이간극이 존재함
+                    이것을 없애려면 collapse로 설정함!
+                    -> 테이블에서는 반드시 이 셋팅을 해준다!
+                 */
+
+            /* border: 1px solid #000; */
+        }
+
+        /* 개별테이블 */
+        #drama {
+            /* 테이블 중앙정렬 */
+            margin: 0 auto;
+            /* 블록요소의 가로 중앙정렬시 마영오! 사용함
+            테이블도 기본 속성이 block과 유사함(옆에 못옴!) 
+            블록요소와 테이블 요소의 차이점은
+            블록은 width를 안주면 
+            width:auto로써 끝까지 크기를 차지하나
+            >>>테이블은 내용만큼만 늘어남
+            테이블의 특징 중 하나는 부모요소의 가로크기가 
+            >>>자기가만든 자동크기보다 작아지면 같이 작아짐
+            그래서 최소가로크기 설정을 하기도 함.
+            내용이 많아지면 자동으로 테이블이 커짐
+            여기서는 가로크기를 지정함
+            */
+            width: 600px;
+        }
+
+        /* 테이블 타이틀 */
+        #drama caption {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0;
+            /* 패딩: 위아래 양쪽 */
+            letter-spacing: -2px;
+            /* 자간 */
+            word-spacing: -2px;
+            /* 단어간격 */
+        }
+
+        /* td와 th에 패딩 */
+        #drama td,
+        #drama th {
+            padding: 5px 10px;
+            /* 패딩: 위아래 양쪽 */
+        }
+
+        /* td에 밑줄넣기 */
+        #drama tbody tr td {
+            border-bottom: 1px solid #ccc;
+            /* 
+                border 는 경계선
+                따로 설정시엔
+                border-width(선두께)
+                border-style(선종류)
+                border-color(선색상)
+
+                한번에 
+                border : 두께 종류 색상;
+                1) 두께: 선두께로 px등 단위상용
+                2) 종류: solid(선형), dotted(점선형)
+                        dashed(데쉬형), ridge(액자형)
+                3) 색상: hash코드, rgb코드 등으로 표시
+                -> 기본적으로 보더는 박스크기에 포함된다!
+                - 박스크기를 주고 보더를 주면 박스크기가 
+                보더만큼 늘어남!
+            
+             */
+        }
+
+        /* tbody의 마지막tr의  td의 아랫줄 두꺼운 보더넣기 */
+        #drama tbody tr:last-child td {
+            border-bottom: 2px solid #999;
+        }
+
+        /* 
+            가상클래스는 콜론을 한번만씀
+            요소:last-child{}
+         */
+        /* th의 위아래줄 두껍게하기 */
+        #drama th {
+            border-bottom: 2px solid #999;
+            border-top: 2px solid #999;
+        }
+
+        /* 테이블 본문 짝수번째에 배경색 넣기 */
+        /* 
+            :nth-child(짝수/홀수)
+            짝수 even, 홀수 odd
+          */
+        #drama tbody tr:nth-child(even) td {
+            background-color: #ebebeb;
+        }
+
+        /* 중요내용은 글자두껍게하기(2,7,10번글) */
+        #drama tbody tr:nth-child(2) td,
+        #drama tbody tr:nth-child(7) td,
+        #drama tbody tr:nth-child(10) td {
+            font-weight: bold;
+        }
+
+        /* 글 표시를 이탤릭으로 하기 */
+        /* 클래스로 디자인 설정후 html요소에 직접 클래스를 주면
+          디자인이 적용된다!-클래스사용의 일반적인 예 */
+        .itc {
+            font-style: italic;
+        }
+
+        /* 테이블 하단영역 td 디자인 */
+        #drama tfoot td {
+            text-align: center;
+            line-height: 50px;
+            /* 줄간격으로 위아래 밀기 */
+            font-family: "맑은 고딕";
+            font-weight: bold;
+        }
+
+        /* 구분박스 */
+        div.gubun{
+            width: 600px;
+            margin: 0 auto;
+        }
+        /* 구분테이블 */
+        table#gubun{
+            border: 1px solid #ccc;
+            font-size: 12px;
+        }
+        table#gubun td{
+            padding: 5px 7px;
+        }
+        /* 구분오른쪽 보더 넣기 */
+        table#gubun tr:first-child td:first-child{
+            border-right: 1px solid #ccc;
+        }
+        /* 앞에 tr이 있는 형제 tr요소의 td에 위쪽보더주기 */
+        /* tr+tr td 는 앞에 tr형제 있는 tr의 하위 td만 선택 */
+        /* +플러스는 형제 선택자 */
+        table#gubun tr+tr td{
+            border-top: 1px solid #ccc;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 한국 최신 드라마 리스트 테이블 -->
+    <table id="drama" class="tbl">
+        <!-- 
+                border="1"
+                table border속성을 주면 전체 테이블
+                td까지 개별 셀이 모두 보더를 가지는데
+                td사이에 여백이 있음을 확인해 볼 수 있다!
+                (숫자는 px두께)
+             -->
+        <!-- 테이블제목 -->
+        <caption>한국 최신 드라마 리스트</caption>
+        <!-- 테이블 머릿부분 -->
+        <thead>
+            <tr>
+                <!-- th는 td대신 머릿줄에 사용 -->
+                <th>번호</th>
+                <th>드라마명</th>
+                <th>주연</th>
+                <th>제작사</th>
+                <th>구분</th>
+                <th>방영시간</th>
+                <th>방영횟수</th>
+            </tr>
+        </thead>
+
+        <!-- 테이블 하단부분 -->
+        <tfoot>
+            <tr>
+                <td colspan="7">
+                    ◀ 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 ▶
+                </td>
+                <!-- 
+                        colspan 은 기본적으로 td를 합칠때 사용함
+                        상단의 td(th)가 7개이고 이것을 합치려면
+                        7개를 하나로 통합하는 값을 설정해 준다!
+                        colspan="7"
+                        여기서 col은 column 컬럼(기둥)의 뜻
+                            span은 "범위"라는 의미임
+                     -->
+            </tr>
+        </tfoot>
+
+        <!-- 테이블 본문 -->
+        <!-- tbody 로 안싸줘도 tbody출력이 되지만
+            풀팩키지로 table코딩시에 써주는게 좋다 -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>나빌레라</td>
+                <td>박인환,송강</td>
+                <td>tvN</td>
+                <td>월화</td>
+                <td>오후09:00</td>
+                <td>16부작</td>
+            </tr>
+            <tr class="itc">
+                <td>2</td>
+                <td>로스쿨</td>
+                <td>김명민,한준휘</td>
+                <td>JTBC</td>
+                <td>수목</td>
+                <td>오후09:00</td>
+                <td>20부작</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>달이뜨는강</td>
+                <td>김소현,나인우</td>
+                <td>KBS2</td>
+                <td>월화</td>
+                <td>오후09:30</td>
+                <td>24부작</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>오!주인님</td>
+                <td>이민기,나나</td>
+                <td>MBC</td>
+                <td>수목</td>
+                <td>오후09:30</td>
+                <td>16부작</td>
+            </tr>
+            <tr class="itc">
+                <td>5</td>
+                <td>대박부동산</td>
+                <td>장나라,정용화</td>
+                <td>KBS2</td>
+                <td>수목</td>
+                <td>오후09:30</td>
+                <td>20부작</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>빈센조</td>
+                <td>송중기,전여빈</td>
+                <td>tvN</td>
+                <td>토일</td>
+                <td>오후09:00</td>
+                <td>24부작</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>마우스</td>
+                <td>이승기,이희준</td>
+                <td>tvN</td>
+                <td>수목</td>
+                <td>오후10:30</td>
+                <td>16부작</td>
+            </tr>
+            <tr class="itc">
+                <td>8</td>
+                <td>모범택시</td>
+                <td>이제훈,이솜</td>
+                <td>SBS</td>
+                <td>금토</td>
+                <td>오후10:00</td>
+                <td>16부작</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>어쩌다가족</td>
+                <td>성동일,진희경</td>
+                <td>TV조선</td>
+                <td>일</td>
+                <td>낮12:50</td>
+                <td>40부작</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>오케이광자매</td>
+                <td>홍은희,전혜빈</td>
+                <td>KBS2</td>
+                <td>토일</td>
+                <td>오후07:55</td>
+                <td>30부작</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+    <!-- 구분테이블 박스 -->
+    <div class="gubun">
+        <table id="gubun" class="tbl">
+            <tr>
+                <td rowspan="4">구분</td>
+                <!-- rowspan속성으로 아래쪽 4개의 줄을
+                터서 하나로 사용한다. 따라서 아래쪽
+                tr 3개는 첫번째 td가 필요하지 않다 
+                    row는 줄(라인)
+                    span는 범위를 말한다!
+                    rowspan="개수" -> 적용할 줄수를 숫자로씀
+                
+                -->
+                <td>월화:월화드라마</td>
+            </tr>
+            <tr>
+                <!-- <td>구분</td> -->
+                <td>수목:수목드라마</td>
+            </tr>
+            <tr>
+                <!-- <td>구분</td> -->
+                <td>금토:금토드라마</td>
+            </tr>
+            <tr>
+                <!-- <td>구분</td> -->
+                <td>토일:토일드라마</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <!-- 
+            [ 테이블 관련 요소 ]
+            1. table : 전체 테이블 부모
+            2. tr (table row) : 테이블 행
+            3. td (table data) : 테이블 데이터
+                - thead에서는 주로 td대신 th를 사용함
+                (th는 머릿부분에 쓰는 td로써
+                두꺼운글자에 글자중앙정렬을 함)
+            ********************************
+            (추가요소)
+            4. caption : 테이블 제목
+            5. thead : 테이블 머릿부분
+            6. tbody : 테이블 중앙 내용부분
+            7. tfoot : 테이블 하단부분
+         -->
+</body>
+
+</html>

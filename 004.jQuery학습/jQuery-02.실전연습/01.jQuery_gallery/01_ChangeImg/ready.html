@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title> 썸네일 포토 갤러리 </title>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script>
+	$(function(){ //// jQB //////////////////////
+
+		// 썸네일 a요소 클릭시 큰 이미지 변경하기 ///
+		// 이벤트 대상: .thumbs a
+		// 변경 대상: #largeImg img
+		$(".thumbs a").click(function(e){ // e-이벤트전달변수
+
+			// 1. a요소 기본 이동기능 막기!
+			e.preventDefault();
+			// preventDefault() 메서드 : 기본기능막기
+			// -> JS로는 코드 최하단에 return false 를 써도됨!
+
+			// 2. 큰 이미지 변경을 위해 a요소의 href의 값을 읽어옴
+			let isrc = $(this).attr("href");
+			// attr(속성명) -> 속성값 읽어오기
+
+			// 호출확인
+			console.log("썸네일!"+isrc);
+
+			// 3. 변경대상인 큰 이미지 src를 href값으로 변경하기
+			$("#largeImg img").attr("src",isrc);
+			// attr(속성명,속성값) -> 속성값 변경하기
+
+		}); ///////// click /////////////
+
+	}); ///////////// jQB ///////////////////////
+</script>
+<style type="text/css">
+
+
+body {
+	margin:20px auto;
+	padding:0;	
+	width:620px;
+	background:#192839;
+}
+.thumbs {
+   width:100px;	
+   float:left;
+}
+.thumbs img {
+	border:solid 1px #ccc;
+	padding:5px;
+	margin-bottom:3px;
+}
+.thumbs img:hover {
+	border-color: #EF4018;
+}
+
+#largeImg {
+	border:solid 1px #ccc;
+	width:500px;
+	height:280px;
+	padding:5px;
+    margin-left:110px;
+}
+</style>
+</head>
+
+<body>
+
+    <div class="thumbs">
+        <a href="images/pic1.jpg" title="image1"><img src="images/th_pic1.jpg" /></a>
+        <a href="images/pic2.jpg" title="image2"><img src="images/th_pic2.jpg" /></a>
+        <a href="images/pic3.jpg" title="image3"><img src="images/th_pic3.jpg" /></a>
+    </div>
+    <div id="largeImg"><img src="images/pic1.jpg" alt="image1" /></div>
+
+<!---------- jQuery code Start ---------->
+<script>
+	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>어벤저스 소개</title>
+    <style>
+        /* 웹폰트 CDN */
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
+        /* 
+            웹폰트 이름
+            font-family: 'Monoton', cursive;
+            font-family: 'Single Day', cursive;
+        */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: url(ab_img/KakaoTalk_20210427_095855749.jpg) no-repeat center/cover;
+        }
+        /* 전체제목 */
+        .tit {
+            color: #fff;
+            text-align: center;
+            font-size: 70px;
+            font-family: 'Monoton', cursive;
+            /* 웹폰트 */
+            font-weight: normal;
+            /* h1요소의 bold를 해제함 */
+        }
+        /* 메인캐릭터박스 */
+        .abg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 내 크기의 절반씩 왼쪽/위쪽 정중앙이동 */
+            width: 300px;
+            height: 400px;
+            border: 3px solid cyan;
+            border-radius: 50%;
+            /* 원 */
+            background: url(ab_img/ab0.jpg) no-repeat center/cover;
+            box-shadow: 0 0 50px 5px cyan;
+            /* box-shadow: x축 y축 블러 거리 색 */
+            /* 박스그림자를 이용한 글로우효과 */
+        }
+        /* 캐릭터 각 박스 공통 */
+        .abg>div {
+            position: absolute;
+            top: 128px;
+            left: 105px;
+            /* 나의 부모는? .abg */
+
+            /* 처음에 투명 */
+            opacity: 0;
+
+            /* 트랜지션: 속시이지 */
+            transition: all 2s ease-in-out;
+
+        }
+        /* body에 마우스 오버시 캐릭터박스 보이기 */
+        /* 공통이어서 한번에 줌! */
+        body:hover .abg>div{
+            opacity: 1;
+        }
+
+        /* 캐릭터 이미지 공통 */
+        .abg>div>img {
+            border-radius: 50%;
+            box-shadow: 0 0 20px 1px yellow;
+        }
+        /* 캐릭터 설명박스 공통 */
+        .cat {
+            position: absolute;
+            /* 나의 부모는? .abg>div */
+            width: 300px;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            font-family: 'Single Day', cursive;
+            /* 웹폰트 적용 */
+            background-color: rgba(255, 255, 255, .4);
+            /* 흰색반투명 배경 */
+
+            /* 처음에는 투명하게 안보임 */
+            opacity: 0;
+            /* 
+                opacity 속성
+                - 요소의 투명도를 조정함
+                - 0 투명, 1 불투명, 
+                    0~1 사이의 소수점 반투명
+             */
+
+
+            transform: translateY(50px);
+            /* 현재위치에서 Y축 아래쪽으로 이동 */
+
+            
+            /* 트랜지션: 속시이지 */
+            transition: all .6s ease-in-out;
+            /* 현재 opacity와 transform 2가지를
+             애니메이션 해야하므로 all(모두)를
+             속성부분에 쓴다(또는 안쓰면 기본값 all) */
+
+        }
+
+        /* 각 캐릭터 박스에 오버시 설명박스 보이기 */
+
+        .abg>div:hover .cat {
+            opacity: 1;
+            /* 투명도 복원 */
+            transform: translateY(0);
+            /* 위치 복원 */
+        }
+
+        /* body에 마우스 오버시 */
+        /* 각 캐릭터 박스 위치이동 */
+
+        body:hover .abg>div:first-child {
+            /* 아이언맨 */
+            top: -100px;
+            left: -100px;
+        }
+
+
+        body:hover .abg>div:nth-child(2) {
+            /* 타노스 */
+            top: 300px;
+            left: -100px;
+        }
+
+    
+        body:hover .abg>div:nth-child(3) {
+            /* 토르 */
+            top: 450px;
+            left: 120px;
+        }
+
+
+        body:hover .abg>div:nth-child(4) {
+            /* 토르 */
+            top: 300px;
+            left: 320px;
+        }
+
+
+        body:hover .abg>div:last-child {
+            /* 스타로드 */
+            top: -100px;
+            left: 320px;
+        }
+        /* 캐릭터 소개박스 위치 class */
+        /* - 같은 디자인을 적용할 요소는 같은
+        클래스를 주면된다! */
+        .ltxt {
+            /* 설명박스 왼쪽위치 */
+            top: 0;
+            left: -340px;
+        }
+        .ltxt h2 {
+            /* 왼쪽박스 제목정렬 */
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .rtxt {
+            /*  설명박스 오른쪽위치 */
+            top: 0;
+            left: 119px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 전체제목 -->
+    <h1 class="tit">Avengers</h1>
+    <!-- 메인캐릭터박스 -->
+    <div class="abg">
+        <div>
+            <img src="ab_img/ab1.jpg" alt="아이언맨">
+            <div class="cat ltxt">
+                <h2>아이언맨</h2>
+                <p>
+                    천재적인 두뇌와 재능으로 세계 최강의 무기업체를 이끄는 CEO이자, 타고난 매력으로 셀러브리티 못지않은 화려한 삶을 살아가던 억만장자 토니 스타크.
+                </p>
+            </div>
+        </div>
+        <div>
+            <img src="ab_img/ab2.jpg" alt="타노스">
+            <div class="cat ltxt">
+                <h2>타노스</h2>
+                <p>
+                    타노스는 토성의 위성인 타이탄에서 멘토(Mentor)와 수이-산(Sui-San) 부부의 사이에서 태어났다.
+                </p>
+            </div>
+        </div>
+        <div>
+            <img src="ab_img/ab3.jpg" alt="토르">
+            <div class="cat rtxt">
+                <h2>토르</h2>
+                <p>
+                    마블 시네마틱 유니버스(MCU)에 등장하는 슈퍼 히어로이다. 천둥의 신이자 아스가르드의 왕족으로 날씨를 조종할 수 있으며 천둥과 번개를 사용할 수 있다.
+                </p>
+            </div>
+        </div>
+        <div>
+            <img src="ab_img/ab4.jpg" alt="닥터스트레인져">
+            <div class="cat rtxt">
+                <h2>닥터스트레인져</h2>
+                <p>
+                    불의의 사고로 절망에 빠진 천재 외과의사 ‘닥터 스트레인지’. 마지막 희망을 걸고 찾아 간 곳에서 ‘에인션트 원’을 만나 세상을 구원할 강력한 능력을 얻게 되면서, 모든 것을
+                    초월한 최강의 히어로로 거듭나는데...
+                </p>
+            </div>
+        </div>
+        <div>
+            <img src="ab_img/ab5.jpg" alt="스타로드">
+            <div class="cat rtxt">
+                <h2>스타로드</h2>
+                <p>
+                    일명 스타로드, 자칭 전설의 무법자. 하지만 대부분의 등장인물들은 금시초문이라는 반응을 보이며, 그나마 몇 번 잡범으로 감방에 넣느라 면식이 있는 노바 경찰 데나리언 데이는 스타
+                    프린스라는 별명으로 부르는 등 썩 좋은 취급은 받지 못하고 있다.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

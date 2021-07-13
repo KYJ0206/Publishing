@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>웹디기능사 - 유형C1</title>
+        <style>
+            html,body{
+                margin: 0;
+                padding: 0;
+            }
+            body *{
+                outline: 2px dashed blue;
+            }
+            /* 공통 class */
+            .pbx{
+                float: left;
+                height: 100%;
+            }
+
+            /* 전체박스 */
+            .wrap{
+                width: 1000px;
+                height: 650px;/* 꼭줘라! */
+            }
+            /* 왼쪽박스 */
+            .lbox{
+                width: 200px;
+            }
+            /* 로고 */
+            .logo{
+                height: 100px;
+            }
+            /* GNB메뉴박스 */
+            .gnb{
+                height: 550px;
+            }
+
+
+            /* 오른쪽박스 */
+            .rbox{
+                width: 800px;
+            }
+            /* 배너 */
+            .ban{
+                height: 350px;
+            }
+            /* 컨텐츠 */
+            .cont{
+                height: 200px;
+            }
+            .cont1{
+                width: 300px;
+            }
+            .cont2{
+                width: 225px;
+            }
+            .cont3{
+                width: 275px;
+            }
+
+
+            /* 하단영역 */
+            .info{
+                height: 100px;
+            }
+            .info1{
+                width: 200px;
+            }
+            .info2{
+                width: 600px;
+            }
+            .info2>.pbxIn{
+                height: 50px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <!-- 왼쪽박스 -->
+            <div class="pbx lbox">
+                <div class="logo">
+
+                </div>
+                <div class="gnb">
+
+                </div>
+            </div>
+            <!-- 오른쪽박스 -->
+            <div class="pbx rbox">
+                <div class="ban">
+
+                </div>
+                <div class="cont">
+                    <div class="pbx cont1"></div>
+                    <div class="pbx cont2"></div>
+                    <div class="pbx cont3"></div>
+                </div>
+                <div class="info">
+                    <div class="pbx info1">
+                        
+                    </div>
+                    <div class="pbx info2">
+                        <div class="pbxIn"></div>
+                        <div class="pbxIn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+    
+</html>

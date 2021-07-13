@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+            meta 요소 : 문서요약 정보
+            - charset 속성  : 페이지 인코딩형식 지정
+            - "UTF-8" 2byte문자까지 처리해주는 형식
+            -> 한글이 깨지지 않게 반드시 써야함!
+         -->
+    <title>네이버 요약뉴스 - 정치뉴스 style=align: middle;"</title>
+    <!-- 
+             title 요소 : 브라우저 탭메뉴 제목출력
+          -->
+    <style>
+        /* 영역박스 디자인 */
+        body>div {
+            width: 727px;
+            margin: 0 auto;
+            /* 마진 위아래0, 
+                  양쪽 자동(중앙위치) */
+        }
+
+        q {
+            color: red;
+            /* 글자색 빨간색 */
+        }
+    </style>
+    <!-- 
+            style 요소: 스타일 시트를 인터널방식으로 삽입하는 코딩구역
+            - 장점: 한번에 스타일을 컨트롤할 수 있다!
+            - 코딩형식:
+                선택요소{   
+                    속성명: 값;
+                }
+           -->
+</head>
+
+<body>
+    <!-- 1. 상단부분 -->
+    <div>
+        <!-- 1-1.타이틀 -->
+        <h1>네이버 요약 뉴스 - 정치뉴스</h1>
+        <!-- 
+                h1~h6 요소 : 제목영역
+                큰 제목은 h1 부터 점점 작아짐
+                (heading)
+             -->
+        <!-- 1-2.로고 및 링크메뉴 -->
+        <h2>
+            <a href="index.html">
+                <img src="images/KakaoTalk_20210406_111430781.png" alt="네이버로고"style="width:35px;vertical-align: middle;">
+            </a>
+            <a href="sub01.html">정치</a> |
+            <a href="sub05.html">경제</a> |
+            <a href="sub03.html">사회</a> |
+            <a href="sub04.html">IT/과학</a> |
+            <a href="sub02.html">TV/연예</a>
+
+            <!-- 
+                    a 요소: 페이지이동
+                    - href 속성 : 이동페이지 정보
+                    - target 속성 : 창옵션(_blank새창)
+                    img 요소: 이미지 표시
+                    - src 속성: 이미지경로
+                    (source)
+                    - alt 속성: 이미지설명(웹접근성!)
+                    (alternative text:대체텍스트)
+                    style 공통속성(어느요소나 사용가능)
+                    - 스타일시트 설정을 인라인으로 셋팅함
+                    - 요소별 개별사용가능
+                    - 값형식
+                        속성명: 값;
+                 -->
+        </h2>
+        <!-- 1-3.구분선 -->
+        <hr>
+
+    </div>
+    <!-- 
+            div 요소 : 내용을 구분해주는 영역박스
+            (divide / division)
+         -->
+
+    <!-- 2. 내용부분 -->
+    <div>
+
+        <H2><q>나경원 박영선 마음 잘 안다… 뭘해도 안되는 좌절·외로움</q></H2>
+        <!-- 
+            <b> - 굵은 텍스트
+            <strong> -중요한 텍스트
+                -> 의미에 차이가 있다!
+                -> strong 은 중요한 데이터의 뜻
+                -이렇게 유의미한 태그요소를 시멘틱요소( Sementic element ) 라고 한다.
+            <i> -기울임 꼴 텍스트 ( italic )
+            <em> -강조된 텍스트   ( emphasize )
+                -> i 와 em 요소는 이텔릭 디자인으로 같지만 의미가 다르다
+                   em 에만 "강조" 의 의미가 있다.
+            <mark> -표시된 텍스트 ( 눈에 띄게!)
+            <small> -더 작은 텍스트 ( 더작은 taxt )
+                ->( 14px - 기본 글자크기는 16px )
+            <del> -삭제 된 텍스트 ( delete )
+                - 지움표시
+            <ins> -삽입 된 텍스트 ( insert )
+                - 밑줄표시
+            <sub> -아래 첨자 텍스트
+            <sup> -위첨자 텍스트
+
+            [인용구에 사용하는 태그]
+            <q> - 쌍따옴표로 표시되는 인용구
+                - 쓰는 이유 인용어를 따로 분류하기위한 태그
+            <abbr> - 줄임말의 원래 뜻을 title속성으로 표시해줌
+                -title 은 abbr요소의 필수속성임
+                -title 속성을 어느요소나 사용가능함 ( 툴팁설명 보이기 ) 
+                -점선 밑줄이 기본 디자인
+            <cite> - 시, 문학, 작품등의 제목, 작품명을 인용
+                   - 이탤릭체 가 기본  
+            <bdo> - 문자출력 순서를 반대로 바꾸는 요소
+                  - dir 속성 : 값을 "rtl" 로 해야 오른쪽부터 출력됨!
+                  - 기본값은 "lrr"  ( 쓸 필요 없음! )
+                  - 언제씀? 아랍어와 같이 반대로 출력이 필요한 경우
+            <blockquote> - 인용구를 블록으로 싸주는 요소
+                - 주의사항 : p태그 안에 넣으면 안됨, 블록임으로    
+                -->
+
+
+
+        <P><strong>나경원 전 국민의힘 의원은</strong> <b> “박영선 <abbr title="더불어민주당">더민</abbr> 서울시장 후보의 심정을 <q>아마 누구보다도 내가 잘 알 것
+                    같다”고 했다.</q>></b></P>
+        <!-- 
+            P요소 : 문단을 나타내는 영역
+            - 주의사항 : div 같은 블럭요소를 쓸수 없다
+         -->
+
+        <P><em><strong>나 전 의원은 4일 페이스북에</strong></em> <i><q>뭘 해도 안 되는 좌절과 외로움을 말이다</q></i>라며 이같이 남겼다.</P>
+
+        <P>
+            그러면서 <q><q>그럴수록 당당하길 바라며 네거티브는 먹히지 않는다</q>며 질 때 지더라도, 의연한 모습으로 장렬히 패배하는 모습이 바로 ‘정치인 박영선’의 상당한 자산이 될 것</q>이라고
+            했다. 자신이
+            국민의힘
+            경선에서 패한 경험 등을 박 후보에게 투영<sub>鬪映</sub> 하면서 ‘아름다운 패배'를 주문한 것으로 해석된다.
+        </P>
+
+        <p>
+            두 후보 모두 뭉크의 <cite>절규</cite> 라는 작품을 좋아한다고 한다. <br>
+            이 글자 읽어 보세요! <br>
+            <bdo dir="rtl">우리나라 대한민국</bdo>
+        </p>
+
+        <P>
+            나 전 의원은 <q>
+                이틀 전쯤, 홍준표 전 대표<b><ins>①(무소속 의원)<sub>無巢屬</ins></sub></b>가 ’2011년 그렇게 당이 어려울 때는 등 떠밀려서 나가더니, 이제는 아무도 안
+                찾네요?’라고
+                말해 함께 한바탕 웃었다
+            </q>며 <q>
+                민주당
+                지지층이
+                사실상 우리 당 후보를 정하는 황당한 경선 룰이 왜 쓰리지 않겠느냐만은
+            </q>이라고 했다. 나 전 의원은 오세훈 국민의힘 서울시장 후보가 지난 2011년 서울시장직을 중도 사퇴하면서 치르게 된
+            보궐선거에
+            출마해 낙선했고, 이번 서울시장 후보 당내 경선에선 지지 정당을 고려하지 않는 100% 일반 시민 여론조사 방식으로 오 후보에 패했다.
+        </P>
+
+        <P>나 전 의원은 <q>
+                <mark>오세훈 후보든, 안철수 후보든, 국민의힘이든, 국민의당이든 누가 후보이든 상관있는가</mark>”라며 “<mark>유쾌한 마음으로 즐겁게 돕고 있다</mark>
+            </q>고
+            했다.</P>
+
+        <P>그러면서 <q>오직 이기는 것 말고는 생각할 겨를이 없다</q>며 <q>문재인 정권의 위선, 무능, 독선을 심판하는 것만이 유일한 목표이자 이번 선거의 의미</q>라고 했다.</P> <del>
+            작성자 : 김영재
+        </del>
+
+        <!-- 주석설명 -->
+        <hr>
+        <small>[명사] 어느 단체나 정당에도 속하여 있지 않음. 또는 그런 사람.</small>
+
+        <!-- 이미지박스 -->
+        <FIGure>
+            <IMG src="images/at_1.jpg" alt="기사사진">
+            <!-- 이미지설명 -->
+            <FIGCAption>
+                <small>나경원(왼쪽) 전 국민의힘 의원과 박영선 더불어민주당 서울시장 후보가 지난 3일 한 방송사 스튜디오에서 만나 인사를 나누고 있다. /뉴시스</small>
+            </FIGCAption>
+        </FIGure>
+        <!-- 
+            FIGure요소 : div 의 형제 요소, 이미지 박스
+            - 의미적으로 표나 그림, 이미지를 담는다
+            - 하위요소 : FIGCAption요소 - 그림설명
+         -->
+
+
+
+        <a href="https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=023&aid=0003606045"
+            target="_blank">원본뉴스</a>
+
+         <hr>
+         <h3> 정치뉴스 </h3>
+         <ol>
+             <li>
+                 <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=001&aid=0012314824"target_blank>
+                 이재명, 與 보선 참패에 "준엄한 결과 마음 깊이 새기겠다"></a> 
+            </li>
+             <li>
+                 <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=022&aid=0003569292"target_blank>
+                 확 달라진 민심… 文정부 ‘국정기조’ 수정 불가피 [4·7 재보선]></a>
+             </li>
+             <li>
+                 <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=014&aid=0004616550
+                 ">박형준 당선 확실 "겸손한 자세로 협치 정신 발휘하겠다"</a>
+             </li>
+        </ol>
+
+        <h3>주요뉴스</h3>
+        <ul>
+            <li>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=081&aid=0003177176"target_blank>
+                “우즈 차량 제한속도 72㎞구간을 140㎞로 달려” </a>
+            </li>
+            <li>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=031&aid=0000592159"target_blank>
+                "한복 아름다움 알린다"…서경방송 '한복 문화주간' 개최</a>
+            </li>
+            <li>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=014&aid=0004616390"target_blank>
+                미래에셋 차이나전기차ETF 순자산 7000억 돌파</a>
+            </li>
+        </ul>
+        <!-- 
+            ol요소 : 순서있는 리스트  ( odered list )
+            - il요소 : 필수 하위요소
+            * 중요사항 : ol 아래는 li만 올 수 있다
+                       ol 아래는 반드시 1개 이상의 li가 있어야 함
+
+            ul요소 : 순서가 없느 리스트 ( unodered list)
+            - li요소 : 필수 하위요소
+            * 중요사항 : ol 아래는 li만 올 수 있다   
+            
+            ol, ul, li는 모두 블록요소임!
+         -->
+         
+         
+         <h3>분야별뉴스</h3>
+         <dl>
+            <dt>정치</dt>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=417&aid=0000678944"target_blank title=" 양주시, 경기도 공공배달앱 '배달특급' 8일 공식 론칭">
+                양주시, 경기도 공공배달앱 '배달특급'...</a>
+            </dd>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=469&aid=0000594995"target_blank title="만 1세 아이에게 '고춧가루 넣은 볶음밥' 준 생활치료센터">
+                만 1세 아이에게 '고춧가루 넣은 볶음...</a>
+            </dd>
+
+            <dt>TV/연예</dt>
+            <dd><a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=366&aid=0000697703"target_blank title="김종인 오늘 퇴임…국민의힘, 전당대회 등 '포스트 재보선' 논의">
+                김종인 오늘 퇴임…국민의힘...</a>
+            </dd>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=056&aid=0011021653"target_blank title="北, 당 세포비서대회 이틀째…“부정과의 투쟁” 강조">
+                北, 당 세포비서대회 이틀째...</a>
+            </dd>
+
+            <dt>사회</dt>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=003&aid=0010436373"target_blank title="정 총리 질병청, 'AZ 백신-혈전' 연관성 판단 신속히 내려달라">
+                정 총리 "질병청, 'AZ 백신-혈전' 연관성...</a>
+            </dd>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=081&aid=0003177190"target_blank title="손혜원 “총선 때 설친 與, 이번엔 누구 탓하나 보자”">
+                손혜원 “총선 때 설친 與,...</a>
+            </dd>
+            
+            <dt>IT/과학</dt>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=015&aid=0004526617"target_blank title="국민의힘 송언석, 개표상황실서 당직자들에 '욕설·발길질'">
+                국민의힘 송언석, 개표상황실서 당직자들에...</a>
+            </dd>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=018&aid=0004896161"target_blank title="이재명, 4·7 재보궐 참패에 “준엄한 결과 마음깊이 새기겠다”">
+                이재명, 4·7 재보궐 참패에 “준엄한 결과...</a>
+            </dd>
+            
+            <dt>경제</dt>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0012314701"target_blank title="오세훈, 국립현충원 참배로 임기 시작…10년만에 입성">
+                오세훈, 국립현충원 참배로 임기 시작...</a>
+            </dd>
+            <dd>
+                <a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=005&aid=0001428700"target_blank title="산림청, 12일부터 ‘임업인 바우처’ 신청 접수">
+                산림청, 12일부터...</a>
+            </dd>
+
+        </dl>
+        <!-- 
+            dl요소 : 용어설명 리스트 (description list)
+                - dt요소 : 용어 ( defines term )
+                - dd요소 : 용어설명 ( defines description)
+                - 유의사항 : dt,dd는 반드시 1번이상 사용해야함!
+         -->
+
+    </div>
+    <!-- 3. 하단부분 -->
+    <div>
+        <hr>
+        <address>
+            서울시 강동구 천호동 1010-88 동원B <br>
+            대표: 김만만 <br>
+            전화번호: 02-333-7777
+        </address>
+        <!-- 
+                address 요소: 주소영역
+                br 요소: 줄바꿈(개행)
+                (break)
+             -->
+    </div>
+</body>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS - DOM(Document Object Model)</title>
+    <script>
+        //////////// 로드구역 ///////////////////////////
+        window.addEventListener("DOMContentLoaded", function () {
+
+            // 로드구역 확인
+            console.log("로딩완료!");
+
+            //// #div01의 각 메뉴에 마우스 오버시 하위메뉴 보이기 ////
+            // 이벤트: mouseover / mouseout
+            // 이벤트 대상: .smenu
+            var menu = document.querySelectorAll('.smenu');
+            // console.log("메뉴개수:" + menu.length);
+
+            // 변경 대상: .smenu ol
+            // 변경 내용: 마우스 오버시 높이값이 생기고 아웃시엔 높이값 0            
+            /////////////////////////////////////////////////
+            // 메뉴 개수만큼 for문을 돌려서 모두 셋팅한다! ////////
+            // for문의 대상은 li.smenu 즉, 컬랙션에 담긴 요소임!//
+            // for of문을 사용해 보자!//////////////////////////
+            /////////////////////////////////////////////////
+            for (var x of menu) { //x는 해당순번의 .smenu요소
+
+                //console.log("돌아!");
+                // 마우스 오버시 ///////////////////////////
+                x.onmouseover = function () {
+
+                    // 선택된 li의 서브메뉴박스 div를 선택한다!
+                    var tg = this.querySelector("div");
+                    // 서브메뉴 박스의 ol의 높이값을 측정한다
+                    var hv = tg.querySelector("ol").offsetHeight;
+                    // offsetHeight는 현재 선택요소의 높이값을 알아옴
+                    // 리턴결과는 단위없는 px숫자값이 나옴!
+                    // console.log("ol높이값:" + hv);
+
+                    tg.style.height = hv + "px";
+                    tg.style.transition = "height .4s";
+
+                }; ///// mosueover 함수 /////////////////
+
+                // 마우스 아웃시 ///////////////////////////////
+                x.onmouseout = function () {
+
+                    var tg = this.querySelector("div");
+                    tg.style.height = "0";
+
+                }; ////// mouseout 함수 ///////////////
+
+
+
+            } //// for of 문 ////////////////////////////////
+            /////////////////////////////////////////////////
+
+
+
+            /*for(시;한;증){}
+            for(var i=0;i<menu.length;i++){}*/
+
+
+
+            /*
+            [ 선택요소의 현재 크기,위치값 알아오는 JS속성 ]
+                1. 선택요소.offsetWidth : 가로값
+                2. 선택요소.offsetHeight : 세로값
+                3. 선택요소.offsetTop : top위치값
+                4. 선택요소.offsetLeft : left위치값
+            */
+
+
+            ///// #div01의 서브메뉴 a요소를 클릭하면 해당 주소로 새창열기
+            // 이벤트 종류: click 
+            // 이벤트 대상: .smenu ol a
+            var link = document.querySelectorAll(".smenu ol a");
+            console.log("서브메뉴개수:" + link.length);
+
+            ////////////////////////////////////////////////////
+            /// for of문으로 컬랙션의 개수만큼 반복해서 click셋팅하기!
+            for (var x of link) { // x는 각 a요소
+
+                //console.log("서브메뉴:" + x.innerText);
+
+                // 해당요소를 클릭하면 ////
+                x.onclick = function () {
+
+                    // 링크텍스트
+                    var txt = this.innerText;
+                    // this는 링크걸린 a요소 자신!
+                    // alert(txt);
+
+                    // 이동url
+                    var url;
+
+                    switch (txt) {
+                        case "Google":
+                            url = "http://www.google.com";
+                            break;
+                        case "Naver":
+                            url = "http://www.naver.com";
+                            break;
+                        case "Daum":
+                            url = "http://www.daum.net";
+                            break;
+                        case "Nate":
+                            url = "http://www.nate.com";
+                            break;
+                        case "SK":
+                            url = "http://www.sktelecom.com";
+                            break;
+                        case "KT":
+                            url = "http://www.kt.com";
+                            break;
+                        case "Uplus":
+                            url = "http://www.uplus.co.kr";
+                            break;
+                        case "CGV":
+                            url = "http://www.cgv.co.kr";
+                            break;
+                        case "MEGABOX":
+                            url = "http://www.megabox.co.kr";
+                            break;
+                        case "LOTTE CINEMA":
+                            url = "https://www.lottecinema.co.kr/NLCHS";
+                            break;
+                        case "GMARKET":
+                            url = "http://www.gmarket.co.kr";
+                            break;
+                        case "11번가":
+                            url = "http://www.11st.co.kr";
+                            break;
+                        case "Auction":
+                            url = "http://www.auction.co.kr";
+                            break;
+                        case "스토어팜":
+                            url = "https://shopping.naver.com/";
+                            break;
+                        case "인터파크":
+                            url = "http://www.interpark.co.kr";
+                            break;
+                        case "쿠팡":
+                            url = "http://www.coopang.co.kr";
+                            break;
+                        case "Apple":
+                            url = "http://www.apple.com";
+                            break;
+                        case "Samsung":
+                            url = "http://www.samsung.com";
+                            break;
+                        case "넷마블":
+                            url = "http://www.netmarble.net";
+                            break;
+                        case "넥슨":
+                            url = "https://www.nexon.com";
+                            break;
+                        case "IMC":
+                            url = "http://www.imc.co.kr";
+                            break;
+                    } ///// switch case문 /////
+
+                    // 페이지 이동하기(새창)
+                    window.open().location.href = url;
+                    // window.open() 새창열기
+                    // location.href 페이지이동
+
+                    return false;
+                    // a요소 이동속성 없애기!
+
+                }; ////// click 함수 ////////////
+
+
+            } /////// for of문 //////////////////////////////////
+            ////////////////////////////////////////////////////
+
+
+            /* 
+                [ 요소의 생성, 삭제, 이동하기 ]
+
+                1. 맨뒤 생성 혹은 맨뒤 이동
+                -> 선택요소.appendChild(요소)
+
+                2. 특정위치에 요소 넣기 혹은 이동
+                -> 선택요소.insertBefore(넣을놈,넣을놈전놈)
+
+                3. 요소의 삭제
+                -> 선택요소.remove()
+
+                4. 새로운 요소 생성 (메모리상에 생성함)
+                -> document.createElement(태그명)
+
+                5. 요소에 새로운 속성넣기 (메모리상에 생성함)
+                -> document.createAttribute(속성명)
+
+                6. 생성된 속성에 값넣기
+                -> 생성된속성.value = 값
+
+                7. 요소의 새로운 속성 넣기
+                -> 선택요소.setAttributeNode(새로운속성)
+            */
+
+            // 새리스트 생성 버튼 클릭시 리스트 만들기 ////
+            // 이벤트 종류: click
+            // 이벤트 대상: .nbt
+            // 변경 대상: #div01 ul
+            let d2 = document.querySelector("#div02 ul");
+
+            let inum = 1; //이미지번호
+            /// 새리스트생성 버튼 클릭시 ////////
+            document.querySelector(".nbt").onclick =
+                function () {
+
+                    // 호출확인
+                    console.log("새리스트생성");
+
+                    // 1. 새로운 li를 생성하여 변수에 할당한다!
+                    let nn = document.createElement("li");
+
+                    // 2. 새로 생성된 li에 img태그 넣기
+                    nn.innerHTML =
+                        '<img src="images/img' + inum + '.jpg" alt="이미지">';
+
+                    // 3. 이미지번호 증가(다음에 클릭할때 적용됨)
+                    inum++; //1씩증가
+                    if (inum === 8) inum = 1; //한계수
+
+                    // 4. 새로운 li에 툴팁넣기
+                    nn.title = "클릭하면 삭제됩니다!";
+
+                    // 5. 새로운 li에 이벤트 셋팅하기
+                    nn.onclick = function () {
+                        this.remove();
+                    }; //////// click함수 ///////
+
+                    // 6. 변경대상(ul)에 새로운 li태그 넣기
+                    d2.appendChild(nn);
+
+
+                }; ///////// 새리스트생성 버튼 클릭함수 //////////
+
+            /*/////////////////////////////////
+                함수명: rdn
+                기능:랜덤수를 만들어 주는 함수
+            */ /////////////////////////////////
+            var temp = 7; //랜덤수 임시저장
+            ///////////rdn 함수 시작/////////////
+            var rdn = function () {
+
+                //(1) 1~7사이의 랜덤수
+                var ran = Math.ceil(Math.random() * 7);
+                console.log("처음랜덤:" + ran);
+
+                //(2) 이전랜덤수와 같은 여부검사//////////
+                while (ran === temp) {
+                    ran = Math.ceil(Math.random() * 7);
+                    console.log("다시랜덤:" + ran);
+                } ////// while /////////////////////////
+
+                //(3) while문을 통과했다면 temp변수에 다음비교위해 
+                // 랜덤수를 넣어 놓는다!
+                temp = ran;
+
+                //(4) 만들어진 랜덤수를 호출한 곳으로 보내준다!
+                return ran;
+                // 리턴은 호출한 곳으로 값을 보낸다!
+
+            }; ////// rdn 함수 /////////////////
+            //////////////////////////////////
+
+
+
+            /// 랜덤생성 버튼 클릭시 새로운 li에 랜덤으로 img넣기
+            // 이벤트 종류: click
+            // 이벤트 대상: .rbt
+            document.querySelector(".rbt").onclick =
+                function () {
+
+                    // 1.함수호출확인
+                    //console.log("랜덤이양~!");
+
+                    // 2.새로운 li 생성하기
+                    var nn = document.createElement("li");
+
+                    // 3.새로운 img 생성하기
+                    var im = document.createElement("img");
+
+                    // 4.새로운 속성 src 생성하기
+                    var att = document.createAttribute("src");
+
+                    // 5.새로운 속성 src에 값넣기
+                    // rdn함수를 호출하여 랜덤수를 리턴값으로 받아온다!
+                    att.value = "images/img" + rdn() + ".jpg";
+
+                    // 6.새로운 속성 src를 새로운 img에 적용하기
+                    im.setAttributeNode(att);
+
+                    // 7.새로운 li에 img넣기
+                    nn.appendChild(im);
+
+                    // 8.새로운 li에 툴팁넣기
+                    nn.title = "클릭하면 삭제됩니다!";
+
+                    // 9.새로운 li에 이벤트 셋팅하기
+                    nn.onclick = function () {
+                        this.remove();
+                    }; ////// click 함수 ///////
+
+                    // 10.변경대상 ul(변수d2)에 li 넣기
+                    d2.appendChild(nn);
+
+
+                }; ////////// click 함수 ///////////////////
+
+            ///// 리스트의 li를 클릭하면 지우기! //////////
+            // 이벤트: click
+            // 이벤트대상: #div02 ul li
+            // 변경대상: 이벤트대상
+            // 변경내용: 변경대상 삭제하기
+            var dele = document.querySelectorAll('#div02 ul li');
+            // 모든 li에 onclick을 for of문으로 셋팅한다!
+            for (var x of dele) {
+                //console.log("리스트양?");
+                x.title = "클릭하면 삭제됩니다!";
+                x.onclick = function () {
+                    this.remove();
+                    // 자기자신을 노드에서 삭제함!
+                }; ///// click함수 ////////
+
+
+            } /////// for of문 ////////////
+
+
+            ///// 맨앞요소를 맨뒤로 이동하기 ////////////////////
+            // 이벤트 종류: click
+            // 이벤트 대상: .mvl
+            // 변경 대상1: #div02 ul li 
+            //          (매번 새로 갱신해야 함-리스트가 바뀌니까!)
+            // 변경 대상2: #div02 ul
+            //          (부모ul에서 자식추가해야함!-d2에 담김)
+            // 변경 내용: 첫번째 li를 선택하여 맨뒤로 추가함
+            // 사용 메서드: appendChild(요소)
+            // -> 기존요소를 선택하면 이동이 됨!
+            /////////////////////////////////////////////////
+            document.querySelector(".mvl").onclick =
+                function () {
+
+                    // 1. 호출확인
+                    console.log("나야나!맨뒤로!");
+
+                    // 2. li리스트 새로 갱신하여 변수에 할당
+                    var nlist = document.querySelectorAll("#div02 ul li");
+
+                    // 3. 리스트 중 첫번째 요소를 변수에 할당
+                    var fele = nlist.item(0); // === dele[0]
+
+                    // 4. 첫번째 li요소 맨뒤로 추가하기(이동하기)
+                    // #div02 ul 여기에서 li를 이동함(d2변수에 이미 할당됨)
+                    d2.appendChild(fele);
+
+
+                }; ///////////// click 함수 ///////////////////////
+
+            /// 맨뒤요소 맨앞으로 이동하기 ///////////////////////
+            // 이벤트 종류: click
+            // 이벤트 대상: .mvf
+            // 변경대상1: #div02 ul li(마지막요소 선택-매번 갱신)
+            // 변경대상2: #div02 ul (리스트의 부모에서 이동명령!)
+            // 사용 메서드: insertBefore(넣을놈,넣을놈전놈)
+            // 넣을놈 - 마지막 li요소
+            // 넣을놈전놈 - 맨처음 li요소
+            //////////////////////////////////////////////////
+            document.querySelector(".mvf").onclick =
+                function () {
+
+                    // 1. 호출확인
+                    console.log("나야나!맨앞이동!");
+
+                    // 2. li리스트 새로 갱신하여 변수에 할당
+                    var nlist = document.querySelectorAll("#div02 ul li");
+
+                    // 3. 넣을놈 - 마지막 li요소를 변수에 할당
+                    // 컬렉션은 0부터 이므로 전체개수-1 이 마지막 순번임!
+                    var lele = nlist[nlist.length - 1];
+
+                    // 4. 넣을놈전놈 - 첫번째 li요소를 변수에 할당
+                    var fele = nlist[0];
+
+                    // 5. 마직막 li요소를 첫번째 li요소 앞으로 이동한다!
+                    // insertBefore(넣을놈, 넣을놈전놈)
+                    // 적용대상은 d2변수의 #div02 ul
+                    d2.insertBefore(lele, fele);
+
+                }; ///////// click 함수 ///////////////////////////
+
+            /*
+                ※ appendChild와 insertBefore는 대상을 정하는 것에 
+                따라 중간에 적용할 수 있다!
+            */
+
+
+
+
+
+
+
+
+        }); ///////// 로드구역 //////////////////////////////////////
+        //////////////////////////////////////////////////////////
+    </script>
+    <style>
+        body>div {
+            outline: 1px solid red;
+            width: 200px;
+            display: inline-block;
+            vertical-align: top;
+            /*인라인블록은 인라인성격이 있어서 기본 옆으로 세로정렬은
+            baseline이므로 아래쪽선을 기준한다. 이것을 위줄 기준변경함*/
+        }
+
+        div img {
+            width: 50px;
+        }
+
+        /*서브메뉴 숨기기*/
+        .smenu>div {
+            height: 0;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="div01">
+        마우스오버시 <br>
+        1. 서브메뉴 보이기 <br>
+        2. 링크이동하기
+
+        <!--ul>li.smenu*6>a+ol>li*6>a-->
+        <ul>
+            <li class="smenu">
+                <a href="">검색포털사이트</a>
+                <div>
+                    <ol>
+                        <li><a href="">Google</a></li>
+                        <li><a href="">Naver</a></li>
+                        <li><a href="">Daum</a></li>
+                        <li><a href="">Nate</a></li>
+                    </ol>
+                </div>
+
+            </li>
+            <li class="smenu">
+                <a href="">통신사사이트</a>
+                <div>
+                    <ol>
+                        <li><a href="">SK</a></li>
+                        <li><a href="">KT</a></li>
+                        <li><a href="">Uplus</a></li>
+                    </ol>
+                </div>
+
+            </li>
+            <li class="smenu">
+                <a href="">영화관사이트</a>
+                <div>
+                    <ol>
+                        <li><a href="">CGV</a></li>
+                        <li><a href="">MEGABOX</a></li>
+                        <li><a href="">LOTTE CINEMA</a></li>
+                    </ol>
+                </div>
+
+            </li>
+            <li class="smenu">
+                <a href="">쇼핑몰사이트</a>
+                <div>
+                    <ol>
+                        <li><a href="">GMARKET</a></li>
+                        <li><a href="">11번가</a></li>
+                        <li><a href="">Auction</a></li>
+                        <li><a href="">스토어팜</a></li>
+                        <li><a href="">인터파크</a></li>
+                        <li><a href="">쿠팡</a></li>
+                    </ol>
+                </div>
+
+            </li>
+            <li class="smenu">
+                <a href="">스마트폰사이트</a>
+                <div>
+                    <ol>
+                        <li><a href="">Apple</a></li>
+                        <li><a href="">Samsung</a></li>
+                    </ol>
+                </div>
+
+            </li>
+            <li class="smenu">
+                <a href="">게임사이트</a>
+                <div>
+                    <ol>
+                        <li><a href="">넷마블</a></li>
+                        <li><a href="">넥슨</a></li>
+                        <li><a href="">IMC</a></li>
+                    </ol>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="div02">
+        <h2>요소의 생성,삭제,이동하기</h2>
+        <button class="nbt">새리스트생성</button>
+        <button class="rbt">랜덤생성</button> <br><br>
+        <button class="mvl">맨뒤이동</button>
+        <button class="mvf">맨앞이동</button>
+        <ul>
+            <li><img src="images/img1.jpg" alt="이미지"></li>
+            <li><img src="images/img2.jpg" alt="이미지"></li>
+            <li><img src="images/img3.jpg" alt="이미지"></li>
+            <li><img src="images/img4.jpg" alt="이미지"></li>
+            <li><img src="images/img5.jpg" alt="이미지"></li>
+            <li><img src="images/img6.jpg" alt="이미지"></li>
+            <li><img src="images/img7.jpg" alt="이미지"></li>
+        </ul>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

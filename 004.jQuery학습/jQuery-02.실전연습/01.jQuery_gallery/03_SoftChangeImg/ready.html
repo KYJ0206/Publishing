@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title> fadeInOut 갤러리 </title>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script>
+		$(function () { ////// jQB /////////////////////////
+
+			// 무한 페이드 효과 순서 //
+			// 1. 두번째 이미지를 display:none시킨다 (hide메서드)
+			// 2. 두번째 이미지에 active 클래스를 준다 (z-index="1")
+			// 3. 두번째 이미지를 fadeIn 애니메이션 시킨다 (나타남!)
+			// 4. 첫번째 이미지의 active 클래스를 지운다
+			// 5. 첫번째 이미지를 맨뒤로 보낸다
+
+			// 유의사항:
+			// 1. 인터발함수로 일정간격 자동실행해야함!
+			// 2. 마우스 오버시 멈춰야 하므로 변수에 인터발함수 넣기!
+
+
+			/*///////////////////////////////////////////
+				함수명: fadeShow
+				기능: 이미지에 페이드효과로 무한반복하기
+			*/ ///////////////////////////////////////////
+			let fadeShow = function () {
+
+				// 호출확인
+				console.log("페이드쇼우~~!");
+
+				// 대상: .fadeShow img
+				let tg = $(".fadeShow img");
+
+				// 첫번째 이미지
+				let first = tg.first();
+
+				// 두번째 이미지
+				let second = first.next();
+
+				// 1. 두번째 이미지를 display:none시킨다 (hide메서드)
+				// 2. 두번째 이미지에 active 클래스를 준다 (z-index="1")
+				// 3. 두번째 이미지를 fadeIn 애니메이션 시킨다 (나타남!)
+				second.hide().addClass("active")
+				.fadeIn(600,function(){
+
+					// 4. 첫번째 이미지의 active 클래스를 지운다
+					first.removeClass("active");
+					// 5. 첫번째 이미지를 맨뒤로 보낸다
+					$(".fadeShow").append(first);
+					// 이미지의 부모박스에서 기존요소를 맨앞으로보냄
+
+				}); //////// fadeIn ///////////
+
+			}; ////////// fadeShow함수 ///////////////////
+			/////////////////////////////////////////////
+
+
+			// 인터발용변수
+			let autoI;
+
+			autoI = setInterval(fadeShow,3000);
+			// 함수만 호출할 경우(전달값이 없는...) 이름만 써도 됨!
+
+			////////////////////////////////////////////////
+			/// 마우스 오버시 멈추고 아웃시 다시 인터발하기 ///
+			////////////////////////////////////////////////
+			// hover(함수1,함수2) - 오버시 함수1, 아웃시 함수2
+			$(".fadeShow").hover(
+				function(){ // over
+					clearInterval(autoI);
+					console.log("멈춤!");
+				},
+				function(){ // out
+					autoI = setInterval(fadeShow,3000);
+					console.log("다시해!")
+				});/////// hover /////////
+
+		}); //////////////// jQB /////////////////////////
+	</script>
+	<style>
+		body {
+			margin: 20px auto;
+			padding: 0;
+			width: 620px;
+			background: #192839;
+		}
+
+		.fadeShow {
+			background: #666;
+			width: 600px;
+			height: 350px;
+			border: 2px solid #FDF6DD;
+		}
+
+		.fadeShow img {
+			position: absolute;
+		}
+
+		.fadeShow .active {
+			z-index: 1;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="fadeShow">
+		<img class="active" src="slide1.jpg" alt="image1" />
+		<img src="slide2.jpg" alt="image2" />
+		<img src="slide3.jpg" alt="image3" />
+	</div>
+
+
+	<!---------- jQuery code Start ---------->
+	<script>
+
+	</script>
+</body>
+
+</html>

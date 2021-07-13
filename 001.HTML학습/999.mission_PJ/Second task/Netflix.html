@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Netflix.css">
+    <script src="JS/main.js"></script>
+    <title>CGV응용_Netflix</title>
+</head>
+
+<body>
+    <!-- 전체박스 -->
+    <div class="wrap ibx">
+        <!-- 1. 상단영역 -->
+        <header id="top" class="part">
+            <h1 class="tit">CGV응용_Netflix</h1>
+            <select name="lang" id="lang">
+                <option value="opt">LANGUAGE</option>
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+            </select>
+        </header>
+
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">넷플릭스</a>
+                    <ol class="smenu">
+                        <li>
+                            <a href="#">계정</a>
+                        </li>
+                        <li>
+                            <a href="#">회사정보</a>
+                        </li>
+                        <li>
+                            <a href="#">넷플릭스 오리지날</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#">인기추천</a>
+                    <!-- 서브메뉴 -->
+                    <ol class="smenu">
+                        <li>
+                            <a href="#">최신/예정</a>
+                        </li>
+                        <li>
+                            <a href="#">TOP10 영화</a>
+                        </li>
+                        <li>
+                            <a href="#">TOP10 프로그램</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#">EVENT</a>
+                    <!-- 서브메뉴 -->
+                    <ol class="smenu">
+                        <li>
+                            <a href="#">이달의 이벤트</a>
+                        </li>
+                        <li>
+                            <a href="#">이벤트</a>
+                        </li>
+                        <li>
+                            <a href="#">당첨자 발표</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                    <ol class="smenu">
+                        <li>
+                            <a href="#">개인정보</a>
+                        </li>
+                        <li>
+                            <a href="#">문의하기</a>
+                        </li>
+                        <li>
+                            <a href="#">법적고지</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </nav>
+        <!-- 2. 컨텐츠영역 -->
+        <main id="cont">
+            <div id="screen">
+                <!-- 유투브동영상 -->
+                <iframe id="mv" width="1280" height="720" src="https://www.youtube.com/embed/-GNQ-Uh4i1M?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </div>
+
+            <ul>
+                
+                <!-- 2-1. 영화박스 -->
+                <li class="mbox mb1" onclick="vw('yfSMTFzw-Kw')">
+                    <img src="images/mb1.jpg" alt="크루엘라">
+                    <ol class="mbtxt">
+                        <li>크루엘라</li>
+                    <li>엠마스톤,엠마톰슨</li>
+                    <li>드라마</li>
+                </ol>
+                </li>
+                <li class="mbox mb2" onclick="vw('MRY26k7sUkY')">
+                    <img src="images/mb2.jpg" alt="컨저링3:악마가시켰다">
+                    <ol class="mbtxt">
+                        <li>컨저링3:악마가시켰다</li>
+                        <li>페트릭윌슨,베라파미가</li>
+                        <li>공포</li>
+                    </ol>
+                </li>
+                <li class="mbox mb3" onclick="vw('L9Y-hn2COm0')">
+                    <img src="images/mb3.jpg" alt="분노의질주:더얼티메이트">
+                    <ol class="mbtxt">
+                        <li>분노의질주:더얼티메이트</li>
+                        <li>존시나,빈디젤,성강</li>
+                        <li>액션</li>
+                    </ol>        
+                </li>
+                <li class="mbox mb4" onclick="vw('hKNlZcpOmAI')">
+                    <img src="images/mb4.jpg" alt="콰이어트플레이스2">
+                    <ol class="mbtxt">
+                        <li>콰이어트플레이스2</li>
+                        <li>에밀리블런트,킬리언머피</li>
+                        <li>스릴러</li>
+                    </ol>
+                </li>
+            </ul>
+            
+        </main>
+        <footer id="info" class="part">
+            <address>
+                <img src="images/blogo.png" alt="하단로고">
+                <p>
+                    넷플릭스서비시스코리아 유한회사 <br>
+                    통신판매업신고번호: 제2018-서울종로-0426호  전화번호: 00-308-321-0058
+                    대표: 레지널드 숀 톰프슨 <br>
+                    주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161
+                    사업자등록번호: 165-87-00119
+                </p>
+            </address>
+            <ul class="sns">
+                <li>
+                    <a href="https://www.facebook.com/NetflixKR" target="_blank" title="페이스북 바로가기">
+                        <span class="bld">페이스북 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/NetflixKR?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                        target="_blank" title="트위터 바로가기">
+                        <span class="bld">트위터 바로가기</span>
+                    </a>
+                </li>
+
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>

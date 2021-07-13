@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch문 연습</title>
+    <!-- 웹폰트 CDN -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide&amp;display=swap" rel="stylesheet">
+    <style>
+        /* 타이틀 */
+        .tit{
+            text-align: center;
+            font: bold 72px/100px 'Audiowide';
+        }
+        /* 스틸컷장면박스 */
+        .photo{
+            text-align: center;
+            /* 인라인요소 가로중앙정렬 */
+            background-color: skyblue;
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+        /* 메인이미지 */
+        #scene{
+            height: 290px;
+            /* width는 비율에 맞게 자동임! */
+        }
+        /* 선택버튼박스 */
+        .btnbx{
+            text-align: center;
+            /* 버튼요소는 인라인블록이지만 
+            인라인특성이 있으므로 글자중앙정렬적용됨! */
+        }
+        /* 버튼공통 */
+        .btns{
+            font-size: 42px;
+        }
+    </style>
+    <script>
+        /*///////////////////////////////////////
+            함수명: chgImg
+            기능: 버튼 클릭시 이미지 변경하기
+        *////////////////////////////////////////
+        function chgImg(U){
+            // U - 버튼자신을 보낸값을 받는 전달변수
+            // 함수호출시 chgImg(this)의 this는 함수와
+            // 연결된 요소 자신을 말한다!
+
+            // 버튼텍스트 읽어오기
+            var txt = U.innerText;
+            // innerText는 선택요소의 내부 글자데이터를 읽어옴
+
+            // 1. 함수호출확인!
+            console.log("함수호출!!!"+txt)
+
+            // 2. 변경대상: #scene
+            var tg = document.getElementById("scene");
+
+            // 3. 변경내용: 변경대상의 src속성을 변경함
+
+            // 이미지경로변수(내가지은이름!!!)
+            var isrc;
+
+            // 버튼에 맞게 이미지경로 넣기 //
+            // switch case문 //
+            switch(txt){
+                case "포스터" : isrc = "./images/ala1.jpg"; break;
+                case "장면1" : isrc = "./images/ala2.jpg"; break;
+                case "장면2" : isrc = "./images/ala3.jpg"; break;
+                case "장면3" : isrc = "./images/ala4.jpg"; break;
+            } //// switch case문 //////
+
+
+            // 4. 이미지요소(대상)에 src적용하기
+            // 이미지 대상은 tg변수에 담겨있음!!!
+            tg.src = isrc;
+            // 대상이미지의 속성 src에 변수값 isrc를 담는다!
+
+
+        } //////// chgImg함수 ////////////////////
+        //////////////////////////////////////////
+    </script>
+</head>
+<body>
+    <!-- 전체 타이틀 -->
+    <h1 class="tit">All New Aladin</h1>
+
+    <!-- 스틸컷장면박스 -->
+    <div class="photo">
+        <img id="scene" src="./images/ala1.jpg" alt="알라딘스틸컷">
+    </div>
+
+    <!-- 선택버튼박스 -->
+    <div class="btnbx">
+        <button class="btns" onclick="chgImg(this)">포스터</button>
+        <button class="btns" onclick="chgImg(this)">장면1</button>
+        <button class="btns" onclick="chgImg(this)">장면2</button>
+        <button class="btns" onclick="chgImg(this)">장면3</button>
+    </div>
+    
+</body>
+</html>

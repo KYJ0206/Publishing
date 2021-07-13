@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비율유지박스(ratioBox)</title>
+    <style>
+        .rbx{
+            position: relative;
+            /* 비율유지 박스 속박스를 위한 부모자격 */
+            width: 50%;/* 가로크기에 대한 상대적인 크기 */
+            /* height: 400px; */
+            /* height값을 주지 않고 박스높이값 만들기 */
+            /* 
+            [1. 비율유지 박스의 원리1]
+            padding-top, padding-bottom 으로 높이값을 만들 수 있다
+            이는 기본적으로 박스는 보더와 패딩만큼 그 크기가 커지기 때문이다 
+            */
+            /* padding-top: 50%; */
+            /*  
+            [2. 비율유지 박스의 원리2]
+            padding-top값을 %로 주면 가로크기가 변할때 패딩도 변한다!
+            이것을 자식요소에게 주고 패딩값을 %로 줄때 정확한 계산이 되는 패딩에 의한 높이가 나온다!    
+            -> 자식요소를 따로 만들기 번거롭고 관리가 어려우므로 가상요소를 이용한다! ::before를 이용!!!
+            */
+            background: url(images/mobumtxi.jpg) no-repeat center/cover;
+            margin: 0 auto;/* 마영오 */
+        }
+
+            /* .rbx 가상요소 before로 비율유지 패딩탑주기 */
+            .rbx::before{
+                content: '';
+                display: block;
+                /* width가 auto이므로 부모요소의 가로크기에 의존함 */
+                padding-top: 56.25%;
+                /* 
+                    [3. 비율유지 박스의 원리3]
+                    - 자식 블록요소의 패딩탑값을 %로 주면 부모요소 가로크기의 몇%의 의미로 셋팅된다!
+                    즉, 1:1 비율이면 100%고
+                        2:1 비율이면 50%이다
+                        
+                        계산을하자면 16:9 비율이면
+                        16:9 = 100%:X (가로크기를 100%로 봄)
+                        X = 9*100/16 = 56.25%
+                */
+            }
+
+            /* 비율유지박스에 컨텐츠를 넣기 위한 속박스 만들기 */
+            .rbxIn{
+                position: absolute;
+                top: 0; 
+                left: 0;
+                bottom: 0;
+                right: 0;
+                /* 보모는? .rbx */
+            }
+        
+            /* 
+                [ 비율유지 박스를 위해 필요한 것들 ]
+
+                1. 가로크기가 유동적인 높이값없는 블록박스
+                2. 1번박스의 가상요소 before로 padding-top값 %지정( 비율 )
+                3. 1번박스의 속박스 absolute 밀착박스 설정 ( 1번박스 부모 ) 
+
+                [ 비율유지 박스를 위한 클래스 ]
+                1. .rbx -> 비율유지박스 ( width % )
+                2. .rbx::before -> 비율설정 ( padding-top % )
+                3. .rbxIn -> 비율유지 속박스 ( absolute )
+            */
+
+            /* 내용셋팅 */
+            .cat{
+                position: absolute;
+                bottom: 22%;
+                left: 5%;
+                margin: 0;
+                padding: 0;
+                color: #fff;
+                font-size: 1.2vmax;
+                font-weight: bold;
+                line-height: 2;
+                text-shadow: 2px 2px 2px #000;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="rbx">
+        <div class="rbxIn">
+            <dl class="cat">
+                <dt>출연진</dt>
+                <dd>이제훈(김도기역)</dd>
+                <dd>이솜(강하나역)</dd>
+                <dd>김의성(장성철역)</dd>
+            </dl>
+        </div>
+    </div>
+</body>
+</html>

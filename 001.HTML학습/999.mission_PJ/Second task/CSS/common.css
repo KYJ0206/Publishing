@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* 마이아이템 공통 모듈 CSS - common.css */
+
+
+/* 1-2. GNB메뉴 */
+.gnb {
+    background-image: linear-gradient(to bottom, #aaa 0%, #bbb 20%,#ccc 45%,#e8e8e8 55%, #bbb 80%, #aaa 100%);
+    /* 그라데이션 넣는법 - background-image 방향점 지정후 각 %별로 지정 */
+}
+
+.gnb>ul {
+    width: 600px;
+    margin: 0 auto;
+    /* 블록가로중앙정렬 - 마영오! */
+    /* outline: 2px solid lime; */
+}
+
+.gnb>ul>li {
+    width: 150px;
+    text-align: center;
+}
+
+/* a요소 - 글자색, 밑줄처리 */
+/* 유의사항: li와 a요소 사이의 띄어쓰기는
+    아래의 모든 자손 a를 선택한 것임! */
+.gnb>ul>li a {
+    display: block;
+    width: 150px;
+    height: 40px;
+
+    /* 글자설정 */
+    /* 글자체는 기본 나눔고딕 (body에서 설정) */
+    color: #000;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #fff;
+    font-family: 'Jua', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px;
+
+    /* 트랜지션: 속시이지 */
+    transition: all .4s;
+}
+
+/* 마우스오버시 글자색, 배경색변경 */
+.gnb>ul>li:hover>a {
+    color: orangered;
+    text-shadow: 1px 1px 0 rgb(165, 2, 2);
+    /* 배경그라데이션 */
+    background-image: linear-gradient(to top, #e8e8e8 0%, #bbb 60%, #999 80%, #666 100%);
+    /* 그라데이션 넣는법 - background-image 방향점 지정후 각 %별로 지정 */
+}
+
+/* 서브메뉴 */
+.smenu {
+    position: absolute;
+    /* 젠틀앱솔루트! - 위치값을 안썼을때
+        스테틱한 a요소를 존중하여 아래쪽에
+        나오며 li박스를 존중하여 그 안에 위치함 */
+    width: 150px;
+    background-color: #e8e8e8;
+    text-shadow: 1px 1px 0 #777;/* 추가 */
+
+    /* 왼쪽 아래, 오른쪽 아래 둥근 모서리 적용 */
+    border-radius: 0 0 4px 4px;
+    /* 왼쪽 위부터 시계방향 */
+
+    /* 서브메뉴를 숨기기위해 높이값0, 
+        넘치는 자식요소 숨기기 */
+    height: 0;
+    overflow: hidden;
+    /* 트랜지션: 속시이지 */
+    transition: height .4s ease-out;
+    z-index: 1;
+}
+
+/* 서브메뉴에 마우스 오버시 글자색, 배경색변경 */
+.smenu li:hover a {
+    color: orange;
+    background-color: #bbb;
+    text-shadow: 1px 1px 0 orangered;/* 추가 */
+}
+
+/* 상위메뉴 li에 오버시 서브메뉴 높이값 변경 */
+.gnb>ul>li:hover .smenu {
+    height: 120px;
+}
+
+

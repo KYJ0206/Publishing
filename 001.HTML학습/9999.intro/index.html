@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹퍼블리셔과정 - 김영재</title>
+    <style>
+        /* 웹폰트 CDN */
+        @import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Gugi&display=swap');
+
+        /* 
+                웹폰트 설정
+                font-family: 'Gaegu', cursive;
+                font-family: 'Gugi', cursive;
+             */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(./intro_img/1.jpg) no-repeat top/cover;
+        }
+
+        .tm>ol,
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .tm>li {
+            float: left;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* 전체부모박스 */
+        .wrap {
+            position: relative;
+            max-width: 90vw;
+            max-height: 75vh;
+
+            /* 블록박스 가로중앙정렬 - 마영오씨! */
+            margin: 0 auto;
+            /* 마진: 위아래0 양쪽auto */
+            margin-top: 11vh;
+            padding: 20px;
+            /* float으로 인한 높이값 상실처리 */
+            overflow: hidden;
+            box-sizing: border-box;
+            /* 크기유지박스 */
+            background-color: rgba(255, 255, 255, 0.44);
+            line-height: 10vh;
+            /* 최소높이값(많아지면 늘어남!) */
+            border-radius: 20px;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        /* 타이틀 */
+        #tit {
+            font-size: 3vw;
+            margin: 0;
+            text-align: center;
+            border-bottom: 3px double rgba(0, 0, 0, 0.665);
+            padding-bottom: 2vh;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.665);
+        }
+
+        /* 프로젝트 박스 공통 */
+        .pjbx {
+            width: 50%;
+            float: left;
+            padding: 15px;
+            line-height: 5vh;
+            /* 
+                    50%로 옆으로 흐르면 
+                    2개의 블록박스가 나란히 오는데
+                    이때 패딩을 주면 박스가 커지므로
+                    하나가 아래로 내려간다
+                    (50%넘으므로!)
+                    이때 해결책!!!
+                    보더나 패딩이 지정한 사이즈
+                    내부로 포함되게 하는속성이 있다
+                    box-sizing:border-box
+                 */
+            box-sizing: border-box;
+            /* 기본값은 content-box(커지는박스) */
+        }
+
+        /* 프로젝트 영역 타이틀 */
+        .pjbx h2 {
+            font-family: 'Gugi', cursive;
+            font-size: 2vw;
+            color: steelblue;
+            text-align: center;
+            border: 2px solid rgba(0, 0, 0, 0.665);
+            border-radius: 13px;
+            text-shadow: 0 0 1px #000;
+            box-shadow: 0 0 5px #000;
+            background-color: rgba(253, 253, 233, 0.44);
+        }
+
+        /* 각 박스의 ol리스트 */
+        .pjbx>ol {
+            font-size: 24px;
+            line-height: 6vh;
+            /* 기본 ol셋팅 초기화 */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* 맨앞 표시자 없앰 */
+        }
+
+        /* 각 박스의 li */
+        ol>li {
+            margin-left: 40px;
+        }
+
+        /* 각 박스의 a링크 */
+        .pjbx a {
+            font-family: 'Gaegu', cursive;
+            font-size: 2vw;
+            color: #000;
+            text-decoration: none;
+            text-shadow: 0 0 5px #000;
+            line-height: 50px;
+            transition: .5s ease-in-out;
+        }
+
+        /* 오버시 */
+        .pjbx li:hover a {
+            color: steelblue;
+            text-decoration: underline;
+            /* 아랫줄 */
+            font-size: 2.7vw;
+            text-shadow: 0 0 1px #000;
+        }
+
+        .pjbx li::before {
+            position: absolute;
+            content: "●";
+            font-size: 25px;
+            margin-top: 3px;
+            margin-left: -35px;
+            color: steelblue;
+            opacity: 0;
+            transition: .5s ease-in-out;
+        }
+
+
+        li:hover::before {
+            opacity: 1;
+        }
+
+
+
+        /* 세로 분류 선 만들기 */
+        .pjbx::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            width: 0px;
+            height: 65%;
+            top: 32%;
+            border-right: 5px dotted rgb(58, 58, 58);
+        }
+
+
+        /* 탭메뉴 */
+        .tm {
+            position: relative;
+            width: 12vw;
+            height: 40px;
+            top: -5vh;
+            left: 76.5vw;
+        }
+
+        .tm>li {
+            position: absolute;
+            width: 5.5vw;
+            height: 40px;
+        }
+
+        .tm li:nth-child(1) {
+            left: 0;
+        }
+
+        .tm li:nth-child(2) {
+            left: 5.5vw;
+        }
+
+        .tm>li>a {
+            position: absolute;
+            width: 100%;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            transition: .5s;
+
+        }
+
+        .tm>li:hover a{
+            text-shadow: 0 0 1px #000;
+            transform: scale(1.1);
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <h1 id="tit">
+            Front-end Archive _ 김영재
+        </h1>
+        <!-- 1. 공통 프로젝트 박스 -->
+        <div class="pjbx cpj">
+            <h2>Common_Projects_I</h2>
+            <ol>
+                <li>
+                    <!-- 1.상대경로(2가지) -->
+                    <a href="001.info_PJ/index.html" target="_blank">Naver_Summary_News</a>
+                    <!-- <a href="./001.Info_PJ/" target="_blank">네이버 요약 뉴스</a> -->
+                    <!-- 2.절대경로 -->
+                    <!-- <a href="http://tombap.dothome.co.kr/001.Info_PJ/" target="_blank">네이버 요약 뉴스</a> -->
+                    <!-- 3.절대상대경로 -->
+                    <!-- <a href="/001.Info_PJ/" target="_blank">네이버 요약 뉴스</a> -->
+                </li>
+                <li>
+                    <a href="./002.Drama_PJ/Dokkaebi.html" target="_blank">Dockkaebi_website</a>
+                </li>
+                <li>
+                    <a href="./003.Robot_PJ/robot.html" target="_blank">Robot</a>
+                </li>
+                <li>
+                    <a href="./003.Robot_PJ/avengers.html" target="_blank">Avengers</a>
+                </li>
+                <li>
+                    <a href="./003.Robot_PJ/fixedBG.html" target="_blank">FixedBG</a>
+                </li>
+                <li>
+                    <a href="./004.CGV_PJ/003.site/intro.html" target="_blank">CGV</a>
+                </li>
+                <li>
+                    <a href="./005.Transform_PJ/index.html" target="_blank">Transform</a>
+                </li>
+                
+            </ol>
+        </div>
+        <!-- 2. 개인 프로젝트 박스 -->
+        <div class="pjbx mpj">
+            <h2>Common_Projects_II</h2>
+            <ol>
+                <li>
+                    <a href="./007.WebDiary_PJ/index.html" target="_blank">WebDiary</a>
+                </li>
+                <li>
+                    <a href="./020.Simpson_PJ/index.html" target="_blank">SimpsonFamily</a>
+                </li>
+                <li>
+                    <a href="./022.CubeTrip/index.html" _blank">CubeTrip</a>
+                </li>
+                <li>
+                    <a href="./009.Unpretty_PJ/index.html" _blank">Unpretty</a>
+                </li>
+                <li>
+                    <a href="./010.MyItem_PJ/02.Asset/index.html" _blank">MyItem</a>
+                </li>
+                <li>
+                    <a href="./008.SeoulLand_PJ/asset/index.html" _blank">SeoulLand</a>
+                </li>
+            </ol>
+        </div>
+        <ul class="tm">
+            <li>
+                <a href="index.html">Chapter1</a>
+            </li>
+            <li>
+                <a href="index2.html">Chapter2</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

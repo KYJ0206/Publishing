@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>한국 최신 드라마 - 월화드라마</title>
+    <style>
+        /* 
+            선택자{
+                속성명: 값;
+            }
+         */
+        table{
+            margin: 30px auto;
+            /* 마진: 위아래 양쪽; 
+            마진은 바깥여백
+            양쪽을 auto로 쓰면 테이블이 중앙에 온다!*/
+            border: 7px solid #ccc;
+            /* 보더: 두께 종류 색상; (두종색) */
+        }
+        td{
+            padding: 10px;
+            /* 패딩은 안쪽여백(값을 하나쓰면 사방) */
+            line-height: 45px;
+            /* 줄간격 */
+            vertical-align: top;
+            /* td안의 컨텐츠 세로정렬 */
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 1. 상단부분 -->
+    <div style="text-align: center;">
+        <!-- 1-1.타이틀 -->
+        <h1>최신드라마 - 월화드라마</h1>
+        <!-- 1-2.메뉴 -->
+        <h2>
+            <a href="drama1.html">
+                월화드라마
+            </a> |
+            <a href="drama2.html">
+                수목드라마
+            </a>
+        </h2>
+    </div>
+
+    <!-- 2.컨텐츠 부분 -->
+    <div>
+        <!-- 드라마 테이블 -->
+        <!-- 테이블 구성: 2행 4열 -->
+        <table>
+            <!-- 첫번째 줄 -->
+            <tr>
+                <td>
+                    <b>나빌레라</b> <br>
+                    tvN (월, 화) 오후 09:00 <br>
+                    2.8% 닐슨코리아 (04.06.) <br>
+                    <button>구독 10,601</button>
+                </td>
+                <td>
+                    <img src="images/d1.jpg" alt="나빌레라">
+                </td>
+                <td>
+                    <b>달이 뜨는 강</b> <br>
+                    KBS2 (월, 화) 오후 09:30 <br>
+                    7.8% 닐슨코리아 (04.06.) <br>
+                    <button>구독 15,849</button>
+                </td>
+                <td>
+                    <img src="images/d2.jpg" alt="달이뜨는강">
+                </td>
+            </tr>
+            <!-- 두번째 줄 -->
+            <tr>
+                <td>
+                    <b>불새 2020</b> <br>
+                    SBS (월~금) 오전 08:35 <br>
+                    5.4% 닐슨코리아 (04.07.) <br>
+                    <button>구독 9,947</button>
+                </td>
+                <td>
+                    <img src="images/d3.jpg" alt="불새2020">
+                </td>
+                <td>
+                    <b>밥이 되어라</b> <br>
+                    MBC (월~금) 오후 07:10 <br>
+                    5.6% 닐슨코리아 (04.06.) <br>
+                    <button>구독 5,323</button>
+                </td>
+                <td>
+                    <img src="images/d4.jpg" alt="밥이되어라">
+                </td>
+            </tr>
+        </table>
+
+
+        <!-- 
+                table 요소 : 행과 열로 정렬해야하는
+                데이터를 배치하여 보여주기 위한 요소
+                - tr요소: 행을 구분하는 요소
+                  (table row)
+                - td요소: 데이터를 담는 요소
+                  (table data)  
+             -->
+    </div>
+
+
+</body>
+
+</html>

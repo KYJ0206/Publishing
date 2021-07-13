@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Position - relative</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            /* 경계선:두께 종류 색 */
+            text-align: center;
+            /* 인라인요소 가로중앙정렬 */
+            font-size: 24px;
+            /* 글자크기 */
+            font-weight: bold;
+            /* 글자 두껍게 */
+            line-height: 100px;
+            /* 줄간격 - 글자세로 중앙시 응용 */
+        }
+
+        #r1 {
+            position: relative;
+            /* 
+                    [ relative 포지션 ]
+
+                    1. 위치이동속성이 적용된다!!!
+
+                    2. 위치이동의 기준은 원래 있던위치임
+                    (그래서 상대적인 즉, relative 랠러티브 라는
+                    명칭이 사용됨)
+
+                    3. 이동시에 다른 요소에 영향없이 겹쳐질 수 있다!!!
+
+                    4. 원래 자신이 있던 위치는 그대로 보존된다!!!
+                    (의미: 기존위치가 보존되기 때문에
+                    위치를 이동시켜도 본래 디자인은
+                    망가져 보이지 않는다!)
+
+                    5. 위치값 설정시 2가지 기준으로만
+                    셋팅해야한다.
+                    - 위아래 중 하나, 우좌중 하나
+                    1) top, left
+                    2) top, right
+                    3) bottom, left
+                    4) bottom, right
+                    - 값 수치의 양수는 내부방향
+                                음수는 외부방향
+                    
+                    6. 마진은 그대로 적용된다
+                    (다른 static요소에 영향을 준다!
+                    -원래위치에서 마진으로 밀고 있는것과 같다!)
+
+                    7. relative는 위치이동값을 
+                    사용하지 않으면 static과 똑같은
+                    특징을 가진다!
+
+                    8. relative는 겹쳐질 수 있으므로
+                    위아래 위치관계가 성립된다.
+                    기본적인 위아래 위치관계는 아래와 같다
+                    1) static보다 항상 위
+                    2) static이 아닌 포지션인 경우
+                    나중에 그려진 요소가 위
+                    (손놓고 손등때리기!)
+                    3) z-index 속성으로 숫자가 크면 위
+
+                    [ z-index 란? ]
+                    - 겹치는 포지션을 경우 위치순서를
+                    정하여 디스플레이를 변경하는 속성
+
+                    - z는 화면방향의 z축을 말하며
+                    기본값은 0이다. 이는 같은 층에 
+                    있다는 의미
+
+                    -> 포지션이 static이거나 아무 포지션을 안준 경우엔 z-index가
+                    전혀 적용되지 않는다!
+                    왜? 스스로 겹쳐질 수 없으므로!
+
+                    - 결론적으로 포지션이 있는 
+                    경우에만 사용할 수 있다!
+
+                    - 사용법:
+                    z-index: 숫자
+                    - 숫자의 의미는 단순 위치 비교개념
+                    - 숫자가 높은 것이 위에 온다!
+
+                    - 정리: static요소는 무조건 아래쪽에 깔린다!!!
+
+                    - 특별한 경우!!!
+                    - z-index의 숫자가 마이너스인 경우는 static요소보다 아래쪽으로
+                    내린다는 의미임!
+
+                    - 유의사항!!!
+                    -> z-index비교시 같은 형제레벨에
+                    있어야 비교가 된다!
+                    만약 자손요소의 z-index를 아무리
+                    높이 줘도 부모요소의 다른 요소가
+                    z-index가 높다면 위로 올라올 수 
+                    없다!!! 따라서 같은 위치비교를 할
+                    요소의 같은 형제요소에서 z-index
+                    를 줘야한다!!!
+
+                    9. 자식요소에 대한 다음의 중요한
+                    특징이 있다
+                    - 자식요소(혹은 자손요소)의 포지션
+                    이 absolute일때 자기자신에게
+                    아무런 포지션이 없다면....
+                    자기가 부모역할을 해야할때
+                    설정하는 포지션으로 relative가
+                    많이 사용된다!
+                    (이유: relative는 주고난 후 
+                    아무런 외형적 변화가 없기때문!)
+
+
+                
+                 */
+
+            top: 50px;
+            left: 50px;
+            /* 
+                    위치이동속성:
+                    - 선택요소의 위치를 이동하기위한 속성
+                    - 포지션에 따라 달리 적용된다
+
+                    종류: 4가지
+                    - top, bottom, left, right
+                 */
+            background-color: red;
+
+            z-index: 1;
+            /* 1만써도 위로 올라옴
+            다른 static아닌 포지션이 z-index가
+            있다면 숫자를 비교하여 위아래 관계를
+            디스플레이한다! */
+
+        }
+
+        #s2 {
+            background-color: green;
+        }
+
+        #s3 {
+            background-color: yellow;
+        }
+
+        #r2 {
+            position: relative;
+            bottom: 75px;
+            right: -86px;
+
+            background-color: skyblue;
+            z-index: -1;
+            /* z-index가 마이너스이면 static요소
+            보다 아래로 내려간다!!! */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="r1">r1</div>
+    <div id="s2">s2</div>
+    <div id="r2">r2</div>
+    <div id="s3">s3</div>
+</body>
+
+</html>

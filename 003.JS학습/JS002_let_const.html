@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>변수 let / 상수 const</title>
+    <script>
+        /* 
+            변수는 바.렛.콘스트!!!
+
+            # 핵심정리 #
+            var { var } -> OK : 전역덮어쓰기
+            var { let } -> OK : 개별관리(지역에서 전역호출불가!)
+            let { let } -> OK : 개별관리(지역에서 전역호출불가!)
+            let { var } -> X : 불가함!
+            지역에서 선언없는변수 : 전역변수로 등록됨
+
+
+            [ var ]
+            1. 전역, 지역 모두 따로 사용가능
+            2. 전역변수를 지역에서 같은 이름으로 선언하면
+                전역변수가 다시 선언되어 덮어써진다
+            3. 지역에서 var 선언없이 변수를 만들어 할당하면
+                자동으로 전역변수로 선언된다!
+                (코딩시 변수에 대한 정의가 없으면 코딩이 혼란스러진다!)
+
+            [ let ] : 블록영역변수
+            1. var 전역변수를 지역에서 같은 이름의 let 선언할 수 있다
+                -> 전역과 지역변수가 같은이름 이지만 따로 관리된다!
+                -> 이는 별개의 변수다!
+                -> 이때 let이 선언된 지역에서 같은이름의 전역변수를
+                호출할 수 없다! 왜? 관계가 단절되었으므로!!!
+            2. let 전역변수를 지역에서 같은이름의 let변수로 선언할 수 있다
+                -> 따로 관리되어 별개의 변수다!
+            3. let 전역변수는 지역에서 같은이름의 var변수로 선언할 수 없다!
+            4. let 변수는 반드시 선언 후 할당해야함!(순서철저!)
+            
+            [ const ] : 상수(constant)-변하지 않는값
+            1. 선언과 동시에 할당해야한다!
+            2. 한번 선언과 함께 할당된 상수는 아래쪽에서 재할당불가!
+            3. 선언과 할당을 따로 할 수 없다!
+            4. 사용예: 중간에 변경하면 안되는 변수를 지정할때 사용
+        
+        */
+
+        // 전역변수 ///////
+        var seoul = "서울";
+        var jeju = "제주도";
+        let toktok = "카톡";
+        let sport = "축구";
+
+        // JS에서 중괄호{}는 코드구역을 나타낸다! //
+
+        //##################################################
+        {
+            /// 전역변수 지역에서 찍어보기 ///
+            console.log("전역변수 지역에서 찍어보기");
+            console.log("seoul:" + seoul);
+
+            //console.log("jeju:" + jeju);//에러발생!
+            // 에러난이유: let으로 전역변수와 같은 이름의 변수를
+            // 선언하였으므로 지역에서는 전역변수를 호출할 수 없다!
+
+            //console.log("toktok:" + toktok);//에러남!
+            // 에러난이유: let으로 전역변수와 같은 이름의 변수를
+            // 선언하였으므로 지역에서는 전역변수를 호출할 수 없다!
+
+            console.log("sport:" + sport);
+
+            /////////// 지역변수 /////////////
+            var seoul = "강동구";
+            //전역변수 var를 다시 var 선언할당함!
+            let jeju = "마라도";
+            //전역변수 var를 다시 let 선언할당함!
+            let toktok = "라인";
+            //전역변수 let를 다시 let 선언할당함!
+
+            //var sport = "배구";//에러남!
+            // 에러이유? 전역 let을 지역 var로 쓸 수 없다!
+
+            human = "원시인"; // 지역에서 선언없이 할당하면???
+
+            /// 지역변수 지역에서 찍어보기 ///
+            console.log("지역변수 지역에서 찍어보기");
+            console.log("seoul:" + seoul);
+            console.log("jeju:" + jeju);
+            console.log("toktok:" + toktok);
+            // console.log("sport:"+sport);
+            console.log("human:" + human);
+
+        }
+        //####################################################
+
+        /// 전역변수 전역에서 찍어보기 ///
+        console.log("전역변수 전역에서 찍어보기");
+        console.log("seoul:" + seoul); //지역에서 덮어쓰기됨!
+        console.log("jeju:" + jeju);
+        console.log("toktok:" + toktok); //전역변수가 살아있음!!!
+        console.log("human:" + human);
+
+
+        cat = "고양이";
+        console.log("cat:" + cat);
+        var cat; // 변수의 선언을 아래에서 하는것이 가능한가? OK
+        // 이와 같이 선언이 아래 있는 것을 끌어당겨서 처리한다고 해서
+        // 이런것을 호이스팅(hoisting)이라고 함!
+
+        // dog = "강아지";
+        // console.log("dog:"+dog);
+        // let dog; // let으로 변수선언을 아래쪽에서 가능한가? X
+        // -> let선언전에 변수를 할당할 수 없다!
+
+        // 상수연습
+        const fish = "고등어";
+        console.log("상수fish:"+fish);
+
+        // fish = "참치";//재할당불가!
+        // console.log("상수fish:"+fish);
+
+        // const movie;
+        // movie = "원더우먼";//선언과 할당을 따로할 수 없다!
+        // console.log("상수movie:"+movie);
+        
+
+
+        ////// 로드구역 /////////////////////////////
+        window.addEventListener("load", function () {
+
+            // var 테스트
+            var vartest = document.querySelectorAll(".vartest");
+            // 버튼개수만큼 링크걸기(for문의 지역변수를 var선언!!!)
+            for (var i = 0; i < vartest.length; i++) {
+
+                vartest[i].onclick = function () {
+                    console.log("전달숫자:" + i);
+                }; //////// click함수 ////////////
+
+            } ////// for문 /////////////////////
+
+            // let 테스트
+            var lettest = document.querySelectorAll(".lettest");
+            // 버튼개수만큼 링크걸기(for문의 지역변수를 let선언!!!)
+            for (let i = 0; i < lettest.length; i++) {
+                // let사용한 i는 클릭함수 내부로 전달된다!
+                lettest[i].onclick = function () {
+                    console.log("전달숫자:" + i);
+                }; //////// click함수 ////////////
+
+            } ////// for문 /////////////////////
+
+        }); //////////// 로드구역 /////////////////////
+        /////////////////////////////////////////////
+
+
+    </script>
+</head>
+
+<body>
+    <button class="vartest">var 테스트1</button>
+    <button class="vartest">var 테스트2</button>
+    <button class="vartest">var 테스트3</button>
+    <button class="vartest">var 테스트4</button> <br>
+
+    <button class="lettest">let 테스트1</button>
+    <button class="lettest">let 테스트2</button>
+    <button class="lettest">let 테스트3</button>
+    <button class="lettest">let 테스트4</button>
+
+
+
+</body>
+
+</html>

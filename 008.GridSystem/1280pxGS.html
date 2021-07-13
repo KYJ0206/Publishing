@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>1280px Grid Layout System</title>
+        <link rel="stylesheet" href="css/gridSet.css">
+        <link rel="stylesheet" href="css/gridView.css">
+        <style>
+            /* 그리드뷰 재정의 */
+            .grid{
+                width: 1280px;
+                display: none;
+            }
+            /* 초기화 */
+            html,body{
+                margin: 0;
+                padding: 0;
+            }
+            h1,h2,h3,h4,h5,h6{
+                margin: 0;
+                padding: 0;
+                font-size: 100%;
+            }
+            body{
+                position: relative;
+                /* 디자인검수용 가상요소의 부모자격 */
+            }
+            /* 디자인 검수용 가상요소박스 */
+            body::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                /* 박스 크기 사방으로 늘리기 - 부모는? body */
+                background: url(./images/kita.png) no-repeat center top;
+                opacity: 1;/* 반투명 */
+                z-index: -1;/* 일반요소보다 아래 */
+                /* z-index: 99999999; */
+                /* 필요할때 가장위!!! */
+                /* display: none; */
+            }
+            /* 공통 클래스 */
+            /* 속박스 */
+            .ibx{
+                width: 1280px;
+                margin: 0 auto;
+                /* 마영오! */
+                outline: 2px dotted red;
+            }
+            /* 파티션박스가 float되어 있으므로 clear:both하기! */
+            .ibx::after{
+                content: '';
+                display: block;/* clear:both는 block이어야 적용됨 */
+                clear: both;/* float해제-자식요소 높이값인식! */
+            }
+            /* 파티션박스 */
+            .pbx{
+                /* 1.옆으로흐르게 */
+                float: left;
+                /* 2.박스크기유지 */
+                box-sizing: border-box;
+                /* 3.패딩-그리드 패딩이 10px이기때문 */
+                padding: 10px;
+                /* 4.높이값설정-여기서 안줄수도 있음 */
+                /* height: 100%; *//* 속박스 높이에 맞춤 */
+                /* 구체적인 높이값을 파티션 박스가 가져야
+                미디어쿼리로 레이아웃 변경시 편리하다!!!
+                -> height:100%를 주지 않는다!!! */
+                outline: 2px dashed blue;
+            }
+            /* IR(배경이미지설명숨기기) 클래스 */
+            .ir{
+                display: block;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+            }
+            /* 숨기기 클래스 */
+            .bld{
+                display: none;
+            }
+
+            /* 공통 소제목 */
+            .tit2{
+                text-align: center;
+                font-size: 30px;
+                line-height: 93px;
+            }
+
+
+
+
+            /* 개별 영역 셋팅 */
+            /* 1.상단영역 */
+            /* .top{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 상단영역 파티션박스 높이값 설정 */
+            .top>.pbx{
+                height: 100px;
+            }
+            /* 2.컨텐츠영역1 */
+            /* .cont1{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 컨텐츠영역1 파티션박스 높이값 설정 */
+            .cont1>.pbx{
+                height: 344px;
+            }
+            /* 3.컨텐츠영역2 */
+            /* .cont2{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 컨텐츠영역2 파티션박스 높이값 설정 */
+            .cont2>.pbx{
+                height: 362px;
+            }
+            /* 4.컨텐츠영역3 */
+            /* .cont3{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 컨텐츠영역3 파티션박스 높이값 설정 */
+            .cont3>.pbx{
+                height: 120px;
+            }
+            /* 5.컨텐츠영역4 */
+            /* .cont4{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 컨텐츠영역4 파티션박스 높이값 설정 */
+            .cont4>.pbx{
+                height: 219px;
+            }
+            /* 6.컨텐츠영역5 */
+            /* .cont5{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 컨텐츠영역5 파티션박스 높이값 설정 */
+            .cont5>.pbx{
+                height: 287px;
+            }
+            /* 컨텐츠영역5 소제목 */
+            .cont5>.tit2{
+                line-height: 116px;
+            }
+
+
+            /* 7.컨텐츠영역6 */
+            /* .cont6{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 컨텐츠영역6 파티션박스 높이값 설정 */
+            .cont6>.pbx{
+                height: 243px;
+            }
+            /* 8.하단영역 */
+            /* .info{
+                height: 100px;
+                속박스엔 높이값을 주지 않는다!
+                height:auto 라서 내용만큼 늘어남!!!
+            } */
+            /* 하단영역 파티션박스 높이값 설정 : 
+            파티션 2개가 2줄에 오면서 높이값 서로다름 */
+            .info>.info1{
+                height: 74px;
+            }
+            .info>.info2{
+                height: 115px;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <!-- 1.상단영역 -->
+        <div id="top">
+            <header class="ibx top">
+                <div class="pbx col-2">
+                    <h1 class="tit1">로고</h1>
+                </div>
+                <div class="pbx col-10">
+                </div>
+            </header>
+        </div>
+        <!-- 2.컨텐츠영역1 -->
+        <div id="cont1">
+            <section class="ibx cont1">
+                <h2 class="bld">배너안내</h2>
+                <div class="pbx col-8"></div>
+                <div class="pbx col-4"></div>
+            </section>
+        </div>
+        <!-- 3.컨텐츠영역2 -->
+        <div id="cont2">
+            <section class="ibx cont2">
+                <h2 class="bld">통계공지사항</h2>
+                <div class="pbx col-12"></div>
+            </section>
+        </div>
+        <!-- 4.컨텐츠영역3 -->
+        <div id="cont3">
+            <section class="ibx cont3">
+                <h2 class="bld">대표서비스</h2>
+                <div class="pbx col-12"></div>
+            </section>
+        </div>
+        <!-- 5.컨텐츠영역4 -->
+        <div id="cont4">
+            <section class="ibx cont4">
+                <h2 class="tit2">무역지원 사업일정</h2>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+            </section>
+        </div>
+        <!-- 6.컨텐츠영역5 -->
+        <div id="cont5">
+            <section class="ibx cont5">
+                <h2 class="tit2">무역지원 서비스</h2>
+                <div class="pbx col-2"></div>
+                <div class="pbx col-2"></div>
+                <div class="pbx col-2"></div>
+                <div class="pbx col-2"></div>
+                <div class="pbx col-2"></div>
+                <div class="pbx col-2"></div>
+            </section>
+        </div>
+        <!-- 7.컨텐츠영역6 -->
+        <div id="cont6">
+            <section class="ibx cont6">
+                <h2 class="bld">바로가기링크모음</h2>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+                <div class="pbx col-3"></div>
+            </section>
+        </div>
+        <!-- 8.하단영역 -->
+        <div id="info">
+            <footer class="ibx info">
+                <h2 class="bld">회사정보</h2>
+                <div class="pbx col-12 info1"></div>
+                <div class="pbx col-12 info2"></div>
+            </footer>
+        </div>
+        <!-- 그리드뷰 -->
+        <ul class="grid">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </body>
+</html>

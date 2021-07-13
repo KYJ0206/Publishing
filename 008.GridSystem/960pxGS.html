@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>960px Grid System</S></title>
+    <link rel="stylesheet" href="css/gridView.css">
+    <link rel="stylesheet" href="css/gridSet.css">
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 공통 class */
+        /* 속박스 */
+        .ibx{
+            width: 960px;
+            margin: 0 auto;
+            /* 마영오 가로중앙정렬 */
+            outline: 2px dotted red;
+        }
+        /* 속박스에 가상요소로 자식파티션 박스 float 해제하기 */
+        .ibx::after{
+            content: '';
+            display: block;
+            clear: both;/* float 지우기 */
+        }
+        /* 
+            float::left 처리된 자식요소의 부모박스는 overflow:hidden 처리 하거나,
+            가상요소로 clear:both해야 자식요소의 높이를 인식한다
+        */
+
+
+
+
+        /* 파티션박스 */
+        /* 옆으로 흘러가는 블록박스 이므로 float설정함 */
+        .pbx{
+            /* 옆으로 흐르게 설정 */
+            float: left;
+            /* 패딩 설정 */
+            padding: 10px;
+            /* 박스커지지 않게 설정 */
+            box-sizing: border-box;
+            outline: 2px dotted blue;
+        }
+
+            /* 1. 상단영역 */
+            #top{/* 겉박스 */
+                background-color: lightblue;
+            }
+            /* .top{속박스
+                height: 87px;
+            } */
+            /* 파티션박스에 높이값을 준다 */
+            .top>.pbx{
+                height: 87px;
+            }
+            /* 개별파티션박스 */
+            /* .top1{
+                width: 16.66%;
+            }
+            .top2{
+                width: 83.33%;
+            } */
+
+            /* 2. 배너영역 */
+            #ban{/* 겉박스 */
+                background-color: lightcoral;
+            }
+            /* 파티션에 높이값주기 */
+            .ban>.pbx{
+                height: 415px;
+            }
+
+            /* 3. 컨텐츠영역 */
+            #cont{/* 겉박스 */
+                background-color: lightseagreen;
+            }
+            /* 파티션에 높이값주기 */
+            .cont>.pbx{
+                height: 256px;
+            }
+
+            /* 4. 하단영역 */
+            #info{/* 겉박스 */
+                background-color: lightgreen;
+            }
+            /* 파티션박스 첫번째줄 높이값주기 */
+            .info1,.info2{
+                height: 36px;
+            }
+            /* 파티션박스 두번째줄 높이값주기 */
+            .info3,.info4,.info5{
+                height: 94px;
+            }
+
+    </style>
+</head>
+<body>
+    <!-- 1. 상단영역 -->
+    <div id="top">
+        <header class="ibx top">
+            <div class="pbx top1 col-2">로고</div>        
+            <div class="pbx top2 col-10">메뉴</div>        
+        </header>
+    </div>
+    <!-- 2. 배너영역 -->
+    <div id="ban">
+        <section class="ibx ban">
+            <div class="pbx ban1 col-10"></div>
+            <div class="pbx ban2 col-2"></div>
+        </section>
+    </div>
+    <!-- 3. 컨텐츠영역 -->
+    <div id="cont">
+        <main class="ibx cont">
+            <div class="pbx cont1 col-2"></div>
+            <div class="pbx cont2 col-3"></div>
+            <div class="pbx cont3 col-3"></div>
+            <div class="pbx cont4 col-4"></div>
+        </main>
+    </div>
+    <!-- 4. 하단영역 -->
+    <div id="info">
+        <footer class="ibx info">
+            <div class="pbx info1 col-9"></div>
+            <div class="pbx info2 col-3"></div>
+            <div class="pbx info3 col-2"></div>
+            <div class="pbx info4 col-8"></div>
+            <div class="pbx info5 col-2"></div>
+        </footer>
+    </div>
+
+    <!-- 그리드뷰 -->
+    <ul class="grid">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolling Cube CSS 3D Animation</title>
+<style>
+    html,body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        /* 보이는 화면 기준 */
+    }
+
+    body{
+        background-image: linear-gradient(to bottom, #777 30%,#ccc 70%);
+        overflow: hidden;
+    }
+
+    /* 큐브 */
+    .cube{
+        position: absolute;
+        top: calc(50% - 150px);
+        left: calc(50% - 150px);
+        /* calc(%수치 - 특정px) 
+           CSS의 고유계산 함수임 (주의!: 빼기기호 앞뒤공백 필수!) */
+        width: 300px;
+        height: 300px;
+        /* outline: 2px solid #000; */
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        /* 3無 */
+
+
+        /* 
+            [ 입체로 설정하기! ]
+            - 입체로 설정할 요소의 부모박스에 아래와 같이 설정한다!
+
+            transfrom-style: preserve-3d
+            - 기본값은 flat 즉, 2D
+            - preserve-3d 는 3D 전환설정!
+
+         */
+
+         transform-style: preserve-3d;
+         transform: rotateX(10deg) rotateY(30deg);
+         /* 입체를 잘보기 위해 X축,Y축으로 약간 회전해 놓는다 */
+    }
+
+    /* 큐브 각면 공통 */
+    .cube>li{
+        position: absolute;
+        /* 부모는 - .cube */
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;/* 반투명 */
+    }
+
+    /* 큐브 각면 세팅 */
+    /* 1. 앞면 */
+    .cube>li:nth-child(1){
+        background-color: red;
+        transform: translateZ(150px);
+        /* 화면방향으로 li크기의 절반만큼 이동함 */
+    }
+    /* 2. 오른쪽면 */
+    .cube>li:nth-child(2){
+        background-color: green;
+        transform: rotateY(90deg) translateZ(150px);
+        /* 화면방향으로 li크기의 절반만큼 이동함 */
+    }
+    /* 3. 뒷면 */
+    .cube>li:nth-child(3){
+        background-color: orange;
+        transform: rotateY(180deg) translateZ(150px);
+        /* 화면방향으로 li크기의 절반만큼 이동함 */
+    }
+    /* 4. 왼쪽면 */
+    .cube>li:nth-child(4){
+        background-color: yellow;
+        transform: rotateY(-90deg) translateZ(150px);
+        /* 화면방향으로 li크기의 절반만큼 이동함 */
+    }
+    /* 5. 윗면 */
+    .cube>li:nth-child(5){
+        background-color: blue;
+        transform: rotateX(90deg) translateZ(150px);
+        /* 화면방향으로 li크기의 절반만큼 이동함 */
+    }
+    /* 6. 아랫면 */
+    .cube>li:nth-child(6){
+        background-color: purple;
+        transform: rotateX(-90deg) translateZ(150px);
+        /* 화면방향으로 li크기의 절반만큼 이동함 */
+    }
+
+    /* 애니호출 class */
+    .cube-ani{
+        /* 애니메이션 - 이(름)시(간)이(징)지(연시간)반(복)방(향)마(지막상태) */
+        animation: rolling 5s linear infinite;
+    }
+
+    /* 큐브회전 애니메이션 키프레임 */
+    @keyframes rolling {
+        to{
+            transform: rotateX(370deg) rotateY(-330deg);
+            /* 
+                x축 방향은 10도 나가 있고 같은 방향으로 한바퀴 회전하므로 360도 + 10도 = 370도
+                y축 방향은 30도 나가 있고 반대 방향으로 한바퀴 회전하므로 -360도 + 30도 = -330도
+             */
+        }
+    }/* 키프레임 */
+</style>
+</head>
+<body>
+    <ul class="cube cube-ani">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>

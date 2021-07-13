@@ -1,0 +1,407 @@
+@charset "utf-8";
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+
+/* 사이트 전체설정 */
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: url(../images/body.jpg) no-repeat top/250%;
+    font-family: ng, "맑은 고딕", Verdana;
+    font-size: 15px;
+    /* 기본글자크기는 16px */
+    height: 100%;
+    width: 100%;
+}
+
+
+/* 전체 부모박스 */
+.wrap {
+    box-shadow: 0 0 15px #fff;
+}
+
+
+
+#screen {
+    position: absolute;
+    top: 53px;
+    left: 270px;
+    width: 656px;
+    height: 423px;
+}
+
+#screen iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.part{
+    width: 100%;
+    white-space: normal;
+    margin: 0 auto;
+    /* outline: 2px dotted red; */
+}
+
+
+/* 1. 상단영역 */
+#top{
+    position: relative;
+    z-index: 99999;
+    min-height: 110px;
+    background: url(../images/top.jpg) no-repeat bottom/cover;
+}
+
+
+.tit{
+    height: 0;
+    text-align: center;
+    line-height: 180%;
+    font-size: 60px;
+    color: orangered;
+    text-shadow: 3px 3px 5px rgb(165, 2, 2);
+    font-weight: normal;
+    font-family: 'Jua', sans-serif;
+}
+
+/* 2. 컨텐츠 영역 */
+#cont {
+    position: relative;
+    min-height: 600px;
+    background: url(../images/bg.jpg) no-repeat top/cover;
+}
+/* 2-1. 영화박스 */
+.mbox{
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    cursor: pointer;
+}
+.mbox img{
+    border: none;
+    vertical-align: bottom;
+    width: 100%;
+    height: 100%;
+}
+.mb1{
+    top: 10%;
+    left: 5%;
+}
+.mb2{
+    bottom: 10%;
+    left: 5%;
+}
+.mb3{
+    top: 10%;
+    right: 5%;
+}
+.mb4{
+    bottom: 10%;
+    right: 5%;
+}
+
+.mbtxt {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: 'Cute Font', cursive;
+    font-size: 12px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.744);
+    opacity: 0;
+    top: 0;
+    transition: .6s;
+}
+
+
+/* 마우스 오버시 .mbtxt 올라오기 */
+.mbox:hover .mbtxt {
+    top: 0;
+    opacity: 1;
+}
+
+.mbtxt li {
+    float: none;
+    /* float 해제 */
+}
+
+/* 첫번째 li는 영화 제목이므로 디자인변경 */
+.mbtxt li:first-child {
+    padding: 10px;
+    margin-top: 30px;
+    color: aqua;
+    font-size: 14px;
+    letter-spacing: -2px;
+
+}
+
+
+
+#info {
+    position: relative;
+    /* 부모자격 */
+    min-height: 100px;
+    min-height: 100px;
+    background: url(../images/footer.jpg) no-repeat top center/cover;
+}
+
+/* 3-1.회사정보박스 */
+#info address{
+    font-style: normal;
+    /* address요소의 기본 이탤릭 해제 */
+    color: #fff;
+    text-shadow:2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Hi Melody', cursive;
+    line-height: 22px;
+
+    /* 안쪽여백 */
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+/* 하단로고 이미지 */
+#info address img {
+    float: left;
+    /* 이미지는 왼쪽에 글자는 오른쪽으로 흐르게 */
+    /* CSS학습>012.인라인플롯 참조 */
+    margin-right: 45px;
+    margin-left: 20px;
+    width: 5%;
+}
+
+
+/* 3-2. sns버튼 */
+.sns{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    /* 나의 부모는? #info */
+}
+/* IR (배경이미지설명 숨기기) */
+.bld{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+/* li 박스 */
+.sns li{
+    width: 34px;
+    height: 34px;
+    float: left;
+    margin: 2px;
+
+    /* 배경이미지 넣기 - 스프라이츠! */
+    background: url(../images/sprites_logo.png) no-repeat;
+}
+/* 
+    [ 스프라이츠 위치정보 알아내기 ]
+    - 포토샵에서 사각선택툴로 맨위에서 부터 알고자하는 위치까지
+    드래그하여 가로크기는 배경 left값, 세로크기는 배경 top값으로
+    셋팅하면 된다!
+    - 아니면 info패널을 꺼내놓고 마우스 포인터 위치를 확인한다!
+*/
+/* 페이스북 */
+.sns li:nth-child(1){
+    background-position: -509px -429px;
+}
+/* 트위터 */
+.sns li:nth-child(2){
+    background-position: -550px -429px;
+}
+
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#lang{
+    position: absolute;
+    right: 1%;
+    top: 72%;
+    background: rgba(0,0,0,.4);
+    border: 1px solid #aaa;
+    color: #fff;
+}
+
+@media only screen and (max-width:500px) {
+
+    html,
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        
+    }
+
+    body {
+        position: relative;
+    }
+    
+    .ibx{
+        width: 100vw;
+    }
+
+    .mbox {
+        position: absolute;
+        width: 105px;
+        height: 150px;
+        cursor: pointer;
+    }
+
+    .tit {
+        font-size: 13vw;
+    }
+
+    .gnb>ul{
+        width: 100vh;
+    }
+
+    .gnb>ul>li a {
+        width: 20vw;
+        white-space: nowrap;
+    }
+
+    .gnb>ul>li {
+        width: 27vw;
+    }
+
+    .gnb>ul>li:hover .smenu {
+        height: 6vh;
+        width: 74vw;
+        left: 14%;
+    }
+
+    #cont {
+        position: relative;
+        min-height: 65vh;
+        background: url(../images/bg.jpg) no-repeat top/cover;
+    }
+
+    #screen {
+        position: absolute;
+        top: 5vh;
+        left: 0vw;
+        width: 100vw;
+        height: 51vh;
+    }
+
+    #info address img {
+        float: left;
+        margin-right: 20px;
+        margin-left: 0;
+        margin-top: -3px;
+        width: 15%;
+    }
+
+    address>p {
+        width: 197px;
+        height: 3vh;
+        overflow: hidden;
+        margin-top: 15px;
+    }
+
+    .mb1 {
+        position: absolute;
+        width: 18vw;
+        height: 14vh;
+        cursor: pointer;
+        top: 51vh;
+        left: 4vw;
+    }
+    .mb2 {
+        position: absolute;
+        width: 18vw;
+        height: 14vh;
+        cursor: pointer;
+        top: 51vh;
+        left: 28vw;
+    }
+    .mb3 {
+        position: absolute;
+        width: 18vw;
+        height: 14vh;
+        cursor: pointer;
+        top: 51vh;
+        right: 28vw;
+    }
+    .mb4 {
+        position: absolute;
+        width: 18vw;
+        height: 14vh;
+        cursor: pointer;
+        top: 51vh;
+        right: 4vw;
+    }
+
+    .mbtxt li:first-child {
+        padding: 5px;
+        margin-top: 5px;
+        color: aqua;
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .mbtxt li:nth-child(2){
+        display: none;
+    }
+    .mbtxt li:nth-child(3){
+        display: none;
+    }
+
+    .mbtxt {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-family: 'Cute Font', cursive;
+        font-size: 12px;
+        line-height: 25px;
+        color: #fff;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.744);
+        opacity: 0;
+        top: 0;
+        white-space: normal;
+        transition: .6s;
+    }
+
+    .sns li {
+        width: 34px;
+        height: 34px;
+        float: left;
+        margin: 14px 2px;
+        background: url(../images/sprites_logo.png) no-repeat;
+    }
+
+    #info {
+        position: relative;
+        min-height: 83px;
+        /* min-height: unset; */
+        overflow: hidden;
+        background: url(../images/footer.jpg) no-repeat top center/cover;
+    }
+
+    .sns {
+        position: absolute;
+        top: 12px;
+        right: 10px;
+    }
+
+    
+
+}/* 미디어쿼리 500px이하 */

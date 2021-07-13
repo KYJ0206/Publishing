@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>웹디기능사 유형A1</title>
+        <style>
+            html, body{
+                margin: 0;
+                padding: 0;
+            }
+            /* 공통박스 */
+            .ibx{
+                width: 1200px;
+                margin: 0 auto;
+                outline: 2px dotted red;
+
+                /* 컨텐츠표시 */
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+            }
+         
+         
+            /* 1. 상단 로고 영역 */
+            .top{
+                height: 100px;
+                line-height: 100px;
+                background-color: lightsteelblue;
+            }
+            .top1{/* 로고박스 */
+                width: 20%;
+            }
+            .top2{/* 메뉴박스 */
+                width: 80%;
+
+         
+         
+            /* 2. 배너영역( 이미지슬라이드 ) */
+            }
+            .ban{
+                height: 300px;
+                line-height: 300px;
+                background-color:lightsalmon;
+            }
+
+         
+            /* 3. 컨텐츠박스 3등분 */
+            .cont{
+                height: 200px;
+                line-height: 200px;
+                background-color:lightskyblue;
+            }
+            .cont>.pbx{
+                width: 33.33%;
+            }
+
+           
+            /* 4. 하단영역(로고,카피,SNS) */
+            .info{
+                height: 100px;
+                line-height: 100px;
+                background-color:lightgoldenrodyellow;
+            }
+            .info1{
+                width: 20%;
+            }
+            .info2{
+                width: 60%;
+            }
+            .info3{
+                width: 20%;
+            }
+
+
+
+
+
+            .ibx::after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .pbx{
+                float: left;
+                height: 100%;
+                /* 부모박스의 높이값만큼 늘어남 */
+                outline: 2px dotted blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ibx top">
+            <div class="pbx top1">로고</div>
+            <div class="pbx top2">메뉴</div>
+        </div>
+        <div class="ibx ban">이미지슬라이드</div>
+        <div class="ibx cont">
+            <div class="pbx cont1">공지사항/갤러리</div>
+            <div class="pbx cont2">배너</div>
+            <div class="pbx cont3">바로가기</div>
+        </div>
+        <div class="ibx info">
+            <div class="pbx info1">로고</div>
+            <div class="pbx info2">Copyrighte</div>
+            <div class="pbx info3">SNS</div>
+        </div>
+
+
+
+        <!-- 
+            [ 웹디기능사 유형1 키포인트 ]
+            1. 공통 컨텐츠 박스를 위한 클래스를 지정함
+                - 공통 중앙박스는 .ibx - width, margin: 0 auto 
+                - 공통 파이션박스는 .pbx - float:left, height: 100%
+            2. 박스는 모두 div로 설정
+            3. 개별박스는 별도의 class명으로 지정후 별도의 높이값 설정
+            - top, ban, cont, info
+         -->
+
+
+
+
+    </body>
+</html>

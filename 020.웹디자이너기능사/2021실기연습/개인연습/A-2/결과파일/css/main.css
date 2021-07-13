@@ -1,0 +1,264 @@
+@charset "utf-8";
+
+/* 웹디기능사 개인연습 A-2 - main.css */
+/* 공통 css */
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+/* body *{
+    outline: 2px dotted blue;
+} */
+
+ol,ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li{
+    float: left;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+.ibx{
+    width: 1200px;
+    margin: 0 auto;
+}
+.pbx{
+    box-sizing: border-box;
+    padding: 10px;
+    float: left;
+    height: 100%;
+}
+
+/* 개별 css */
+/* A */
+.top{
+    position: relative;
+    height: 100px;
+    z-index: 99999;
+}
+.top1{
+    width: 200px;
+}
+.top2{
+    width: 1000px;
+}
+.prt{
+    position: relative;
+}
+/* 로고 */
+.logo{
+    margin-left: -10px;
+    margin-top: 15px;
+}
+
+
+/* GNB */
+/* 메인메뉴 */
+.gnb{
+    position: absolute;
+    width: 800px;
+    height: 50px;
+    bottom: 0;
+    right: 50px;
+    background: rgb(46, 161, 255);
+}
+.gnb::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 1200px;
+    left: -350px;
+    top: 66px;
+    height: 0;/* 261 */
+    background: rgba(140, 199, 247, 0.801);
+}
+.gnb li{
+    width: 200px;
+    position: relative;
+}
+.tit{
+    font-size: 20px;
+}
+.gnb li a{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+    text-shadow: 0 0 3px #000;
+}
+/* 서브메뉴 */
+.gnb ol{
+    display: none; 
+}
+
+.gnb:hover ol{
+    display: block;
+}
+
+.gnb:hover::before{
+    top: 49px;
+    height: 203px;
+}
+
+.gnb li:hover>a{
+    color: #fff;
+}
+.gnb ol li:hover a{
+    background-color:blue;
+}
+
+/* B */
+.ban{
+    height: 300px;
+    overflow: hidden;
+}
+.slide{
+    position: relative;
+    top: 0;
+}
+
+/* C */
+.cont{
+    height: 200px;
+    background-color:rgba(140, 199, 247);
+}
+.cont>.pbx{
+    width: 400px;
+}
+
+/* 탭메뉴 */
+.tm{
+    width: 200px;
+    height: 40px;
+    background: rgb(46, 161, 255);
+}
+.tm li{
+    width: 100px;
+}
+.tm li.on{
+    background-color: #fff;
+}
+.tm li a{
+    width: 100%;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 탭내용 */
+.tc{
+    height: 140px;
+    background: #fff;
+}
+.tc>li{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.tc>li.on{
+    display: block;
+}
+/* 공지사항 */
+.gong{
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.gong li{
+    float: none;
+    line-height: 24px;
+}
+.gong a{
+    width: 270px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+span{
+    float: right;
+    padding-right: 5px;
+}
+
+/* 갤러리 */
+.gal li{
+    margin: 20px 12px;
+}
+.gal img{
+    width: 100px;
+    border: 1px solid #333;
+}
+
+/* 팝업창 */
+.pop{
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    background-color: #fff;
+    width: 400px;
+    border: 2px solid #333;
+    display: none;
+}
+
+h2{
+    text-align: center;
+}
+
+.bbx{
+    text-align: right;
+    padding: 10px;
+}
+.pop p{
+    padding: 0 10px;
+}
+
+
+
+/* 배너/바로가기 */
+.im{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* D */
+.info{
+    height: 100px;
+    background-color: #ccc;
+}
+.info1,.info3{
+    width: 200px;
+}
+.info2{
+    width: 800px;    
+}
+
+/* 카피라잇 */
+.info2 a{
+    display: block;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+    margin-top: 28px;
+}
+
+/* sns */
+.sns{
+    width: 100%;
+    height: 100%;
+}
+.sns li{
+    margin: 20px 10px;
+}
+.sns img{
+    width: 40px;
+}

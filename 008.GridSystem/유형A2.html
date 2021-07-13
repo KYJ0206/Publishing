@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>웹디기능사 유형A2</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 공통클래스 */
+        .ibx{
+            width: 1200px;
+            margin: 0 auto;
+            outline: 3px dotted red;
+        }
+
+        .pbx{
+            float: left;
+            height: 100%;
+            outline: 2px dotted blue;
+        }
+
+
+        /* 영역별 설정 */
+        /* A */
+        .top{
+            height: 100px;
+        }
+
+        .top1{
+            width: 200px;
+        }
+        .top2{
+            width: 1000px;
+        }
+
+
+        /* B */
+        .ban{
+            height: 300px;
+        }
+
+        /* C */
+        .cont{
+            height: 200px;
+        }
+
+        .cont .pbx{
+            width: 400px;
+        }
+
+
+        /* D */
+        .info{
+            height: 100px;
+        }
+
+        .info1{
+            width: 200px;
+        }
+        .info2{
+            width: 800px;
+        }
+        .info3{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- A -->
+    <div class="ibx top">
+        <div class="pbx top1"></div>
+        <div class="pbx top2"></div>
+    </div>
+
+    <!-- B -->
+    <div class="ibx ban"></div>
+
+    <!-- C -->
+    <div class="ibx cont">
+        <div class="pbx cont1"></div>
+        <div class="pbx cont2"></div>
+        <div class="pbx cont3"></div>
+    </div>
+
+    <!-- D -->
+    <div class="ibx info">
+        <div class="pbx info1"></div>
+        <div class="pbx info2"></div>
+        <div class="pbx info3"></div>
+    </div>
+</body>
+</html>

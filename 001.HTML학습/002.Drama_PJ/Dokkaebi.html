@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- lang속성은 페이지의 주요언어를 표시(접근성) -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>쓸쓸하고 찬란하신(神) 도깨비</title>
+    <style>
+        /* 공통class */
+
+        /* 스크롤바 트랙 디자인변경 class */
+        .scbar::-webkit-scrollbar {
+            width: 5px;
+            /* 스크롤바 가로크기 */
+        }
+        .scbar::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 5px;
+            /* 스크롤바 배경색, 모서리 둥글게 */
+        }
+        .scbar::-webkit-scrollbar-track {
+            background: #ddd;
+            border-radius: 5px;
+            /* 스크롤바 트랙 배경색, 모서리 둥글게 */
+        }
+
+
+        /* 콤마는 그룹선택자 */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 모든 박스의 기본높이값은 auto임
+        내용만큼 늘어남, 이것을 100%로 주면 보이는 화면
+        크기를 기준하여 꽉채운다는 뜻 */
+        }
+
+        /* 
+        html, body에 기본 마진, 패딩을 제거함
+     */
+        body {
+            /* 배경: 색이반고윙/크 */
+            background: url(imgs/bg_mainvisual.jpg) no-repeat fixed center/cover;
+
+            /* 배경 개별설정일 경우! */
+            /* background-color: transparent;
+        background-image: url(imgs/bg_mainvisual.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover; */
+        }
+
+        /* 상단영역박스 */
+        #wrap {
+            height: 100%;
+            /* html,body에 설정된 보이는 화면높이를
+            꽉채운다 */
+        }
+
+
+        /* 1.타이틀 */
+
+        /* h1요소인데 아이디가 mlogo */
+        h1#mlogo {
+            width: 150px;
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+
+        /* 아이디가 mlogo 아래 자손 중 img요소 */
+        #mlogo img {
+            width: 100%;
+        }
+
+        /* 2. 캐릭터 전체박스 */
+        #cont {
+            width: 90%;
+            /* height: 100px; */
+            margin: 0 auto;
+            /* 
+            마영오!
+            블록박스일때 마진으로 양쪽 auto설정시
+            가로방향 중앙정렬을 할 수 있다!
+            (width의 크기가 있어야함!)
+         */
+
+            /* float설정의 자식요소 높이값 인식하기
+            위해 overflow:hidden을 설정하였으나 캐릭터박스가 위로 올라갈때 가려지는 문제로 이 방법을 쓰지 않기로한다!*/
+            /* overflow: hidden; */
+
+            /* overflow는 박스가 넘치는 컨텐츠를 어떻게
+         보이게 할지에 대한 속성임! 
+            - 옵션: hidden(숨김)
+                    scroll(스크롤바)
+                    visible(보임)
+         */
+
+
+            /* outline: 5px dotted red; */
+            /* 아웃라인(외곽선): 두께 종류 색상
+        박스크기나 주변에 영향을 주지 않는다! */
+        }
+
+        /* float해제 가상요소 
+        - 부모의 자식요소 높이값 인식가능 */
+        #cont::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* 캐릭터박스 공통 */
+        #cont>div.cat {
+            width: 24%;
+            /* 전체% 맞추기: 24%+양쪽마진1%=25% */
+            margin: 0 .5%;
+            /* 
+                마진 : 위아래 0, 양쪽 0.5% 
+                -> 즉, 양쪽 마진이 부모박스의 1%가됨
+                -> 0.5%인데 표시할때 0을 생략할때가 많다
+            */
+            /* height: 250px; */
+
+            /* 블록요소를 옆으로 흐르게 */
+            float: left;
+
+            /* 트랜지션 설정: 속시이지 */
+            transition: margin-top .6s ease-in-out;
+
+            /* outline: 2px dashed blue; */
+        }
+
+        /* 2-1-1.캐릭터이미지 */
+        div.cat>div:first-child>img {
+            width: 100%;
+        }
+
+        /* 직계자식(>)으로 이미지요소를 선택해야
+        그 하위의 자손이미지는 선택되지 않는다! */
+        /* 
+            자식요소 선택하는 가상클래스
+            - 가상클래스라는 이름은 마치 클래스를
+            준것 같이 선택한다고 해서 붙여진 이름
+
+            1. 첫번째 자식
+            요소:first-child
+            2. 마지막 자식
+            요소:last-child
+            3. n번째 자식(순번은 1부터)
+            요소:nth-child(순번)
+
+            - 단, 부모 아래 자식요소가 같은종류여야
+            이렇게 선택할 수 있다!
+
+         */
+        /* 2-1-2.캐릭터이름 */
+        div.cat>div:first-child>span {
+            display: block;
+            /* span은 원래 inline이므로 width가
+             적용되지 않으므로 block으로 변경함 */
+            width: 100%;
+            text-align: center;
+            /* text-align 속성은 텍스트뿐 아니라 
+             인라인요소들을 블록박스에서 정렬을 변경함 */
+            margin-top: -20%;
+            /* 
+                마진탑을 퍼센트(%) 단위로 쓸때
+                기준이 뭘까?
+                마진탑은 세로방향이므로 원래 박스의
+                높이값이 100%로 볼때 기준이다!
+                -> 그리고 마이너스값은 윗방향임
+             */
+
+        }
+
+        /* 캐릭터이름 이미지 공통 */
+        div.cat>div:first-child>span>img {
+            width: 35%;
+            /* 
+                이미지의 가로와 세로 중 한쪽만
+                값을 설정하면 나머지 방향을
+                이미지 고유의 비율에 따라 자동
+                조정된다!
+             */
+        }
+
+        /* 캐릭터이름 첫번째 이미지 숨기기 */
+        div.cat>div:first-child>span>img:first-child {
+            display: none;
+            /* 요소의 화면출력을 없애줌 */
+        }
+
+        /* 캐릭터 박스에 마우스 오버시 
+         첫번째 이름 이미지 보이고
+         두번째 이름 이미지 숨기기 */
+        div.cat:hover>div:first-child>span>img:first-child {
+            display: inline;
+            /* 이미지는 원래 inline이므로 다시돌아감 */
+        }
+
+        div.cat:hover>div:first-child>span>img:last-child {
+            display: none;
+        }
+
+        /* 
+            마우스 오버 가상클래스
+            :hover
+            - 기존 상태와 마우스가 올라간 상태를 구분
+            하여 디자인요소를 변경해주는 가상클래스
+            - 표현시 요소명 반드시 붙여서 사용함!
+            요소명:hover
+          */
+
+        /* 2-2.캐릭터 설명박스 */
+        div.cat>div:last-child {
+            height: 0px;
+            /* 처음에 높이값 0으로 숨겼다가
+            캐릭터박스에 마우스 오버시 높이값 250px */
+            overflow-y: scroll;
+            /* 넘치는 자식요소 y축으로 스크롤표시 */
+
+
+            /* 배경: 색이반고윙/크 */
+            background: url(imgs/eachBG.jpg) no-repeat center/100% 100%;
+            /* 배경이미지를 가로,세로로 꽉채운다 */
+
+            border-radius: 20px 0 0 20px;
+            /* 왼쪽 위아래만 20px둥글게 */
+            /* 
+                둥근모서리 방향별 셋팅
+                border-radius: 
+                왼위 오른위 오른아래 왼아래;
+                (시계방향으로 셋팅할 수 있다!)
+             */
+
+             margin-top: 5%;
+             /* 상단바깥여백주기 
+             %단위의 기준은 소속된 박스의 높이값*/
+
+            /* 글자디자인 */
+
+            /* 글자설정 한번에 하기 */
+            /* font: 스타일 두께 크기/줄간격 글자체;
+            font: 스두크/줄체; */
+            /* font: italic bold 24px/30px "궁서"; */
+            font: 14px/25px "맑은 고딕", "굴림";
+
+            /* 1. 스타일 */
+            /* font-style: italic; */
+            /* italic/normal/oblique */
+
+            /* 2. 두께 */
+            /* font-weight: bold; */
+            /* 두꺼운체 */
+            /* bold/bolder/lighter/200~900 */
+            /* 글자체가 지원해야 여러옵션이 사용됨 */
+
+            /* 3. 크기 */
+            /* font-size: 11px; */
+            /* 
+                단위: px,pt,em,% 등
+                글자크기의 최소크기는 9px
+                아무설정없으면 16px임
+             */
+
+            /* 4. 줄간격 */
+            /* line-height: 18px; */
+            /* 
+                줄간격은 줄의 높이를 말하며
+                높이값의 세로 중앙에 글자라인이 위치함
+                단위: px 또는 배수(단위가 없음)
+                - 배수는 글자크기의 배수
+              */
+
+            /* 5. 글자체 */
+            /* font-family: "맑은 고딕","굴림",Arial, Helvetica, sans-serif; */
+            /* 
+                글자체 설정시 여러개를 설정하는 이유:
+                브라우저에서 글자체가 지원되지 않을때
+                2순위, 3순위 순으로 글자체를 설정함
+               */
+            /*                
+                    font-variant: small-caps;
+                    참고로 영문일 경우
+                    소문자를 대문자로 바꿔서 작은글씨로
+                    출력하는 속성이다.
+                */
+
+            text-align: justify;
+            /* 양쪽정렬 */
+
+            /* 트랜지션 설정:속시이지 */
+            transition: height .6s ease-in-out;
+
+        }
+
+        /* 캐릭터 박스에 오버시 설명박스 보이기 */
+        /* 가상클래스 :hover사용 */
+        div.cat:hover>div:last-child {
+            height: 250px;
+        }
+
+        /* 캐릭터 박스에 마우스 오버시 자기자신의 
+        마진탑을 마이너스로 윗방향 이동하기 */
+        /* 우선순위 올리기: 이미 위에서 #cont아래로
+        선택하였기에 부모요소를 써서 우선순위를 높인다 */
+        #cont>div.cat:hover {
+            margin-top: -50px;
+        }
+
+        /* 2-2-1.캐릭터 타이틀 */
+        div.cat>div:last-child>h3,
+        div.cat>div:last-child>p {
+            padding: 5px 15px;
+            /* 안쪽여백 : 위아래 양쪽 */
+        }
+
+        /* 3. 하단정보 */
+        #info {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+        }
+
+        /* 3-1.하단링크 */
+        #info h4 {
+            text-align: center;
+        }
+
+        #info h4 a {
+            font-size: 14px;
+            color: #222;
+            text-decoration: none;
+            /* a요소는 기본 글자색과 밑줄이 셋팅되어
+            있으므로 반드시 변경시 a요소를 변경해야함*/
+            margin: 0 5px;
+            /* 마진: 위아래0, 양쪽5px
+            인라인 요소는 양쪽마진이 적용된다! 
+            위아래 마진은 적용되지 않는다!*/
+        }
+
+        /* a요소에 마우스 오버시 */
+        #info h4 a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+
+        /* 주소박스 */
+        #info address{
+            width: 1000px;
+            max-width: 90%;
+            /* 최대 가로크기 속성에 %를 주면
+            설정된 가로크기 보다 작아질 경우 %전환하여
+            화면에 맞추게 된다 (가로스크롤 안생김)*/
+            border: 2px double #000;
+            margin: 0 auto;
+            /* 블록요소 가로중앙정렬 - 마영오! */
+            padding: 15px;
+            font-style: normal;
+            /* address요소의 기본 이탤릭없앰 */
+            font-size: 12px;
+            /* 글자크기 */
+            letter-spacing: -1px;
+            /* 글자간격(자간-기본값0) */
+            word-spacing: 2px;
+            /* 단어간격(기본값0) */
+            line-height: 18px;
+            /* 줄간격(행간) - px/em/%단위,숫자만씀(배수)*/
+            text-align: center;
+            /* 글자정렬(중앙) */
+        }
+
+        /* 하단로고 */
+        #blogo{
+            width: 74px;
+            height: 36px;
+            margin: 0 auto;/* 마영오! */
+            margin-top: 10px;
+            /* outline: 1px solid red; */
+        }
+        /* 하단링크 글자 숨기기 */
+        #blogo span{
+            display: none;
+        }
+        /* 하단 a요소 */
+        #blogo a{
+            display: block;
+            /* a요소는 inline이여서 가로,세로
+            크기변경이 되지 않으므로 block으로 변경함 */
+            width: 100%;
+            height: 100%;
+            /* background: red; */
+            /* 배경:색이반고윙/크 */
+            /* background: url(imgs/blogo.png) no-repeat 0 0/74px; */
+
+            background-image: url(imgs/blogo.png);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 74px;
+        }
+
+
+
+
+        /* 
+        [ CSS 변화상태를 애니메이션 하기 ]
+
+        CSS 트랜지션(transition)
+        - css 설정을 변경할 경우 중간 변화과정을 
+        애니메이션으로 처리하는 CSS 표현기법
+
+        - 사용법:
+        transition : 속 시 이 지;
+                    (속성값 시간 이징 지연시간)
+
+        1. 속성값 (transition-property)
+        - 변화과정을 보여줄 속성값을 지정
+        예) height, width, margin 등
+        - 모든 여러가지 변화를 다 보여주고 싶을땐 all
+        - 만약 아무것도 안쓰면 all이다!
+
+        2. 시간 (transition-duration)
+        - 변화시간 (단위: 초단위로 끝에 s표기)
+        예) 3s, 7s, 0.5s, .4s 등
+        - 소수점 앞이 0일경우 생략가능
+
+        3. 이징(easing) (transition-timing-function)
+        - 애니메이션 가속도
+        1) ease-in : 처음에 느리게
+        2) ease-out : 끝날때 느리게
+        3) ease-in-out : 처음과 끝에 느리게
+        4) linear : 같은 속도로(등속도)
+
+        4. 지연시간 (transition-delay)
+        - 시간표기법과 같고 처음에 등장전
+        지연되는 시간을 셋팅함
+        예) 3s, .6s 등
+
+        [ 통합표기법 예시 ]
+        transition: all .5s ease-in-out 1s;
+        - 모든 변화과정을 0.5초동안 처음과 나중에
+        천천히 동작하며 1초후에 시작하라
+
+        transition: height .4s ease-out;
+        - 높이값 변화과정을 0.4초 동안 마지막에 천천히
+        동작하게 하라
+
+        [ 트랜지션이 안되는 속성 ]
+        1. display: none -> display 보이게
+        (서서히 보이기/숨기기는 opacity투명도로 됨)
+        2. z-index (보이는 순서 위,아래)
+        3. 어떤요소의 속성값에 auto로 표기하면 적용안됨
+        (값이 구체적이어야 함!)
+
+        [ 트랜지션은 어디에 코딩하나? ]
+        - 적용할 대상 원본에 쓰면 예컨데 hover설정시
+        양방향으로 동일하게 적용됨
+
+
+    */
+    </style>
+</head>
+
+<body class="scbar">
+    <!-- 상단영역박스 -->
+    <div id="wrap">
+        <!-- 1.타이틀 -->
+        <h1 id="mlogo">
+            <img src="imgs/bg_logo_a_01.png" alt="쓸쓸하고 찬란하신(神) 도깨비">
+        </h1>
+        <!-- 2.컨텐츠 영역 -->
+        <div id="cont">
+            <!-- 김신 -->
+            <div class="cat">
+                <!-- 2-1.캐릭터 이미지박스 -->
+                <div>
+                    <!-- 2-1-1.캐릭터이미지 -->
+                    <img src="imgs/dc1.png" alt="김신">
+                    <!-- 2-1-2.캐릭터이름 -->
+                    <span>
+                        <img src="imgs/d01.png" alt="김신이름진한거">
+                        <img src="imgs/d011.png" alt="김신이름흐린거">
+                    </span>
+                </div>
+                <!-- 2-2.캐릭터 설명박스 -->
+                <div class="scbar">
+                    <!-- 2-2-1.캐릭터 타이틀 -->
+                    <h3>도깨비(김신), 939세</h3>
+                    <!-- 2-2-2.캐릭터 설명 -->
+                    <p>백성들은 그를 신(神)이라고 불렀다. 시뻘건 피를 뒤집어쓴 채 푸르게 안광을 빛내며 적들을 베는 그는 문자 그대로의 무신(武神)이었으나, 자신이 지키던 주군의 칼날에 죽었다.
+                        영웅으로 살다 역적으로 죽어가던 김신에게 천상의 존재는 상인지 벌인지 모를 늙지도 죽지도 않는 생을 주었고, 그로부터 935년 동안 도깨비로 살았다. 심장에 검을 꽂은
+                        채로.
+                    </p>
+                    <p>“오직 도깨비 신부만이 그 검을 뽑을 것이다.” 지독히 낭만적인 저주였다. 그래서 쉬울 줄 알았지만 그가 만난 어떤 여자도 검을 발견하지 못한 채 불멸을 살던 어느 날.
+                        자신을
+                        도깨비 신부라고 소개하는 열아홉 살 소녀 은탁과 맞닥뜨린다. 그에게 도깨비 신부는 고통에서 벗어나 소멸할 수 있는 도구였다. 달리 말하면 은탁은 자신을 죽일 수 있는
+                        유일무이한
+                        무기였다.</p>
+                    <p>죽고 싶게 괴로운 날은 은탁의 환심을 샀다가 아직 죽긴 일러 싶은 날은 멀리 했다가 하루에도 열 두 번씩 마음이 오락가락 했다. 은탁의 웃음에 그는 몇 번이나 어딘가를
+                        돌아보고 싶은
+                        마음에 사로잡혔다. 돌아서 한 번 더 보려는 것이 불멸의 삶인가, 너의 얼굴인가. 아, 너의 얼굴인 것 같다</p>
+                </div>
+            </div>
+            <!-- 지은탁 -->
+            <div class="cat">
+                <!-- 2-1.캐릭터 이미지박스 -->
+                <div>
+                    <!-- 2-1-1.캐릭터이미지 -->
+                    <img src="imgs/dc2.png" alt="지은탁">
+                    <!-- 2-1-2.캐릭터이름 -->
+                    <span>
+                        <img src="imgs/d02.png" alt="지은탁이름진한거">
+                        <img src="imgs/d022.png" alt="지은탁이름흐린거">
+                    </span>
+                </div>
+                <!-- 2-2.캐릭터 설명박스 -->
+                <div class="scbar">
+                    <!-- 2-2-1.캐릭터 타이틀 -->
+                    <h3>지은탁, 19세</h3>
+                    <!-- 2-2-2.캐릭터 설명 -->
+                    <p>대한민국의 평범한 고3 수험생, 이고 싶지만 그녀의 인생은 태어날 때부터 평범하지 않았다. 어려서부터 다른 사람들 눈엔 보이지 않는 죽은 혼들이 보였고, 때문에 친구들
+                        사이에선 늘
+                        외톨이였다. 엄마 없는 하늘 아래 못된 이모와 이모를 꼭 닮은 이모 자식들의 모진 구박을 견디며 지낸 지 꼬박 십년. 온갖 불행 소스를 다 때려 넣은 잡탕 같은 이 인생이
+                        어이가
+                        없는 와중에, 도깨비를 만났다. 그리고 은탁은 도깨비 신부가 될 운명이란다. </p>
+                    <p>미스터리 호러 가난물이었던 인생에 갑자기 판타지라는 이상한 장르가 끼었다. 촛불을 끄면 항상 도깨비가 나타났다. 호기심에 불러냈던 게 습관이 되고, 안 보면 보고 싶고,
+                        도깨비를
+                        기다리는 일은 아직 오지 않은 좋은 미래를 기다리는 것처럼 설렜다. 감정 기복이 심해서 성가실 때도 있지만, 가슴에 검이 꽂힌 채로 살면 그렇게 되겠거니 싶어 봐주기로
+                        한다. 근데
+                        그 검을 나보고 뽑아달란다. 그 말이 꼭 끝내자는 말처럼 아프다.</p>
+                </div>
+            </div>
+            <!-- 저승사자 -->
+            <div class="cat">
+                <!-- 2-1.캐릭터 이미지박스 -->
+                <div>
+                    <!-- 2-1-1.캐릭터이미지 -->
+                    <img src="imgs/dc3.png" alt="저승사자">
+                    <!-- 2-1-2.캐릭터이름 -->
+                    <span>
+                        <img src="imgs/d03.png" alt="저승사자이름진한거">
+                        <img src="imgs/d033.png" alt="저승사자이름흐린거">
+                    </span>
+                </div>
+                <!-- 2-2.캐릭터 설명박스 -->
+                <div class="scbar">
+                    <!-- 2-2-1.캐릭터 타이틀 -->
+                    <h3>저승사자, 30대 후반 추정</h3>
+                    <!-- 2-2-2.캐릭터 설명 -->
+                    <p>죽는다는 건, 그와 선약이 생기는 거다. 누구나 그를 보면 놀란다. 처음엔 잘생겨서, 그 다음엔 내가 죽었구나 싶어서. 생의 마지막 순간에 마중 나오면서까지 저렇게 섹시할
+                        필요가
+                        있을까 싶다. 도깨비인 김신과 함께 살면서 하루에 열두 번씩 바뀌는 신의 변덕에 인내심이 한계를 느낄 때마다, 전생에 뭔 큰 죄를 짓긴 지었구나 싶지만 전생에 무엇이었는지,
+                        인간이긴 했는지, 어떻게 저승사자가 됐는지 전혀 모른다. </p>
+                    <p>죽음에서 눈을 떠보니 이미 저승사자였다. 저승사자가 되고 나선 날을 세는 것을 잊어버렸다. 그가 세어나가는 것은 무수한 망자들의 혼뿐. </p>
+                    <p>그러던 어느 날, 우연히 마주친 한 여자, 써니에 현기증을 느꼈다. 처음 보는 게 분명한데 오래 그리워한 기분이었다. 써니의 예측 불가한 행동들은 상상력을 발휘해야 했고,
+                        그의 서툰
+                        행동들은 하나같이 오답이었다. 이게 다 연애를 드라마로만 배운 탓이다. 그는 헷갈렸다. 이것은 신의 계획일까, 실수일까.</p>
+                </div>
+            </div>
+            <!-- 써니 -->
+            <div class="cat">
+                <!-- 2-1.캐릭터 이미지박스 -->
+                <div>
+                    <!-- 2-1-1.캐릭터이미지 -->
+                    <img src="imgs/dc4.png" alt="써니">
+                    <!-- 2-1-2.캐릭터이름 -->
+                    <span>
+                        <img src="imgs/d04.png" alt="써니이름진한거">
+                        <img src="imgs/d044.png" alt="써니이름흐린거">
+                    </span>
+                </div>
+                <!-- 2-2.캐릭터 설명박스 -->
+                <div class="scbar">
+                    <!-- 2-2-1.캐릭터 타이틀 -->
+                    <h3>써니, 20대 중후반</h3>
+                    <!-- 2-2-2.캐릭터 설명 -->
+                    <p>혈혈단신 천애고아. 철없이 사는 여자가 세상 살기 가장 편하다는 걸 일찍부터 깨달았다. 남자의 외모는 내면으로 들어가는 창이고, 김중배의 다이아몬드는 잡는 게 당연한 거고,
+                        진정한
+                        사랑은 통장 잔고에서 느껴진다. 누군가의 첫사랑이 되는 게 세상에서 제일 쉬웠던 써니의 나이 곧 서른이었다. </p>
+                    <p>그 남자, 저승사자를 처음 만난 건 갖고 싶은 반지를 발견했을 때였다. 그는 그녀에게 양보하지 않은 최초의 남자였다. 첫눈에 반했다고 넘겨짚기엔 너무, 슬픈 눈이었다. 시계며
+                        차림새만 대충 훑어도 연봉 1억에 딱 봐도 연애 못해본 모태솔로인 줄만 알았는데, 만날수록 이상한 남자다. 두문불출하기 일쑤고 직업, 나이, 과거사 그 무엇도 알려주지
+                        않는다.
+                        처음엔 그저 잘생긴 호구로 생각했는데, 그 슬펐던 눈이 자꾸 눈에 밟힌다. 동정은 특기가 아닌데도.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 3. 하단 영역 -->
+    <div id="info">
+        <!-- 3-1.하단링크 -->
+        <h4>
+            <a href="#">법적고지</a>
+            <a href="#">영상정보처리기기운영/관리방침</a>
+            <a href="#">이메일무단수집거부</a>
+            <a href="#">사이버감사실</a>
+            <a href="#">찾아오시는길</a>
+            <a href="#">개인정보처리방침</a>
+        </h4>
+        <!-- 3-2.회사주소 -->
+        <address>
+            (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br>
+            주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br>
+
+            © CJ ENM. All Rights Reserved.
+        </address>
+        <!-- 3-3.회사로고 -->
+        <div id="blogo">
+            <a href="https://www.cjem.net:433/main/" target="_blank">
+                <span>CJ ENM</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

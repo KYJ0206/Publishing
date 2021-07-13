@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* 1차 Portfolio - main.css */
+
+html,body,h1,h2,h3{
+    margin: 0;
+    padding: 0;
+}
+
+body *{
+    outline: 2px dotted red;
+}
+
+ul,ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li{
+    float: left;
+}
+
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+img{
+    border: none;
+}
+
+.ibx{
+    width: 100%;
+}
+
+.pbx{
+    position: relative;
+    height: 100%;
+}
+
+/* 1. 상단영역 */
+.top.ibx{
+    height: 206px;
+}
+
+.cont.ibx{
+    height: 400px;
+}
+
+/* 3. 하단영역 */
+.info.ibx{
+    height: 285px;
+}

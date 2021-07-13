@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>유형5 : 세로네비 서브별 드롭다운 사이드형</title>
+        <style>
+            /* ul,ol 초기화셋팅 */
+            ul,ol{
+                /* 3無 */
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            /* 가상요소로 float해제하기 */
+            ol::after,ul::after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            li{
+                float: left;
+            }
+            /* GNB메뉴 */
+            .gnb{
+                width: 200px;
+                /* 서로네비변경 1 - 가로크기 제한 */
+                background-color: #3974e5;
+            }
+            .gnb>ul{
+                /* width: 800px; */
+                /* 세로네비변경 2 - 가로크기 auto */
+                margin: 0 auto;
+                /* 블록가로중앙정렬 - 마영오! */
+                outline: 2px solid lime;
+            }
+        .gnb>ul>li{
+            position: relative;
+            /* 세로네비변경 4 - .smenu의 부모자격 */
+            width: 200px;
+            text-align: center;
+        }
+        /* a요소 - 글자색, 밑줄처리 */
+        /* 유의사항: li와 a요소 사이의 띄어쓰기는
+        아래의 모든 자손 a를 선택한 것임! */
+        .gnb>ul>li a{
+            display: block;
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            text-decoration: none;
+            font: bold 14px/50px "맑은 고딕",Verdana;
+            /* font: 스 두 크/줄 체 */
+            /* 트랜지션: 속시이지 */
+            transition: all .4s;
+        }
+        /* 마우스오버시 글자색, 배경색변경 */
+        .gnb>ul>li:hover>a{
+            color: #001795;
+            background-color: #bdd1ff;
+        }
+        /* 서브메뉴 */
+        .smenu{
+            position: absolute;
+            /* 세로네비변경 3 - 포지션 앱솔루트로 위치는 싸고있는 li를 기준으로 옆으로 나오게 */
+            left: 100%;
+            top: 0;
+
+            /* 젠틀앱솔루트! - 위치값을 안썼을때
+            스테틱한 a요소를 존중하여 아래쪽에
+            나오며 li박스를 존중하여 그 안에 위치함 */
+            width: 200px;
+            background-color: #219be6;
+            /* 서브메뉴를 숨기기위해 높이값0, 
+            넘치는 자식요소 숨기기 */
+            height: 0;
+            overflow: hidden;
+            /* 트랜지션: 속시이지 */
+            transition: height .4s ease-out;
+        }
+        /* 서브메뉴에 마우스 오버시 글자색, 배경색변경 */
+        .smenu li:hover a{
+            color: #001aac;
+            background-color: #97e7ff;
+        }
+        /* 상위메뉴 li에 오버시 서브메뉴 높이값 변경 */
+        /* 2번째메뉴 - 메뉴가 4개 */
+        .gnb>ul>li:nth-child(2):hover .smenu{
+            height: 200px;
+        }
+        /* 3번째메뉴 - 메뉴가 2개 */
+        .gnb>ul>li:nth-child(3):hover .smenu{
+            height: 100px;
+        }
+
+
+        </style>
+    </head>
+    <body>
+        <h1>유형5 : 세로네비 서브별 드롭다운 사이드형</h1>
+        <!-- 
+            [ 네비게이션 구현의 일반원칙 ]
+            1.네비게이션은 nav태그에 넣는 것을 추천!
+            nav 요소는 네비게이션을 넣는 시멘틱 태그다
+
+            2.네비게이션은 사이트의 흐름을 한번에
+            제공하는 역할을 하므로 하나로 묶어서 
+            보여줘하므로 ul>li / ol/li 와 같은
+            그룹요소를 사용하여 표현한다
+
+            3. 메뉴는 웹접근성원칙에 따라 스크린리더기
+            가 읽을 수 있도록 a요소로 구성해야만 한다!
+            또한 메뉴는 tab버튼을 눌러서 선택이동
+            할 수 있어야 하므로 a요소는 필수다!
+
+            참고)
+            메인메뉴가 gnb 라고 이름지어지는 이유는?
+            gnb는 Global Navigation Bar의 약자임
+            전역 네비게이션바 라는 의미로써
+            사이트 어느 페이지에서도 항상 보이기 때문
+            
+            -> lnb 라는 이름도 많이 쓰임
+            lnb는 Local Navigation Bar 의 약자임
+            지역 네비게이션바 라는 의미로써
+            서브페이지에서만 나오는 메뉴에 사용한다
+         -->
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">웹개발</a>
+                    <!-- 서브메뉴 -->
+                    <ol class="smenu">
+                        <li>
+                            <a href="#">웹디자인</a>
+                        </li>
+                        <li>
+                            <a href="#">HTML5+CSS3</a>
+                        </li>
+                        <li>
+                            <a href="#">jQuery</a>
+                        </li>
+                        <li>
+                            <a href="#">웹+모바일</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#">게시판</a>
+                    <!-- 서브메뉴 -->
+                    <ol class="smenu">
+                        <li>
+                            <a href="#">Q&amp;A</a>
+                        </li>
+                        <li>
+                            <a href="#">방명록</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#">프로필</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
