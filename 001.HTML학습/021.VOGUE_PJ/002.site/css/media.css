@@ -5,16 +5,18 @@
 @media only screen and (max-width:1024px) {
 
     /* 컨텐츠 박스 타이틀 h2요소 */
-    .pbx h2{
+    .pbx h2 {
         font-size: 24px;
     }
 
-} /* 미디어쿼리 1024px이하 */
+}
+
+/* 미디어쿼리 1024px이하 */
 
 /* 모바일 미디어쿼리 : 500px이하 */
 @media only screen and (max-width:500px) {
 
-    body{
+    body {
         padding-top: 63px;
         /* 상단영역고정시 첫번째 컨텐츠가 가려지므로
         그만큼의 공간을 아래로 밀어준다! */
@@ -28,11 +30,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
-        /* 보이는 화면크기만큼 설정! */
-        overflow: scroll;
-        /* 높이값 보다 넘치는 내용은 스크롤생김 */
-        background-color: #fff;
+        /* height 와 overflow속성은 JS에서 처리 */
         z-index: 999;
     }
 
@@ -41,21 +39,30 @@
         min-height: auto;
         height: 55px;
     }
+
     /* 상단메뉴, GNB메뉴 없애기 */
-    .tmenu, .gnb{
+    .tmenu,
+    .gnb {
         display: none;
     }
+
     /* 로고박스 */
-    .logo{
+    .logo {
         padding: 10px;
     }
+
     /* 로고이미지 */
-    .logo img{
+    .logo img {
         width: 130px;
     }
 
+    /* 모바일 전용버튼 보이기 */
+    .mobtn {
+        display: block;
+    }
+
     /* 컨텐츠 박스 타이틀 h2요소 */
-    .pbx h2{
+    .pbx h2 {
         font-size: 20px;
     }
 
@@ -63,47 +70,66 @@
     .st1.rbx::before {
         padding-top: 150.7%;
     }
+
     /* 컨텐츠 박스 유형3 비율변경 */
     .st3.rbx::before {
         padding-top: 75%;
     }
+
     /* 유형1 박스 이미지변경하기 */
     .bgi1 {
         background-image: url(../images/cont1b.jpg);
     }
+
     .bgi3 {
         background-image: url(../images/cont3b.jpg);
     }
+
     .bgi5 {
         background-image: url(../images/cont5b.jpg);
     }
+
     /* 유형3의 3번째 박스 숨기기 */
     .st3 .pbx:last-child {
         display: none;
     }
 
     /* 컨텐츠 박스 보더 트랜지션 없애기 */
-    .pbx::after{
+    .pbx::after {
         transition: none;
     }
 
     /* 컨텐츠 박스 오버시 보더 두께 변경 */
-    .st1 .pbx:hover::after {/* 하나짜리 */
+    .st1 .pbx:hover::after {
+        /* 하나짜리 */
         border: 15px solid #f00;
     }
-    .st3 .pbx:hover::after {/* 두개짜리 */
+
+    .st3 .pbx:hover::after {
+        /* 두개짜리 */
         border: 10px solid #f00;
     }
 
     /* 하단박스 */
-    .info.ibx{
+    .info.ibx {
         padding: 40px;
         min-height: auto;
     }
 
     /* 하단 로고 이미지 */
-    .blogo img{
+    .blogo img {
         width: 200px;
     }
 
-} /* 미디어쿼리 500px이하 */
+    /* 위로가기버튼 */
+    .tbtn {
+        bottom: 100px;
+        right: 15px;
+        border-radius: 4px;
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
+
+/* 미디어쿼리 500px이하 */

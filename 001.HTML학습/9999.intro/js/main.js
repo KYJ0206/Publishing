@@ -12,7 +12,7 @@ $(function () { /// jQB ////////////////////////
 
         // 0. 클릭된 li순번 구해오기
         let idx = $(this).index();
-        // console.log("순번:" + idx);
+        console.log("순번:" + idx);
 
         // 1. 하위a요소의 href값 읽어오기
         let idnm = $("a", this).attr("href");
@@ -32,7 +32,7 @@ $(function () { /// jQB ////////////////////////
         // -> 범용브라우저에서 사용하는 스크롤대상
         $("html,body").animate({
             scrollTop: pos + "px"
-        }, 1200, "easeOutQuint", pageAction);
+        }, 600, "easeOutQuint");
         // 애니메이션 이동후 pageAction함수 호출하기!!!
 
         // 4. 클릭된 a요소의 부모 li에 class="on" 넣기
@@ -46,6 +46,9 @@ $(function () { /// jQB ////////////////////////
         // 전역변수 페이지번호(pno)와 gnb메뉴 li순번과 같다!
         pno = idx;
         // console.log("페이지번호:" + pno);
+
+        pageAction();
+
 
     }); ///////////// click ///////////////
 

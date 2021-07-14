@@ -10,7 +10,7 @@
 @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
 
 /* pistilli체 */
-@import url('http://fonts.cdnfonts.com/css/pistilli');
+@import url('https://fonts.cdnfonts.com/css/pistilli');
 
 /* 
     font-family: 'Roboto', sans-serif;
@@ -134,6 +134,7 @@ img{
     /* 부모자격 - .hbtn, .sbtn (모바일용버튼 2개) */
     min-height: 206px;
     /* 최소높이 206px, 만약 내용이 많아지면 늘어남! */
+    background-color: #fff;
 }
 /* 1-1.상단메뉴 */
 .tmenu{
@@ -328,12 +329,16 @@ img{
     top: 50%;
     transform: translateY(-50%);
     /* 세로중앙이동 */
+    display: none;
+    /* 처음에 안보임 */
 }
+
 /* 모바일용 햄버거 버튼 */
 .hbtn{
     left: 10px;
     font-size: 15px;
 }
+
 /* 모바일용 검색버튼 */
 .sbtn{
     right: 10px;
@@ -341,11 +346,63 @@ img{
     font-weight: bold;
 }
 
+/* 1.4. 모바일 검색박스 */
+.mos{
+    padding: 15px 30px;
+    background-color: #fff;
+    display: none;
+}
+
+/* 검색속박스 */
+.mwrap{
+    position: relative;
+    /* 부모자격 */
+    width: 100%;
+    height: 35px;
+    background-color: #000;
+}
+
+/* 입력양식 */
+#search input{
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+
+/* input 박스는 일반 div박스와 다르기 때문에 겉박스를 만들고 채우기 형식으로 디자인함 */
+
+/* 검색버튼 */
+.scbtn{
+    position: absolute;
+    top: -4px;
+    right: -3px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 검색입력창 - 부모박스의 크기에 따라 유동적인 박스 */
+#search{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 50px;
+    bottom: 9px;
+}
+
 /* 1.5. 모바일 전체메뉴박스 (#top의 하위자식으로 편성) */
 #mobx{
     padding-left: 15px;
     padding-top: 6px;
+    padding-bottom: 30px;
     background-color: #fff;
+    display: none;/* 처음에 안보임 */
 }
 /* 1.5-1.모바일 GNb */
 .mognb{
@@ -398,14 +455,76 @@ img{
     background: url(../images/sns_kakao.png) no-repeat center/auto 50%;
 }
 
-/* 1.5-3.잡지표지 */
-.mcover{
-    display: block;
-    margin: 10px 30px 0 15px;
+/* 1.5-3.매거진박스 */
+.magbox{    
+    margin: 0;
+    padding: 10px 30px 0 15px;
+    font-family: 'NanumBarunGothic', sans-serif;
 }
+/* 잡지커버이미지 */
 .mcover img{
     width: 100%;
 }
+/* 잡지설명 */
+.magbox figcaption{
+    font-size: 13px;
+    line-height: 2;
+    color: #222;
+}
+/* 정기구독버튼 */
+.magbtn{
+    font-size: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    padding: 5px 0;
+}
+/* 모바일 하단링크 */
+.moblink{
+    display: flex;
+    margin-left: 15px;
+    line-height: 3.5;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+.moblink li+li{/* 2번째 li부터 */
+    padding-left: 7px;
+}
+.moblink a{
+    color: #222;
+}
+
+
+/********************* 1. 상단영역 콤팩트 디자인 (스크롤 내려갈때) *********************/
+#top.on .top.ibx{
+    min-height: auto;
+    z-index: 9;
+}
+
+#top.on .logo{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+#top.on .logo img{
+    width: 100px;
+    padding-left: 10px;
+}
+#top.on .gnb{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    padding-left: 100px;
+    box-sizing: border-box;
+}
+#top.on .gnb a{
+    font-size: 14px;
+    color: #333;
+}
+
 
 
 /* 2. 메인영역 */
@@ -526,4 +645,24 @@ img{
     color: #747474;
     font-size: 13px;
     margin: 0 5px;
+}
+
+
+/* 위로가기버튼 */
+.tbtn{
+    position: fixed;
+    bottom: 0;
+    right: 75px;
+    width: 48px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 4px 4px 0 0;
+    /* 둥근모서리 : 왼위 오른위 오른아래 왼아래(시계방향) */
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    opacity: 0.9;
+    z-index: 999;
+    display: none;/* 처음에 안보임 */
 }

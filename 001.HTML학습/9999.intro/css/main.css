@@ -128,8 +128,8 @@
         }
 
         #logo img {
-            width: 12vw;
-            margin-top: -1.4vh;
+            width: auto;
+            height: 100%;
         }
 
         /* 1-2. GNB 메뉴 */
@@ -142,6 +142,10 @@
 
         .gnb li {
             margin: 0 7px;
+        }
+
+        .gnb a{
+            font-size: 1vw;
         }
 
         /* 메뉴에 마우스 오버시 + li에 on클래스 있는 경우 */
@@ -222,8 +226,33 @@
             display: none;
         }
 
-        /* 영화소개 박스 */
-        .minfo {
+        /* 페이지영역 정보 박스 */
+        
+        .minfo1 {
+            position: relative;
+            top: 54%;
+            left: 62%;
+            transform: translate(-50%, -50%);
+            width: 55vw;
+            height: 80vh;
+            box-shadow: 0 0 20px #fff;
+            border-radius: 20px;
+            background: rgb(153, 175, 211);
+        }
+        
+        .minfo2 {
+            position: relative;
+            top: 54%;
+            left: 62%;
+            transform: translate(-50%, -50%);
+            width: 55vw;
+            height: 80vh;
+            box-shadow: 0 0 20px #fff;
+            border-radius: 20px;
+            background: rgb(153, 175, 211);
+        }
+
+        .minfo3 {
             position: relative;
             top: 54%;
             left: 50%;
@@ -234,7 +263,7 @@
             border-radius: 20px;
         }
 
-        .minfo1 {
+        .minfo4 {
             position: relative;
             top: 54%;
             left: 62%;

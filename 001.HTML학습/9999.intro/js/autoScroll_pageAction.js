@@ -25,22 +25,23 @@ $(function () { /// jQB ////////////////////////
         // 호출확인
         // console.log("초기화!");
 
-        // 1. 아수라 : 오른쪽 바깥으로 나가있음!
+        // 1. HOME : 오른쪽 바깥으로 나가있음!
         $("#pg1 .minfo").css({
             left: "150%"
         }); ///////// css ///////////
 
-        // 2. 고산자 : 처음에 안보임!(fadeIn사용예정!)
-        $("#pg2 .minfo").hide(); // display:none
-
-        // 3. 인천상륙작전 : 위로 올라가 있음
-        $("#pg3 .minfo").css({
-            top: "-50%"
+        // 2. About : 처음에 안보임!(fadeIn사용예정!)
+        $("#pg2 .minfo").css({
+            left: "150%"
         }); ///////// css ///////////
 
-        // 4. 봉이 김선달 : 스케일이 0으로 안보임
+        // 3. Work : 위로 올라가 있음
+         $("#pg3 .minfo").css({
+            left: "150%"
+        }); ///////// css ///////////
+
         $("#pg4 .minfo").css({
-            transform: "translate(-50%,-50%) scale(0)"
+            left: "150%"
         }); ///////// css ///////////
         // 주의사항: transform은 animate에 사용할 수 없다!
         // 이 경우에는 css로 transition을 사용하여 애니메이션함
@@ -72,18 +73,21 @@ $(function () { /// jQB ////////////////////////
 
         // 1. Home
         if (pno === 0) {
-            // 오른쪽에서 중앙으로 날아오기(거미출에 걸리는 효과)
-            $("#pg1 .minfo").delay(1000)
+            // 오른쪽에서 중앙으로 날아오기(거미줄에 걸리는 효과)
+            $("#pg1 .minfo")
                 .animate({
                     left: "62%"
-                }, 1000, "easeInSine"); //// animate ///
-
+                }, 600, "easeInSine"); //// animate ///
         } /////// if ////////////
+
 
         // 2. About
         else if (pno === 1) {
             // fadeIn으로 나타나기
-            $("#pg2 .minfo").fadeIn(1000);
+            $("#pg2 .minfo")
+                .animate({
+                    left: "62%"
+                }, 600, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 
         // 3. Work
@@ -91,18 +95,17 @@ $(function () { /// jQB ////////////////////////
             // 위에서 아래로 내려오기
             $("#pg3 .minfo")
                 .animate({
-                    top: "54%"
-                }, 1000, "easeOutBounce"); //// animate ///
+                    left: "50%"
+                }, 600, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 
         // 4. Contact
         else if (pno === 3) {
             // 가운데서 스케일이 커짐(원래상태로!)
-            $("#pg4 .minfo").css({
-                transform: "translate(-50%,-50%) scale(1)",
-                transition: "all 2s ease-out"
-            }); ///////// css ///////////
-
+            $("#pg4 .minfo")
+                .animate({
+                    left: "62%"
+                }, 600, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 
 
@@ -153,7 +156,7 @@ $(function () { /// jQB ////////////////////////
             psts = 1; //불허용상태변경!
             setTimeout(() => {
                 psts = 0;
-            }, 1200);
+            }, 1000);
             // 1.2초애니시간후 허용상태변경 //
 
 
