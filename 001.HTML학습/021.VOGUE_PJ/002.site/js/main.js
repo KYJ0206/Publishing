@@ -3,12 +3,12 @@
 // 모바일여부를 체크하는 변수에 코드발급하기!!!
 // mob값이 0이면 DT, 1이면 모바일
 let mob = 0;
-let chksz = ()=>{
+let chksz = () => {
     if ($(window).width() <= 500) mob = 1;
     else mob = 0;
-    console.log("모바일여부:"+mob);
+    console.log("모바일여부:" + mob);
 }; //// chksz함수 /////////////
-chksz();//함수실행 
+chksz(); //함수실행 
 
 // 화면의 크기가 변경될때 / 모바일 오리엔테이션변경(방향변경)시
 // resize() 메서드 - 화면크기가 변할때 사용
@@ -151,11 +151,12 @@ $(function () { //////// jQB //////////////////
     }); ////////// click /////////////
 
 
-    // 모바일일때 화면 전환 (가로/세로)시 
-    // 상단영역 #top에 .on넣고 빼기
-    $(window).resize(function(){
-            tbx.removeClass("on");
-    }); // resize //
+    //// 모바일일때 화면전환(가로/세로)시 
+    //// 상단영역 #top에 .on 빼기
+    // $(window).resize(function(){
+    //     tbx.removeClass("on");
+    // });//////////// resize ///////////
+
 
 
 

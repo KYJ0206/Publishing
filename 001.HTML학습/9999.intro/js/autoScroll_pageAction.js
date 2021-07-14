@@ -4,7 +4,7 @@
 // 현재 페이지 번호
 let pno = 0;
 // 전체 페이지 개수(상수로 변경불가!)
-const totnum = 7;
+const totnum = 4;
 // 광스크롤막기(0-허용,1-불허용)
 let psts = 0;
 
@@ -36,7 +36,7 @@ $(function () { /// jQB ////////////////////////
         }); ///////// css ///////////
 
         // 3. Work : 위로 올라가 있음
-         $("#pg3 .minfo").css({
+        $("#pg3 .minfo").css({
             left: "150%"
         }); ///////// css ///////////
 
@@ -67,7 +67,7 @@ $(function () { /// jQB ////////////////////////
 
         // 만약 매번 페이지마다 액션을 다시 작동시키려면
         // 초기화함수를 처음에 호출해 준다!
-        init();// 초기화호출!
+        init(); // 초기화호출!
 
         // 각 페이지 번호에 맞게 액션을 수행한다!
 
@@ -77,7 +77,7 @@ $(function () { /// jQB ////////////////////////
             $("#pg1 .minfo")
                 .animate({
                     left: "62%"
-                }, 600, "easeInSine"); //// animate ///
+                }, 800, "easeInSine"); //// animate ///
         } /////// if ////////////
 
 
@@ -87,7 +87,7 @@ $(function () { /// jQB ////////////////////////
             $("#pg2 .minfo")
                 .animate({
                     left: "62%"
-                }, 600, "easeInSine"); //// animate ///;
+                }, 800, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 
         // 3. Work
@@ -96,7 +96,7 @@ $(function () { /// jQB ////////////////////////
             $("#pg3 .minfo")
                 .animate({
                     left: "50%"
-                }, 600, "easeInSine"); //// animate ///;
+                }, 800, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 
         // 4. Contact
@@ -105,7 +105,7 @@ $(function () { /// jQB ////////////////////////
             $("#pg4 .minfo")
                 .animate({
                     left: "62%"
-                }, 600, "easeInSine"); //// animate ///;
+                }, 800, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 
 
@@ -156,7 +156,7 @@ $(function () { /// jQB ////////////////////////
             psts = 1; //불허용상태변경!
             setTimeout(() => {
                 psts = 0;
-            }, 1000);
+            }, 800);
             // 1.2초애니시간후 허용상태변경 //
 
 
@@ -264,8 +264,10 @@ $(function () { /// jQB ////////////////////////
 
             $("html,body").stop().animate({
                 scrollTop: pos + "px"
-            }, 1200, "easeOutQuint", pageAction);
+            }, 800, "easeOutQuint");
             // 애니메이션 이동후 pageAction함수 호출하기!!!
+
+            pageAction();
 
             ///////////////////////////////////////////////
             // 5. 페이지번호(pno)에 맞는 GNB 메뉴 변경하기 //

@@ -497,3 +497,47 @@ ol>li:first-child {
 }
 
 /**************************** sec4 ****************************/
+
+
+/* 스크롤 박스 */
+
+/* 스크롤 마우스 */
+.scrollin{
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    left: 50%;
+    top: 10px;
+    width: 14px;
+    height: 20px;
+    margin-left: -7px;
+    border: #23419a solid 2px;
+    border-radius: 7px;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    z-index: 999999999;
+}
+
+.scrollin::before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    width: 2px;
+    height: 4px;
+    margin-left: -1px;
+    border-radius: 2px;
+    background-color: #23419a;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    animation: k_scroll .5s linear infinite forwards alternate;
+}
+
+@keyframes k_scroll {
+    to{
+        top:5px;
+    }
+}
