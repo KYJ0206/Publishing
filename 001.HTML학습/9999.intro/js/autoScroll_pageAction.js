@@ -4,7 +4,7 @@
 // 현재 페이지 번호
 let pno = 0;
 // 전체 페이지 개수(상수로 변경불가!)
-const totnum = 4;
+const totnum = 3;
 // 광스크롤막기(0-허용,1-불허용)
 let psts = 0;
 
