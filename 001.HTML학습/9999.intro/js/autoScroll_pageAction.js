@@ -25,17 +25,12 @@ $(function () { /// jQB ////////////////////////
         // 호출확인
         // console.log("초기화!");
 
-        // 1. HOME : 오른쪽 바깥으로 나가있음!
-        $("#pg1 .minfo").css({
-            left: "150%"
-        }); ///////// css ///////////
+        $("#pg1 .maintit").hide(); // hide //
 
-        // 2. About : 처음에 안보임!(fadeIn사용예정!)
         $("#pg2 .minfo").css({
             left: "150%"
         }); ///////// css ///////////
 
-        // 3. Work : 위로 올라가 있음
         $("#pg3 .minfo").css({
             left: "150%"
         }); ///////// css ///////////
@@ -74,10 +69,7 @@ $(function () { /// jQB ////////////////////////
         // 1. Home
         if (pno === 0) {
             // 오른쪽에서 중앙으로 날아오기(거미줄에 걸리는 효과)
-            $("#pg1 .minfo")
-                .animate({
-                    left: "62%"
-                }, 800, "easeInSine"); //// animate ///
+            $("#pg1 .maintit").fadeIn(2000); //// animate ///
         } /////// if ////////////
 
 
