@@ -1,4 +1,5 @@
-// 보그 코리아 메인 페이지 JS - main.js
+// 탑스크롤 변환 JS - topscroll.js
+
 
 // 모바일여부를 체크하는 변수에 코드발급하기!!!
 // mob값이 0이면 DT, 1이면 모바일
@@ -83,7 +84,7 @@ $(function () { //////// jQB //////////////////
 
         // 1. 스크롤바 위치값-> 제일중요!!!
         let scTop = $(this).scrollTop();
-        // console.log("스위:"+scTop);
+        console.log("스위:"+scTop);
 
         // 2. 각 스크롤 액션 처리하기 //////////
 

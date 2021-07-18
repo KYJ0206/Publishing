@@ -25,7 +25,7 @@ $(function () { /// jQB ////////////////////////
         // 호출확인
         // console.log("초기화!");
 
-        $("#pg1 .maintit").hide(); // hide //
+        $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox").hide(); // hide //
 
         $("#pg2 .minfo").css({
             left: "150%"
@@ -68,8 +68,8 @@ $(function () { /// jQB ////////////////////////
 
         // 1. Home
         if (pno === 0) {
-            // 오른쪽에서 중앙으로 날아오기(거미줄에 걸리는 효과)
-            $("#pg1 .maintit").fadeIn(2000); //// animate ///
+            // fadeIn으로 나타나기
+            $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox").fadeIn(3000); //// animate ///
         } /////// if ////////////
 
 
@@ -148,7 +148,7 @@ $(function () { /// jQB ////////////////////////
             psts = 1; //불허용상태변경!
             setTimeout(() => {
                 psts = 0;
-            }, 800);
+            }, 1000);
             // 1.2초애니시간후 허용상태변경 //
 
 
@@ -256,7 +256,7 @@ $(function () { /// jQB ////////////////////////
 
             $("html,body").stop().animate({
                 scrollTop: pos + "px"
-            }, 800, "easeOutQuint");
+            }, 1000, "easeOutQuint");
             // 애니메이션 이동후 pageAction함수 호출하기!!!
 
             pageAction();

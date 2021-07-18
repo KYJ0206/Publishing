@@ -1,16 +1,13 @@
 @charset "utf-8";
 /* 인트로 페이지 - main.css */
 
-/* 웹폰트 : Hi Melody체 */
-@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
-/* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Gugi&display=swap');
+/* 웹폰트 : Noto Sans KR , Work Sans체 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Work+Sans&display=swap');
 
 /* 
  웹폰트 설정
- font-family: 'Gaegu', cursive;
- font-family: 'Gugi', cursive;
- font-family: 'Hi Melody', cursive;
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Work Sans', sans-serif;
  */
 
 html,
@@ -21,15 +18,19 @@ body {
     height: 100%;
     /* 보이는 화면기준 채우기 */
     /* body하위 요소의 높이값 %의 기준이됨! */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* 스크롤바 없애기(스크롤안됨!) */
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
 }
 
 /* 공통셋팅 */
 a {
     text-decoration: none;
-    color: #555;
-    text-shadow: 0 0 2px #555;
+    color: #333;
+    font-weight: bold;
 }
 
 ul {
@@ -61,6 +62,7 @@ h3 {
     margin: 0;
     padding: 0;
     font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 공통 class */
@@ -110,7 +112,8 @@ h3 {
     width: 100%;
     z-index: 9999;
     background-color: rgb(255 254 254);
-    box-shadow: 0 1px 5px #ccc;
+    box-shadow: 0 1px 0 #aaa;
+
 }
 
 /* 상단영역 속박스 */
@@ -135,46 +138,86 @@ h3 {
 /* 1-2. GNB 메뉴 */
 .gnb {
     position: absolute;
-    /* 부모는? .top */
-    top: 40px;
+    top: 30px;
     right: 2%;
 }
 
+
 .gnb li {
-    margin: 0 7px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 3.5vh;
 }
 
 .gnb a {
+    position: relative;
     font-size: 1vw;
+    height: 4vh;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
 }
 
-/* 메뉴에 마우스 오버시 + li에 on클래스 있는 경우 */
+.gnb li a:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -7px;
+    left: 0;
+    background-color: steelblue;
+    visibility: hidden;
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out;
+}
+
+
 .gnb a:hover,
 .gnb li.on a {
-    display: inline-block;
-    transform: scale(1.1);
-    color: steelblue;
-    text-shadow: 1px 1px 1px steelblue;
-    text-decoration: underline;
+    color:  steelblue;
+    text-shadow: 1px 0 0 steelblue, 0 1px 0 steelblue,
+                -1px 0 0 steelblue, 0 -1px 0 steelblue;
 }
+
+.gnb a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+
 
 /* 2. 페이지영역 */
 /* 개별 페이지 셋팅 */
+/* 페이지 1 */
 #pg1 {
     background: rgb(238, 238, 238);
+    background-attachment: fixed;
+}
+#pg1 h1{
+    font-family: 'Work Sans', sans-serif;
+}
+#pg1 h2{
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-
+/* 페이지 2 */
 #pg2 {
-    background: rgb(159, 200, 209);
+    background: #fff;
+    background-attachment: fixed;
 }
 
+/* 페이지 3 */
 #pg3 {
-    background: rgb(159, 200, 209);
+    background: url(../images/newstart.jpg) no-repeat bottom/cover;
+    background-attachment: fixed;
 }
 
+/* 페이지 4 */
 #pg4 {
     background: rgb(159, 200, 209);
+    background-attachment: fixed;
 }
 
 
@@ -184,35 +227,45 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
     /* 세로중앙이동 */
-    left: 5%;
+    left: 4%;
     width: 20px;
     /* outline: 3px dotted blue; */
 }
+.indic ul{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
 
 .indic li {
-    width: 100%;
+    width: 10px;
     height: 10px;
-    margin: 3px 0;
+    margin: 5px 0;
     cursor: pointer;
-    /* 손가락모양 */
+    display: block;
+    background: #fff;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: 0;
 }
 
 /* a요소 */
 .indic a {
-    display: block;
+    display: none;
     width: 100%;
     height: 2px;
     margin-top: 4px;
-    background-color: #ccc;
-    box-shadow: 1px 1px 1px #777;
+    background-color: #fff;
     transition: width .4s;
 }
 
 /* 마우스 오버시 + 클래스 "on" */
 .indic li:hover a,
-.indic li.on a {
-    width: 150%;
-    background-color: #fff;
+.indic li.on  {
+    width: 33px;
+    background: #314172;
 }
 
 /* 설명글자숨기기 */
@@ -280,6 +333,7 @@ h3 {
 /* 아수라 한자처리 */
 .minfo>h1>span {
     font-size: 28px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 영화정보 */
@@ -308,237 +362,207 @@ h3 {
     margin: 0;
     padding: 0;
     font-size: 50px;
-    top: 25%;
+    top: 17%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    text-shadow: 0 2px #000, 2px 0 #000, 0 -2px #000, -2px 0 #000;
+    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.side1{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
+    text-align: center;
+    z-index: 1;
+}
+
+.side2{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
+    text-align: center;
+    z-index: 1;
+}
+
+.side3{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    top: 62.8%;
+    left: 68%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
+    text-align: center;
+    z-index: 1;
+}
+
+.side4{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
+    text-align: center;
+    z-index: 1;
     white-space: nowrap;
 }
 
-/* 플럭스 적용 메뉴 */
-
-.pack1 {
+.titbox{
+    width: 100%;
+    height: 121%;
     position: absolute;
-    background: rgb(255 255 255 / 80%);
-    width: 80vw;
-    height: 30vh;
-    top: 60vh;
-    left: 10vw;
+    background: #0006;
+    top: 39.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
 }
 
-/* ul 파티션 부모박스 */
-.pack1>ul {
-    display: flex;
-    /* 
-        [ flex 란? ]
-        - 가변적인 자식요소를 컨트롤 하기 위해 CSS3에서 
-        새롭게 선보인 display 기술
-        - 자식요소를 같은 비율 혹은 다른비율로 분할이 쉽다
-        - 자식요소의 순서를 일괄 변경할 수 있다
-        - 무엇보다도 블록요소를 옆으로 흐르게 하는데 탁월하다!
-        [ 셋팅법 ]
-        - 옆으로 흐르게 할 부모요소에 display:flex로 설정함
-        - 자식요소의 flex:1 설정하면 등분할 된다!
-     */
-    flex-direction: row;
-    /* 
-        flex-direction 속성은 진행방향과 순서를 설정함
-        1) row : 좌 -> 우(기본값)
-        2) row-reverse : 우 -> 좌
-        3) column : 위 -> 아래
-        4) column-reverse : 아래 -> 위
-     */
+/******************** 슬라이드 ********************/
 
+.slidebox1 {
+    min-height: 30vh;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    /* outline: 2px solid red; */
+    bottom: 0;
+    background-color: #ffffff9c;
+    box-shadow: 0 -1px 0 #aaa;
+}
 
+.slide1 {
+    position: absolute;
     width: 100%;
     height: 100%;
 }
 
-/* 파티션 li공통 */
-.pack1>ul>li {
-    position: relative;
-    /* 부모자격 */
-    flex: 1;
-    transition: all .4s ease-in-out;
-}
-
-/* 파티션 li에 마우스 오버시 가로커짐 */
-.pack1>ul>li:hover {
-    flex: 1.4;
-    /* 오버된 li만 1.4배 커지고 나머지는 등분할 */
-}
-
-/* 파티션 li에 반투명 검은색 커버 만들기 */
-.pack1>ul>li::before {
-    content: '';
+.slide1 li{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #000;
-    opacity: 0.5;
-    transition: opacity .6s;
-}
-
-/* li에 마우스 오버시 */
-.pack1>ul>li:hover::before {
+    /* 서로겹침 */
     opacity: 0;
+    /* 모두투명하게 */
+    transition: .6s;
+    /* 트랜지션 */
 }
 
-/* 각 파티션 li */
-.pack1>ul>li:nth-child(1) {
-    background:
-        url(../images/m01.png) no-repeat center/cover;
+/* 슬라이드 중 현재 슬라이드 클래스 */
+.slide1 li.on{
+    opacity: 1;/* 보이게 */
+    z-index: 1;/* 맨위에 */
 }
 
-.pack1>ul>li:nth-child(2) {
-    background:
-        url(../images/m02.png) no-repeat center/cover;
-}
-
-.pack1>ul>li:nth-child(3) {
-    background:
-        url(../images/m03.png) no-repeat center/cover;
-}
-
-.pack1>ul>li:nth-child(4) {
-    background:
-        url(../images/m04.png) no-repeat center/cover;
-}
-
-
-/* 파트별 타이틀 + 로고 이미지 공통 */
-.pack1>ul>li>img {
+.imgbox1{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    /* 부모는? 싸고있는 li */
-    transform: translate(-50%, -50%);
-    /* 정중앙이동 */
-
-    width: 70%;
-    max-width: 250px;
-    /* 최대크기지정 */
-}
-
-/* 박스별 로고 이미지 공통 */
-.pack1>ul>li>img:last-child {
-    top: 80%;
-    width: auto;
-}
-
-/* 중앙타이틀 공통 */
-.tit {
-    /* 일반설정 */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    /* 가로중앙이동 */
-    width: 500px;
-    height: 100px;
-    /* border: 5px double #fff; */
-}
-
-/* 타이틀 하위 li */
-.tit>li {
-    width: 50px;
-    height: 50px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    /* 원 */
-    background-color: #f00;
-    font: bold 14px/50px Verdana;
-    color: #fff;
-    text-align: center;
-}
-
-/* 타이틀1 */
-.t1 {
-    top: 5%;
-
-    /* flex box 설정 */
-    display: flex;
-
-    /* flex 옵션 */
-    justify-content: space-evenly;
-    /* 
-        justify-content 속성
-        - 수평정렬속성 (justify 양쪽정렬의 뜻)
-        1) flex-start : 왼쪽끝(기본값-normal)
-        2) flex-end : 오른쪽 끝
-        3) center : 중앙
-        4) space-around : 아이템 요소 양쪽에 같은 간격
-                            (마진과 유사함)
-        5) space-between : 아이템 요소의 사이간격 일정
-                            (처음과 끝이 구석에 붙어나옴)
-        6) space-evenly : 아이템 요소의 양쪽과 사이간격 일정
-                            (ie미지원 - 엣지최신버전 지원)
-
-     */
-
-    align-items: center;
-    /* 
-        align-items 속성
-        - 수직정렬 속성(한줄로 셋팅된 경우!)
-        1) flex-start : 맨위(기본값-normal)
-        2) flex-end : 맨아래
-        3) center : 세로중앙
-        4) stretch : 세로방향 꽉채워서 늘림
-                    (단, height 크기가 auto여야함!!!)
-        5) baseline : 각 요소의 내부에 글자가 있다면
-                    글자 아래쪽 기준선으로 정렬됨
-                    (글자의 line-height를 변경해 보면됨)
-      */
-
-}
-
-/* 타이틀2 */
-.t2 {
-    top: 20%;
-
-    /* flex box 설정 */
-    display: flex;
-
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-/* 하단로고바 */
-.binfo {
-    position: fixed;
-    width: 100%;
-    height: 47px;
-    bottom: 0;
-    background-color: #da041c;
-    text-align: center;
+    width: 38vw;
+    height: 24vh;
+    top: 3vh;
+    left: 9vw;
+    background-color: #fff;
     box-sizing: border-box;
-    padding-top: 10px;
+    border-radius: 2%;
+}
+
+.slide1 li img:nth-child(1) {
+    position: absolute;
+    width: 20vw;
+    height: 20vh;
+    top: 20px;
+    left: 20px;
+    box-sizing: border-box;
+    border-radius: 2%;
+}
+
+.imgbox2{
+    position: absolute;
+    width: 38vw;
+    height: 24vh;
+    top: 3vh;
+    left: 53vw;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 2%;
+}
+
+.slide1 li img:nth-child(2){
+    position: absolute;
+    width: 20vw;
+    height: 20vh;
+    top: 20px;
+    left: 20px;
+    box-sizing: border-box;
+    border-radius: 2%;
+}
+
+.slide1 span {
+    display: block;
+    height: 100%;
+    text-align: left;
+    margin-left: 23vw;
+    margin-top: 3vh;
+    line-height: 6vh;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 
 /**************************** sec2 ****************************/
 
-/* 슬라이드 1 */
-.slide1 {
+.pack {
     position: absolute;
-    width: 700px;
-    height: 400px;
-    outline: 2px solid red;
-    top: 30%;
-    left: 10%;
+    padding: 110px 100px;
+    z-index: 1;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
 }
 
-/* 슬라이드 2 */
-.slide2 {
+.inbox{
+    left: 50%;
+    max-width: 70vw;
     position: absolute;
-    width: 400px;
-    height: 400px;
-    outline: 2px solid red;
-    top: 30%;
-    right: 10%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, 0%);
+    box-sizing: border-box;
+    outline: 2px solid;
 }
+
+/* 원박스 */
+.sec2box{
+    width: 20vw;
+    height: 20vh;
+    outline: 2px solid red;
+}
+
+
+
+
 
 /**************************** sec3 ****************************/
 
@@ -749,10 +773,11 @@ ol>li:first-child {
     height: 30px;
     top: 95%;
     left: 50%;
-    transform: translate(-43%, -50%);
-    border: 2px solid rgb(255 153 0);
+    transform: translate(-50%, -50%);
+    border: 2px solid #314172;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 999;
 }
 
 /* 스크롤 마우스 */
@@ -762,11 +787,11 @@ ol>li:first-child {
     vertical-align: middle;
     box-sizing: border-box;
     left: 50%;
-    top: 5px;
+    top: 3px;
     width: 14px;
     height: 20px;
     margin-left: -7px;
-    border: 2px solid rgb(255 153 0);
+    border: 2px solid #314172;
     border-radius: 7px;
     transition: 0.2s;
     -webkit-transition: 0.2s;
@@ -774,19 +799,14 @@ ol>li:first-child {
 
 .scrollin::before {
     content: "";
-    display: inline-block;
-    vertical-align: middle;
     position: absolute;
-    left: 35%;
-    top: 2px;
-    width: 4px;
-    height: 4px;
-    margin-left: -1px;
-    border-radius: 2px;
-    background-color: red;
-    transition: 0.2s;
-    -webkit-transition: 0.2s;
-    animation: k_scroll .5s linear infinite forwards alternate;
+    top: 0;
+    left: 15%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: orangered;
+    animation: k_scroll 0.5s linear infinite forwards alternate;
 }
 
 @keyframes k_scroll {
@@ -802,7 +822,53 @@ ol>li:first-child {
     font-family: MyriadPro-Semibold;
     font-size: 12px;
     font-weight: bold;
-    color: rgb(255 153 0);
+    color: #314172;
     text-align: center;
     text-shadow: none;
+}
+
+
+/* 위로가기버튼 */
+.tbtn{
+    position: fixed;
+    bottom: 27px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px 4px 0 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    opacity: 0.9;
+    z-index: 999;
+    display: none;
+    border-radius: 50%;
+}
+
+.tbtn P{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: bold;
+}
+
+.fi {
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    font-family: "fontisto";
+    font-size: 14px;
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fi-angle-up:before {
+    content: "\e96b";
 }
