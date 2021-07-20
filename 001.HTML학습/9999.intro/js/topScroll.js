@@ -84,7 +84,7 @@ $(function () { //////// jQB //////////////////
 
         // 1. 스크롤바 위치값-> 제일중요!!!
         let scTop = $(this).scrollTop();
-        console.log("스위:"+scTop);
+        // console.log("스위:"+scTop);
 
         // 2. 각 스크롤 액션 처리하기 //////////
 
@@ -92,7 +92,7 @@ $(function () { //////// jQB //////////////////
         if (scTop > 300 && tsts === 0) { // 기준값 아래일때
 
             tsts = 1; //상태값 변경(한번만 실행!)
-            console.log("나야나!");
+            // console.log("나야나!");
 
             // 탑버튼 보이기
             tbtn.fadeIn(300);
@@ -148,6 +148,13 @@ $(function () { //////// jQB //////////////////
         $("html,body").animate({
             scrollTop: "0"
         }, 1000, "easeOutCubic");
+
+        pno = 0;
+
+        $(".gnb li").eq(pno).addClass("on")
+            .siblings().removeClass("on");
+            $(".indic li").eq(pno).addClass("on")
+            .siblings().removeClass("on");
 
     }); ////////// click /////////////
 

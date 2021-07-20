@@ -13,7 +13,7 @@ var snum = 0;
 
 setInterval(function(){
     // 1. 호출 여부 확인
-    console.log("인터발");
+    // console.log("인터발");
 
     // 2. 대상선정 : .slide li
     var tg = document.querySelectorAll(".slide1 li,.slide2 li");

@@ -12,7 +12,7 @@ $(function () { /// jQB ////////////////////////
 
         // 0. 클릭된 li순번 구해오기
         let idx = $(this).index();
-        console.log("순번:" + idx);
+        // console.log("순번:" + idx);
 
         // 1. 하위a요소의 href값 읽어오기
         let idnm = $("a", this).attr("href");

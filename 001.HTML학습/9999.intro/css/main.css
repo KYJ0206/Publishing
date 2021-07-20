@@ -4,11 +4,28 @@
 /* 웹폰트 : Noto Sans KR , Work Sans체 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Work+Sans&display=swap');
 
+/* 웹폰트 */
+/* NanumGothic체 */
+@font-face {
+    font-family: NG;
+    src: url(../fonts/NanumGothic.woff) format("woff");
+}
+/* Ubuntu체 */
+@font-face {
+    font-family: UB;
+    src: url(../fonts/UbuntuCondensed-Regular.woff) format("woff");
+}
+
 /* 
  웹폰트 설정
 font-family: 'Noto Sans KR', sans-serif;
 font-family: 'Work Sans', sans-serif;
  */
+
+html{
+    font-size: 10px;
+    
+}
 
 html,
 body {
@@ -113,32 +130,27 @@ h3 {
     z-index: 9999;
     background-color: rgb(255 254 254);
     box-shadow: 0 1px 0 #aaa;
-
 }
 
 /* 상단영역 속박스 */
 .top {
     position: relative;
-    height: 9vh;
 }
 
 /* 1-1.로고 */
 #logo {
-    width: 250px;
-    height: 100%;
-    text-align: center;
-    overflow: hidden;
+    width: 10%;
 }
 
 #logo img {
-    width: auto;
-    height: 100%;
+    width: 100%;
 }
 
 /* 1-2. GNB 메뉴 */
 .gnb {
     position: absolute;
-    top: 30px;
+    top: 50%;
+    transform: translateY(-50%);
     right: 2%;
 }
 
@@ -147,16 +159,14 @@ h3 {
     display: inline-block;
     margin-right: 20px;
     margin-left: 20px;
-    height: 3.5vh;
 }
 
 .gnb a {
     position: relative;
-    font-size: 1vw;
-    height: 4vh;
+    font-size: 1.6rem;/* html글자크기 * 2 */
     color: #000;
-    font-family: 'Noto Sans KR', sans-serif;
     font-weight: normal;
+    font-family: UB;/* Ubuntu체 */
 }
 
 .gnb li a:before {
@@ -177,8 +187,7 @@ h3 {
 .gnb a:hover,
 .gnb li.on a {
     color:  steelblue;
-    text-shadow: 1px 0 0 steelblue, 0 1px 0 steelblue,
-                -1px 0 0 steelblue, 0 -1px 0 steelblue;
+    text-shadow: 0 0 2px steelblue;
 }
 
 .gnb a:hover:before {
@@ -545,7 +554,7 @@ h3 {
 .inbox{
     left: 50%;
     max-width: 70vw;
-    position: absolute;
+    position: relative;
     width: 100%;
     height: auto;
     transform: translate(-50%, 0%);
@@ -672,7 +681,7 @@ ol>li:first-child {
 
 /* 각 박스의 a링크 */
 .pjbx a {
-    font-family: 'Gaegu', cursive;
+    font-family: UB;
     font-size: 2vw;
     color: #000;
     text-decoration: none;
@@ -800,8 +809,9 @@ ol>li:first-child {
 .scrollin::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 15%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -811,7 +821,7 @@ ol>li:first-child {
 
 @keyframes k_scroll {
     to {
-        top: 10px;
+        top: 12px;
     }
 }
 
@@ -840,19 +850,22 @@ ol>li:first-child {
     border-radius: 4px 4px 0 0;
     background-color: #333;
     color: #fff;
-    font-size: 12px;
     opacity: 0.9;
     z-index: 999;
     display: none;
     border-radius: 50%;
+    box-shadow: 0 0 5px #ccc;
 }
 
 .tbtn P{
     position: absolute;
     top: 30%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%,-50%);
+    font-family: UB;
     font-weight: bold;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
 }
 
 .fi {
