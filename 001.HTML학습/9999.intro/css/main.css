@@ -332,20 +332,20 @@ h3 {
 }
 
 
-/* 영화제목 */
+/* 페이지 제목 */
 .minfo>h1 {
     font-size: 44px;
     padding: 5px;
     text-align: center;
 }
 
-/* 아수라 한자처리 */
+/* 한자처리 */
 .minfo>h1>span {
     font-size: 28px;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-/* 영화정보 */
+/* 페이지 정보 */
 .minfo>h3 {
     font-size: 28px;
     padding: 3px;

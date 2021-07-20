@@ -109,8 +109,13 @@ $(function () { /// jQB ////////////////////////
     // 이벤트 대상: .slide
     // 이벤트 종류: dragstop
     // 사용 메서드: on(이벤트명,함수)
+    // 광드래그 막기 : .cover 요소를 보였다가 이동 애니후 숨기기
+    let cover = $(".cover");
 
     $(".slide").on("dragstop",function(){
+
+        // 광드래그 막기
+        cover.show();
 
         // 화면의 width크기
         let winW = $(window).width();
@@ -124,18 +129,42 @@ $(function () { /// jQB ////////////////////////
         // 1. -110% 보다 작으면 슬라이드를 왼쪽으로 애니메이션 이동한다.
         if(sLeft < -winW * 1.1){
 
-            $(this).animate({
+            $(this).stop().animate({
                 left: -winW * 2 + "px"
-            }, 2000, "easeOutCirc");
+            }, 600, "easeOutQuart",
+            function(){ // 이동 후 실행
+                // 맨앞 슬라이드 맨뒤로 이동!
+                $(this).append($(this).find("li").first())
+                // css left값을 -100%값 즉 -winW로 복귀!
+                .css({
+                    left: -winW + "px"
+                }); //////// css ///////
+
+                // 커버숨기기
+                cover.hide();
+
+            }); //////// animate //////////
 
         } /////////// if //////////////////
 
         // 2.-90% 보다 크면 슬라이드를 오른쪽으로 애니메이션 이동한다.
         else if(sLeft > -winW * 0.9){
 
-            $(this).animate({
+            $(this).stop().animate({
                 left: "0px"
-            }, 2000, "easeOutCirc");
+            }, 600, "easeOutQuart",
+            function(){ /* 이동후 실행 */
+                // 맨뒤 슬라이드 맨앞으로 이동
+                $(this).prepend($("li",this).last())
+                // css left값은 원래값인 -100% 즉, -winW로 복귀!
+                .css({
+                    left: -winW + "px"
+                }); ///// css /////
+
+                // 커버숨기기
+                cover.hide();
+
+            }); ///// animate /////
 
         } /////////// else if //////////////////
 
@@ -143,9 +172,15 @@ $(function () { /// jQB ////////////////////////
         //      복귀 애니메이션 이동한다.
         else {
 
-            $(this).animate({
+            $(this).stop().animate({
                 left: -winW + "px"
-            }, 800, "easeOutCirc");
+            }, 300, "easeOutQuart",
+            function(){/* 애니후 실행 */
+
+                // 커버숨기기
+                cover.hide();
+
+            });
 
         } ///////////// else ////////////////
 

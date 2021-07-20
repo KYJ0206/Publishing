@@ -179,6 +179,18 @@
     background: url(../images/ban06New.jpg) no-repeat center/cover;
 }
 
+/* 슬라이드 커버 */
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    /* background-color: #f00; */
+    /* opacity: 0.5; */
+}
+
 /********** 2-2.남성의류영역 ***********/
 #men {
     background-color: darkorange;
