@@ -778,14 +778,14 @@ ol>li:first-child {
 /* 스크롤 박스 */
 .scroll {
     position: fixed;
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid #314172;
-    border-radius: 50%;
+    box-sizing: border-box;
     cursor: pointer;
+    padding: 5px;
     z-index: 999;
 }
 
@@ -796,47 +796,42 @@ ol>li:first-child {
     vertical-align: middle;
     box-sizing: border-box;
     left: 50%;
-    top: 3px;
-    width: 14px;
-    height: 20px;
-    margin-left: -7px;
-    border: 2px solid #314172;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 35px;
+    border: 2.5px solid #314172;
     border-radius: 7px;
-    transition: 0.2s;
-    -webkit-transition: 0.2s;
 }
 
 .scrollin::before {
     content: "";
     position: absolute;
-    top: 25%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
+    transform: translateX(-50%);
+    width: 6.5px;
+    height: 6.5px;
     border-radius: 50%;
-    background-color: orangered;
-    animation: k_scroll 0.5s linear infinite forwards alternate;
+    background-color: #f60;
+    animation: k_scroll 1.2s ease-out infinite;
 }
 
 @keyframes k_scroll {
     to {
-        top: 12px;
+        top: 60%;
+        opacity: 0;
     }
 }
 
 .scroll a {
-    margin-left: -15px;
     position: absolute;
-    top: 30px;
-    font-family: MyriadPro-Semibold;
-    font-size: 12px;
-    font-weight: bold;
+    top: 40px;
+    left: 50%;
     color: #314172;
-    text-align: center;
-    text-shadow: none;
+    font-family: UB;
+    font-size: 1.4rem;
+    transform: translateX(-50%);
 }
-
 
 /* 위로가기버튼 */
 .tbtn{

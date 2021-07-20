@@ -143,13 +143,14 @@ $(function () { //////// jQB //////////////////
         // 상단영역class미리제거
         // 이유: 스크롤 애니메이션을 자연스럽게 상단처리
         tbx.removeClass("on");
+        pno = 0;
 
         // 스크롤 애니메이션 //
         $("html,body").animate({
             scrollTop: "0"
         }, 1000, "easeOutCubic");
 
-        pno = 0;
+        pageAction();
 
         $(".gnb li").eq(pno).addClass("on")
             .siblings().removeClass("on");
