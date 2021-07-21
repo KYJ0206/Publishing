@@ -5,6 +5,52 @@
 <title>역동적 오버효과</title>
 <!-- jQuery library -->
 <script src="jquery-1.7.2.min.js"></script>
+
+<script>
+	$(function(){ ///////////// JQB /////////////
+
+		// #navigation 의 li 개수 만큼 돌면서 a 요소에
+		// 배경이미지 세팅 -> a 요소 data-img 속성값에 이미지명 있음
+		// 과연 for문을 써야 할까?
+		// -> each() 메서드 ->> 선택요소의 개수만큼 자동으로 돌아줌
+		// each(function(순번,요소){}) -> 요소는 this 키워드와 동일
+		$("#navigation li").each(function(idx,ele){
+
+			// 해당순번의 a요소 data-img값 읽어오기
+			let isrc = $(ele).find("a").attr("data-img");
+			console.log("돌자!!!"+isrc)
+
+			// console.log("돌아!!!"+idx);
+			// 해당순번의 a요소 배경이미지 넣기
+			// 전달변수 ele는 this키워드와 같다
+			$(ele).find("a").css({
+				background: "url("+isrc+") no-repeat"
+			}); ///// css /////
+
+		}); ///// each /////
+
+		// 마우스 오버시 메뉴 마진, 높이 애니메이션 하기 //
+		$("#navigation li a").hover(
+			function(){ // over
+
+				$(this).stop().animate({
+					marginLeft : "15px",
+					height : "120px"
+				},200);
+
+			},
+			function(){ // out
+
+				$(this).stop().animate({
+					marginLeft : "0px",
+					height : "30px"
+				},200);
+
+			}); ///// hover /////
+
+	}) ///////////// JQB /////////////
+</script>
+
 <style>
 
 body {

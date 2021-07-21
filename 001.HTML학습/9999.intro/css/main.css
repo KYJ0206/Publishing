@@ -780,23 +780,16 @@ ol>li:first-child {
     position: fixed;
     width: 60px;
     height: 60px;
-    top: 95%;
+    bottom: 15px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    cursor: pointer;
-    padding: 5px;
-    z-index: 999;
+    transform: translateX(-50%);
 }
 
 /* 스크롤 마우스 */
 .scrollin {
-    position: absolute;
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
+    margin: 0 auto;
     box-sizing: border-box;
-    left: 50%;
-    transform: translateX(-50%);
     width: 15px;
     height: 35px;
     border: 2.5px solid #314172;
