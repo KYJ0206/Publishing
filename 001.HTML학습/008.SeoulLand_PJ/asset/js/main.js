@@ -389,26 +389,30 @@ $(function(){ /// jQB3 ////////////////////////
 
     });//////////// click ////////////////////////
 
-    // 페이스북 모바일 (.ifr2) 아이프레임 가로 사이즈 변경하기 //
-    // 유동적인 가로 사이즈에 맞춰서 px설정하기 //
+
+    /// 페이스북 모바일(.ifr2) 아이프레임 가로 사이즈 변경하기 ////
+    // 유동적인 가로 사이즈에 맞춰서 px 설정하기 ///
     let win = $(window).width();
-    console.log("가로창 크기:"+win);
+    console.log("가로창크기:"+win);
     // 모바일 미디어쿼리 기준 크기인 width:500px을 기준한다!
     if(win <= 500){
-
-        //1. 알고자하는 크기는 .tabCont 의 width크기임!
+        
+        // 1. 알고자하는 크기는 .tabCont의 width크기임!
         let wd = $(".tabCont").width();
-        console.log("탭내용박스width:"+wd);
+        console.log("텝내용박스width:"+wd);
 
-        // 2. 변경대상 : .ifr2
+        // 2. 변경대상: .ifr2
         let tg = $(".ifr2");
 
-        // 2-1. src 속성값 width 값 변경
-        tg.attr("src","https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fseoullandpark%2F&tabs=timeline&width="+wd+"&height=166&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId");
+        // 2-1. src 속성값 중 width값 변경하기
+        tg.attr("src","https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fseoullandpark%2F&tabs=timeline&width="+wd+"&height=186&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId");
 
         // 2-2. width 속성값 변경하기
-        tg.attr("width",wd);
+        tg.attr("width",wd)
 
-    } // if문 //
+
+    } ///////////// if 문 /////////////////
+
+
 
 }); ////////// jQB3 ///////////////////////////

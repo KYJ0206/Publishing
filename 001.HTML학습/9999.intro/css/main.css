@@ -47,7 +47,6 @@ body {
 a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
 }
 
 ul {
@@ -453,7 +452,7 @@ h3 {
 .slidebox1 {
     min-height: 30vh;
     width: 100%;
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     /* outline: 2px solid red; */
     bottom: 0;
@@ -474,6 +473,8 @@ h3 {
     /* 모두투명하게 */
     transition: .6s;
     /* 트랜지션 */
+    width: 100%;
+    height: 100%;
 }
 
 /* 슬라이드 중 현재 슬라이드 클래스 */
@@ -486,12 +487,14 @@ h3 {
     position: absolute;
     width: 38vw;
     height: 24vh;
-    top: 3vh;
-    left: 9vw;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
     background-color: #fff;
     box-sizing: border-box;
     border-radius: 2%;
 }
+
 
 .slide1 li img:nth-child(1) {
     position: absolute;
@@ -507,8 +510,9 @@ h3 {
     position: absolute;
     width: 38vw;
     height: 24vh;
-    top: 3vh;
-    left: 53vw;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
     background-color: #fff;
     box-sizing: border-box;
     border-radius: 2%;
@@ -537,29 +541,51 @@ h3 {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+/* 양쪽이동버튼 */
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 49px;
+    z-index: 2;
+}
+
+/* 마우스 오버시 배경이미지 위치변경 */
+.abtn:hover {
+    background-position-y: -49px;
+}
+
+/* 왼쪽버튼 */
+.lb {
+    left: 2%;
+    background: url(../images/btn_shop_bn_left.png) no-repeat;
+}
+
+/* 오른쪽버튼 */
+.rb {
+    right: 2%;
+    background: url(../images/btn_shop_bn_right.png) no-repeat;
+}
+
+
 
 /**************************** sec2 ****************************/
 
 .pack {
-    position: absolute;
     padding: 110px 100px;
     z-index: 1;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .inbox{
-    left: 50%;
     max-width: 70vw;
-    position: relative;
     width: 100%;
-    height: auto;
-    transform: translate(-50%, 0%);
+    height: 100%;
     box-sizing: border-box;
     outline: 2px solid;
+    margin: 0 auto;
 }
 
 /* 원박스 */
@@ -636,8 +662,8 @@ ul {
 
 /* 프로젝트 영역 타이틀 */
 .pjbx h2 {
-    font-family: 'Gugi', cursive;
-    font-size: 2vw;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 3rem;
     color: steelblue;
     text-align: center;
     border: 2px solid rgba(0, 0, 0, 0.665);
@@ -658,9 +684,7 @@ ul {
 
 /* 각 박스의 ol리스트 */
 .pjbx>ol {
-    font-size: 24px;
-    line-height: 6vh;
-    /* 기본 ol셋팅 초기화 */
+    font-size: 2rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -704,7 +728,7 @@ ol>li:first-child {
     position: absolute;
     content: "❤";
     font-size: 24px;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     margin-left: -2.2vw;
     color: steelblue;
     opacity: 0;
@@ -778,9 +802,8 @@ ol>li:first-child {
 /* 스크롤 박스 */
 .scroll {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 15px;
+    width: 50%;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -790,9 +813,9 @@ ol>li:first-child {
     display: block;
     margin: 0 auto;
     box-sizing: border-box;
-    width: 15px;
-    height: 35px;
-    border: 2.5px solid #314172;
+    width: 16px;
+    height: 43px;
+    border: 3px solid #314172;
     border-radius: 7px;
 }
 
@@ -802,8 +825,8 @@ ol>li:first-child {
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    width: 6.5px;
-    height: 6.5px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background-color: #f60;
     animation: k_scroll 1.2s ease-out infinite;
@@ -811,19 +834,21 @@ ol>li:first-child {
 
 @keyframes k_scroll {
     to {
-        top: 60%;
+        top: 70%;
         opacity: 0;
     }
 }
 
 .scroll a {
     position: absolute;
-    top: 40px;
+    top: 48px;
     left: 50%;
     color: #314172;
     font-family: UB;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     transform: translateX(-50%);
+    text-shadow: 1px 0 0 #314172, 0 1px 0 #314172,
+                -1px 0 0 #314172, 0 -1px 0 #314172;
 }
 
 /* 위로가기버튼 */

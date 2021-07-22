@@ -17,6 +17,10 @@ let pageAction;
 
 $(function () { /// jQB ////////////////////////
 
+    $("html,body").animate({
+        scrollTop: "0px"
+    }, 100, "easeOutQuint");
+
     /*//////////////////////////////////////////
         함수명: init(전역변수구역에 선언!)
         기능: 각 페이지액션 대상 요소 초기화
@@ -40,11 +44,6 @@ $(function () { /// jQB ////////////////////////
         $("#pg4 .minfo").css({
             left: "150%"
         }); ///////// css ///////////
-        // 주의사항: transform은 animate에 사용할 수 없다!
-        // 이 경우에는 css로 transition을 사용하여 애니메이션함
-        // 유의사항: 이미 transform을 translate(-50%,-50%)로
-        //          설정하였으므로 scale설정시 둘다 써줘야한다!
-
 
 
     }; ///////////// init함수 ///////////////////
@@ -60,7 +59,7 @@ $(function () { /// jQB ////////////////////////
     pageAction = function () {
 
         // 호출확인
-        console.log("액션!");
+        // console.log("액션!");
 
         // 만약 매번 페이지마다 액션을 다시 작동시키려면
         // 초기화함수를 처음에 호출해 준다!
@@ -70,7 +69,8 @@ $(function () { /// jQB ////////////////////////
         // 1. Home
         if (pno === 0) {
             // fadeIn으로 나타나기
-            $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox").fadeIn(3000); //// animate ///
+            $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox")
+            .fadeIn(3000); //// animate ///
         } /////// if ////////////
 
 
