@@ -4,9 +4,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> 슬라이딩 내비게이션(무한이동) </title>
+	<title> 슬라이딩 내비게이션(무한이동) - 드래그기능 </title>
 	<script src="jquery-1.7.2.min.js"></script>
 	<script src="jquery-ui.min.js"></script>
+	<script src="jquery-touch-punch.min.js"></script>
+	<!-- 터치펀치는 모바일이벤트 변환용 -->
 	<script>
 		/// 슬라이드 순번 ///
 		let snum = 0;
@@ -86,10 +88,12 @@
 				sbx // 슬라이드박스
 					.prepend(sbx.find("li").last()) // 맨앞이동
 					.css({
-						left: "-100%"
+						left: (-$(".vbx").width()+sbx.position().left)+"px"
+						// $(".vbx").width() 동적으로 변경되는 가로크기
+						// 드래그시 이동된 위치만큼 left값 보정!
 					}) // left값 -100%변경
 					/// 애니메이션 들어오기 
-					.animate({
+					sbx.animate({
 						left: "0"
 					}, 600, "easeOutQuint");
 
@@ -144,6 +148,19 @@
 
 				// 3-1. 슬라이드 왼쪽이동(오른쪽버튼방향)
 				if (diff > 0) {
+
+					////////////// 예외처리 /////////////////
+					// 첫번째 슬라이드에서 마지막슬라이드 클릭시
+					// 차이수가 3이고 블릿순번 3일때!
+					if(av===3 && bseq===3){
+						// 하나를 미리 뒤로 보내므로 차이수를 1개 줄인다!
+						av = av-1;
+						// 맨뒤로이동
+						sbx.append(sbx.find("li").first())
+						.css({
+							left: "100%"// 첫번째요소위치만큼 뒤로 보냄!
+						});
+					} //////////// if ////////////////////////
 
 					// 기본모델 -> 오른쪽버튼구현
 					sbx.animate({
@@ -214,9 +231,46 @@
 			////////////////////////////////////////
 			// 대상: #view ul -> sbx변수!
 			// 드래그 설정하기 - 제이쿼리UI를 추가!
-			// sbx.draggable({
-			// 	axis: "x" //x축고정
-			// }); //// draggable ////////
+			sbx.draggable({
+				axis: "x" //x축고정
+			}); //// draggable ////////
+
+			// 슬라이드 커버
+			let cover = $(".cover");
+
+			///////// 드래그가 끝났을때 방향판단하여 ///////
+			///////// 슬라이드 이동하기 ///////////////////
+			// 이벤트: dragstop
+			sbx.on("dragstop",function(){
+
+				// 커버보이기
+				cover.show();
+				// 커버숨기기
+				setTimeout(() => {
+					cover.hide();
+				}, 600);
+
+				// console.log("드래그끝!");
+
+				// 1. 슬라이드 이동박스의 left값 알아내기
+				let spos = sbx.position().left;
+				// offset().left 는 보이는 화면 왼쪽선을 기준함
+				// position().left 는 싸고 있는 포지션있는 부모박스를 기준함
+				console.log("슬위:"+spos);
+
+				// 2. 위치값에 따라 슬라이드 이동하기
+				// 기준: 0을 중심으로 50px과 -50px값을 기준함
+				if(spos < -50) $(".rb").trigger("click");
+				else if(spos > 50) $(".lb").trigger("click");
+				else { // 제자리 돌아가기
+					sbx.animate({
+						left: "0"
+					}, 300, "easeOutQuint");
+				} ////// else //////////////
+				// trigger(이벤트명) 메서드
+				// -> 선택요소에 특정이벤트를 강제로 발생시키는 메서드
+
+			});/////////// dragstop //////////////////////
 
 
 
@@ -274,13 +328,22 @@
 		}
 
 		/* 비율유지속박스 */
-		#viewer {
+		.vbx {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
+		}
+		/* 슬라이드 기준박스 */
+		#viewer {
+			position: absolute;
+			top: 0;
+			left: -100%;
+			/* 부모는? .vbx */
+			width: 100%;
+			height: 100%;
 		}
 
 		/* 슬라이드 이동박스 */
@@ -388,6 +451,17 @@
 			background: url(image/btn_shop_bn_right.png) no-repeat;
 		}
 
+		/* 슬라이드커버 */
+		.cover{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+			/* background-color: #f00; */
+		}
+
 		/* 미디어쿼리 */
 		@media only screen and (max-width:800px) {
 			
@@ -411,15 +485,20 @@
 	<div id="slider">
 
 		<!-- 슬라이드 속박스 -->
-		<div id="viewer">
-			<!-- 슬라이드 이동박스 -->
-			<ul>
-				<li class="sld1"><span class="ir">슬라이드1</span></li>
-				<li class="sld2"><span class="ir">슬라이드2</span></li>
-				<li class="sld3"><span class="ir">슬라이드3</span></li>
-				<li class="sld4"><span class="ir">슬라이드4</span></li>
-			</ul>
-		</div>
+		<div class="vbx">
+			<!-- 슬라이드 기준박스 -->
+			<div id="viewer">
+				<!-- 슬라이드 이동박스 -->
+				<ul>
+					<li class="sld4"><span class="ir">슬라이드4</span></li>
+					<li class="sld1"><span class="ir">슬라이드1</span></li>
+					<li class="sld2"><span class="ir">슬라이드2</span></li>
+					<li class="sld3"><span class="ir">슬라이드3</span></li>
+				</ul>
+			</div><!-- #viewer -->
+			<!-- 커버 -->
+			<div class="cover"></div>
+		</div><!-- .vbx -->
 
 		<!-- 블릿표시자 -->
 		<ul id="indic">

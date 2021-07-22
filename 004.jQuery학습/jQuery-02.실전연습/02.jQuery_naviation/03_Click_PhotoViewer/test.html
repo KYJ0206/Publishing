@@ -214,9 +214,20 @@
 			////////////////////////////////////////
 			// 대상: #view ul -> sbx변수!
 			// 드래그 설정하기 - 제이쿼리UI를 추가!
-			// sbx.draggable({
-			// 	axis: "x" //x축고정
-			// }); //// draggable ////////
+			sbx.draggable({
+				axis: "x" //x축고정
+			}); //// draggable ////////
+
+
+		
+
+			sbx.on("dragstop",function(){
+				let spos = sbx.position().left;
+				console.log(spos);
+
+				if(spos > 50) $(".lb").trigger("click");
+				else if(spos < -50) $(".rb").trigger("click");
+			});
 
 
 
@@ -274,13 +285,21 @@
 		}
 
 		/* 비율유지속박스 */
-		#viewer {
+		.vbx {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
+		}
+		/* 비율유지속박스 */
+		#viewer {
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
 		}
 
 		/* 슬라이드 이동박스 */
@@ -411,14 +430,16 @@
 	<div id="slider">
 
 		<!-- 슬라이드 속박스 -->
-		<div id="viewer">
-			<!-- 슬라이드 이동박스 -->
-			<ul>
-				<li class="sld1"><span class="ir">슬라이드1</span></li>
-				<li class="sld2"><span class="ir">슬라이드2</span></li>
-				<li class="sld3"><span class="ir">슬라이드3</span></li>
-				<li class="sld4"><span class="ir">슬라이드4</span></li>
-			</ul>
+		<div class="vbx">
+			<div id="viewer">
+				<!-- 슬라이드 이동박스 -->
+				<ul>
+					<li class="sld4"><span class="ir">슬라이드4</span></li>
+					<li class="sld1"><span class="ir">슬라이드1</span></li>
+					<li class="sld2"><span class="ir">슬라이드2</span></li>
+					<li class="sld3"><span class="ir">슬라이드3</span></li>
+				</ul>
+			</div>
 		</div>
 
 		<!-- 블릿표시자 -->

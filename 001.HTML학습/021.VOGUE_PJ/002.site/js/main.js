@@ -91,7 +91,7 @@ $(function () { //////// jQB //////////////////
         if (scTop > 300 && tsts === 0) { // 기준값 아래일때
 
             tsts = 1; //상태값 변경(한번만 실행!)
-            console.log("나야나!");
+            // console.log("나야나!");
 
             // 탑버튼 보이기
             tbtn.fadeIn(300);
@@ -114,7 +114,7 @@ $(function () { //////// jQB //////////////////
         if (scTop >= gnbpos && gnbsts === 0 && mob === 0) {
 
             gnbsts = 1; //한번만실행!
-            console.log("바꿔!");
+            // console.log("바꿔!");
 
             // 상단영역에 class넣기
             tbx.addClass("on");
@@ -123,7 +123,7 @@ $(function () { //////// jQB //////////////////
         else if (scTop < gnbpos && gnbsts === 1 && mob === 0) {
 
             gnbsts = 0; //한번만실행!
-            console.log("복귀!");
+            // console.log("복귀!");
 
             // 상단영역에 class제거
             tbx.removeClass("on");
@@ -156,6 +156,8 @@ $(function () { //////// jQB //////////////////
     // $(window).resize(function(){
     //     tbx.removeClass("on");
     // });//////////// resize ///////////
+    //-> 리사이즈는 모바일에서 스와이프시 작동하는 경우가
+    // 많으므로 되도록 사용에 주의해야한다!!!
 
 
 
