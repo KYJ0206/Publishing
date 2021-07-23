@@ -50,6 +50,7 @@ a {
 }
 
 ul {
+    /* 3無 */
     margin: 0;
     padding: 0;
     list-style: none;
@@ -143,7 +144,9 @@ h3 {
 
 #logo img {
     width: 100%;
+    display: block;
 }
+
 
 /* 1-2. GNB 메뉴 */
 .gnb {
@@ -557,14 +560,44 @@ h3 {
 }
 
 /* 왼쪽버튼 */
+.lback {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 50%;
+    z-index: 999;
+}
+
 .lb {
-    left: 2%;
+    left: 20%;
     background: url(../images/btn_shop_bn_left.png) no-repeat;
 }
 
 /* 오른쪽버튼 */
+.rback {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 50%;
+    z-index: 999;
+}
+
 .rb {
-    right: 2%;
+    right: 20%;
     background: url(../images/btn_shop_bn_right.png) no-repeat;
 }
 
@@ -573,27 +606,97 @@ h3 {
 /**************************** sec2 ****************************/
 
 .pack {
-    padding: 110px 100px;
     z-index: 1;
     width: 100%;
     height: 100%;
 }
 
-.inbox{
-    max-width: 70vw;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    outline: 2px solid;
-    margin: 0 auto;
+.packin{
+    position: relative;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 75vh;
+    outline: 2px solid blue;
 }
 
 /* 원박스 */
 .sec2box{
-    width: 20vw;
-    height: 20vh;
+    position: relative;
+    width: 100%;
+    height: 30%;
+    left: 0;
+    top: 100%;
+    transform: translateY(-100%);
     outline: 2px solid red;
+
+    display: flex;
 }
+
+.sec2box li{
+    flex: 1;
+}
+
+.sec2box a{
+    position: relative;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.sec2box li img{
+    border-radius: 50%;
+    width: 100%;
+    padding: 5px;
+}
+
+.html{
+    position: absolute;
+    left: 4%;
+    top: 5px;
+    font-size: 3rem;
+    background: #fff;
+    width: 8%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+.css{
+    position: absolute;
+    left: 29%;
+    top: 5px;
+    font-size: 3rem;
+    background: #fff;
+    width: 8%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+.js{
+    position: absolute;
+    left: 54%;
+    top: 5px;
+    font-size: 3rem;
+    background: #fff;
+    width: 8%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+.jq{
+    position: absolute;
+    left: 79%;
+    top: 5px;
+    font-size: 3rem;
+    background: #fff;
+    width: 8%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+
 
 
 
@@ -615,9 +718,9 @@ ul {
 
 /* 전체부모박스 */
 .wrap {
-    position: relative;
-    max-width: 80vw;
-    max-height: 76vh;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -710,7 +813,7 @@ ol>li:first-child {
     color: #000;
     text-decoration: none;
     text-shadow: 0 0 5px #000;
-    line-height: 50px;
+    line-height: 65px;
     transition: .5s ease-in-out;
     margin-left: 10px;
 }
