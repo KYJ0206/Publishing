@@ -48,8 +48,10 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            font-size: 70px;
-            color: #fff;
+            font-family: 'Lobster',cursive;
+            font-size: 10vw;
+            text-shadow: 3px 3px 3px #000;
+            color: #f00;
             z-index: 1;
         }
 
@@ -84,7 +86,11 @@
         let fcseq = 0;
 
 
+
         $(function () { /// jQB /////////////////////////////
+
+            // 글자박스
+            let mtit = $(".mtit");
 
             // 애니메이션박스
             let ani = $("#myvideo");
@@ -128,6 +134,24 @@
             // 장면넘기기 인터발호출!
             autoI = setInterval(nextFrm, 40);
             // 전달값이 없는 함수는 이름만바로 써도됨!
+
+            // 3초 간격으로 글자체, 글자색 변경하기
+            setInterval(() => {
+
+                // 글자체 순번증가
+                ffseq++;
+                if(ffseq===ff.length) ffseq=0;
+
+                // 글자색 순번증가
+                fcseq++;
+                if(fcseq===fc.length) fcseq=0;
+
+                // 글자박스 css변경하기 : 글자체+글자색
+                mtit.css({
+                    fontFamily: ff[ffseq],
+                    color:fc[fcseq]
+                }); ///// css /////
+            }, 3000);
 
 
         }); /////////// jQB ////////////////////////////////

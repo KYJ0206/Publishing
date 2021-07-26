@@ -578,8 +578,8 @@ h3 {
     left: 3%;
     transform: translateY(-50%);
     background-color: #fff;
-    box-shadow: 0 0 10px #000;
-    border: 1px solid #000;
+    box-shadow: 0 3px 10px #333;
+    border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 50%;
     z-index: 999;
@@ -599,8 +599,8 @@ h3 {
     right: 3%;
     transform: translateY(-50%);
     background-color: #fff;
-    box-shadow: 0 0 10px #000;
-    border: 1px solid #000;
+    box-shadow: 0 3px 10px #333;
+    border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 50%;
     z-index: 999;
@@ -633,7 +633,7 @@ h3 {
 }
 
 /* 상단박스 */
-.packtop{
+.packtop {
     display: flex;
     height: 64%;
     position: absolute;
@@ -643,18 +643,21 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
 }
+
 /* photo 박스 */
-.photo{
+.photo {
     position: relative;
     display: flex;
     width: 50%;
 }
+
 /* 포토 속 전체 박스 */
-.phobox{
+.phobox {
     flex: 1;
 }
+
 /* 포토네임 */
-.phobox span{
+.phobox span {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -684,6 +687,7 @@ h3 {
     display: block;
     padding-top: 100%;
 }
+
 /* svg셋팅 */
 .photoin svg {
     position: absolute;
@@ -692,11 +696,11 @@ h3 {
 
 
 /* Certificate박스 */
-.pg2slide{
+.pg2slide {
     flex: 1;
 }
 
-.pg2slide::before{
+.pg2slide::before {
     content: '';
     display: block;
     position: absolute;
@@ -707,7 +711,7 @@ h3 {
     border-right: 2px dotted rgb(58, 58, 58);
 }
 
-.pg2slide ul{
+.pg2slide ul {
     width: 100%;
     height: 100%;
 }
@@ -715,11 +719,11 @@ h3 {
 
 
 /* pg2pf 박스 */
-.pg2pf{
+.pg2pf {
     width: 50%;
 }
 
-.pg2in{
+.pg2in {
     width: 90%;
     height: 90%;
     position: relative;
@@ -728,7 +732,7 @@ h3 {
     transform: translate(-50%, -50%);
 }
 
-.pg2in img{
+.pg2in img {
     width: 100%;
     height: 100%;
 }
@@ -748,6 +752,7 @@ h3 {
     flex-wrap: nowrap;
 }
 
+
 /* 원박스 */
 .sec2box li {
     position: relative;
@@ -756,7 +761,7 @@ h3 {
 
 /* 원을 담는 박스 */
 .btns {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -830,38 +835,10 @@ h3 {
     background-image: url(../images/m01.png);
 }
 
-.htit {
-    position: absolute;
-    left: 24%;
-    top: 18px;
-    font-size: 1.5vw;
-    background: rgb(255, 255, 255);
-    width: 18%;
-    height: 44px;
-    line-height: 45px;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
-}
-
 
 /* css:skill */
 .css {
     background-image: url(../images/m02.png);
-}
-
-.ctit {
-    position: absolute;
-    left: 24%;
-    top: 18px;
-    font-size: 1.5vw;
-    background: rgb(255, 255, 255);
-    width: 18%;
-    height: 44px;
-    line-height: 45px;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
 }
 
 
@@ -870,19 +847,6 @@ h3 {
     background-image: url(../images/m03.png);
 }
 
-.jstit {
-    position: absolute;
-    left: 24%;
-    top: 18px;
-    font-size: 1.5vw;
-    background: rgb(255, 255, 255);
-    width: 18%;
-    height: 44px;
-    line-height: 45px;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
-}
 
 
 /* jq:skill */
@@ -890,19 +854,6 @@ h3 {
     background-image: url(../images/m04.png);
 }
 
-.jqtit {
-    position: absolute;
-    left: 24%;
-    top: 18px;
-    font-size: 1.5vw;
-    background: rgb(255, 255, 255);
-    width: 18%;
-    height: 44px;
-    line-height: 45px;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bold;
-}
 
 
 
@@ -925,16 +876,40 @@ h3 {
     /* 데쉬어레이와 같은 크기를 데쉬옵셋에 주면 시작점이
     밀려서 공백부터 시작함-> 선이 숨겨지는 효과가 생김! */
 
-    /* 오버시 애니효과 위해 트랜지션주기 */
-    transition: .7s ease-in-out;
-}
-
-/* .btns 에 마우스 오버시 circle 옵셋값 0으로! */
-.btns:hover .c1 {
-    stroke-dashoffset: 0;
+    /* 트랜지션 : 퍼센트 증가에 따른 애니메이션 */
+    transition: .1s linear;
 }
 
 
+
+/* 퍼센트 글자 박스 */
+.txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-100%, -30%);
+    font-size: 1.5vw;
+    text-shadow: 1px 1px 1px #333;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+/* 액션버튼 */
+.act {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.act button {
+    font-size: 1vw;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
 
 
