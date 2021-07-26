@@ -9,6 +9,17 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/linksys.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // 7초간격으로 인터발호출하여 .tit에 클래스넣기
+        // 셋팅된 애니메이션이 작동된다!
+        // 중요한 것은 기존 class="on"을 애니후 바로 삭제!
+        setInterval(()=>{
+            $(".tit").addClass("on");
+            setTimeout(() => {
+                $(".tit").removeClass("on");
+            }, 4000);
+        },7000);////// 인터발함수 //////
+    </script>
 </head>
 <body>
     <!-- 전체박스 -->
@@ -18,7 +29,17 @@
             <!-- 1-1. 로고 -->
             <h1 class="tit">
                 <a href="index.html">
-                    <img src="./images/logo.png" alt="로고">
+                    <!-- 글자 -->
+                    <img src="images/mlogo_7.png" alt="my item" id="mytit">
+                    <!-- 빨간공 -->
+                    <img src="images/mlogo_6.png" alt="빨간공" id="rball">
+                    <!-- 카멜레온박스 -->
+                    <div id="cambx">
+                        <!-- 혀박스 -->
+                        <span id="tung"></span>
+                        <!-- 카멜레온 -->
+                        <img src="images/mlogo_05.png" alt="카멜레온" id="cam">
+                    </div>
                 </a>
             </h1>
             <!-- 1-2. GNB메뉴 -->
@@ -139,7 +160,7 @@
             <img src="images/b_logo.png" alt="하단로고">
             <!-- 3-2.회사주소 -->
             <address>
-                서울시 강동구 둔촌동 32-45  영재빌딩 1455호, 대표: 김 영 재
+                서울시 강남구 논현동 32-45  대량빌딩 1455호, 대표: 김랑랑
             </address>
 
         </footer>

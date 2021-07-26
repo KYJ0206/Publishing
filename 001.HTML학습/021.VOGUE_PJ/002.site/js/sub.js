@@ -36,8 +36,8 @@ let sinfo = {
             "파리에 도버 스트리트 ‘리틀’ 마켓이 오픈했다",
             "전망 좋은 홈 오피스",
             "랜선 눈꽃 여행",
-            "2021년 새 계절을 위한 새것 모음", 
-            "눈 호강 제대로, 뉴 호텔 5", 
+            "2021년 새 계절을 위한 새것 모음",
+            "눈 호강 제대로, 뉴 호텔 5",
             "고요한 겨울, 호캉스"
         ]
     },
@@ -46,11 +46,11 @@ let sinfo = {
         "메뉴": "없음",
         "경로": "people",
         "타이틀": [
-            "아르마니의 시간, 아르마니의 약속", 
-            "슈퍼모델 나오미 캠벨의 그림 같은 빌라", 
-            "가구와 오브제를 창조하는 젊은 디자이너 6인", 
-            "지지와 벨라의 엄마, 욜란다가 말하는 ‘라임병’", 
-            "성별 고정관념을 깨는 파격 캐스팅", 
+            "아르마니의 시간, 아르마니의 약속",
+            "슈퍼모델 나오미 캠벨의 그림 같은 빌라",
+            "가구와 오브제를 창조하는 젊은 디자이너 6인",
+            "지지와 벨라의 엄마, 욜란다가 말하는 ‘라임병’",
+            "성별 고정관념을 깨는 파격 캐스팅",
             "멋쟁이 엄마를 소개합니다"
         ]
     },
@@ -59,11 +59,11 @@ let sinfo = {
         "메뉴": "없음",
         "경로": "video",
         "타이틀": [
-            "발렌시아가의 50th 꾸뛰르 컬렉션 라이브 스트리밍", 
-            "뉴욕 패션 위크에 소개된 한국 디자이너 브랜드", 
-            "에디터 제니가 선택한 주얼리는?", 
-            "디올 FALL-WINTER 2021-2022 레디 투 웨어 컬렉션 라이브 스트리밍", 
-            "프라다 2021 F/W 시즌 여성복 컬렉션 라이브 스트리밍", 
+            "발렌시아가의 50th 꾸뛰르 컬렉션 라이브 스트리밍",
+            "뉴욕 패션 위크에 소개된 한국 디자이너 브랜드",
+            "에디터 제니가 선택한 주얼리는?",
+            "디올 FALL-WINTER 2021-2022 레디 투 웨어 컬렉션 라이브 스트리밍",
+            "프라다 2021 F/W 시즌 여성복 컬렉션 라이브 스트리밍",
             "발렌시아가 SUMMER 21 (PRE-COLLECTION)"
         ]
     },
@@ -72,11 +72,11 @@ let sinfo = {
         "메뉴": "없음",
         "경로": "runway",
         "타이틀": [
-            "<small>Ready To Wear 2021 F/W</small><br>Rick Owens", 
-            "<small>Ready To Wear 2021 F/W</small><br>We11done", 
-            "<small>Ready To Wear 2021 F/W</small><br>Comme des Garçons", 
-            "<small>Ready To Wear 2021 F/W</small><br>Chloé", 
-            "<small>Ready To Wear 2021 F/W</small><br>Balmain", 
+            "<small>Ready To Wear 2021 F/W</small><br>Rick Owens",
+            "<small>Ready To Wear 2021 F/W</small><br>We11done",
+            "<small>Ready To Wear 2021 F/W</small><br>Comme des Garçons",
+            "<small>Ready To Wear 2021 F/W</small><br>Chloé",
+            "<small>Ready To Wear 2021 F/W</small><br>Balmain",
             "<small>Ready To Wear 2021 F/W</small><br>Loewe"
         ]
     },
@@ -85,11 +85,11 @@ let sinfo = {
         "메뉴": ["전체", "패션", "뷰티", "리빙"],
         "경로": "shopping",
         "타이틀": [
-            "여름과 찰떡궁합! 세라믹 바구니", 
-            "사용할수록 매력적인 테크 제품", 
-            "취향 있는 플랜터", 
-            "감사의 마음을 담은, 부모님을 위한 선물", 
-            "성년을 위한 선물", 
+            "여름과 찰떡궁합! 세라믹 바구니",
+            "사용할수록 매력적인 테크 제품",
+            "취향 있는 플랜터",
+            "감사의 마음을 담은, 부모님을 위한 선물",
+            "성년을 위한 선물",
             "작고 소중한 아이들을 위한 선물"
         ]
     }
@@ -107,15 +107,27 @@ pm = pm.split("?")[1].split("=")[1];
 
 console.log(pm);
 
+// URL주소 정보 변경하여 감추기!!! //////
+// history.pushState(데이터,타이틀,URL)
+// -> 이미 호출된 URL주소를 변경해 주는 JS메서드
+// - 전달값인 데이터나 타이틀은 없는 경우 null(빈값)로 넘긴다
+// - 세번째 전달값에 원하는 페이지이름을 써준다!
+// - 실제로 변경된 URL로 이동하지는 않고 URL표시만 변경함!
+// - URL을 사용자들에게 숨기는 목적으로 사용함!
+// - URL사용시 /(슬래쉬)를 사용한 경로를 쓰면 안됨! 마무리 이름만씀
+
+history.pushState(null, null, pm);
+
+
 $(function () { // jQB ///////////////////////////////
 
     // 1. 제목넣기
     $(".stit").text(sinfo[pm]["제목"]);
 
     // "runway"일 경우 배경넣기
-    if(pm==="runway"){
+    if (pm === "runway") {
         $(".stit").css({
-            background:"url(images/bg_02.jpg) no-repeat center/cover",
+            background: "url(images/bg_02.jpg) no-repeat center/cover",
             color: "#fff"
         }); ////// css ///////
     } //////// if ///////////////
@@ -151,12 +163,12 @@ $(function () { // jQB ///////////////////////////////
         // console.log(idx);
 
         // 이미지이름의 번호만들기 변수
-        let n1 = 1;//앞순서 3개는 1
-        if (idx >= 3) n1 = 2;//뒷순서 3개는 2로 변경!
+        let n1 = 1; //앞순서 3개는 1
+        if (idx >= 3) n1 = 2; //뒷순서 3개는 2로 변경!
         let n2 = idx + 1; //앞순서 3개는 순서대로 1,2,3
         if (idx >= 3) n2 = idx - 2; //뒷순서도 1,2,3 만들기!
 
-        console.log("cont"+n1+"-"+n2+"a.jpg");
+        console.log("cont" + n1 + "-" + n2 + "a.jpg");
 
         ////////// 각 박스요소에 배경넣기 /////////
         // ele변수는 this 키워드와 같음!
@@ -168,7 +180,7 @@ $(function () { // jQB ///////////////////////////////
 
         /// 4. 컨텐츠박스에 타이틀 넣기
         $(ele).find("h2")
-        .html(sinfo[pm]["타이틀"][idx]);
+            .html(sinfo[pm]["타이틀"][idx]);
 
     }); //////////////// each //////////////////
 

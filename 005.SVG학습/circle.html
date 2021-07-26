@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVG - Circle</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+        /* font-family: 'Fredoka One', cursive; */
+
         html,body{
             margin: 0;
             padding: 0;
@@ -30,7 +33,7 @@
             height: 50%;
             /* flex자식일때 높이값을 안주면 자동채움
             (내용에 따라 유동적인 크기) */
-            outline: 2px dotted blue;
+            /* outline: 2px dotted blue; */
         }
         /* 원을 담는 박스 */
         .btns{
@@ -39,6 +42,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 40%;
+            min-width: 150px;
             background: url(images/man.jpg) no-repeat top/cover;
             border-radius: 50%;
         }
@@ -103,10 +107,23 @@
         /* 네번째 원 */
         .btns4{
             width: 20%;
+            min-width: 75px;
             background-image: url(images/wan.jpg);
         }
         .btns4::before{
             padding-top: 200%;
+        }
+
+        /* svg text 박스 */
+        .svgtxt{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            min-width: 200px;
+            font-family: 'Fredoka One', cursive;
+            /* outline: 5px solid lime; */
         }
 
     </style>
@@ -171,6 +188,23 @@
             </div>
         </li>
     </ul>
+
+    <!-- svg text -->
+    <div class="svgtxt">
+        <svg viewBox="0 0 300 150">
+            <defs>
+                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="red" />
+                  <stop offset="60%" stop-color="green" />
+                  <stop offset="100%" stop-color="blue" />
+                </linearGradient>
+              </defs>
+            <text style="fill:url(#grad3)">
+                <tspan font-size="50" x="0" y="40">Avengers</tspan>
+                <tspan font-size="60" x="10" dy="80">End Game</tspan>                
+            </text>
+        </svg>
+    </div>
     
     <!-- 
         [ circle 요소 : 원 ]
@@ -189,6 +223,13 @@
         - cy : 중심원 y좌표 (center y) 단위없는 숫자는 px
         - rx : x축 반지름(radius)
         - ry : y축 반지름(radius)
+
+        [ text 요소 : 글자 ]
+        - tspan요소: 글자가 여러줄일때 사용
+        - font-size 속성: 글자크기속성
+        - x 속성: x축위치
+        - y 속성: y축위치
+        - dy 속성: 윗줄 아래에서 부터 y축위치
 
      -->
 
