@@ -635,7 +635,7 @@ h3 {
 /* 상단박스 */
 .packtop{
     display: flex;
-    height: 62%;
+    height: 64%;
     position: absolute;
     width: 100%;
     margin: 0;
@@ -714,23 +714,23 @@ h3 {
 
 
 
-
-
-
 /* pg2pf 박스 */
 .pg2pf{
     width: 50%;
 }
 
 .pg2in{
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 .pg2in img{
     width: 100%;
-    padding-top: 20px;
-    padding-left: 50px;
-    max-width: 650px;
+    height: 100%;
 }
 
 

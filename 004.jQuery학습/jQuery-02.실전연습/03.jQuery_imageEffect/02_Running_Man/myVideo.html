@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my Video</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Otomanopee+One&family=Zen+Tokyo+Zoo&display=swap');
+
+        /* 
+        font-family: 'Lobster',
+        cursive;
+        font-family: 'Otomanopee One',
+        sans-serif;
+        font-family: 'Zen Tokyo Zoo',
+        cursive; 
+        */
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* 비디오 보다 앞에 가상요소로 커버 만들기 */
+        body::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: hotpink;
+            opacity: .5;
+        }
+
+        /* 타이틀 */
+        .mtit {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 70px;
+            color: #fff;
+            z-index: 1;
+        }
+
+        /* 비디오 장면 박스 */
+        #myvideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /* 장면 이미지 */
+        #myvideo img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* 이미지일 경우에도  object-fit: cover 로 비율유지 하며 화면채우기가 된다 */
+        }
+    </style>
+
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        // 글자체명
+        let ff = ["Lobster","Otomanopee One","Zen Tokyo Zoo"];
+        // 글자체 순번
+        let ffseq = 0;
+        // 글자색
+        let fc = ["red","orange","yellow","white","blue","green"];
+        // 글자색 순번
+        let fcseq = 0;
+
+
+        $(function () { /// jQB /////////////////////////////
+
+            // 애니메이션박스
+            let ani = $("#myvideo");
+
+            /////////////////////////////////
+            // #ani박스에 이미지 40개 넣기 ///
+            ////////////////////////////////
+            let setImg = () => {
+
+                for (let i = 0; i < 40; i++) {
+                    ani.append(
+                        '<img src="new_seq/seq' + i + '.jpg" alt="장면">');
+                } //////// for문 ///////
+
+                // 초기셋팅
+                // 첫번째 이미지만 보이고 나머지는 숨기기
+                ani.find("img").first().show().siblings().hide();
+
+            }; ////// setImg 함수 /////////
+
+            // 셋팅함수 호출!
+            setImg();
+
+            ////////////////////////////////////
+            /////// 한장면씩 장면 넘기기 ////////
+            ///////////////////////////////////
+            // 장면번호
+            let fno = 0;
+            ////////////////////////////////////			
+            let nextFrm = () => {
+                // 장면번호 1씩증가
+                fno++;
+                // 장면끝번호 한계수지정(처음으로!)
+                if (fno === 40) fno = 0;
+
+                // 해당순번이미지는 보이고 나머진 숨김
+                ani.find("img").eq(fno).show()
+                    .siblings().hide();
+            }; /////// nextFrm 함수 ///////////////
+
+            // 장면넘기기 인터발호출!
+            autoI = setInterval(nextFrm, 40);
+            // 전달값이 없는 함수는 이름만바로 써도됨!
+
+
+        }); /////////// jQB ////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <h1 class="mtit">My Style!!!</h1>
+    <div id="myvideo">
+
+    </div>
+</body>
+
+</html>

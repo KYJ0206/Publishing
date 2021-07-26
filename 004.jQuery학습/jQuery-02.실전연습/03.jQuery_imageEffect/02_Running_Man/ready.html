@@ -1,34 +1,100 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="utf-8">
-<title> png 애니메이션 </title>
-<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
 
-<style>
-div#ani {
-	width:320px;
-	height:240px;
-	position:relative;
-	background:url(img/bg.jpg); 
-}
- 
-div#ani img{
-	position:absolute;
-	display:none; 
-}
-</style>
+<head>
+	<meta charset="utf-8">
+	<title> png 애니메이션 </title>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+		$(function () { /// jQB /////////////////////////////
+
+			// 애니메이션박스
+			let ani = $("#ani");
+
+			/////////////////////////////////
+			// #ani박스에 이미지 21개 넣기 ///
+			////////////////////////////////
+			let setImg = () => {
+
+				for (let i = 0; i < 21; i++) {
+					ani.append(
+						'<img src="seq/seq' + i + '.png" alt="장면">');
+				} //////// for문 ///////
+
+				// 초기셋팅
+				// 첫번째 이미지만 보이고 나머지는 숨기기
+				ani.find("img").first().show().siblings().hide();
+
+			}; ////// setImg 함수 /////////
+
+			// 셋팅함수 호출!
+			setImg();
+
+			////////////////////////////////////
+			/////// 한장면씩 장면 넘기기 ////////
+			///////////////////////////////////
+			// 장면번호
+			let fno = 0;
+			////////////////////////////////////			
+			let nextFrm = () => {
+				// 장면번호 1씩증가
+				fno++;
+				// 장면끝번호 한계수지정(처음으로!)
+				if(fno === 21) fno = 0;
+
+				// 해당순번이미지는 보이고 나머진 숨김
+				ani.find("img").eq(fno).show()
+				.siblings().hide();
+			};/////// nextFrm 함수 ///////////////
+
+			// 인터발 변수
+			let autoI;
+
+			/// 마우스 오버시 장면넘기기 인터발 호출!
+			/// 아웃시엔 멈춤!
+			// 대상: #ani -> ani변수
+			ani.hover(
+				function(){ // over
+					// 장면넘기기 인터발호출!
+					autoI = setInterval(nextFrm, 40);
+					// 전달값이 없는 함수는 이름만바로 써도됨!
+				},
+				function(){ // out
+					clearInterval(autoI);
+				}); /////// hover ///////////
+
+
+
+
+		}); /////////// jQB ////////////////////////////////
+	</script>
+
+	<style>
+		div#ani {
+			position: relative;
+			/* 부모자격 */
+			width: 320px;
+			height: 240px;
+			background: url(img/bg.jpg);
+		}
+
+		div#ani img {
+			position: absolute;
+			/* display:none;  */
+		}
+	</style>
 </head>
 
 <body>
 
-<div id ="ani"></div>
+	<div id="ani"></div>
 
 
 
-<!------------------------ jQuery 코드 ----------------------->
-<script>
-  
-</script>
+	<!------------------------ jQuery 코드 ----------------------->
+	<script>
+
+	</script>
 </body>
+
 </html>
