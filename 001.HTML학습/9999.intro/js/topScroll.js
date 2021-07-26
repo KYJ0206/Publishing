@@ -17,6 +17,10 @@ $(window).resize(chksz);
 
 $(function () { //////// jQB //////////////////
 
+    $("html,body").animate({
+        scrollTop: "0px"
+    }, 100, "easeOutQuint");
+
     //// 햄버거 버튼을 클릭하면 전체메뉴 보이기 ///
     // 이벤트 대상: .hbtn
     // 이벤트 종류: click
@@ -41,7 +45,6 @@ $(function () { //////// jQB //////////////////
         // 두가지 값이 전환되도록 값 변경하기!
         hv === "100vh" ? hv = "auto" : hv = "100vh";
         ov === "auto" ? ov = "visible" : ov = "auto";
-        // 비?집:놀이동산; -> 3항연산자(조건연산자)
 
 
     }); ////////////// click /////////////////////////
@@ -115,7 +118,7 @@ $(function () { //////// jQB //////////////////
         if (scTop >= gnbpos && gnbsts === 0 && mob === 0) {
 
             gnbsts = 1; //한번만실행!
-            console.log("바꿔!");
+            // console.log("바꿔!");
 
             // 상단영역에 class넣기
             tbx.addClass("on");
@@ -124,7 +127,7 @@ $(function () { //////// jQB //////////////////
         else if (scTop < gnbpos && gnbsts === 1 && mob === 0) {
 
             gnbsts = 0; //한번만실행!
-            console.log("복귀!");
+            // console.log("복귀!");
 
             // 상단영역에 class제거
             tbx.removeClass("on");
@@ -158,13 +161,6 @@ $(function () { //////// jQB //////////////////
             .siblings().removeClass("on");
 
     }); ////////// click /////////////
-
-
-    //// 모바일일때 화면전환(가로/세로)시 
-    //// 상단영역 #top에 .on 빼기
-    // $(window).resize(function(){
-    //     tbx.removeClass("on");
-    // });//////////// resize ///////////
 
 
 }); ///////////////// jQB ///////////////////

@@ -1,5 +1,9 @@
 $(function () { /// jQB ////////////////////////
 
+    $("html,body").animate({
+        scrollTop: "0px"
+    }, 100, "easeOutQuint");
+
     // 메뉴 a요소 기본이동 막기!
     $(".gnb a,.indic a").click(function (e) {
         e.preventDefault();
@@ -8,7 +12,7 @@ $(function () { /// jQB ////////////////////////
     //// GNB메뉴 클릭시 해당 페이지 위치로 이동 애니메이션
     // 이벤트 대상: .gnb li + .indic li
     // 변경 대상: html,body
-    $(".gnb li,.indic li").click(function (e) {
+    $(".gnb li,.indic li").click(function () {
 
 
 
@@ -27,8 +31,6 @@ $(function () { /// jQB ////////////////////////
         // 2. 아이디값에 해당하위 top값 위치구하기
         // top값을 구해서 스크롤 애니메이션 이동에 사용함!
         let pos = $(idnm).offset().top;
-        // offset() 메서드 : 요소의 기본 셋팅 정보를 리턴함
-        // - top,left,width,height 등 을 알수 있다!
         // console.log("위치값:" + pos);
 
 
