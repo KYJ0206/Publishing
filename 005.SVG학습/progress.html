@@ -99,6 +99,42 @@
         .act button {
             font-size: 50px;
         }
+
+        /* 선형 퍼센트바 */
+        .lineper {
+            position: relative;
+            width: 60%;
+            height: 100px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 5px solid blue;
+            background-color: #ccc;
+        }
+
+        /* 선형 퍼센트 숫자박스 */
+        .ltxt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5vw;
+            color: #fff;
+            text-shadow: 3px 3px 3px #000;
+            z-index: 1;
+        }
+
+        /* 선형 퍼센트바 */
+        .lbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: url(images/pang.jpg) repeat-x 0/auto 100%;
+
+            /* 트랜지션: 퍼센트 증가에 따른 애니메이션 */
+            transition: .2s linear;
+        }
     </style>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -145,7 +181,7 @@
 
                         setTimeout(() => {
                             prog(num);
-                        }, 20); /// 타임아웃 //
+                        }, 30); /// 타임아웃 //
 
                     } //////// if /////////////
 
@@ -158,6 +194,38 @@
             } ///////////// pFn 함수 ////////////////
             /////////////////////////////////////////
 
+            // 선형 퍼센트 숫자박스
+            let ltxt = $(".ltxt b");
+            // 선형 퍼센트 바
+            let lbar = $(".lbar");
+
+            ///////////////////////////////////////
+            ////////// 선형 퍼센트 바 함수 //////////
+            ////////////////////////////////////////
+            let lineFn = function (num) { // num-퍼센트수치
+                // 퍼센트값 증가
+                let pers = ltxt.text();
+                pers++;
+                ltxt.text(pers);
+
+                // 선형바 width값 증가
+                lbar.css({
+                    width: pers + "%"
+                }); ///////// css ////////
+
+                // 재귀호출(자기자신을 다시 호출!)
+                // 자기자신을 호출하는 조건(퍼센트한계)
+                if (pers < num) {
+
+                    setTimeout(() => {
+                        lineFn(num);
+                    }, 50); /// 타임아웃 //
+
+                } //////// if /////////////
+
+            }; //////// lineFn 함수 /////////////////
+            /////////////////////////////////////////
+
 
 
             // 버튼 클릭시
@@ -167,11 +235,15 @@
                 let btxt = $(this).text();
                 console.log(btxt);
 
-                if (btxt === "팽수1")
-                pFn(0, 95);
-                pFn(1, 85);
-                pFn(2, 75);
-                pFn(3, 80);
+                if (btxt === "팽수1") {
+                    pFn(0, 77);
+                    pFn(1, 63);
+                    pFn(2, 88);
+                    pFn(3, 95);
+                } ///////// if문 /////////
+                else if (btxt === "팽수2") {
+                    lineFn(80);
+                } //////// else if문 //////
 
             }); //////////// click ///////////////
 
@@ -224,10 +296,17 @@
         </li>
     </ul>
 
+    <!-- 선형 퍼센트바 -->
+    <div class="lineper">
+        <span class="ltxt"><b>0</b>%</span>
+        <span class="lbar"></span>
+    </div>
+
 
 
     <div class="act">
         <button>팽수1</button>
+        <button>팽수2</button>
     </div>
 
 </body>

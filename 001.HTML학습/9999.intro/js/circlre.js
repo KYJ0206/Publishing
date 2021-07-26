@@ -1,5 +1,6 @@
 $(function () { //////// jQB ///////////////////
 
+
     ///////////////////////////////////////
     // 여러개의 퍼센트박스를 처리할 함수 ////
     let pFn = function(ele,pct){//ele-대상요소, pct-퍼센트
@@ -56,19 +57,19 @@ $(function () { //////// jQB ///////////////////
 
 
 
-        // 버튼 클릭시
-        $(".act button").click(function () {
-            
-            // 버튼 글자읽기
-            let btxt = $(this).text();
-            console.log(btxt);
-            
-            if (btxt === "SKILL 바로보기") 
-            pFn(0,95);
-            pFn(1,85);
-            pFn(2,75);
-            pFn(3,80);
-            
-        }); //////////// click ///////////////
+    // 버튼 클릭시
+    $(".act button").click(function () {
+        
+        // 버튼 글자읽기
+        let btxt = $(this).text();
+        console.log(btxt);
+        
+        if (btxt === "SKILL 바로보기") 
+        pFn(0,95);
+        pFn(1,85);
+        pFn(2,75);
+        pFn(3,80);
+        
+    }); //////////// click ///////////////
         
 }); ////////////////// jQB ///////////////////
