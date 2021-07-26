@@ -38,7 +38,7 @@ $(function () { /// jQB ////////////////////////
             left: "150%"
         }); ///////// css ///////////
 
-        
+
         $("#pg4 .minfo").css({
             left: "150%"
         }); ///////// css ///////////
@@ -68,7 +68,7 @@ $(function () { /// jQB ////////////////////////
         if (pno === 0) {
             // fadeIn으로 나타나기
             $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox")
-            .fadeIn(3000); //// animate ///
+                .fadeIn(3000); //// animate ///
         } /////// if ////////////
 
 
@@ -100,12 +100,32 @@ $(function () { /// jQB ////////////////////////
         } ////// else if ///////////////
 
 
+        // 위로이동버튼
+        if (pno === 0) $(".tbtn").fadeOut(200);
+        else $(".tbtn").fadeIn(200);
+
+
     }; ////////// pageAction함수 ///////////////////
     ////////////////////////////////////////////////
 
+    function pageAction2() {
+        if (pno === 1) {
+            pFn(0, 95);
+            pFn(1, 85);
+            pFn(2, 75);
+            pFn(3, 80);
+
+        } else {
+            $(".c1").attr("style", "");
+            $(".ptxt").text("");
+        }
 
 
-    
+    } /////////// pageAction2 ////////////////
+
+
+
+
     // pageAction함수 최초호출!
     pageAction();
 
@@ -159,15 +179,14 @@ $(function () { /// jQB ////////////////////////
             //////////////////////////////////////////////
 
             // 페이지 액션 함수 호출여부
-            let callFn = 1;//1-허용,0-불허용
+            let callFn = 1; //1-허용,0-불허용
 
             if (delta < 0) { // -120 아랫방향 스크롤(다음페이지)
                 pno++;
                 if (pno === totnum) {
                     pno = totnum - 1;
                     callFn = 0;
-                }
-                else{
+                } else {
                     callFn = 1;
                 }
                 // 마지막페이지에 고정하기!
@@ -177,8 +196,7 @@ $(function () { /// jQB ////////////////////////
                 if (pno === -1) {
                     pno = 0;
                     callFn = 0;
-                }
-                else{
+                } else {
                     callFn = 1;
                 }
                 // 첫페이지에 고정하기!
@@ -202,10 +220,10 @@ $(function () { /// jQB ////////////////////////
 
             $("html,body").stop().animate({
                 scrollTop: pos + "px"
-            }, 1000, "easeOutQuint");
+            }, 1000, "easeOutQuint",pageAction2);
             // 애니메이션 이동후 pageAction함수 호출하기!!!
 
-            if(callFn) pageAction();
+            if (callFn) pageAction();
 
             ///////////////////////////////////////////////
             // 5. 페이지번호(pno)에 맞는 GNB 메뉴 변경하기 //

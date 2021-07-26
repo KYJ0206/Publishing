@@ -49,6 +49,40 @@ $(function () { //////// jQB /////////////////
 
     }); /////////// click //////////////////
 
+    ///// 상단 공통 메뉴 /////
+    // 대상 : .tmenu a
+    $(".tmenu a").click(function(e){
+
+        e.preventDefault(); // 기본이동막기
+
+        // 1. 클릭된 a요소 텍스트 읽기
+        let atxt = $(this).text();
+        console.log(atxt)
+
+        // 2. 메뉴별 분기
+        let url; // 이동할 url
+        switch(atxt){
+            case"회원가입": url="member.html"; break;
+            case"로그인": url="login.html"; break;
+            case"게시판": url="board.html"; break;
+            case"오시는길": url="map.html"; break;
+        } ///// swich case문 /////
+
+        // 3. 페이지 이동하기 ( 현재창에서 이동 )
+        location.href = url;
+
+    }); ///// click /////
 
 }); ///////////////// jQB //////////////////
 ////////////////////////////////////////////
+
+
+// 7초간격으로 인터발호출하여 .tit에 클래스넣기
+// 셋팅된 애니메이션이 작동된다!
+// 중요한 것은 기존 class="on"을 애니후 바로 삭제!
+setInterval(() => {
+    $(".tit").addClass("on");
+    setTimeout(() => {
+        $(".tit").removeClass("on");
+    }, 4000);
+}, 5000); ////// 인터발함수 //////

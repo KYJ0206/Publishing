@@ -36,7 +36,7 @@ body {
     height: 100%;
     /* 보이는 화면기준 채우기 */
     /* body하위 요소의 높이값 %의 기준이됨! */
-    /* overflow: hidden; */
+    overflow: hidden;
     /* 스크롤바 없애기(스크롤안됨!) */
 }
 
@@ -894,22 +894,6 @@ h3 {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-
-/* 액션버튼 */
-.act {
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.act button {
-    font-size: 1vw;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-}
 
 
 

@@ -9,6 +9,21 @@ $(function () { /// jQB ////////////////////////
         e.preventDefault();
     }); ///////////// click ////////////////
 
+    function pageAction2() {
+        if (pno === 1) {
+            pFn(0, 95);
+            pFn(1, 85);
+            pFn(2, 75);
+            pFn(3, 80);
+
+        } else {
+            $(".c1").attr("style", "");
+            $(".ptxt").text("");
+        }
+
+
+    } /////////// pageAction2 ////////////////
+
     //// GNB메뉴 클릭시 해당 페이지 위치로 이동 애니메이션
     // 이벤트 대상: .gnb li + .indic li
     // 변경 대상: html,body
@@ -42,7 +57,7 @@ $(function () { /// jQB ////////////////////////
         // -> 범용브라우저에서 사용하는 스크롤대상
         $("html,body").animate({
             scrollTop: pos + "px"
-        }, 800, "easeOutQuint");
+        }, 800, "easeOutQuint",pageAction2);
         // 애니메이션 이동후 pageAction함수 호출하기!!!
 
 

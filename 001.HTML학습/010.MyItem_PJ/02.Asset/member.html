@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Item PJ - 아이템 페이지</title>
-    <link rel="stylesheet" href="css/item.css">
+    <title>My Item PJ - 회원가입 페이지</title>
+    <link rel="stylesheet" href="css/member.css">
     <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/linksys.js"></script>
-    <script src="js/item.js"></script>
 </head>
 <body>
     <!-- 전체박스 -->
@@ -108,14 +107,61 @@
         </header>
         <!-- 2.컨텐츠영역 -->
         <main id="cont">
-            <!-- 2-1.아이템 타이틀 -->
-            <h2 class="stit"></h2>
-            <!-- 2-2.아이템 컨텐츠 박스 -->
-            <div class="itbx">
-                <!-- 2-2-1.이미지박스 -->
-                <figure class="imbx"></figure>
-                <!-- 2-2-2.설명박스 -->
-                <p class="dcbx"></p>
+            <!-- 서브타이틀 -->
+            <h2 class="stit">회원가입</h2>
+            <!-- 입력양식 박스 -->
+            <div id="meminfo">
+                <form action="process.php" method="POST">
+                    <ul>
+                        <li>
+                            <label for="mid">아이디</label>
+                            <input type="text" id="mid" name="mid" maxlength="25" placeholder="영문자로 시작하는 6~20글자 영문자/숫자">
+                        </li> 
+                        <li>
+                            <label for="mpw">비밀번호</label>
+                            <input type="password" id="mpw" name="mpw" maxlength="20" placeholder="특수문자, 문자, 숫자포함 형태 5~15자리">
+                        </li>
+                        <li>
+                            <label for="mpw2">비밀번호 확인</label>
+                            <input type="password" id="mpw2" name="mpw2" maxlength="20" placeholder="비밀번호 확인을 입력해 주세요">
+                        </li>
+                        <li>
+                            <label for="mnm">비밀번호</label>
+                            <input type="text" id="mnm" name="mnm" maxlength="20" placeholder="이름을 입력해 주세요">
+                        </li>
+                        <li>
+                            <label for="gen1">성별</label>
+                            남성
+                            <input type="radio" name="gen" id="gen1">
+                            여성
+                            <input type="radio" name="gen" id="gen2" checked>
+                            <!-- 라디오 버튼은 name 속성값을 같은 이름으로 하면 하나만 선택되는 그룹핑이 된다 -->
+                            <!-- checked 속성은 미리선택되게 함 -->
+                        </li>
+                        <li>
+                            <label for="email1">이메일</label>
+                            <input type="text" id="email1" name="email1" placeholder="이메일 앞주소">
+                            @
+                            <select name="seleml" id="seleml">
+                                <option value="init">선택해주세요</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="hotmail.net">hotmail.net</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="free">직접입력</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="email2"></label>
+                            <input type="text" id="email2" name="email2" placeholder="이메일 뒷주소">
+                        </li>
+                        <li>
+                            <!-- 서브밋 버튼 -->
+                            <input type="submit" value="가입하기" id="btnj">
+                        </li>
+                    </ul>
+                </form>
             </div>
         </main>
         <!-- 3.하단영역 -->

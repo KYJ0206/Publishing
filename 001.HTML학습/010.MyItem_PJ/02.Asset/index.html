@@ -9,17 +9,6 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/linksys.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        // 7초간격으로 인터발호출하여 .tit에 클래스넣기
-        // 셋팅된 애니메이션이 작동된다!
-        // 중요한 것은 기존 class="on"을 애니후 바로 삭제!
-        setInterval(()=>{
-            $(".tit").addClass("on");
-            setTimeout(() => {
-                $(".tit").removeClass("on");
-            }, 4000);
-        },7000);////// 인터발함수 //////
-    </script>
 </head>
 <body>
     <!-- 전체박스 -->

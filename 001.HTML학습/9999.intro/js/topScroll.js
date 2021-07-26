@@ -86,30 +86,30 @@ $(function () { //////// jQB //////////////////
     $(window).scroll(function () {
 
         // 1. 스크롤바 위치값-> 제일중요!!!
-        let scTop = $(this).scrollTop();
+        // let scTop = $(this).scrollTop();
         // console.log("스위:"+scTop);
 
         // 2. 각 스크롤 액션 처리하기 //////////
 
         // 2-1. 위로 이동버튼 처리 ////////////
-        if (scTop > 300 && tsts === 0) { // 기준값 아래일때
+        // if (scTop > 300 && tsts === 0) { // 기준값 아래일때
 
-            tsts = 1; //상태값 변경(한번만 실행!)
-            // console.log("나야나!");
+        //     tsts = 1; //상태값 변경(한번만 실행!)
+        //     // console.log("나야나!");
 
-            // 탑버튼 보이기
-            tbtn.fadeIn(300);
+        //     // 탑버튼 보이기
+        //     tbtn.fadeIn(300);
 
-        } ////// if /////////////
-        else if (scTop <= 300 && tsts === 1) { // 기준값 위일때
+        // } ////// if /////////////
+        // else if (scTop <= 300 && tsts === 1) { // 기준값 위일때
 
-            tsts = 0; //상태값 변경(한번만 실행!)
-            // console.log("너야너!");
+        //     tsts = 0; //상태값 변경(한번만 실행!)
+        //     // console.log("너야너!");
 
-            // 탑버튼 숨기기
-            tbtn.fadeOut(300);
+        //     // 탑버튼 숨기기
+        //     tbtn.fadeOut(300);
 
-        } ////// else if ////////////////
+        // } ////// else if ////////////////
 
         /////// 모바일이 아닐때만 실행!!! //////
         // 2-2. 상단영역 메뉴처리 //////////////
@@ -151,7 +151,7 @@ $(function () { //////// jQB //////////////////
         // 스크롤 애니메이션 //
         $("html,body").animate({
             scrollTop: "0"
-        }, 1000, "easeOutCubic");
+        }, 800, "easeOutCubic");
 
         pageAction();
 
