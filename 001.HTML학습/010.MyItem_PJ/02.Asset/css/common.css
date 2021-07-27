@@ -38,6 +38,7 @@ body {
     /* 부모자격 */
     width: 150px;
     height: 90px;
+    /* outline: 2px dotted red; */
 }
 
 .tit a {

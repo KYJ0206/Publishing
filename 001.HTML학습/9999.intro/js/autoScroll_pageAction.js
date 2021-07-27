@@ -110,10 +110,10 @@ $(function () { /// jQB ////////////////////////
 
     function pageAction2() {
         if (pno === 1) {
-            pFn(0, 95);
-            pFn(1, 85);
-            pFn(2, 75);
-            pFn(3, 80);
+            pFn(0, 94);
+            pFn(1, 89);
+            pFn(2, 79);
+            pFn(3, 84);
 
         } else {
             $(".c1").attr("style", "");
@@ -220,7 +220,7 @@ $(function () { /// jQB ////////////////////////
 
             $("html,body").stop().animate({
                 scrollTop: pos + "px"
-            }, 1000, "easeOutQuint",pageAction2);
+            }, 800, "easeOutQuint",pageAction2);
             // 애니메이션 이동후 pageAction함수 호출하기!!!
 
             if (callFn) pageAction();

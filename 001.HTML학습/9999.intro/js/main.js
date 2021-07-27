@@ -11,10 +11,10 @@ $(function () { /// jQB ////////////////////////
 
     function pageAction2() {
         if (pno === 1) {
-            pFn(0, 95);
-            pFn(1, 85);
-            pFn(2, 75);
-            pFn(3, 80);
+            pFn(0, 94);
+            pFn(1, 89);
+            pFn(2, 79);
+            pFn(3, 84);
 
         } else {
             $(".c1").attr("style", "");
@@ -55,7 +55,7 @@ $(function () { /// jQB ////////////////////////
         // 참고: 가로스크롤 이동속성: scrollLeft
         // 스크롤 이동대상: html,body
         // -> 범용브라우저에서 사용하는 스크롤대상
-        $("html,body").animate({
+        $("html,body").stop().animate({
             scrollTop: pos + "px"
         }, 800, "easeOutQuint",pageAction2);
         // 애니메이션 이동후 pageAction함수 호출하기!!!
@@ -80,5 +80,17 @@ $(function () { /// jQB ////////////////////////
 
 
     }); ///////////// click ///////////////
+
+     // 햄버거버튼 클릭시 class = "on" 토글
+     $(".ham").click(function () {
+        
+        // 햄버거 버튼에 class="on" 넣기/빼기
+        $(this).toggleClass("on");
+
+            $(".gnb").css({
+                opacity:1
+            })
+
+    }); //////////// click ////////////
 
 }); ///////////// jQB ////////////////////////

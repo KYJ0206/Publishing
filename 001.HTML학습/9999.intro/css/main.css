@@ -156,7 +156,9 @@ h3 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 2%;
+    right: 7%;
+    opacity: 0;
+    transition: .5s;
 }
 
 
@@ -201,6 +203,80 @@ h3 {
     visibility: visible;
     transform: scaleX(1);
 }
+
+
+
+/* 햄버거버튼 */
+.ham {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3%;
+    /* 부모는? .top */
+    width: 40px;
+    height: 25px;
+    /* outline: 1px solid red; */
+    cursor: pointer;
+    /* 손가락모양 */
+    z-index: 99999;/* .gbx보다위! */
+}
+
+/* 햄버거 막대 span공통 */
+.ham span {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 4px #777;/* 박스그림자 */
+    /* 트랜지션 */
+    transition: all .4s ease-out;
+}
+
+/* 햄버거 막대 개별위치이동 */
+/* 1번막대 */
+.ham span:nth-child(1) {
+    top: 0;
+}
+
+/* 2번막대 */
+.ham span:nth-child(2) {
+    top: 10px;
+    left: -50%;
+    /* 트랜지션 때문에 초기값필요!(기본값이 auto라서!) */
+}
+/* 오버시 2번막대 이동! */
+.ham:hover span:nth-child(2) {    
+    left: 0;
+}
+
+
+/* 3번막대 */
+.ham span:nth-child(3) {
+    top: 20px;
+}
+
+/* .ham에 class="on"을 주면 span막대 변경하기 */
+
+/* 1번막대 : 중앙이동+시계방향45도회전 */
+.ham.on span:nth-child(1) {
+    top: 10px;
+    transform: rotate(45deg);
+    box-shadow: none;
+}
+
+/* 2번막대 : left위치 중앙이동+width는0 */
+.ham.on span:nth-child(2) {
+    width: 0;
+    left: 50%;
+}
+
+/* 3번막대 : 중앙이동+반시계방향45도회전 */
+.ham.on span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-45deg);
+    box-shadow: none;
+}
+
 
 
 
@@ -324,7 +400,7 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80vw;
-    height: 75vh;
+    height: 80vh;
     box-shadow: 0 0 20px #fff;
     border-radius: 20px;
 }
@@ -388,6 +464,22 @@ h3 {
     text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
     white-space: nowrap;
     z-index: 1;
+}
+
+.sboxtit{
+    position: absolute;
+    width: 10%;
+    height: 70px;
+    top: 20%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    line-height: 70px;
+    font-size: 1.7vw;
+    background-color:  #434343;
+    color: #fff;
+    border-radius: 5px;
+    font-family: UB;
 }
 
 .side1 {
@@ -714,6 +806,14 @@ h3 {
 .pg2slide ul {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.pg2slide img{
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -750,6 +850,7 @@ h3 {
     list-style: none;
     display: flex;
     flex-wrap: nowrap;
+    background-color: #ddd;
 }
 
 
@@ -786,7 +887,7 @@ h3 {
 /* 3-4. 흐르는 자막 */
 .fcap {
     position: absolute;
-    bottom: 212px;
+    bottom: 198px;
     left: 0;
     height: 40px;
     width: 100%;
@@ -861,7 +962,7 @@ h3 {
 .c1 {
     fill: none;
     /* 채우기-기본색은 검정색(transparent-투명,none-없음) */
-    stroke: red;
+    stroke: rgb(68 68 68);
     /* 선색(안쓰면 안나옴) */
     stroke-width: 10;
     /* 선두께는 안쓰면 1px, 단위없으면 px */
@@ -937,10 +1038,14 @@ ul {
     text-shadow: 0 0 5px rgb(0 0 0 / 67%);
 }
 
+.wrapin{
+    display: flex;
+}
+
 /* 프로젝트 박스 공통 */
 .pjbx {
+    flex: 1;
     width: 50%;
-    float: left;
     padding: 15px;
     line-height: 5vh;
     /* 
@@ -1047,6 +1152,7 @@ ol>li:first-child {
     display: block;
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
     width: 0px;
     height: 70%;
     top: 26%;
@@ -1054,45 +1160,6 @@ ol>li:first-child {
 }
 
 
-/* 탭메뉴 */
-.tm {
-    position: relative;
-    width: 12vw;
-    height: 40px;
-    top: -5vh;
-    left: 66.5vw;
-}
-
-.tm>li {
-    position: absolute;
-    width: 5.5vw;
-    height: 40px;
-}
-
-.tm li:nth-child(1) {
-    left: 0;
-}
-
-.tm li:nth-child(2) {
-    left: 5.5vw;
-}
-
-.tm>li>a {
-    position: absolute;
-    width: 100%;
-    display: inline-block;
-    line-height: 40px;
-    text-align: center;
-    font-weight: bold;
-    transition: .5s;
-
-}
-
-.tm>li:hover a {
-    text-shadow: 0 0 1px #000;
-    transform: scale(1.1);
-    color: red;
-}
 
 /**************************** sec4 ****************************/
 
