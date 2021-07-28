@@ -135,6 +135,74 @@
     box-shadow: none;
 }
 
+/*********** 전체메뉴 ************/
+.mbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;/* 처음에 안보임 */
+}
+/* 가상요소로 반투명배경 */
+.mbox::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+}
+
+/* 메뉴중앙박스 */
+.mlist{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;/* 플렉스박스 */
+    font-family: UB;
+    z-index: 1;/* 반투명배경보다 위 */
+}
+/* 메뉴별박스 */
+.mlist dl{
+    width: 300px;
+}
+/* 상위메뉴 */
+.mlist dt{
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+/* 하위메뉴 */
+.mlist dd{
+    font-size: 2.1rem;
+    padding-bottom: 5px;
+}
+
+/* 링크공통 */
+.mlist a{
+    color: #fff;
+}
+/* 오버시 글자색 */
+.mlist a:hover{
+    color: aqua;
+}
+
+/* 동영상 박스 */
+.bgm{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* 2. 페이지영역 */
 /* 개별 페이지 셋팅 */

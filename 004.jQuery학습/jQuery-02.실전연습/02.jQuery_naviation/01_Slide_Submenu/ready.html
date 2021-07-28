@@ -4,27 +4,25 @@
 <meta charset="utf-8">
 <title> Tree 형 내비게이션 </title>
 <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-
 <script>
-	$(function(){ ///////////// JQB /////////////
-
-		// 서브메뉴 숨기기 + 첫번째 서브 보이기 //
+	$(function(){ ///////// jQB ////////////////////////
+		
+		// 서브메뉴 전체 숨기기 + 첫번째 서브 보이기 //
 		$(".sub").hide().first().show();
 
-		// 상위메뉴 (.title) 클릭하면 하위메뉴 보이기
+		// 상위메뉴(.title)를 클릭하면 하위메뉴 보이기(slideDown)
 		$(".title").click(function(){
-
-			// 클릭된 메뉴(this)의 다음형제 요소(next)를 보여라
+			// 클릭된 메뉴(this)의 다음형제요소(next)를 보여라!
 			$(this).next().slideToggle(400)
+			// 다른 형제요소의 서브메뉴는 닫기(slideUp)
+			.parent().siblings().find(".sub").slideUp(400);
+		});////////// click /////////////////
 
-			// 다른 형제 요소의 서브메뉴는 닫기
-			.parent().siblings().find(".sub").slideUp(400)
 
-		}) ///// click /////
 
-	}) ///////////// JQB /////////////
+	}); /////////////////// jQB ////////////////////////
+
 </script>
-
 <style type="text/css">
 body {
 	margin:20px auto;
