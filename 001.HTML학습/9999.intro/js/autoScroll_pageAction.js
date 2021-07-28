@@ -17,6 +17,7 @@ let pageAction;
 
 $(function () { /// jQB ////////////////////////
 
+
     $("html,body").animate({
         scrollTop: "0px"
     }, 100, "easeOutQuint");

@@ -122,7 +122,7 @@ body{
             [ 입체로 설정하기! ]
             - 입체로 설정할 요소의 부모박스에 아래와 같이 설정한다!
 
-            transfrom-style: preserve-3d
+            transfrom-style: c
             - 기본값은 flat 즉, 2D
             - preserve-3d 는 3D 전환설정!
 

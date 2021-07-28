@@ -1,5 +1,6 @@
 $(function () { /// jQB ////////////////////////
 
+
     $("html,body").animate({
         scrollTop: "0px"
     }, 100, "easeOutQuint");
@@ -23,6 +24,8 @@ $(function () { /// jQB ////////////////////////
 
 
     } /////////// pageAction2 ////////////////
+
+    
 
     //// GNB메뉴 클릭시 해당 페이지 위치로 이동 애니메이션
     // 이벤트 대상: .gnb li + .indic li
@@ -81,16 +84,14 @@ $(function () { /// jQB ////////////////////////
 
     }); ///////////// click ///////////////
 
-     // 햄버거버튼 클릭시 class = "on" 토글
-     $(".ham").click(function () {
-        
-        // 햄버거 버튼에 class="on" 넣기/빼기
-        $(this).toggleClass("on");
 
-            $(".gnb").css({
-                opacity:1
-            })
+    // 햄버거버튼 클릭시 class = "on" 토글
+    $(".ham").click(function () {
+
+
+    $(this).toggleClass("on");
 
     }); //////////// click ////////////
 
+    
 }); ///////////// jQB ////////////////////////

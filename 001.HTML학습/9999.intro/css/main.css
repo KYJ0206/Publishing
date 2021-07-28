@@ -153,16 +153,23 @@ h3 {
 
 /* 1-2. GNB 메뉴 */
 .gnb {
+    width: 100%;
+}
+.gnb ul{
     position: absolute;
+    display: flex;
     top: 50%;
     transform: translateY(-50%);
-    right: 7%;
+    right: 44px;
+    transition: .7s;
+    width: 0;
+    overflow: hidden;
     opacity: 0;
-    transition: .5s;
 }
 
 
 .gnb li {
+    flex: 1;
     display: inline-block;
     margin-right: 20px;
     margin-left: 20px;
@@ -170,12 +177,13 @@ h3 {
 
 .gnb a {
     position: relative;
+    display: block;
     font-size: 1.6rem;
-    /* html글자크기 * 2 */
     color: #000;
     font-weight: bold;
     font-family: UB;
-    /* Ubuntu체 */
+    text-align: center;
+    width: 100%;
 }
 
 .gnb li a:before {
@@ -211,7 +219,7 @@ h3 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 3%;
+    right: 5%;
     /* 부모는? .top */
     width: 40px;
     height: 25px;
@@ -226,8 +234,7 @@ h3 {
     position: absolute;
     width: 100%;
     height: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 4px #777;/* 박스그림자 */
+    background-color: #777;
     /* 트랜지션 */
     transition: all .4s ease-out;
 }
@@ -275,6 +282,11 @@ h3 {
     top: 10px;
     transform: rotate(-45deg);
     box-shadow: none;
+}
+
+.ham.on>ul {
+    opacity: 1;
+    width: 500px;
 }
 
 
@@ -748,13 +760,14 @@ h3 {
     flex: 1;
 }
 
+
 /* 포토네임 */
 .phobox span {
     position: relative;
     display: inline-block;
     width: 100%;
     height: 100%;
-    line-height: 4;
+    line-height: 6;
     text-align: center;
     font-size: 1.5vw;
     font-family: 'Work Sans', sans-serif;
@@ -790,31 +803,33 @@ h3 {
 /* Certificate박스 */
 .pg2slide {
     flex: 1;
+    overflow: hidden;
 }
 
-.pg2slide::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    width: 0px;
-    height: 75%;
-    top: 15%;
-    border-right: 2px dotted rgb(58, 58, 58);
-}
+
 
 .pg2slide ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-}
-
-
-.pg2slide img{
+    position: relative;
     width: 100%;
     height: 100%;
 }
+
+.pg2slide li{
+    position: absolute;
+    /* 서로겹침 */
+    opacity: 0;
+    /* 모두투명하게 */
+    transition: .6s;
+    /* 트랜지션 */
+    height: 100%;
+}
+
+.pg2slide li.on{
+    opacity: 1;/* 보이게 */
+    z-index: 1;/* 맨위에 */
+}
+
+
 
 
 
@@ -1112,7 +1127,7 @@ ol>li:first-child {
     font-size: 2vw;
     color: #000;
     text-decoration: none;
-    text-shadow: 0 0 5px #000;
+    text-shadow: 0 0 2px #000;
     line-height: 65px;
     transition: .5s ease-in-out;
     margin-left: 10px;
@@ -1123,7 +1138,7 @@ ol>li:first-child {
     color: steelblue;
     text-decoration: underline;
     /* 아랫줄 */
-    font-size: 2.7vw;
+    font-size: 2.5vw;
     text-shadow: 0 0 1px #000;
 }
 
@@ -1219,10 +1234,10 @@ ol>li:first-child {
 /* 위로가기버튼 */
 .tbtn {
     position: fixed;
-    bottom: 27px;
-    right: 40px;
-    width: 60px;
-    height: 60px;
+    bottom: 30px;
+    right: 60px;
+    width: 65px;
+    height: 65px;
     text-align: center;
     line-height: 30px;
     border-radius: 4px 4px 0 0;
