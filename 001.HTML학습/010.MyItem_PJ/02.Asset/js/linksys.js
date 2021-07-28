@@ -64,7 +64,7 @@ $(function () { //////// jQB /////////////////
         let url; //이동할 url
         switch (atxt) {
             case "회원가입":
-                url = "menber.html";
+                url = "member.html";
                 break;
             case "로그인":
                 url = "login.html";

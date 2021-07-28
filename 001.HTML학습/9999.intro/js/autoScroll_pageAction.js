@@ -35,12 +35,7 @@ $(function () { /// jQB ////////////////////////
         $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox").hide(); // hide //
 
 
-        $("#pg3 .minfo").css({
-            left: "150%"
-        }); ///////// css ///////////
-
-
-        $("#pg4 .minfo").css({
+        $("#pg4,minfo").css({
             left: "150%"
         }); ///////// css ///////////
 
