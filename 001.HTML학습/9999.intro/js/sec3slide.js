@@ -7,7 +7,7 @@ $(function () { /// jQB ////////////////////////
 
     //////////////////////////////////////
     /// 배너 드래그 이동하기 ///////////////
-    /// 대상: .slide 
+    /// 대상: .pslide 
     let pslide = $(".pslide");
     /// 사용 메서드: draggable() 
     pslide.draggable({
@@ -91,8 +91,6 @@ $(function () { /// jQB ////////////////////////
 
     pslide.on("dragstop", function () {
 
-        // 자동넘김 지우기함수 호출!
-        clearAuto();
 
         // 광드래그 막기 커버보이기
         cover.show();

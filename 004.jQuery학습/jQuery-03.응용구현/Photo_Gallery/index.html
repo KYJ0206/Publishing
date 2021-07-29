@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Gallery</title>
+    <style>
+
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        /* 갤러리 타이틀 */
+        .mtit{
+            margin: 0;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            font: bold 3.2rem arial;
+        }
+
+        /* 갤러리 박스 */
+        #gallery{
+            display: flex;
+            /* 플렉스박스 */
+            justify-content: space-between;
+            width: 950px;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 10px;
+            outline: 1px solid lime;
+        }
+
+        /* 각 갤러리 박스 공통 */
+        .photobox{
+            position: relative;
+            /* 부모자격 */
+            width: 180px;
+            height: 250px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .photobox img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* 이미지비율유지 채우기 */
+        }
+
+        /* 커버 */
+        .cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            opacity: .5;
+        }
+
+        /* 이미지 설명박스 */
+        .txt{
+            position: absolute;
+            top: 100%;/* 글자박스 하단 밖으로 나감 */
+            left: 0;
+            width: 100%;
+            height: 30%;
+            color: #fff;
+            font: .6875rem/4.68rem sans-serif;
+            /* 0.68rem = 11px , 4.68rem = 75px */
+            text-align: center;
+            word-spacing: nowrap;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+
+        $(function(){ /////////////// JQB ///////////////
+
+            // 이미지 설명글 
+            let itxt = [
+                "고귀하고 엘레강스한 여자",
+                "시크하고 도도한 여자",
+                "여신같고 신비로운 여자",
+                "환상속에 꿈을꾸는 여자",
+                "고풍스런 미를 지닌 여자"
+            ]; ///////// itxt 배열 /////////
+
+            let gallery = $("#gallery");
+            
+            for (let i = 0; i < 5; i++){
+
+                gallery.append(
+                    '<div class="photobox">' +
+                        '<img src="images/mob/'+(i + 1)+'.jpg" alt="Fashion">' +
+                        '<span class="cover"></span>' +
+                        '<span class="txt">'+ itxt[i] +'</span>' +
+                    '</div>'
+                );
+
+            } ///// for문 ///// 
+
+        }); /////////////// JQB ///////////////
+            
+    </script>
+</head>
+<body>
+    <!-- 갤러리타이틀 -->
+    <h1 class="mtit">Fashion Gallery</h1>
+
+    <!-- 갤러리 박스 -->
+    <div id="gallery"></div>
+</body>
+</html>

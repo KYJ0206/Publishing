@@ -28,8 +28,6 @@ $(function () { /// jQB ////////////////////////
     
 
     //// GNB메뉴 클릭시 해당 페이지 위치로 이동 애니메이션
-    // 이벤트 대상: .gnb li + .indic li
-    // 변경 대상: html,body
     $(".gnb li,.indic li").click(function () {
 
 
@@ -47,17 +45,12 @@ $(function () { /// jQB ////////////////////////
 
 
         // 2. 아이디값에 해당하위 top값 위치구하기
-        // top값을 구해서 스크롤 애니메이션 이동에 사용함!
         let pos = $(idnm).offset().top;
         // console.log("위치값:" + pos);
 
 
 
         // 3. 스크롤 애니메이션으로 페이지 이동하기
-        // 세로스크롤 이동속성: scrollTop
-        // 참고: 가로스크롤 이동속성: scrollLeft
-        // 스크롤 이동대상: html,body
-        // -> 범용브라우저에서 사용하는 스크롤대상
         $("html,body").stop().animate({
             scrollTop: pos + "px"
         }, 800, "easeOutQuint",pageAction2);
@@ -75,7 +68,6 @@ $(function () { /// jQB ////////////////////////
 
         
         // 5. li순번과 pno와 일치하기!
-        // 전역변수 페이지번호(pno)와 gnb메뉴 li순번과 같다!
         pno = idx;
         // console.log("페이지번호:" + pno);
 
@@ -87,7 +79,6 @@ $(function () { /// jQB ////////////////////////
 
     // 햄버거버튼 클릭시 class = "on" 토글
     $(".ham").click(function () {
-
 
     $(this).toggleClass("on");
 

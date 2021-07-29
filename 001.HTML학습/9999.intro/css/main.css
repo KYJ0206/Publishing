@@ -399,13 +399,14 @@ h3 {
 .minfo4 {
     position: relative;
     top: 54%;
-    left: 62%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 55vw;
     height: 80vh;
     box-shadow: 0 0 20px #fff;
     border-radius: 20px;
     background: rgb(153, 175, 211);
+    transition: .8s;
 }
 
 
@@ -881,9 +882,9 @@ h3 {
 /* 3-4. 흐르는 자막 */
 .fcap {
     position: absolute;
-    bottom: 198px;
+    bottom: 210px;
     left: 0;
-    height: 40px;
+    height: 45px;
     width: 100%;
     overflow: hidden;
     z-index: 999;
@@ -1017,9 +1018,11 @@ h3 {
 
 .psimg1{
     background: url(../images/newstart.jpg)no-repeat center/cover;
+    background-attachment: fixed;
 }
 .psimg2{
     background: url(../images/newstart.jpg)no-repeat center/cover;
+    background-attachment: fixed;
 }
 
 

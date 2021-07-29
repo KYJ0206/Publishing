@@ -189,6 +189,11 @@ $(function () { /// jQB ////////////////////////
     /////// 배너이동 함수 : goSlide /////////////
     ////////////////////////////////////////////
     let goSlide = function (dir) {
+
+        // 매번 새로 화면 width 구하기
+        winW = $(window).width();
+
+
         // dir-1 왼쪽이동, dir-0 오른쪽이동
         if (dir) { // 왼쪽이동
             slide.stop().animate({
@@ -417,8 +422,48 @@ $(function () { /// jQB ////////////////////////
     }); ////////// click //////////////////////
 
 
-
-
-
-
+    // 액숀 초기화
+    // 대상 : .txt h2 + .imgc
+    // 변경내용 : transform: rotate(45deg), transformOrigin:"left top"
+    $(".txtc h2, .imgc").css({
+        transform: "rotate(15deg) translateY(0px)",
+        transformOrigin:"left top", // 축변경
+        opacity:0
+    })
+    
+    
 }); ///////////// jQB ////////////////////////
+
+
+//////////////////////////////////////////
+////////// 페이지 등장 액션 함수 ///////////
+//////////////////////////////////////////
+function showEle(){
+
+ // 현재 페이지번호에 맞는 액션구현!
+    // pno = 1,2,3만 액션이 있음
+    if(pno > 0 && pno < 4){
+        // console.log("액숀!"+pno);
+        $(".page").eq(pno)
+        .find(".txtc h2, .imgc").css({
+            transform: "rotate(0deg) translateY(0px)",
+            opacity: 1,
+            transition: "1s ease-out .3s"
+        }); /////////// css ///////////
+
+        // 글자만 트랜지션 딜레이
+        $(".page").eq(pno)
+        .find(".txtc h2").css({
+            transitionDelay: ".9s"
+        }); /////////// css ///////////
+
+        // 글자만 트랜지션 딜레이
+        $(".page").eq(pno)
+        .find(".txtc h2.tw").css({
+            transitionDelay: "1.2s"
+        }); /////////// css ///////////
+
+    } /////////// if문 ////////////////
+
+}; /////////// showEle 함수 ////////////
+///////////////////////////////////////

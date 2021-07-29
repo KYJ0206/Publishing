@@ -347,24 +347,116 @@
     cursor: pointer;/* 손가락모양 */
 }
 
+/******** 남자,여자,스타일 패션 공통 class *********/
+.pgc{
+    position: relative;
+    top: 5%;/* 위아래 5%떨어짐 */
+    width: 100%;
+    height: 90%;
 
+    display: flex;
+    /* 플렉스박스 */
+}
+/* li요소 */
+.pgc>li{
+    position: relative;
+    /* 부모자격 */
+    flex: 1;/* 기본등분할 설정 */
+    /* 
+        개별적으로 비율을 넓히려면
+        flex-basis를 사용한다!
+    */
+    overflow: hidden;
+}
+/* 이미지 */
+.pgc img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 박스에 맞춰서 중앙 보이기 */
+}
 
-/********** 2-2.남성의류영역 ***********/
-#men {
+/* 글자스타일 */
+.txtc h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font: bold 4.6rem UB;
+    letter-spacing: 3px;/* 자간 */
+}
+.txtc a{
+    color: #222;
+}
+
+/********** 2-2.남자패션영역 ***********/
+/* #men {
     background-color: darkorange;
-}
-/********** 2-3.여성의류영역 ***********/
-#women {
+} */
+/********** 2-3.여자패션영역 ***********/
+/* #women {
     background-color: hotpink;
+} */
+/* 여자패션 이미지영역 */
+#women .imgc{
+    flex-basis: 25%;
+    /* 등분할 영역까지가 0%이고 양수는 영역침범 */
 }
-/********** 2-4.스타일영역 ***********/
-#style {
+/********** 2-4.스타일패션영역 ***********/
+/* #style {
     background-color: khaki;
+} */
+/* 스타일패션 이미지영역 */
+#style .imgc{
+    flex-basis: 15%;
+    /* 등분할 영역까지가 0%이고 양수는 영역침범 */
 }
+
+/* 스타일패션 이미지 */
+#style img{
+    object-fit: fill;
+    width: auto;
+    right: -26%;
+}
+
+/* 스타일 패션 글자 */
+.txtc .tm{/* 남자스타일글자 */
+    top: 20%;
+    left: auto;
+    transform: none;
+    right: 5%;
+}
+.txtc .tw{/* 여자스타일글자 */
+    top: 70%;
+    left: 5%;
+    transform: none;
+}
+
 /********** 3.하단영역 ***********/
 #info {
+    position: relative;
+    /* 부모자격 */
     height: 50%;/* 회사정보 박스만 높이값 절반! */
-    background-color: cornflowerblue;
+    background-color: #101629;
+}
+
+/* 주소 */
+#info address{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 710px;
+    max-width: 90%;
+    margin: 0 auto;
+    border: 4px double #fffefe;
+    color: #fff;
+    font: 14px/20px NG;
+    padding: 15px;
+}
+
+#info address a{
+    color: #fff;
 }
 
 
