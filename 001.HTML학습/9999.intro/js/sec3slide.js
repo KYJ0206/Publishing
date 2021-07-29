@@ -20,23 +20,11 @@ $(function () { /// jQB ////////////////////////
     let goSlide = function (dir) {
         // dir-1 왼쪽이동, dir-0 오른쪽이동
         if (dir) { // 왼쪽이동
+
             pslide.stop().animate({
-                    left: -winW * 2 + "px"
+                    left: -winW  + "px"
                 }, 600, "easeOutQuint",
                 function () { // 이동 후 실행
-
-                    // 맨앞 슬라이드 맨뒤로 이동!
-                    $(this).append($(this).find("li").first())
-                        // css left값을 -100%값 즉 -winW로 복귀!
-                        .css({
-                            left: -winW + "px"
-                        }); //////// css ///////
-
-                    //커버숨기기
-                    cover.hide();
-
-                    //배너타이틀등장 함수호출!
-                    banTit();
 
                 }); //////// animate //////////
 
@@ -46,24 +34,13 @@ $(function () { /// jQB ////////////////////////
             chgIndic();
 
         } ///////////////// if /////////////////
+
+
         else { // 오른쪽이동 ////////////////////
             pslide.stop().animate({
                     left: "0px"
                 }, 600, "easeOutQuint",
                 function () { // 이동 후 실행
-
-                    // 맨뒤 슬라이드 맨앞으로 이동
-                    $(this).prepend($("li", this).last())
-                        // css left값은 원래값인 -100% 즉, -winW로 복귀!
-                        .css({
-                            left: -winW + "px"
-                        }); ///////// css ////////
-
-                    //커버숨기기
-                    cover.hide();
-
-                    //배너타이틀등장 함수호출!
-                    banTit();
 
                 }); //////////// animate ///////
 
