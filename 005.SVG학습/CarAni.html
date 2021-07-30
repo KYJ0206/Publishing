@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Animation</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        /* 자동차박스 */
+        #myCar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정중앙이동 */
+            width: 1359px;
+            height: 791px;
+            /* outline: 2px dashed blue; */
+        }
+
+        /* 자동차 왼쪽으로 나가기 키프레임 */
+        @keyframes goCar {
+            to {
+                left: -50%;
+            }
+        }
+
+        /* 키프레임 */
+
+        /* 자동차 시동떨기 키프레임 */
+        @keyframes brrCar {
+            to {
+                top: 49.5%;
+            }
+        }
+
+        /* 키프레임 */
+
+
+        /* 자동차 밑그림 */
+        #car {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+        }
+
+        /* 자동차 나타나기 애니 키프레임 */
+        @keyframes showCar {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 키프레임 */
+
+
+        /* svg path 설정 */
+        .spath {
+            position: absolute;
+        }
+
+        .spath path {
+            fill: none;
+            /* 채우기 없앰 */
+            stroke: #000;
+            /* 선색 */
+            stroke-width: 5px;
+            /* 선두께 */
+            stroke-linecap: round;
+            /* 선끝 둥글게 */
+            stroke-linejoin: round;
+            /* 선연결부위 둥글게 */
+            stroke-dasharray: 240%;
+            /* 50%*4조각=200%+보정 -> 선, 공백 중 선으로 채움 */
+            stroke-dashoffset: 240%;
+            /* 시작점에서 공백부터 나옴 */
+        }
+
+        /* 자동차선 나타내기 애니 키프레임 */
+        @keyframes carAni {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* 키프레임 */
+
+        /* 자동차선 지우기 애니 키프레임 */
+        @keyframes hideLine {
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* 키프레임 */
+
+
+        /* 바퀴 공통 */
+        .ba {
+            position: absolute;
+            width: 133px;
+            height: 133px;
+            border-radius: 50%;
+            background: url(./images/car.jpg) no-repeat;
+            background-position: -249px -424px;
+            opacity: 0;
+
+            /* 밑그림 자동차 이미지와 동시에 나타남 */
+        }
+
+
+        /* 앞바퀴 */
+        .fw {
+            bottom: 235px;
+            left: 249px;
+        }
+
+        /* 앞바퀴 */
+        .bw {
+            bottom: 239px;
+            right: 273px;
+        }
+
+        /* 바퀴회전 키프레임 */
+        @keyframes rotBa {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        /* 로고 */
+        #logo {
+            position: absolute;
+            top: 50%;
+            left: 150%;
+            transform: translate(-50%, -50%);
+            width: 25%;
+        }
+
+        /* 로고등장 키프레임 */
+        @keyframes logoAni {
+            to {
+                left: 50%;
+            }
+        }
+
+        /* 키프레임 */
+
+
+        /**************** 애니메이션 실행 세팅 ****************/
+        /* body.on 상태이면 애니메이션 적용실행! */
+        /* 자동차박스 */
+        body.on #myCar {
+            /* 애니메이션 */
+            animation:
+                brrCar .03s linear 12s infinite alternate,
+                goCar 2s linear 15s forwards;
+        }
+
+        /* 자동차 밑그림 */
+        body.on #car {
+            /* 애니메이션 */
+            animation: showCar 2s ease-in-out 10s forwards;
+        }
+
+        body.on .spath path {
+            /* 애니메이션 */
+            animation:
+                carAni 10s linear forwards,
+                hideLine 2s ease-in-out 10s forwards;
+        }
+
+        /* 바퀴 공통 */
+        body.on .ba {
+            /* 밑그림 자동차 이미지와 동시에 나타남 */
+            animation:
+                showCar 2s ease-in-out 10s forwards,
+                rotBa 1s linear 15s infinite;
+        }
+
+        /* 로고 */
+        body.on #logo {
+            animation: logoAni 4s linear 15s forwards;
+        }
+
+        /* 시작버튼 */
+        .sbtn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            font-size: 50px;
+            font-family: verdana;
+            color: blue;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .sbtn:hover{
+            background-color: #000;
+            color: lime;
+        }
+
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(function(){ //////////////// JQB ////////////////
+
+            // 시작버튼 클릭시 자동차 애니 시작하기
+            // 대상 : .sbtn
+            $(".sbtn").click(function(){
+
+                // 1. 클릭된 버튼 자신은 사라진다
+                $(this).fadeOut(300);
+
+                // 2. body 에 class="on" 넣기
+                setTimeout(() =>{
+                    $("body").addClass("on");
+                },1000);
+
+                // 3. 오디오 플레이하기
+                // 선택된 오디오요소는 get() 메서드에서 선택함
+                $("#myaud").get(0).play();
+
+            }); ///// click /////
+
+        }); //////////////// JQB ////////////////
+
+    </script>
+</head>
+
+<body>
+    <!-- 자동차박스 -->
+    <div id="myCar">
+        <!-- 자동차밑그림 -->
+        <img src="images/car.jpg" alt="자동차" id="car">
+        <!-- svg path -->
+        <svg viewBox="0 0 1359 791" class="spath">
+            <path
+                d="M109.5,510.5c0,0-7-64,0-71s27-18,27-18s11.61-44.28,63-68c52-24,229-42,229-42s79-75,144-97c74.4-25.18,141-31,335-10l16-8l4,4l-6,7c0,0,130,44,186,91c0,0,68,38,87,85c0,0,31,17,36,31v64l-26,32l-94,7c0,0-13,58-96,58c-72.03,0-86-56-86-56l-519,7c0,0-9,49-91,49c-72,0-91-49-91-49l-90,3L109.5,510.5z">
+            </path>
+        </svg>
+
+        <!-- 자동차 앞바퀴 -->
+        <div class="ba fw"></div>
+
+        <!-- 자동차 뒷바퀴 -->
+        <div class="ba bw"></div>
+
+    </div>
+
+    <!-- 로고 이미지 -->
+    <img src="images/volkswagen.jpg" alt="로고" id="logo">
+
+    <!-- 오디오 넣기 -->
+    <audio src="images/carsound.mp3" id="myaud"></audio>
+
+    <!-- 시작버튼 -->
+    <button class="sbtn">
+        AD <br> start
+    </button>
+
+    <!-- 
+    [ SVG : path ]
+    - 특정 명령어를 사용하여 직선과 곡선을 자유롭게 표현하는 벡터 svg표현법
+    - 아래 명령어들은 path 정보를 구현하는데 사용된다.
+    - d 속성에 값을 넣어 화면에 출력한다.
+    예) <svg><path d="선표현식"></svg>
+    -> 표현식: 표시자+x좌표 y좌표 표시자+x좌표 y좌표...
+    예) <path d="M150 50 L200 150 L100 70 Z">
+
+
+    [ 선의 종류를 지정하는 표시자들 ]
+
+    M = 이동 - 기준점 이동(시작점)
+    L = 선으로 이동
+    H = 수평선
+    V = 수직선
+    C = 곡선
+    S = 부드러운 곡선
+    Q = 2차 베지어곡선
+    T = 부드러운 2차 베지어곡선
+    A = 타원형호
+    Z = 가까운 경로 - 패스닫기
+    
+    참고 : 위의 모든 명령은 소문자로도 표현할 수 있습니다. 
+    대문자는 절대 위치를 의미하고 소문자는 상대적 위치를 의미합니다.
+    
+
+    [ 원하는 곡선의 path 코드를 얻는 방법 ]
+
+    1. 일러스트레이터로 벡터 선을 그린다.
+    2. 다른 이름으로 저장하여 형식을 "SVG"를 선택한 후 확인한다.
+    3. SVG 대화창이 뜨면 하단의 "SVG Code..."버튼을 클릭한다.
+    4. 브라우저가 구동하여 코드를 보여준다.
+    5. 여기서 코드의 svg태그의 내부 d속성값을 복사한다.
+    6. 복사한 값을 내가 사용하려는 svg에 넣고 모든 코드를 한줄로 붙여쓴다. 
+    -->
+
+
+
+</body>
+
+</html>
