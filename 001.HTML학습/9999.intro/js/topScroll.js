@@ -76,8 +76,7 @@ $(function () { //////// jQB //////////////////
 
         e.preventDefault(); // 기본이동막기
 
-        // 상단영역class미리제거
-        // 이유: 스크롤 애니메이션을 자연스럽게 상단처리
+        // 상단영역class미리제거 애니메이션을 자연스럽게 상단처리
         tbx.removeClass("on");
         pno = 0;
 
