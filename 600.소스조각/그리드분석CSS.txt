@@ -1,4 +1,4 @@
-그리드뷰 HTML
+<!--그리드뷰html-->
 <ul class="grid">
     <li></li>
     <li></li>
@@ -14,7 +14,6 @@
     <li></li>
 </ul>
 
-
 <style>
 /*그리드뷰 CSS*/
 .grid{
@@ -22,7 +21,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    /* 화면가로 중앙 이동 */
+    /* 화면가로 중앙이동 */
 
     /* 크기지정 */
     width: 960px;
@@ -33,24 +32,23 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    z-index: 9999;
+    z-index: 99999;
     /* display: none; */
 }
-
 
 /* li 12컬럼 설정 */
 .grid li{
     float: left;
     /* 옆으로 흐르게 */
-
     width: 8.33%;/* 12등분 */
     height: 100%;
-    background-color: rgba(0,0,225,0.5);
+    background-color: rgba(0, 0, 255, 0.5);
     box-sizing: border-box;
-    /* 패딩과 보더가 포함 - 크기유지 */
+    /* 패딩,보더 포함 - 크기유지 */
     padding: 0 10px;
 
     background-clip: content-box;
     /* 패딩영역의 배경색 빼기 */
+    
 }
 </style>

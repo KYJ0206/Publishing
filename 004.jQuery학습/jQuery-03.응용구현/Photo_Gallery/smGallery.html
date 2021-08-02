@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Gallery</title>
+    <title>Shopping Mall Gallery</title>
     <style>
         html,
         body {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
+            /* html,body의 높이값 auto로! */
         }
 
         body {
             background-color: #000;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         /* 갤러리 타이틀 */
@@ -32,12 +33,15 @@
         #gallery {
             display: flex;
             /* 플렉스박스 */
+            flex-wrap: wrap;
+            /* 플렉스 줄바꿈 */
             justify-content: space-between;
             /* 가로배열 컨텐츠 사이간격일정(양쪽끝에 위치) */
             width: 950px;
             margin: 0 auto;
-            margin-top: 50px;
+            margin-bottom: 150px;
             padding: 10px;
+            padding-bottom: 0;
             outline: 1px solid lime;
         }
 
@@ -51,6 +55,7 @@
             /* margin: 5px; */
             overflow: hidden;
             /* 자식요소숨김 */
+            margin-bottom: 10px;
         }
 
         .photobox img {
@@ -182,14 +187,11 @@
     <script>
         $(function () { ///////// jQB ////////////////////
 
-            // 이미지 설명글
-            let itxt = [
-                "고귀하고 엘레강스한 여자",
-                "시크하고 도도한 여자",
-                "여신같고 신비로운 여자",
-                "환상속에 꿈을 꾸는 여자",
-                "고풍스런 미를 지닌 여자"
-            ]; ///////// itxt 배열 //////
+            // 이미지 설명글 ////////////////////////
+            let itxt = [];
+            for (let i = 0; i < 50; i++) {
+                itxt[i] = "WD21-AUG" + (i + 1);
+            } ///////// for문 : 이미지설명 배열 //////
 
             ////////////////////////////////
             // 1. 갤러리박스 코드 셋팅하기 ///
@@ -199,10 +201,10 @@
             // 대상: #gallery
             let gallery = $("#gallery");
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 50; i++) {
                 gallery.append(
                     '<div class="photobox">' +
-                    '    <img src="images/mob/' + (i + 1) + '.jpg" alt="fashion">' +
+                    '    <img src="images/dress/' + (i + 1) + '.jpg" alt="fashion">' +
                     '    <span class="cover"></span>' +
                     '    <span class="txt">' + itxt[i] + '</span>' +
                     '</div>'
@@ -262,9 +264,9 @@
                 let isrc = $("img", this).attr("src");
                 // console.log("이미지경로:" + isrc);
 
-                // 2. 이미지경로 변경하기
+                // 2. 이미지경로 변경하기 -> smGallery는 불필요!
                 // -> 큰 이미지경로는 mob폴더경로만 없으면됨!
-                isrc = isrc.replace("/mob", "");
+                // isrc = isrc.replace("/mob", "");
                 // console.log("변경경로:" + isrc);
 
                 // 3. 이미지경로 적용하기
@@ -281,6 +283,11 @@
                 // 5. 큰 이미지박스, 큰 이미지배경 보이기
                 imbx.fadeIn(300);
                 bgbx.fadeIn(300);
+
+                // 6. 큰 이미지보기시 body의 스크롤막기
+                $("body").css({
+                    overflow: "hidden"
+                }); ////// css ////////
 
             }); ///////////// click ////////////////////
             ////////////////////////////////////////////
@@ -301,10 +308,20 @@
                             rotate: "0deg"
                         }, 100); ///// animate /////////
                     }) ////// hover //////
-                .click(function () {
-                    // 큰 이미지박스, 큰 이미지 배경 숨기기
+                .click(function (e) {
+
+                    // 1. 기본이동막기
+                    e.preventDefault();
+
+                    // 2. 큰 이미지박스, 큰 이미지 배경 숨기기
                     imbx.fadeOut(300);
                     bgbx.fadeOut(300);
+
+                    // 3. body 스크롤막기 해제하기
+                    $("body").css({
+                        overflow:"visible"
+                    }); //////// css /////////
+
                 }); ///////////// click /////////////
             /////////////////////////////////////////////
 
@@ -314,7 +331,10 @@
             // 대상: .abtn
             // 방향구분: 클릭된 버튼이 .rb인지 .lb인지 알아냄
             // -> is() 메서드로 알아낸다!!!
-            $(".abtn").click(function () {
+            $(".abtn").click(function (e) {
+
+                // 기본이동막기
+                e.preventDefault();
 
                 // 1. 버튼 구분하기 : is(".rb")는 오른쪽버튼인가?
                 let wbtn = $(this).is(".rb");
@@ -338,7 +358,7 @@
                 // 3. 변경된 순번에 맞는 큰 이미지와 설명넣기
                 // 3-1. 큰 이미지 변경 : 이미지이름은 순번보다 1큼
                 imbx.find("img")
-                    .attr("src", "images/" + (pseq + 1) + ".jpg");
+                    .attr("src", "images/dress/" + (pseq + 1) + ".jpg");
                 // 3-2. 이미지 설명 변경 : 순번에 맞는 설명배열값 넣기
                 imbx.find("h4").text(itxt[pseq]);
 
@@ -356,7 +376,7 @@
 
 <body>
     <!-- 갤러리 타이틀 -->
-    <h1 class="mtit">Fashion Gallery</h1>
+    <h1 class="mtit">Shopping Mall Gallery</h1>
 
     <!-- 갤러리 박스 -->
     <div id="gallery"></div>

@@ -1,0 +1,60 @@
+[ 웹서버와 DB서버 설치하기 ]
+
+1. 구글에서 "xampp"를 검색
+
+2. https://www.apachefriends.org/download.html
+    사이트에서 window용으로 다운로드 받는다.
+
+3. 다운 받은 파일을 실행하여  "next"를 클릭하면서 설치
+
+4. 설치 중 엑세스 허용 질문에는 허용함으로 클릭함
+
+5. 모두 설치된 후 왼쪽 아래 트레이에 xampp 아이콘을 더블 클릭 혹은 오른쪽버튼 "show/hide"버튼을 클릭하여 패널을 실행
+
+6. 패널에서 "Apache" 와 "MySQL"을 "Start"버튼을 클릭하여 시작되게 함
+
+7. 브라우저를 띄우고 URL창에다가 "localhost"라고 쓰고 엔터를 치면 초기페이지가 나옴
+
+8. 주소창에 보면 "http://localhost/dashboard/"
+   이것으로 나오는 데 위치는 아래와 같음
+   C:\xampp\htdocs\dashboard\index.html
+  (참고: localhost는 127.0.0.1 과 동일한 자체 서버 호출 주소다.)
+
+9. 위의 파일을 소스편집 툴로 열어보고 html을 일부 변경해 보면 이 파일이 맞음을 확인함.
+
+10. 드림위버로 새사이트 만들기를 하고 이름은 적당히 주고 경로를 "C:\xampp\htdocs\dashboard" 까지 들어가서 새폴더 만들기로 "mysite"를 만들고 이것으로 설정함.
+
+[ 웹서버 루트잡기 ]
+
+XAMPP 로 아파치서버를 설치후 실행.
+브라우저 창에 localhost 라고 치면
+Root 디렉토리(최상위폴더) : htdocs
+그 아래있는 index.php 파일에서
+위치 이동을 시키고 있다.
+
+htdocs 아래에 mysite라는 폴더를 만들고
+이쪽으로 포워딩 설정을 변경한다.
+
+실제파일 변경부분
+-> <?php ?> 이렇게 표시되부분이 PHP코드영역이다.
+________________________________________________
+<?php
+	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+		$uri = 'https://';
+	} else {
+		$uri = 'http://';
+	}
+	$uri .= $_SERVER['HTTP_HOST'];
+	header('Location: '.$uri.'/dashboard/');<<<- 이 부분변경!
+	exit;
+?>
+______________________________________________
+
+변경후)
+header('Location: '.$uri.'/mysite/');
+
+-> 물론 mysite라는 폴더를 루트에 만들고 그 아래 index파일이 있어야함!
+
+
+
+

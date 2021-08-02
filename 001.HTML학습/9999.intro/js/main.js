@@ -56,6 +56,8 @@ $(function () { /// jQB ////////////////////////
         }, 800, "easeOutQuint",pageAction2);
         // 애니메이션 이동후 pageAction함수 호출하기!!!
 
+        
+
 
 
         // 4. 클릭된 a요소의 부모 li에 class="on" 넣기
