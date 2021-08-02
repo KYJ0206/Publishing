@@ -431,6 +431,110 @@ h3 {
 
 
 
+/* 하단 공통 적용 */
+/* 스크롤 박스 */
+.scroll {
+    position: fixed;
+    width: 50%;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 스크롤 마우스 */
+.scrollin {
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 16px;
+    height: 43px;
+    border: 3px solid #314172;
+    border-radius: 7px;
+}
+
+.scrollin::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #f60;
+    animation: k_scroll 1.2s ease-out infinite;
+}
+
+@keyframes k_scroll {
+    to {
+        top: 70%;
+        opacity: 0;
+    }
+}
+
+.scroll span {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    color: #314172;
+    font-family: UB;
+    font-size: 1.8rem;
+    transform: translateX(-50%);
+    text-shadow: 1px 0 0 #314172, 0 1px 0 #314172,
+        -1px 0 0 #314172, 0 -1px 0 #314172;
+}
+
+/* 위로가기버튼 */
+.tbtn {
+    position: fixed;
+    bottom: 30px;
+    right: 60px;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px 4px 0 0;
+    background-color: #333;
+    color: #fff;
+    opacity: 0.9;
+    z-index: 999;
+    display: none;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.tbtn P {
+    position: absolute;
+    top: 30%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    font-family: UB;
+    font-weight: bold;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+}
+
+.fi {
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    font-family: "fontisto";
+    font-size: 14px;
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fi-angle-up:before {
+    content: "\e96b";
+}
+
+
+
+
 
 /**************************** sec1 ****************************/
 
@@ -694,6 +798,8 @@ h3 {
     right: 20%;
     background: url(../images/btn_shop_bn_right.png) no-repeat;
 }
+
+
 
 
 
@@ -993,6 +1099,7 @@ h3 {
 
 
 
+
 /**************************** sec3 ****************************/
 
 #pg3 {
@@ -1023,6 +1130,74 @@ h3 {
 .psimg2{
     background: url(../images/newstart.jpg)no-repeat center/cover;
     background-attachment: fixed;
+}
+
+/* 슬라이드 커버 */
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* background-color: #f00;
+    opacity: 0.5; */
+    display: none;
+}
+
+
+/* 양쪽이동버튼(영역+버튼) */
+/* 영역공통 */
+.btna {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+}
+/* 왼쪽영역 */
+.ar1 {
+    left: 0;
+    /* background-color: #ffafaf; */
+}
+/* 오른쪽영역 */
+.ar2 {
+    right: 0;
+    /* background-color: #769bff; */
+}
+
+/*팔로워*/
+.badge {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+}
+
+.inside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.7;
+    transition: all .1s;
+}
+
+/*버튼글자박스*/
+.btntit {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) scale(0);
+    /*            outline: 1px solid red;*/
+    font: 22px/80px Verdana;
+    color: #555;
+    text-align: center;
+    transition: all .1s;
+    cursor: pointer;/* 손가락모양 */
 }
 
 
@@ -1175,105 +1350,8 @@ ol>li:first-child {
 
 
 
+
+
 /**************************** sec4 ****************************/
 
 
-/* 스크롤 박스 */
-.scroll {
-    position: fixed;
-    width: 50%;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* 스크롤 마우스 */
-.scrollin {
-    display: block;
-    margin: 0 auto;
-    box-sizing: border-box;
-    width: 16px;
-    height: 43px;
-    border: 3px solid #314172;
-    border-radius: 7px;
-}
-
-.scrollin::before {
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: #f60;
-    animation: k_scroll 1.2s ease-out infinite;
-}
-
-@keyframes k_scroll {
-    to {
-        top: 70%;
-        opacity: 0;
-    }
-}
-
-.scroll span {
-    position: absolute;
-    top: 48px;
-    left: 50%;
-    color: #314172;
-    font-family: UB;
-    font-size: 1.8rem;
-    transform: translateX(-50%);
-    text-shadow: 1px 0 0 #314172, 0 1px 0 #314172,
-        -1px 0 0 #314172, 0 -1px 0 #314172;
-}
-
-/* 위로가기버튼 */
-.tbtn {
-    position: fixed;
-    bottom: 30px;
-    right: 60px;
-    width: 65px;
-    height: 65px;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 4px 4px 0 0;
-    background-color: #333;
-    color: #fff;
-    opacity: 0.9;
-    z-index: 999;
-    display: none;
-    border-radius: 50%;
-    box-shadow: 0 0 5px #ccc;
-}
-
-.tbtn P {
-    position: absolute;
-    top: 30%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    font-family: UB;
-    font-weight: bold;
-    font-size: 1.6rem;
-    letter-spacing: 4px;
-}
-
-.fi {
-    display: inline-block;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    text-rendering: auto;
-    font-family: "fontisto";
-    font-size: 14px;
-    font-size: inherit;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.fi-angle-up:before {
-    content: "\e96b";
-}

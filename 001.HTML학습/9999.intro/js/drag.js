@@ -28,6 +28,9 @@ $(function () { /// jQB ////////////////////////
                 }, 600, "easeOutQuint",
                 function () { // 이동 후 실행
 
+                    //커버숨기기
+                    cover.hide(); 
+
                 }); //////// animate //////////
         } ///////////////// if /////////////////
 
@@ -37,6 +40,9 @@ $(function () { /// jQB ////////////////////////
                     left: "0px"
                 }, 600, "easeOutQuint",
                 function () { // 이동 후 실행
+
+                    //커버숨기기
+                    cover.hide(); 
 
                 }); //////////// animate ///////
 
@@ -95,7 +101,7 @@ $(function () { /// jQB ////////////////////////
 
             $(this).stop().animate({
                     left: -winW + "px"
-                }, 300, "easeOutQuint",
+                }, 600, "easeOutQuint",
                 function () { /// 애니 후 실행
 
                     //커버숨기기
@@ -110,7 +116,7 @@ $(function () { /// jQB ////////////////////////
 
             $(this).stop().animate({
                     left: "0px"
-                }, 300, "easeOutQuint",
+                }, 600, "easeOutQuint",
                 function () { /// 애니 후 실행
 
                     //커버숨기기
@@ -168,5 +174,60 @@ $(function () { /// jQB ////////////////////////
 
         }); ///////// 마우스 + 터치 이벤트 함수 //////////////
         ////////////////////////////////////////////////////
+
+
+        // 마우스 팔로워 플러그인 적용하기
+        // 움직일 대상: .btna
+        // 설정범위는 움직일 대상이 포함된 부모요소
+
+        $(".btna").mousefollower();
+
+        $(".btna").hover(
+            function () { // over
+
+                // 흰원 나타나기
+                $(".inside", this).css({
+                    transform: "scale(1)"
+                }); //// css ////////////
+
+                // 글자 나타나기
+                $(".btntit", this).css({
+                    transform: "translate(-50%, -50%) scale(1)"
+                }); /////// css /////////////
+
+            },
+            function () { // out
+
+                // 흰원 사라지기
+                $(".inside", this).css({
+                    transform: "scale(0)"
+                }); //// css ////////////
+
+                // 글자 사라지기
+                $(".btntit", this).css({
+                    transform: "translate(-50%, -50%) scale(0)"
+                }); ////////// css ////////
+
+            }); ///// hover ///////////
+
+        ///////////////////////////////////////////
+        /////// 배너이동 버튼 클릭시 배너이동하기 ////
+        ///////////////////////////////////////////
+        // 대상: .btntit
+        $(".btntit").click(function () {
+
+            // 1. 어느쪽버튼인지 구분하기
+            let btn = $(this).parent().is(".ar1");
+            console.log("이동!" + btn);
+
+            // 2. btn이 true이면 왼쪽버튼 아니면 오른쪽버튼
+            if (btn) { // 왼쪽버튼(prev버튼-오른쪽이동)
+                goSlide(0);
+            } //////////// if /////////////
+            else { // 오른쪽버튼(next버튼-왼쪽이동)
+                goSlide(1);
+            } ////////////// else /////////
+
+        }); ////////// click //////////////////////
 
 }); ///////////// jQB ////////////////////////
