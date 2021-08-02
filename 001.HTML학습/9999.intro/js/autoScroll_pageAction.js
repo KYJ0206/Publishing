@@ -31,9 +31,12 @@ $(function () { /// jQB ////////////////////////
         // 호출확인
         // console.log("초기화!");
 
-        $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox").hide(); // hide //
+        // HOME
+        $(".slidebox1").css({
+            minHeight: "0vh"
+        }); ///////// css ///////////
 
-
+        // Contact
         $("#pg4,.minfo").css({
             left: "150%"
         }); ///////// css ///////////
@@ -57,19 +60,20 @@ $(function () { /// jQB ////////////////////////
         init(); // 초기화호출!
 
 
-        // 1. Home
+        // HOME
         if (pno === 0) {
-            // fadeIn으로 나타나기
-            $("#pg1 .maintit, .side1, .side2, .side3, .side4, .titbox")
-                .fadeIn(3000); //// animate ///
-        } /////// if ////////////
+            $(".slidebox1").delay(5000)
+                .animate({
+                    minHeight: "30vh"
+                },7000, "easeInSine")
+        } ////// if ///////////////
+        
 
-
-        // 2. Contact
+        // Contact
         else if (pno === 3) {
             $("#pg4 .minfo")
                 .animate({
-                    left: "62%"
+                    left: "50%"
                 }, 800, "easeInSine"); //// animate ///;
         } ////// else if ///////////////
 

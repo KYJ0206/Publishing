@@ -295,10 +295,6 @@ h3 {
 /* 2. 페이지영역 */
 /* 개별 페이지 셋팅 */
 /* 페이지 1 */
-#pg1 {
-    background: rgb(238, 238, 238);
-    background-attachment: fixed;
-}
 
 #pg1 h1 {
     font-family: 'Work Sans', sans-serif;
@@ -322,7 +318,7 @@ h3 {
 /* 페이지 4 */
 #pg4 {
     position: static;
-    background: rgb(159, 200, 209);
+    background-color: #f4f4f4;
     background-attachment: fixed;
 }
 
@@ -401,12 +397,14 @@ h3 {
     top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 55vw;
+    width: 80vw;
     height: 80vh;
-    box-shadow: 0 0 20px #fff;
+    box-shadow: 0 0 20px #555;
     border-radius: 20px;
-    background: rgb(153, 175, 211);
+    background: rgb(255 255 255);
     transition: .8s;
+    padding: 20px;
+    /* box-sizing: border-box; */
 }
 
 
@@ -547,21 +545,8 @@ h3 {
     opacity: .8;
 }
 
-/* 배경메인글 */
-.maintit {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    font-size: 50px;
-    top: 17%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
-    white-space: nowrap;
-    z-index: 1;
-}
 
+/* 슬라이드 박스 설명글 */
 .sboxtit{
     position: absolute;
     width: 10%;
@@ -578,78 +563,82 @@ h3 {
     font-family: UB;
 }
 
-.side1 {
+/* 타이핑 텍스트 박스 설정 */
+.typtit{
     position: absolute;
-    margin: 0;
-    padding: 0;
-    font-size: 26px;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
-    text-align: center;
-    z-index: 1;
+    top: 44%;
+    right: 5%;
+    font-size: 4.9vw;
+    font-weight: 600;
+    font-family: 'Kanit', sans-serif;
+    color: #000;
+    letter-spacing: 1px;
 }
 
-.side2 {
-    position: absolute;
+/* 타이핌 글자 */
+#typing{
+    font-size: 8rem;
+    font-weight: bold;
+    font-family: ub;
     margin: 0;
     padding: 0;
-    font-size: 26px;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
-    text-align: center;
-    z-index: 1;
-}
-
-.side3 {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    top: 62.8%;
-    left: 68%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
-    text-align: center;
-    z-index: 1;
-}
-
-.side4 {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    font-size: 30px;
-    top: 27%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-shadow: 0 1px #000, 1px 0 #000, 0 -1px #000, -1px 0 #000;
-    text-align: center;
-    z-index: 1;
     white-space: nowrap;
 }
 
-.titbox {
-    width: 100%;
-    height: 121%;
+/* 깜박임 커서 가상요소 */
+#typing::after{
+    content: '';
+    display: block;
     position: absolute;
-    background: #0006;
-    top: 39.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
+    top: 0;
+    right: -15px;
+    width: 4px;
+    height: 100%;
+
+    animation: typingAni 1s linear infinite;
 }
+
+@keyframes typingAni {
+    0%   { border-left: 8px solid rgba(85, 85, 85, 0); }
+    50%  { border-left: 8px solid #000; }
+    100% { border-left: 8px solid rgba(85, 85, 85, 0); }
+} /* 타이핑 키프레임 */
+
+
+/* 타이핑 서브 */
+.subtyping{
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    text-align-last: left;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    font-family: NG;
+    color: #000;
+    white-space: nowrap;
+}  
+  
+.subtyping2{
+    position: absolute;
+    top: 59%;
+    right: 5%;
+    text-align-last: left;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    font-family: NG;
+    color: #000;
+    white-space: nowrap;
+}  
+  
+
 
 /******************** 슬라이드 ********************/
 
 .slidebox1 {
-    min-height: 30vh;
     width: 100%;
     position: absolute;
     overflow: hidden;
@@ -657,7 +646,9 @@ h3 {
     bottom: 0;
     background-color: #ffffff9c;
     box-shadow: 0 -1px 0 #aaa;
+    transition: .6s;
 }
+
 
 .slide1 {
     position: absolute;
@@ -818,8 +809,9 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80vw;
-    height: 75vh;
+    height: 80vh;
     box-shadow: 0 0 20px #555;
+    border-radius: 20px;
 }
 
 /* 상단박스 */
@@ -915,6 +907,11 @@ h3 {
     z-index: 1;/* 맨위에 */
 }
 
+.pg2slide li img{
+    width: 100%;
+    height: 100%;
+}
+
 
 
 
@@ -988,7 +985,7 @@ h3 {
 /* 3-4. 흐르는 자막 */
 .fcap {
     position: absolute;
-    bottom: 210px;
+    bottom: 30%;
     left: 0;
     height: 45px;
     width: 100%;
@@ -1063,7 +1060,7 @@ h3 {
 .c1 {
     fill: none;
     /* 채우기-기본색은 검정색(transparent-투명,none-없음) */
-    stroke: rgb(29 193 34);
+    stroke: #f00;
     /* 선색(안쓰면 안나옴) */
     stroke-width: 10;
     /* 선두께는 안쓰면 1px, 단위없으면 px */
@@ -1204,8 +1201,8 @@ h3 {
 /* 전체부모박스 */
 .wrap {
     position: absolute;
-    width: 80%;
-    height: 80%;
+    width: 80vw;
+    height: 80vh;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1214,7 +1211,7 @@ h3 {
     box-sizing: border-box;
     background-color: rgb(255 252 252 / 80%);
     border-radius: 20px;
-    box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 20px #555;
 }
 
 /* 타이틀 */

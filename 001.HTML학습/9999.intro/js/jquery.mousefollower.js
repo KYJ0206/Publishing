@@ -1,3 +1,8 @@
+/*
+* By Julien Gustin : http://www.julien-gustin.be
+* contact@julien-gustin.be
+* 16-03-2018
+*/
 (function($)
 {
     $.fn.mousefollower=function(options)
