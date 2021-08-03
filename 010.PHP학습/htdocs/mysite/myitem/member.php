@@ -50,9 +50,9 @@
                         <li>
                             <label for="gen1">성별</label>
                             남성
-                            <input type="radio" name="gen" id="gen1">
+                            <input type="radio" name="gen" id="gen1" value="m">
                             여성
-                            <input type="radio" name="gen" id="gen2" checked>
+                            <input type="radio" name="gen" id="gen2" value="w" checked>
                             <!-- 라디오버튼은 name속성값을 같은
                             이름으로 하면 하나만 선택되는
                              그룹핑이된다 
