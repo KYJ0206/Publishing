@@ -65,7 +65,7 @@ $(function () { /// jQB ////////////////////////
             $(".slidebox1").delay(5000)
                 .animate({
                     minHeight: "30vh"
-                },5000, "easeInSine")
+                },1000, "easeInSine")
         } ////// if ///////////////
         
 
