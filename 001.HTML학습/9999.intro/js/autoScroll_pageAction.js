@@ -20,7 +20,7 @@ $(function () { /// jQB ////////////////////////
 
     $("html,body").animate({
         scrollTop: "0px"
-    }, 100, "easeOutQuint");
+    }, 1000, "easeOutQuint");
 
     /*//////////////////////////////////////////
         함수명: init(전역변수구역에 선언!)
@@ -65,7 +65,7 @@ $(function () { /// jQB ////////////////////////
             $(".slidebox1").delay(5000)
                 .animate({
                     minHeight: "30vh"
-                },7000, "easeInSine")
+                },5000, "easeInSine")
         } ////// if ///////////////
         
 
@@ -196,7 +196,7 @@ $(function () { /// jQB ////////////////////////
 
             $("html,body").stop().animate({
                 scrollTop: pos + "px"
-            }, 800, "easeOutQuint",pageAction2);
+            }, 1000, "easeOutQuint",pageAction2);
             // 애니메이션 이동후 pageAction함수 호출하기!!!
 
             if (callFn) pageAction();

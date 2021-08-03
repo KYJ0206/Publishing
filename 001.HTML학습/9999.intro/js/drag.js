@@ -180,9 +180,9 @@ $(function () { /// jQB ////////////////////////
         // 움직일 대상: body
         // 설정범위는 움직일 대상이 포함된 부모요소
 
-        $("body").mousefollower();
+        $(".btna").mousefollower();
 
-        $("body").hover(
+        $(".btna").hover(
             function () { // over
 
                 // 흰원 나타나기

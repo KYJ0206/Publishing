@@ -24,7 +24,7 @@
                 var $canvas = $(e.currentTarget);
                 var offset = $canvas.offset();
                 mouseX = e.pageX - offset.left;
-                mouseY = e.pageY - offset.top;
+                mouseY = e.pageY + $(this).offset().top - offset.top;
                 var follower = $(params.followerSelector, $canvas);
                 xp = parseInt(follower.css('left'));
                 yp = parseInt(follower.css('top'));
@@ -40,7 +40,7 @@
                 var followerOffset = canvas.offset();
 
                 mouseX = e.pageX - offset.left;
-                mouseY = e.pageY - offset.top;
+                mouseY = e.pageY + $(this).offset().top - offset.top;
 
                 // Check limit right
                 if(mouseX + (follower.outerWidth() / 2) - 5 >= canvas.innerWidth()){

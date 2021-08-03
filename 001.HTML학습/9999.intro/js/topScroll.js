@@ -18,7 +18,7 @@ $(function () { //////// jQB //////////////////
 
     $("html,body").animate({
         scrollTop: "0px"
-    }, 100, "easeOutQuint");
+    }, 1000, "easeOutQuint");
 
 
     //// 스크롤 액션 대상 변수 ///////
@@ -80,10 +80,10 @@ $(function () { //////// jQB //////////////////
         tbx.removeClass("on");
         pno = 0;
 
-        // 스크롤 애니메이션 //
+        // 탑버튼 클릭시 스크롤 애니메이션 //
         $("html,body").animate({
             scrollTop: "0"
-        }, 800, "easeOutCubic");
+        }, 1000, "easeOutCubic");
 
         pageAction();
 

@@ -3,7 +3,7 @@ $(function () { /// jQB ////////////////////////
 
     $("html,body").animate({
         scrollTop: "0px"
-    }, 100, "easeOutQuint");
+    }, 1000, "easeOutQuint");
 
     // 메뉴 a요소 기본이동 막기!
     $(".gnb a,.indic a").click(function (e) {
@@ -27,7 +27,7 @@ $(function () { /// jQB ////////////////////////
 
     
 
-    //// GNB메뉴 클릭시 해당 페이지 위치로 이동 애니메이션
+    //// GNB메뉴 인디케이터 클릭시 해당 페이지 위치로 이동 애니메이션
     $(".gnb li,.indic li").click(function () {
 
 
@@ -50,10 +50,10 @@ $(function () { /// jQB ////////////////////////
 
 
 
-        // 3. 스크롤 애니메이션으로 페이지 이동하기
+        // 3. GNB메뉴 인디케이터 클릭시 스크롤 애니메이션으로 페이지 이동하기
         $("html,body").stop().animate({
             scrollTop: pos + "px"
-        }, 800, "easeOutQuint",pageAction2);
+        }, 1000, "easeOutQuint",pageAction2);
         // 애니메이션 이동후 pageAction함수 호출하기!!!
 
         

@@ -131,7 +131,7 @@ h3 {
     position: fixed;
     width: 100%;
     z-index: 9999;
-    background-color: rgb(255 254 254);
+    background-color: rgb(255 254 254 / 50%);
     box-shadow: 0 1px 0 #aaa;
 }
 
@@ -191,7 +191,7 @@ h3 {
     position: absolute;
     width: 100%;
     height: 2px;
-    bottom: -7px;
+    bottom: 0px;
     left: 0;
     background-color: steelblue;
     visibility: hidden;
@@ -234,7 +234,7 @@ h3 {
     position: absolute;
     width: 100%;
     height: 5px;
-    background-color: #777;
+    background-color: #314172;
     /* 트랜지션 */
     transition: all .4s ease-out;
 }
@@ -287,6 +287,8 @@ h3 {
 .ham.on>ul {
     opacity: 1;
     width: 500px;
+    height: 30px;
+    line-height: 30px;
 }
 
 
@@ -1163,8 +1165,8 @@ h3 {
 /*팔로워*/
 .badge {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     transform: translate(-50%, -50%);
 }
 
@@ -1176,8 +1178,8 @@ h3 {
     height: 100%;
     transform: scale(0);
     border-radius: 50%;
-    background-color: #fff;
-    opacity: 0.7;
+    background-color: #314172;
+    border: 1px solid #333;
     transition: all .1s;
 }
 
@@ -1190,8 +1192,9 @@ h3 {
     left: 0;
     transform: translate(-50%, -50%) scale(0);
     /*            outline: 1px solid red;*/
-    font: 22px/80px Verdana;
-    color: #555;
+    font: bold 3rem/80px ub;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
     text-align: center;
     transition: all .1s;
     cursor: pointer;/* 손가락모양 */
