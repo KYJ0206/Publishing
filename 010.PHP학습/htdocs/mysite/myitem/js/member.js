@@ -154,6 +154,31 @@ $(function () { //// jQB ///////////////////////////////////
 
                 } /////////// if문 : 결과 false ////////
                 else {
+                    /* 
+                        [ AJAX로 중복아이디 검사하기! ]
+                        ajax처리 유형 2가지
+                        
+                        1) post 방식 처리 메서드
+                        - $.post(URL,data,callback)
+                        2) get 방식 처리 메서드
+                        - $.get(URL,callback)
+                        3) 위의 2가지 유형 중 선택처리 메서드
+                        - $.ajax(URL,TYPE,DATA,DATA TYPE,ASYNC옵션,SUCCESS,ERROR)
+                        - 상세 파라미터값:
+                        $.ajax(
+                            전송할 페이지,
+                            전송방식(GET/POST),
+                            보낼데이터,
+                            전송할 데이터 타입,
+                            ASYNC옵션(보통은 false),
+                            결과값 리턴함수,
+                            에러처리함수
+                        )
+                    */
+
+
+
+
                     $(this).siblings(".msg")
                         .text("훌륭한 아이디네요~!")
                         .addClass("on"); //글자색 변경 클래스
@@ -393,13 +418,10 @@ $(function () { //// jQB ///////////////////////////////////
 
             /* 
                 [ ajax를 이용한 POST방식으로 DB에 데이터 입력하기 ]
-
                 AJAX = Asynchronous Javascript and XML
-
                 - 비동기통신이란? 쉽게 말해서 페이지가 새로 고쳐지지
                 않고 그대로 있으면서 서버통신을 하는 것을 말한다!
                 - 제이쿼리는 POST방식으로 ajax할 수 있다
-
                 $.post(URL,data,callback);
                 $.post(전송할 페이지주소,전송할 데이터,전송후 실행함수);
             */
