@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* 파일럿 PJ 남자패션페이지 CSS - men.css */
+
+/* 외부CSS 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 페이지 전체포멧 재정의 */
+html,body{
+    overflow: visible;
+}
+
+/* 1. 배너영역 */
+#ban{
+    background-color: lightblue;
+}
+/* 2. 남자컨텐츠1 */
+#cont1{
+    background-color: lightsalmon;
+}
+/* 3. 남자컨텐츠2 */
+#cont2{
+    background-color: lightgreen;
+}
+
+/* 4. 남자컨텐츠3 */
+#cont3{
+    background-color: lightpink;
+}
