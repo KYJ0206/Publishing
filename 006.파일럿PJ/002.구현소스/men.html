@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>파일럿 PJ - 남자패션페이지</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/men.css">
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.scroll-reveal.js"></script>
+    <script src="js/smoothScroll20.js"></script>
     <script src="js/common.js"></script>
     <script src="js/men.js"></script>
 </head>
@@ -87,13 +91,65 @@
     <!-- 2. 페이지영역 : 5개(하단영역포함) -->
 
     <!-- 2-1. 배너영역 -->
-    <section id="ban" class="page"></section>
+    <section id="ban" class="page">
+        <!-- Swiper -->
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <img src="images/banmen01.png" alt="슬라이드">
+          </div>
+          <div class="swiper-slide">
+              <img src="images/banmen02.png" alt="슬라이드">
+          </div>
+          <div class="swiper-slide">
+              <img src="images/banmen03.png" alt="슬라이드">
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
     <!-- 2-2.남자컨텐츠영역1 -->
     <section id="cont1" class="page"></section>
     <!-- 2-2.남자컨텐츠영역2 -->
-    <section id="cont2" class="page"></section>
+    <section id="cont2" class="page">
+        <ul class="pgc">
+            <li class="txtc">
+                <h2 class="js-reveal">
+                    <a href="#">
+                        MEN'S<br>BEACH STYLE
+                    </a>
+                </h2>
+            </li>
+            <li class="imgc">
+                <img src="./images/men01.png" alt="공유">
+            </li>
+        </ul>
+    </section>
     <!-- 2-3.남자컨텐츠영역3 -->
-    <section id="cont3" class="page"></section>
+    <section id="cont3" class="page">
+        <ul class="pgc">
+            <li class="imgc">
+                <img src="./images/style02.jpg" alt="스포츠 스타일">
+            </li>
+            <li class="txtc">
+                <h2 class="tm js-reveal">
+                    <a href="#">
+                        MEN'S<br>SPORT STYLE
+                    </a>
+                </h2>
+                <h2 class="tw js-reveal">
+                    <a href="#">
+                        MEN'S<br>LIFE STYLE
+                    </a>
+                </h2>
+            </li>
+            <li class="imgc">
+                <img src="./images/style03.jpg" alt="라이프 스타일">
+            </li>
+        </ul>
+    </section>
 
     <!-- 3. 하단영역 -->
     <footer id="info" class="page">

@@ -11,20 +11,124 @@ html,body{
     overflow: visible;
 }
 
+/* 스크롤 등장클래스 */
+.js-reveal {
+    opacity: 1;
+    transition: opacity 1.5s ease-in, margin-top 1.5s ease-out;
+}
+  
+.js-reveal--hidden {
+  opacity: 0;
+  margin-top: 200px;
+}
+
+
 /* 1. 배너영역 */
 #ban{
     background-color: lightblue;
 }
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+
+
 /* 2. 남자컨텐츠1 */
 #cont1{
     background-color: lightsalmon;
 }
+
+/******** 남자패션 공통 class *********/
+.pgc{
+  position: relative;
+  top: 5%;/* 위아래 5%떨어짐 */
+  width: 100%;
+  height: 90%;
+
+  display: flex;
+  /* 플렉스박스 */
+}
+/* li요소 */
+.pgc>li{
+  position: relative;
+  /* 부모자격 */
+  flex: 1;/* 기본등분할 설정 */
+  /* 
+      개별적으로 비율을 넓히려면
+      flex-basis를 사용한다!
+  */
+  overflow: hidden;
+  /* 넘치는 이미지 숨기기 */
+}
+/* 이미지 */
+.pgc img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 박스에 맞춰서 중앙 보이기 */
+}
+
+/* 글자스타일 */
+.txtc h2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: bold 4.6rem UB;
+  letter-spacing: 3px;/* 자간 */
+}
+.txtc a{
+  color: #222;
+}
+
+
 /* 3. 남자컨텐츠2 */
-#cont2{
-    background-color: lightgreen;
+#cont2 .imgc{
+  flex-basis: 25%;
+  /* 등분할 영역까지가 0%이고 양수는 영역침범 */
 }
 
 /* 4. 남자컨텐츠3 */
-#cont3{
-    background-color: lightpink;
+#cont3 .imgc{
+  flex-basis: 15%;
+  /* 등분할 영역까지가 0%이고 양수는 영역침범 */
+}
+/* 스타일패션 이미지 */
+#cont3 img{
+  object-fit: fill;
+  width: auto;
+  right: -26%;
+}
+/* 스타일 패션 글자 */
+.txtc .tm{/* 오른쪽스타일글자 */
+  top: 20%;
+  left: auto;
+  transform: none;
+  right: 5%;
+}
+.txtc .tw{/* 왼쪽스타일글자 */
+  top: 70%;
+  left: 5%;
+  transform: none;
 }
