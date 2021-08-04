@@ -11,6 +11,10 @@
     <script src="js/item.js"></script>
 </head>
 <body>
+
+    <!-- 로그인 세션 처리 인클루드 -->
+    <?php include "inc/login_session.inc"?>
+    
     <!-- 전체박스 -->
     <div class="wrap ibx">
         <!-- 1.상단영역 -->
