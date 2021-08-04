@@ -59,17 +59,21 @@ $(function () { /// jQB ////////////////////////
             scrollTop: pos + "px"
         }, 1200, "easeOutQuint"); //// animate /////
 
+        
         // 4. 클릭된 li요소에 class="on" 넣기
         $(".gnb li").eq(idx).addClass("on")
-            .siblings().removeClass("on");
+        .siblings().removeClass("on");
         $(".indic li").eq(idx).addClass("on")
-            .siblings().removeClass("on");
+        .siblings().removeClass("on");
         //다른 형제 li들 class="on" 지움
-
+        
         // 6. li순번과 pno와 일치하기! /////////////////////
         pno = idx;
         //console.log("페이지번호:" + pno);
-
+        
+        // 7. 페이지 이동과 동시에 showEle함수를 호출! 등장액션!
+        showEle();
+        
     }); ///////////// click ///////////////
     
 
