@@ -1,4 +1,4 @@
-'È¸¿øÅ×ÀÌºí ¸¸µé±â
+'íšŒì›í…Œì´ë¸” ë§Œë“¤ê¸°
 CREATE TABLE `member`(
 `idx` int not null primary key auto_increment,
 `mid` varchar(20) not null,

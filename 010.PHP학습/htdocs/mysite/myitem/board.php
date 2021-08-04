@@ -42,7 +42,7 @@
             <h2 class="stit">공지사항</h2>
             <!-- 게시판박스 -->
             <div class="bbox">
-                <iframe src="http://tombap8.dothome.co.kr/bbs/board.php?bo_table=myitem" scrolling="no" onload="autoResize(this)"></iframe>
+                <iframe src="http://gansoo2.dothome.co.kr/bbs/board.php?bo_table=myitem" scrolling="no" onload="autoResize(this)"></iframe>
                 <!-- 
                     아이프레임에 scrolling="no"를 설정하여
                     보이지 않는 영역에 대한 스크롤 생성을 없앤다!
