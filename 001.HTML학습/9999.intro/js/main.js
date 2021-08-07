@@ -93,5 +93,66 @@ $(function () { /// jQB ////////////////////////
 
     }); //////////// click ////////////
 
+
+    // 스와이프
+    var swiper = new Swiper(".mySwiper", {
+        effect: "flip",
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+    });
+
+
+    // 폼메일
+    function chkMailFrm() {
+
+        var f = document.formmail;
+       
+        if (!f.title.value) {
+       
+         alert("제목을 입력해주세요");
+       
+         f.title.focus();
+       
+         return false;
+       
+        }
+       
+        if (!f.senduser.value) {
+       
+         alert("이름을 입력해주세요");
+       
+         f.senduser.focus();
+       
+         return false;
+       
+        }
+       
+        if (!f.phone.value) {
+       
+         alert("전화번호을 입력해주세요");
+       
+         f.phone.focus();
+       
+         return false;
+       
+        }
+       
+        if (!f.email.value) {
+       
+         alert("이메일을 입력해주세요");
+       
+         f.email.focus();
+       
+         return false;
+       
+        }
+       
+       }
     
 }); ///////////// jQB ////////////////////////

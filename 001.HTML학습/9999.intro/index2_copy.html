@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- 플러그인 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- SCRIPT -->
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -26,6 +28,8 @@
     <script src="js/circlre.js"></script>
     <script src="js/drag.js"></script>
     <script src="js/typing.js"></script>
+    <!-- 스와이프JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 
 </head>
@@ -41,19 +45,19 @@
                     <img src="images/logo1.png" alt="김영재로고">
                 </a>
             </h1>
-            
- 
+
+
 
             <!-- 1-2.GNB메뉴 -->
-            <nav class="gnb"> 
+            <nav class="gnb">
 
                 <!-- 햄버거버튼 -->
                 <div class="ham">
                     <span></span>
                     <span></span>
                     <span></span>
-                
-                     <ul>
+
+                    <ul>
                         <li class="on">
                             <a href="#pg1">HOME</a>
                         </li>
@@ -67,126 +71,130 @@
                             <a href="#pg4">CONTACT</a>
                         </li>
                     </ul>
-                    
+
                 </div>
-                   
+
             </nav>
-            
+
         </header>
     </div>
 
 
 
-    <!-- 2. 페이지영역 -->
+    <!------------------------- 2. 페이지영역1 ------------------------->
     <section id="pg1" class="page">
         <!-- 배경비디오 -->
         <video id="myvid" src="images/mainmv.mp4" autoplay muted loop></video>
 
-            <!-- 타이핑 텍스트 -->
-            <div class="typtit">
-                <p id='typing'></p>
+        <!-- 타이핑 텍스트 -->
+        <div class="typtit">
+            <p id='typing'></p>
+        </div>
+        <p class="subtyping">Web Publisher & UI/UX Designer</p>
+        <p class="subtyping2">
+            <나는> (코딩에) {물들다};
+        </p>
+
+        <!-- 슬라이드 -->
+        <div class="slidebox1">
+            <div class="sboxtit">
+                Advantages
             </div>
-            <p class="subtyping">Web Publisher & UI/UX Designer</p>
-            <p class="subtyping2">언제나 배움의 자세로 물들겠습니다.</p>
+            <ul class="slide1">
+                <li class="on">
+                    <div class="imgbox1">
+                        <img src="images/passion1.jpg" alt="열정">
+                        <span>
+                            Passion for learning <br>
+                            Passionate attitude <br>
+                            Passionate heart
+                        </span>
+                    </div>
+                    <div class="imgbox2">
+                        <img src="images/passion2.jpg" alt="열정">
+                        <span>
+                            학문에 대한 열정 <br>
+                            열정적인 태도 <br>
+                            열정적인 마음
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="imgbox1">
+                        <img src="images/gengjung1.jpg" alt="긍정">
+                        <span>
+                            Positive thinking <br>
+                            Positive behavior <br>
+                            Positive mind
+                        </span>
+                    </div>
+                    <div class="imgbox2">
+                        <img src="images/gengjung2.jpg" alt="긍정">
+                        <span>
+                            긍정적인 사고 <br>
+                            긍정적인 행동 <br>
+                            긍정적인 마음
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="imgbox1">
+                        <img src="images/plan1.jpg" alt="계획">
+                        <span>
+                            Specific plan <br>
+                            Feasible plan <br>
+                            Plan and execute
+                        </span>
+                    </div>
+                    <div class="imgbox2">
+                        <img src="images/plan2.jpg" alt="계획">
+                        <span>
+                            구체적인 계획 <br>
+                            실현 가능한 계획 <br>
+                            계획을 세우고 실행
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="imgbox1">
+                        <img src="images/never1.jpg" alt="포기하지않는">
+                        <span>
+                            Without giving up<br>
+                            Without frustration <br>
+                            Persistent challenge
+                        </span>
+                    </div>
+                    <div class="imgbox2">
+                        <img src="images/never2.jpg" alt="포기하지않는">
+                        <span>
+                            포기하지 않고 <br>
+                            좌절없이 <br>
+                            끊임없는 도전
+                        </span>
+                    </div>
+                </li>
+            </ul>
 
-            <!-- 슬라이드 -->
-            <div class="slidebox1">
-                <div class="sboxtit">
-                    Advantages
-                </div>
-                <ul class="slide1">
-                    <li class="on">
-                            <div class="imgbox1">
-                                <img src="images/passion1.jpg" alt="열정">
-                                <span>
-                                    Passion for learning <br>
-                                    Passionate attitude <br>
-                                    Passionate heart
-                                </span>
-                            </div>
-                            <div class="imgbox2">
-                                <img src="images/passion2.jpg" alt="열정">
-                                <span>
-                                    학문에 대한 열정 <br>
-                                    열정적인 태도 <br>
-                                    열정적인 마음
-                                </span>
-                            </div>
-                    </li>
-                    <li>
-                            <div class="imgbox1">
-                                <img src="images/gengjung1.jpg" alt="긍정">
-                                <span>
-                                    Positive thinking <br>
-                                    Positive behavior <br>
-                                    Positive mind
-                                </span>
-                            </div>
-                            <div class="imgbox2">
-                                <img src="images/gengjung2.jpg" alt="긍정">
-                                <span>
-                                    긍정적인 사고 <br>
-                                    긍정적인 행동 <br>
-                                    긍정적인 마음
-                                </span>
-                            </div>
-                    </li>
-                    <li>
-                            <div class="imgbox1">
-                                <img src="images/plan1.jpg" alt="계획">
-                                <span>
-                                    Specific plan <br>
-                                    Feasible plan <br>
-                                    Plan and execute
-                                </span>
-                            </div>
-                            <div class="imgbox2">
-                                <img src="images/plan2.jpg" alt="계획">
-                                <span>
-                                    구체적인 계획 <br>
-                                    실현 가능한 계획 <br>
-                                    계획을 세우고 실행
-                                </span>
-                            </div>
-                    </li>
-                    <li>
-                            <div class="imgbox1">
-                                <img src="images/never1.jpg" alt="포기하지않는">
-                                <span>
-                                    Without giving up<br>
-                                    Without frustration <br>
-                                    Persistent challenge
-                                </span>
-                            </div>
-                            <div class="imgbox2">
-                                <img src="images/never2.jpg" alt="포기하지않는">
-                                <span>
-                                    포기하지 않고 <br>
-                                    좌절없이 <br>
-                                    끊임없는 도전
-                                </span>
-                            </div>
-                    </li>
-                </ul>
-
-                <!-- 양쪽이동버튼 -->
-                <!-- 왼쪽 -->
-                <div class="lback">
-                    <a href="#" class="abtn lb">
-                        <span class="ir">왼쪽이동버튼</span>
-                    </a>
-                </div>
-
-                <!-- 오른쪽 -->
-                <div class="rback">
-                    <a href="#" class="abtn rb">
-                        <span class="ir">오른쪽이동버튼</span>
-                    </a>
-                </div>
-
+            <!-- 양쪽이동버튼 -->
+            <!-- 왼쪽 -->
+            <div class="lback">
+                <a href="#" class="abtn lb">
+                    <span class="ir">왼쪽이동버튼</span>
+                </a>
             </div>
+
+            <!-- 오른쪽 -->
+            <div class="rback">
+                <a href="#" class="abtn rb">
+                    <span class="ir">오른쪽이동버튼</span>
+                </a>
+            </div>
+
+        </div>
 
     </section>
+
+    <!------------------------- 3. 페이지영역2 ------------------------->
     <section id="pg2" class="page">
         <div class="pack">
             <div class="packin">
@@ -204,13 +212,13 @@
                         <div class="pg2slide">
                             <ul>
                                 <li class="on">
-                                        <img src="images/MOTO.png" alt="모토">
-                                </li>
-                                <li>>
-                                        <img src="images/html,css.png" alt="html">
+                                    <img src="images/MOTO.png" alt="모토">
                                 </li>
                                 <li>
-                                        <img src="images/js,sq.png" alt="js">
+                                    <img src="images/html,css.png" alt="html">
+                                </li>
+                                <li>
+                                    <img src="images/js,sq.png" alt="js">
                                 </li>
                             </ul>
                         </div>
@@ -281,6 +289,8 @@
             </div>
         </div>
     </section>
+
+    <!------------------------- 4. 페이지영역3 ------------------------->
     <section id="pg3" class="page">
         <ul class="pslide">
             <!-- 1. 응용 포트폴리오 -->
@@ -290,118 +300,100 @@
                         Wep-Publisher Archive _ Y.J.KIM
                     </h1>
                     <div class="wrapin">
-                    <!-- 1-1. 왼쪽박스 -->
-                    <div class="pjbx cpj">
-                        <h2>application portfolio_I</h2>
-                        <ol>
-                            <li>
-                                <a href="../001.info_PJ/index.html" target="_blank">Naver_SummaryNews / href 응용</a>
-                            </li>
-                            <li>
-                                <a href="../002.Drama_PJ/Dokkaebi.html" target="_blank">Dockkaebi_website / transition 응용</a>
-                            </li>
-                            <li>
-                                <a href="../003.Robot_PJ/avengers.html" target="_blank">Avengers / position 응용1</a>
-                            </li>
-                            <li>
-                                <a href="../009.Unpretty_PJ/index.html" target="_blank">Unpretty / position 응용2</a>
-                            </li>
-                            <li>
-                                <a href="../003.Robot_PJ/fixedBG.html" target="_blank">FixedBG / position 응용3</a>
-                            </li>
-                            <li>
-                                <a href="../022.CubeTrip/index.html" target="_blank">CubeTrip / 3D 응용</a>
-                            </li>
-                        </ol>
-                    </div>
-                    <!-- 1-2. 오른쪽박스 -->
-                    <div class="pjbx mpj">
-                        <h2>application portfolio_II</h2>
-                        <ol>
-                            <li>
-                                <a href="../007.WebDiary_PJ/index.html" target="_blank">Animate / animation 응용1</a>
-                            </li>
-                            <li>
-                                <a href="../020.Simpson_PJ/index.html" target="_blank">Animate2 / animation 응용2</a>
-                            </li>
-                            <li>
-                                <a href="../004.CGV_PJ/003.site/intro.html" target="_blank">CGV / iframe 응용</a>
-                            </li>                                          
-                            <li>
-                                <a href="../008.SeoulLand_PJ/asset/index.html" target="_blank">SeoulLand / slide 응용</a>
-                            </li> 
-                            <li>
-                                <a href="../021.VOGUE_PJ/002.site/index.html" target="_blank">Vogue / sub menu 미디어쿼리 적용</a>
-                            </li>    
-                            <li>
-                                <a href="../010.MyItem_PJ/02.Asset/index.html" target="_blank">MyItem / input 응용</a>
-                            </li>
-                        </ol>
+                        <!-- 응용포폴 -->
+                        <div class="pjbx cpj">
+                            <h2>Application Portfolio</h2>
+                            <!-- Swiper -->
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="images/news.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/dockkebi.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/avengers.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/unpretty.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/fixedBG.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/CUBE.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/ANIMATE1.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/ANIMATE2.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/CGV.PNG" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </li>
 
             <!-- 2. 개인 포트폴리오 -->
             <li class="psimg2">
-            <div class="wrap">
-                <h1 id="tit">
-                    Wep-Publisher Archive _ Y.J.KIM
-                </h1>
-                <div class="wrapin">
-                    <!-- 2-1. 왼쪽박스 -->
-                    <div class="pjbx cpj">
-                        <h2>application portfolio_I</h2>
-                        <ol>
-                            <li>
-                                <a href="../001.info_PJ/index.html" target="_blank">Naver_SummaryNews / href 응용</a>
-                            </li>
-                            <li>
-                                <a href="../002.Drama_PJ/Dokkaebi.html" target="_blank">Dockkaebi_website / transition 응용</a>
-                            </li>
-                            <li>
-                                <a href="../003.Robot_PJ/avengers.html" target="_blank">Avengers / position 응용1</a>
-                            </li>
-                            <li>
-                                <a href="../009.Unpretty_PJ/index.html" target="_blank">Unpretty / position 응용2</a>
-                            </li>
-                            <li>
-                                <a href="../003.Robot_PJ/fixedBG.html" target="_blank">FixedBG / position 응용3</a>
-                            </li>
-                            <li>
-                                <a href="../022.CubeTrip/index.html" target="_blank">CubeTrip / 3D 응용</a>
-                            </li>
-                        </ol>
-                    </div>
-                    <!-- 2-2. 오른쪽박스 -->
-                    <div class="pjbx mpj">
-                        <h2>application portfolio_II</h2>
-                        <ol>
-                            <li>
-                                <a href="../007.WebDiary_PJ/index.html" target="_blank">Animate / animation 응용1</a>
-                            </li>
-                            <li>
-                                <a href="../020.Simpson_PJ/index.html" target="_blank">Animate2 / animation 응용2</a>
-                            </li>
-                            <li>
-                                <a href="../004.CGV_PJ/003.site/intro.html" target="_blank">CGV / iframe 응용</a>
-                            </li>                                          
-                            <li>
-                                <a href="../008.SeoulLand_PJ/asset/index.html" target="_blank">SeoulLand / slide 응용</a>
-                            </li> 
-                            <li>
-                                <a href="../021.VOGUE_PJ/002.site/index.html" target="_blank">Vogue / sub menu 미디어쿼리 적용</a>
-                            </li>    
-                            <li>
-                                <a href="../010.MyItem_PJ/02.Asset/index.html" target="_blank">MyItem / input 응용</a>
-                            </li>
-                        </ol>
+                <div class="wrap">
+                    <h1 id="tit">
+                        Wep-Publisher Archive _ Y.J.KIM
+                    </h1>
+                    <div class="wrapin">
+                        <!-- 개인포폴 -->
+                        <div class="pjbx cpj">
+                            <h2>Personal Portfolio</h2>
+                            <!-- Swiper -->
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="images/news.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/dockkebi.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/avengers.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/unpretty.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/fixedBG.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/CUBE.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/ANIMATE1.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/ANIMATE2.PNG" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/CGV.PNG" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </li>
         </ul>
-        
+
         <!-- 슬라이드커버 -->
         <div class="cover"></div>
 
@@ -424,16 +416,29 @@
         </div>
     </section>
 
+    <!------------------------- 5. 페이지영역4 ------------------------->
     <section id="pg4" class="page">
         <div class="pack1"></div>
         <article class="minfo minfo4">
             <h1 id="tit">CONTACT</h1>
-                <h3>이름 : 김영재(<span>金永在</span>)</h3>
+            <!-- 콘텍트박스 -->
+            <p class="mainp">안녕하세요! 신입 퍼블리셔 김영재 입니다!</p> <br>
+            <p>"열정", "끈기", "성실함" 으로 똘똘뭉쳐 있는 멋진 인재입니다.</p> <br>
+            <p>언제나 배움의 자세로 물들어 누구보다 빠르게 배워나가겠습니다.</p>
+            <div class="contactbox">
+                <!-- 콘텍트박스 왼쪽 -->
+                <div class="contact_lb">
+                    <!-- 이메일 보내기 -->
+
+                </div>
+                <!-- 콘텍트박스 오른쪽 -->
+                <div class="contact_rb"></div>
+            </div>
         </article>
     </section>
 
-    
-    
+
+
     <!-- 3. 인디케이터(위치표시자) -->
     <nav class="indic">
         <ul>

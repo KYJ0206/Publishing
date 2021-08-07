@@ -40,11 +40,6 @@ body {
     /* 스크롤바 없애기(스크롤안됨!) */
 }
 
-*,
-::after,
-::before {
-    box-sizing: border-box;
-}
 
 /* 공통셋팅 */
 a {
@@ -321,7 +316,7 @@ h3 {
 /* 페이지 4 */
 #pg4 {
     position: static;
-    background-color: #f4f4f4;
+    background-color: #fff;
     background-attachment: fixed;
 }
 
@@ -397,17 +392,6 @@ h3 {
 
 .minfo4 {
     position: relative;
-    top: 54%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 80vh;
-    box-shadow: 0 0 20px #555;
-    border-radius: 20px;
-    background: rgb(255 255 255);
-    transition: .8s;
-    padding: 20px;
-    /* box-sizing: border-box; */
 }
 
 
@@ -436,7 +420,8 @@ h3 {
 /* 스크롤 박스 */
 .scroll {
     position: fixed;
-    width: 50%;
+    width: 5%;
+    height: auto;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
@@ -794,7 +779,6 @@ h3 {
 
 
 
-
 /**************************** sec2 ****************************/
 
 .pack {
@@ -806,11 +790,11 @@ h3 {
 /* 내부 전체 박스 */
 .packin {
     position: relative;
-    top: 54%;
+    height: 85vh;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80vw;
-    height: 80vh;
     box-shadow: 0 0 20px #555;
     border-radius: 20px;
 }
@@ -818,7 +802,7 @@ h3 {
 /* 상단박스 */
 .packtop {
     display: flex;
-    height: 64%;
+    height: 65%;
     position: absolute;
     width: 100%;
     margin: 0;
@@ -831,7 +815,7 @@ h3 {
 .photo {
     position: relative;
     display: flex;
-    width: 50%;
+    flex: 1;
 }
 
 /* 포토 속 전체 박스 */
@@ -901,6 +885,7 @@ h3 {
     transition: .6s;
     /* 트랜지션 */
     height: 100%;
+    width: 100%;
 }
 
 .pg2slide li.on{
@@ -908,18 +893,18 @@ h3 {
     z-index: 1;/* 맨위에 */
 }
 
+/* 스킬설명 이미지 */
 .pg2slide li img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
-
-
 
 
 
 /* pg2pf 박스 */
 .pg2pf {
-    width: 50%;
+    flex: 1;
 }
 
 .pg2in {
@@ -931,9 +916,11 @@ h3 {
     transform: translate(-50%, -50%);
 }
 
+/* 일러스트 소개 이미지 */
 .pg2in img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 
@@ -988,7 +975,7 @@ h3 {
     position: absolute;
     bottom: 30%;
     left: 0;
-    height: 57px;
+    height: 5%;
     width: 100%;
     overflow: hidden;
     z-index: 999;
@@ -1204,7 +1191,7 @@ h3 {
 .wrap {
     position: absolute;
     width: 80vw;
-    height: 80vh;
+    height: 85vh;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1261,91 +1248,59 @@ h3 {
     border-radius: 13px;
     text-shadow: 0 0 1px #000;
     box-shadow: 0 0 5px #000;
-}
-
-.cpj h2 {
     background-color: rgb(25 53 86);
     line-height: 6vh;
 }
 
-.mpj h2 {
-    background-color: rgb(25 53 86);
-    line-height: 6vh;
+
+/* 스와이퍼 */
+html .swiper-container {
+    width: 400px;
+    height: 400px;
+    padding: 50px 200px;
+    padding-bottom: 80px;
 }
 
-/* 각 박스의 ol리스트 */
-.pjbx>ol {
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    /* 맨앞 표시자 없앰 */
-    display: flex;
-    flex-direction: column;
+/* 이미지박스 */
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
 }
 
-/* 각 박스의 li */
-ol>li {
-    margin-left: 40px;
-    line-height: 70px;
-}
-
-ol>li:first-child {
-    padding-top: 15px;
-}
-
-/* 각 박스의 a링크 */
-.pjbx a {
-    font-family: UB;
-    font-size: 2vw;
-    color: #000;
-    text-decoration: none;
-    text-shadow: 0 0 2px #000;
-    line-height: 65px;
-    transition: .5s ease-in-out;
-    margin-left: 10px;
-}
-
-/* 오버시 */
-.pjbx li a:hover {
-    color: steelblue;
-    text-decoration: underline;
-    /* 아랫줄 */
-    font-size: 2.3vw;
-    text-shadow: 0 0 1px #000;
-}
-
-.pjbx li a::before {
-    position: absolute;
-    content: "❤";
-    font-size: 24px;
-    margin-top: 0.5vh;
-    margin-left: -2.2vw;
-    color: steelblue;
-    opacity: 0;
-    transition: .5s ease-in-out;
-    text-shadow: 0 0 1px #000;
-}
-
-
-.pjbx li a:hover::before {
-    opacity: 1;
-}
-
-
-
-/* 세로 분류 선 만들기 */
-.pjbx::before {
-    content: '';
+/* 이미지 */
+.swiper-slide img {
     display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0px;
-    height: 70%;
-    top: 26%;
-    border-right: 5px dotted rgb(58, 58, 58);
+    width: 100%;
 }
+
+/* 스와이퍼 인디케이터 박스 */
+html .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0px 10px;
+}
+
+/* 스와이퍼 인디케이터 스타일 */
+html .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #000;
+    opacity: 1;
+    --swiper-theme-color: #357aa0;
+    /* background: #fff; */
+}
+
+/* 스와이퍼 좌우버튼 스타일 */
+/* 왼쪽 */
+html .swiper-button-prev, html .swiper-container-rtl .swiper-button-next {
+    color: #357aa0;
+}
+
+/* 오른쪽 */
+html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
+    color: #357aa0;
+}
+
 
 
 
@@ -1353,4 +1308,304 @@ ol>li:first-child {
 
 /**************************** sec4 ****************************/
 
+.contactbox{
+    width: 100%;
+    height: auto;
+}
 
+.minfo{
+    width: 80vw;
+    height: 85vh;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px #555;
+    border-radius: 20px;
+    background: rgb(255 255 255);
+    transition: .8s;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.minfo4 p{
+    font-size: 1vw;
+    line-height: 0;
+    font-weight: bold;
+    font-family: ng;
+    text-align: center;
+}
+
+.mainp{
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+/***************** 모바일 미디어쿼리 : 500px이하 *****************/
+/********************* sec1 *********************/
+@media only screen and (max-width:500px) {
+
+    /* 로고 */
+    #logo{
+    position: relative;
+    width: 21%;
+    left: 50%;
+    transform: translateX(-50%);
+    }
+
+    /* GNB메뉴 */
+    .gnb{
+        height: 50px;
+    }
+
+    /* 햄버거버튼 */
+    .ham{
+        width: 30px;
+        top: 65%;
+    }
+    .ham.on>ul{
+        width: 340px;
+    }
+
+    /* sec1 글자 */
+    .typtit{
+        top: 28%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    #typing{
+        font-size: 3.5rem;
+    }
+    .subtyping{
+        top: 20%;
+        font-size: 2.5rem;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .subtyping2{
+        top: 60%;
+        font-size: 2.5rem;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    /* sec1 슬라이드 */
+    /* 왼쪽 박스 */
+    .sboxtit{
+        display: none;
+    }
+    .imgbox1{
+        top: 4%;
+        width: 90vw;
+        height: 13vh;
+        transform: none;
+    }
+
+    /* 오른쪽박스 */
+    .imgbox2{
+        top: 52%;
+        width: 90vw;
+        height: 13vh;
+        transform: none;
+    }
+    .slide1 li img:nth-child(1){
+        position: absolute;
+        object-fit: cover;
+        width: 40vw;
+        height: 10vh;
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%,-50%);
+    }
+
+    .slide1 span{
+        margin-top: 0;
+        margin-left: 50vw;
+        line-height: 4vh;
+        font-size: 3.5vw;
+    }
+
+
+    /* 왼쪽버튼 */
+    .lback, .rback{
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
+    }
+
+
+
+
+
+/********************* sec2 *********************/
+
+    .packin{
+        height: 75vh;
+        top: 52%;
+    }
+
+    .packtop {
+        height: 60%;
+        flex-direction: column;
+    }
+
+    /* 증명사진박스 */
+    /* 증명사진 */
+    .photoin{
+        top: 90px;
+        transform: translate(-50%,-50%);
+        width: 30%;
+    }
+    /* 증명박스 이름 */
+    .phobox span{
+        font-size: 3vw;
+        height: auto;
+        line-height: 4.5;
+    }
+
+    /* skill설명박스 */
+    .pg2slide img{
+        object-fit: contain;
+    }
+
+    /* 흐르는 skill박스 */
+    .fcap{
+        bottom: 32%;
+        height: 45px;
+    }
+
+    /* 하단스킬 박스 */
+    .sec2box{
+        height: 32%;
+        flex-wrap: wrap;
+    }
+
+    /* %숫자 */
+    .txt{
+        font-size: 4vw;
+    }
+
+
+
+
+
+/********************* sec3 *********************/
+
+    /* 메인설명글 */
+    #tit{
+        font-size: 4.5vw;
+    }
+
+    /* 겉박스 */
+    .wrap{
+        height: 75vh;
+        top: 52%;
+        padding: 10px;
+    }
+
+    /* 속박스 */
+    .pjbx{
+        padding: 5px;
+        padding-top: 20px;
+    }
+
+    /* 속박스 메인글 */
+    .pjbx h2{
+        font-size: 2rem;
+        line-height: 5vh;
+    }
+
+    /* 속박스 마진수정 */
+    .pjbx ol>li{
+        margin-left: 5px;
+    }
+
+    /* 가상요소 제거 */
+    .pjbx li a::before{
+        display: none;
+    }
+
+    /* 제목 마진 제거 */
+    .pjbx a{
+        margin: 0;
+    }
+
+    /* 플러그인 */
+    html .swiper-container {
+        width: 200px;
+        height: 200px;
+        padding: 50pX;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    html .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: -20px;
+    }
+
+    /* 이동버튼 해제 */
+    .ar1, .ar2{
+        display: none;
+    }
+
+
+
+
+
+
+
+/********************* sec4 *********************/
+
+    .minfo4{
+    height: 75vh;
+    top: 52%;
+    }
+
+
+
+/********************* 공통 CSS *********************/
+
+    /* 탑버튼 */
+    .tbtn{
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }   
+    /* 스크롤 */
+    .scroll{
+        width: 3%;
+        height: 4%;
+        bottom: 38px;
+    }
+    .scrollin{
+        width: 100%;
+        height: 100%;
+    }
+    .scrollin::before{
+        width: 5px;
+        height: 5px;
+    }
+    .scroll span{
+        top: 38px;
+        font-size: 1.3rem;
+    }   
+
+    /* 인디케이터 */
+    .indic{
+        width: 12px;
+    }
+
+    /* 인디케이터 마우스 선택시 */
+    .indic li:hover a, .indic li.on{
+        width: 10px;
+    }
+
+
+} /* 미디어 쿼리 */

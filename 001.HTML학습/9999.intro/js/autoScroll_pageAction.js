@@ -37,9 +37,7 @@ $(function () { /// jQB ////////////////////////
         }); ///////// css ///////////
 
         // Contact
-        $("#pg4,.minfo").css({
-            left: "150%"
-        }); ///////// css ///////////
+        $(".minfo4").hide(800); // display:none
 
 
     }; ///////////// init함수 ///////////////////
@@ -71,10 +69,7 @@ $(function () { /// jQB ////////////////////////
 
         // Contact
         else if (pno === 3) {
-            $("#pg4 .minfo")
-                .animate({
-                    left: "50%"
-                }, 800, "easeInSine"); //// animate ///;
+            $("#pg4 .minfo").fadeIn(1000);
         } ////// else if ///////////////
 
 
