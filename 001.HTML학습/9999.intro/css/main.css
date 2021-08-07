@@ -1345,10 +1345,6 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 /***************** 모바일 미디어쿼리 : 500px이하 *****************/
 /********************* sec1 *********************/
 @media only screen and (max-width:500px) {
-    /* 전체 스크롤 */
-    body{
-        overflow: auto;
-    }
 
     /* 로고 */
     #logo{
