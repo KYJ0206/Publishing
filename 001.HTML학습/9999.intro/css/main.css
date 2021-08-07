@@ -1368,9 +1368,10 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .ham{
         width: 30px;
         top: 65%;
+        right: 3%;
     }
     .ham.on>ul{
-        width: 340px;
+        width: 320px;
     }
 
     /* sec1 글자 */
@@ -1380,11 +1381,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         transform: translateX(50%);
     }
     #typing{
-        font-size: 3.5rem;
+        font-size: 3.2rem;
     }
     .subtyping{
         top: 20%;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         right: 50%;
         transform: translateX(50%);
     }
