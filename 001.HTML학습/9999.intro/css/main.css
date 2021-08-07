@@ -795,8 +795,7 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80vw;
-    box-shadow: 0 0 20px #555;
-    border-radius: 20px;
+    overflow: hidden;
 }
 
 /* 상단박스 */
@@ -1199,8 +1198,6 @@ h3 {
     overflow: hidden;
     box-sizing: border-box;
     background-color: rgb(255 252 252 / 80%);
-    border-radius: 20px;
-    box-shadow: 0 0 20px #555;
 }
 
 /* 타이틀 */
@@ -1319,8 +1316,6 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px #555;
-    border-radius: 20px;
     background: rgb(255 255 255);
     transition: .8s;
     padding: 20px;
@@ -1350,6 +1345,10 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 /***************** 모바일 미디어쿼리 : 500px이하 *****************/
 /********************* sec1 *********************/
 @media only screen and (max-width:500px) {
+    /* 전체 스크롤 */
+    body{
+        overflow: auto;
+    }
 
     /* 로고 */
     #logo{
@@ -1449,6 +1448,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .packin{
         height: 75vh;
         top: 52%;
+        overflow: hidden;
     }
 
     .packtop {
