@@ -815,6 +815,7 @@ h3 {
     position: relative;
     display: flex;
     flex: 1;
+    min-height: 182px;
 }
 
 /* 포토 속 전체 박스 */
