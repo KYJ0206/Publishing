@@ -1477,7 +1477,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     /* 흐르는 skill박스 */
     .fcap{
         bottom: 32%;
-        height: 45px;
+        height: 5%;
     }
 
     /* 하단스킬 박스 */
