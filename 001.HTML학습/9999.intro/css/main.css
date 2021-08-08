@@ -815,7 +815,6 @@ h3 {
     position: relative;
     display: flex;
     flex: 1;
-    min-height: 182px;
 }
 
 /* 포토 속 전체 박스 */
@@ -860,6 +859,8 @@ h3 {
 .photoin svg {
     position: absolute;
     top: 0;
+    width: 100%;
+    left: 0;
 }
 
 
@@ -1456,13 +1457,14 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     /* 증명사진박스 */
     /* 증명사진 */
     .photoin{
-        top: 90px;
-        transform: translate(-50%,-50%);
-        width: 30%;
+        width: 65%;
+        position: static;
+        margin: 0 auto;
+        transform: none;
     }
     /* 증명박스 이름 */
     .phobox span{
-        font-size: 3vw;
+        font-size: 3.3vw;
         height: auto;
         line-height: 4.5;
     }
