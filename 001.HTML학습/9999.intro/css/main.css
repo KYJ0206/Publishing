@@ -1445,9 +1445,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 전체박스 */
     .packin{
+        display: flex;
         height: 75vh;
         top: 52%;
         overflow: hidden;
+        flex-wrap: wrap;
     }
 
     .packtop {
@@ -1460,6 +1462,10 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         position: static;
         padding: 15px;
         box-sizing: border-box;
+    }
+
+    .photoin svg{
+        width: 50%;
     }
 
     /* 증명사진박스 */
@@ -1487,6 +1493,12 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         position: static;
     }
 
+    .pg2in{
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
 
     /* 일러스트 이미지 */
     .pg2in img {
@@ -1509,6 +1521,9 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         height: 35%;
         flex-wrap: wrap;
     }
+    .sec2box li{
+        position: static
+    };
 
     /* %숫자 */
     .txt{
