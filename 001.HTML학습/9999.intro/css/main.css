@@ -1443,6 +1443,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
 /********************* sec2 *********************/
 
+    /* 전체박스 */
     .packin{
         height: 75vh;
         top: 52%;
@@ -1467,6 +1468,15 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         font-size: 3.3vw;
         height: auto;
         line-height: 4.5;
+    }
+
+    /* 일러스트프로필 */
+    .pg2in img {
+        display: block;
+        width: 80%;
+        height: 100%;
+        /* OBJECT-FIT: CONTAIN; */
+        margin: 0 auto;
     }
 
     /* skill설명박스 */
