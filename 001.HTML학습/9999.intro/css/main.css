@@ -790,7 +790,7 @@ h3 {
 /* 내부 전체 박스 */
 .packin {
     position: relative;
-    height: 85vh;
+    height: 795px;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -834,6 +834,7 @@ h3 {
     font-size: 1.5vw;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 /* 사진 원박스 */
@@ -1192,7 +1193,7 @@ h3 {
 .wrap {
     position: absolute;
     width: 80vw;
-    height: 85vh;
+    height: 795px;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1314,7 +1315,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
 .minfo{
     width: 80vw;
-    height: 85vh;
+    height: 795px;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
