@@ -1451,8 +1451,15 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
 
     .packtop {
-        height: 60%;
+        position: static;
+        height: 65%;
         flex-direction: column;
+    }
+
+    .photo{
+        position: static;
+        padding: 15px;
+        box-sizing: border-box;
     }
 
     /* 증명사진박스 */
@@ -1465,18 +1472,25 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
     /* 증명박스 이름 */
     .phobox span{
-        font-size: 3.3vw;
-        height: auto;
-        line-height: 4.5;
+        font-size: 3vw;
+        height: 25px;
+        line-height: 25px;
+        display: block;
+        margin-bottom: 10px;
+        box-sizing: border-box;
     }
 
     /* 일러스트프로필 */
+    .pg2pf{
+        padding: 15px;
+        box-sizing: border-box;
+        position: static;
+    }
+
+
+    /* 일러스트 이미지 */
     .pg2in img {
         display: block;
-        width: 80%;
-        height: 100%;
-        /* OBJECT-FIT: CONTAIN; */
-        margin: 0 auto;
     }
 
     /* skill설명박스 */
@@ -1486,13 +1500,13 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 흐르는 skill박스 */
     .fcap{
-        bottom: 32%;
-        height: 5%;
+        display: none;
     }
 
     /* 하단스킬 박스 */
     .sec2box{
-        height: 32%;
+        position: static;
+        height: 35%;
         flex-wrap: wrap;
     }
 
