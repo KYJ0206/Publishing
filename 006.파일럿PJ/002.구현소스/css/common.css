@@ -235,6 +235,7 @@
     left: 5%;
     width: 30px;
     /* outline: 3px dotted blue; */
+    z-index: 100;
 }
 
 .indic li {

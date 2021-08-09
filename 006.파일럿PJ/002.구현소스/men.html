@@ -10,6 +10,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/jquery.scroll-reveal.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
     <script src="js/smoothScroll20.js"></script>
     <script src="js/common.js"></script>
     <script src="js/men.js"></script>
@@ -32,13 +33,16 @@
                         배너순번 li 숨기기
                     </li>
                     <li>
-                        <a href="#men">MEN</a>
+                        <a href="#cont1">NEW ARRIVAL</a>
                     </li>
                     <li>
-                        <a href="#women">WOMEN</a>
+                        <a href="#spec">WINDBREAKER</a>
                     </li>
                     <li>
-                        <a href="#style">STYLE</a>
+                        <a href="#cont2">BEACH STYLE</a>
+                    </li>
+                    <li>
+                        <a href="#cont3">SPORT STYLE</a>
                     </li>
                 </ul>
             </nav>
@@ -111,7 +115,29 @@
       </div>
     </section>
     <!-- 2-2.남자컨텐츠영역1 -->
-    <section id="cont1" class="page"></section>
+    <section id="cont1" class="page">
+        <!-- 1.신상품 제목 -->
+        <h2 class="c1tit js-reveal">NEW ARRIVAL</h2>
+        <!-- 2.신상품 박스 -->
+        <div class="flowbx js-reveal">
+            <!-- 리스트박스 -->
+            <ul class="flist">
+                <li class="m1"><a href="#"><img src="images/m1.png" alt="신상품"></a></li>
+                <li class="m2"><a href="#"><img src="images/m2.png" alt="신상품"></a></li>
+                <li class="m3"><a href="#"><img src="images/m3.png" alt="신상품"></a></li>
+                <li class="m4"><a href="#"><img src="images/m4.png" alt="신상품"></a></li>
+                <li class="m5"><a href="#"><img src="images/m5.png" alt="신상품"></a></li>
+                <li class="m6"><a href="#"><img src="images/m6.png" alt="신상품"></a></li>
+                <li class="m7"><a href="#"><img src="images/m7.png" alt="신상품"></a></li>
+                <li class="m8"><a href="#"><img src="images/m8.png" alt="신상품"></a></li>
+                <li class="m9"><a href="#"><img src="images/m9.png" alt="신상품"></a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- 2-1.5.스페셜컨텐츠영역 -->
+    <section id="spec" class="page">
+        <h2 class="js-reveal">2021 BEACH SPECIAL WINDBREAKER</h2>
+    </section>
     <!-- 2-2.남자컨텐츠영역2 -->
     <section id="cont2" class="page">
         <ul class="pgc">
@@ -123,7 +149,7 @@
                 </h2>
             </li>
             <li class="imgc">
-                <img src="./images/men01.png" alt="공유">
+                <img src="./images/men01.png" alt="여자" class="js-reveal">
             </li>
         </ul>
     </section>
@@ -131,7 +157,7 @@
     <section id="cont3" class="page">
         <ul class="pgc">
             <li class="imgc">
-                <img src="./images/style02.jpg" alt="스포츠 스타일">
+                <img src="./images/style02.jpg" alt="여자스타일" class="js-reveal">
             </li>
             <li class="txtc">
                 <h2 class="tm js-reveal">
@@ -146,7 +172,7 @@
                 </h2>
             </li>
             <li class="imgc">
-                <img src="./images/style03.jpg" alt="라이프 스타일">
+                <img src="./images/style03.jpg" alt="공유스타일" class="js-reveal">
             </li>
         </ul>
     </section>
@@ -176,18 +202,23 @@
                 <a href="#ban"><span>배너</span></a>
             </li>
             <li>
-                <a href="#men"><span>남성의류</span></a>
+                <a href="#cont1"><span>NEW ARRIVAL</span></a>
             </li>
             <li>
-                <a href="#women"><span>여성의류</span></a>
+                <a href="#spec"><span>WINDBREAKER</span></a>
             </li>
             <li>
-                <a href="#style"><span>스타일</span></a>
+                <a href="#cont2"><span>BEACH STYLE</span></a>
+            </li>
+            <li>
+                <a href="#cont3"><span>SPORT STYLE</span></a>
             </li>
         </ul>
     </nav>
 
 
+    <!-- 따라오는 top버튼 -->
+    <button id="tbtn">TOP</button>
 
 </body>
 </html>
