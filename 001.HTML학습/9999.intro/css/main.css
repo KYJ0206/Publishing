@@ -801,7 +801,7 @@ h3 {
 /* 상단박스 */
 .packtop {
     display: flex;
-    height: 65%;
+    height: 53%;
     position: absolute;
     width: 100%;
     margin: 0;
@@ -1379,11 +1379,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         transform: translateX(50%);
     }
     #typing{
-        font-size: 3.2rem;
+        font-size: 3rem;
     }
     .subtyping{
         top: 20%;
-        font-size: 2.2rem;
+        font-size: 2rem;
         right: 50%;
         transform: translateX(50%);
     }
@@ -1446,16 +1446,14 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 전체박스 */
     .packin{
-        display: flex;
         height: 75vh;
         top: 52%;
         overflow: hidden;
-        flex-wrap: wrap;
     }
 
     .packtop {
         position: static;
-        height: 65%;
+        height: 58%;
         flex-direction: column;
     }
 
