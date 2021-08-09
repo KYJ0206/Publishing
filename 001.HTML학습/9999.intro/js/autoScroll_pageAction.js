@@ -32,9 +32,7 @@ $(function () { /// jQB ////////////////////////
         // console.log("초기화!");
 
         // HOME
-        $(".slidebox1").css({
-            minHeight: "0vh"
-        }); ///////// css ///////////
+        $(".slidebox1").hide();
 
     }; ///////////// init함수 ///////////////////
     ////////////////////////////////////////////
@@ -56,10 +54,7 @@ $(function () { /// jQB ////////////////////////
 
         // HOME
         if (pno === 0) {
-            $(".slidebox1").delay(5000)
-                .animate({
-                    minHeight: "30vh"
-                },1000, "easeInSine")
+            $(".slidebox1").fadeIn(1000);
         } ////// if ///////////////  
 
 

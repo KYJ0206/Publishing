@@ -523,15 +523,51 @@ h3 {
 
 /**************************** sec1 ****************************/
 
-/* 배경비디오 */
-#myvid {
-    position: relative;
+/* 메인배경 */
+.mainBG{
+    background: #fff;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: .8;
 }
 
+.mainBG img{
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+/* 애니로고박스 */
+.anilogo{
+    width: 25%;
+    height: 45%;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+/* 애니 이미지 */
+.ani1{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    animation: aniLogo 8s linear infinite;
+    transform-origin: 50% 50%;
+}
+/* 애니로고 키프레임 */
+@keyframes aniLogo {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.ani2{
+    position: absolute;
+    width: 100%;
+}
 
 /* 슬라이드 박스 설명글 */
 .sboxtit{
@@ -629,10 +665,9 @@ h3 {
     width: 100%;
     position: absolute;
     overflow: hidden;
-    /* outline: 2px solid red; */
     bottom: 0;
-    background-color: #193556;
-    box-shadow: 0 -2px 5px rgb(0 0 0 / 60%);
+    height: 30%;
+    transition: 1s linear 3s;
 }
 
 
@@ -671,6 +706,7 @@ h3 {
     background-color: #fff;
     box-sizing: border-box;
     border-radius: 2%;
+    border: 1px solid #232a34;
 }
 
 
@@ -694,6 +730,7 @@ h3 {
     background-color: #fff;
     box-sizing: border-box;
     border-radius: 2%;
+    border: 1px solid #232a34;
 }
 
 .slide1 li img:nth-child(2) {
@@ -1349,35 +1386,60 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
 
 /***************** 모바일 미디어쿼리 : 500px이하 *****************/
-/********************* sec1 *********************/
 @media only screen and (max-width:500px) {
+
+/********************* top *********************/
 
     /* 로고 */
     #logo{
-    position: relative;
-    width: 21%;
-    left: 50%;
-    transform: translateX(-50%);
+        position: relative;
+        width: 21%;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+    
+        /* GNB메뉴 */
+        .gnb{
+            height: 50px;
+        }
+    
+        /* 햄버거버튼 */
+        .ham{
+            width: 30px;
+            top: 65%;
+            right: 3%;
+        }
+        .ham.on>ul{
+            width: 320px;
+        }
+
+
+
+
+
+/********************* sec1 *********************/
+
+    /* 배경 */
+    .mainBG img{
+        width: 150%;
+        position: absolute;
+        top: 45%;
+        left: 50%;
     }
 
-    /* GNB메뉴 */
-    .gnb{
-        height: 50px;
+    /* 애니로고 */
+    .anilogo{
+        width: 65%;
+        height: 30%;
+        position: absolute;
+        top: 45%;
+        left: 50%;
     }
 
-    /* 햄버거버튼 */
-    .ham{
-        width: 30px;
-        top: 65%;
-        right: 3%;
-    }
-    .ham.on>ul{
-        width: 320px;
-    }
 
     /* sec1 글자 */
     .typtit{
-        top: 28%;
+        top: 25%;
         right: 50%;
         transform: translateX(50%);
     }
@@ -1456,7 +1518,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     .packtop {
         position: static;
-        height: 58%;
+        height: 60%;
         flex-direction: column;
     }
 
@@ -1497,6 +1559,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     .pg2in{
         width: 100%;
+        height: 100%;
         top: 0;
         left: 0;
         transform: none;
@@ -1504,11 +1567,9 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 일러스트 이미지 */
     .pg2in img {
-        display: block;
         position: absolute;
-        width: auto;
+        width: 100%;
         height: 100%;
-        object-fit: fill;
     }
 
     /* skill설명박스 */
@@ -1524,7 +1585,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     /* 하단스킬 박스 */
     .sec2box{
         position: static;
-        height: 33%;
+        height: 32%;
         flex-wrap: wrap;
     }
     .sec2box li{
