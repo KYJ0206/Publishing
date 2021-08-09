@@ -8,7 +8,7 @@ $(function () { /// jQB ////////////////////////
     // 막을 이벤트: touchstart, touchend
     // 원리: 이벤트 버블링 막기!(자식이벤트가 부모로 올라가는 현상!)
     // 사용메서드: e.stopPropagation()
-    $("#top,.indic").on("touchstart touchend", function (e) {
+    $("#top,.indic,.pslide").on("touchstart touchend", function (e) {
         e.stopPropagation();
     }); /////////// 터치이벤트 버블링 막기 ///////////
 

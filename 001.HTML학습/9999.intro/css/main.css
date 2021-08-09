@@ -1257,10 +1257,11 @@ h3 {
 
 /* 스와이퍼 */
 html .swiper-container {
-    width: 400px;
-    height: 400px;
+    width: 100%;
     padding: 50px 200px;
     padding-bottom: 80px;
+    max-width: 400px;
+    min-width: 180px;
 }
 
 /* 이미지박스 */
@@ -1504,6 +1505,10 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     /* 일러스트 이미지 */
     .pg2in img {
         display: block;
+        position: absolute;
+        width: auto;
+        height: 100%;
+        object-fit: fill;
     }
 
     /* skill설명박스 */
@@ -1578,8 +1583,8 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 플러그인 */
     html .swiper-container {
-        width: 200px;
-        height: 200px;
+        max-width: 65%;
+        height: 195px;
         padding: 50pX;
         padding-top: 70px;
         padding-bottom: 70px;
@@ -1592,6 +1597,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     /* 이동버튼 해제 */
     .ar1, .ar2{
         display: none;
+    }
+
+    /* 블릿버튼 */
+    html .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0px 5px;
     }
 
 

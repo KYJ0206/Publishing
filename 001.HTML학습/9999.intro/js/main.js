@@ -107,6 +107,11 @@ $(function () { /// jQB ////////////////////////
         },
     });
 
+    $(".pjbx").on("dragstop",function(e){
+        e.stopPropagation();
+        console.log("드래그이벤트");
+    });//////// drag //////////////
+
 
     // 폼메일
     function chkMailFrm() {
