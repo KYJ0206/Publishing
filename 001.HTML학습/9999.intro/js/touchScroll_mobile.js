@@ -110,7 +110,9 @@ $(function () { /// jQB ////////////////////////
 
         $("html,body").stop().animate({
             scrollTop: pos + "px"
-        }, 1000, "easeOutQuint");
+        }, 1000, "easeOutQuint", pageAction2);
+
+        
         
         ///////////////////////////////////////////////
         // 6. 페이지번호(pno)에 맞는 GNB 메뉴 변경하기 //
@@ -123,6 +125,8 @@ $(function () { /// jQB ////////////////////////
         // 선택된 li 이외의 li형제들 class="on"제거하기
         
         pageAction();
+
+        console.log("pno"+pno)
          
     }); /////////// touchend 이벤트함수 /////////////
 

@@ -15,6 +15,22 @@ let init;
 let pageAction;
 /////////////////////////////////////
 
+function pageAction2() {
+    if (pno === 1) {
+        pFn(0, 94);
+        pFn(1, 89);
+        pFn(2, 79);
+        pFn(3, 84);
+
+    } else {
+        $(".c1").attr("style", "");
+        $(".ptxt").text("");
+    }
+
+
+} /////////// pageAction2 ////////////////
+
+
 $(function () { /// jQB ////////////////////////
 
 
@@ -65,21 +81,7 @@ $(function () { /// jQB ////////////////////////
     }; ////////// pageAction함수 ///////////////////
     ////////////////////////////////////////////////
 
-    function pageAction2() {
-        if (pno === 1) {
-            pFn(0, 94);
-            pFn(1, 89);
-            pFn(2, 79);
-            pFn(3, 84);
-
-        } else {
-            $(".c1").attr("style", "");
-            $(".ptxt").text("");
-        }
-
-
-    } /////////// pageAction2 ////////////////
-
+    
 
     // pageAction함수 최초호출!
     pageAction();

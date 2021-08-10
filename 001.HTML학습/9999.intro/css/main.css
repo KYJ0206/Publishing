@@ -434,25 +434,24 @@ h3 {
     box-sizing: border-box;
     width: 16px;
     height: 43px;
-    border: 3px solid #357aa0;
+    border: 3px solid #232a34;
     border-radius: 7px;
 }
 
 .scrollin::before {
     content: "";
     position: absolute;
-    top: 10%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
     width: 8px;
     height: 8px;
-    border-radius: 50%;
-    background-color: #357aa0;
-    animation: k_scroll 1.2s ease-out infinite;
+    background-color: #232a34;
+    animation: k_scroll 1.5s linear infinite;
 }
 @keyframes k_scroll {
     to {
-        top: 70%;
+        top: 5%;
         opacity: 0;
     }
 }
@@ -461,12 +460,13 @@ h3 {
     position: absolute;
     top: 48px;
     left: 50%;
-    color: #357aa0;
+    color: #232a34;
     font-family: UB;
     font-size: 1.8rem;
     transform: translateX(-50%);
-    text-shadow: 1px 0 0 #357aa0, 0 1px 0 #357aa0,
-        -1px 0 0 #357aa0, 0 -1px 0 #357aa0;
+    text-shadow: 1px 0 0 #232a34, 0 1px 0 #232a34,
+        -1px 0 0 #232a34, 0 -1px 0 #232a34;
+    white-space: nowrap;
 }
 
 /* 위로가기버튼 */
@@ -478,27 +478,29 @@ h3 {
     height: 65px;
     text-align: center;
     line-height: 30px;
-    border-radius: 4px 4px 0 0;
-    background-color: #314172;
+    background-color: #232a34;
     color: #fff;
     opacity: 0.9;
     z-index: 999;
     display: none;
     border-radius: 50%;
-    box-shadow: 0 0 5px #ccc;
+    border: 2px solid #232a34;
+    box-sizing: border-box;
 }
 
+/* 탑버튼 글씨 */
 .tbtn P {
     position: absolute;
-    top: 30%;
+    top: 13px;
     left: 55%;
     transform: translate(-50%, -50%);
     font-family: UB;
     font-weight: bold;
-    font-size: 1.6rem;
-    letter-spacing: 4px;
+    font-size: 2rem;
+    letter-spacing: 5px;
 }
 
+/* 위로가기모양 */
 .fi {
     display: inline-block;
     font-style: normal;
@@ -1721,24 +1723,51 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         right: 15px;
         width: 50px;
         height: 50px;
+    }
+    /* 탑버튼 업모양 */
+    .fi-angle-up:before {
+        content: "\e96b";
+        position: absolute;
+        top: -6px;
+        left: 18px;
+    }
+    /* 탑버튼 글씨 */
+    .tbtn p{
+        top: 10px;
+        font-size: 1.5rem;
     }   
+
     /* 스크롤 */
     .scroll{
-        width: 3%;
-        height: 4%;
-        bottom: 38px;
+        position: fixed;
+        top: 30%;
+        left: 3%;
+        width: 10%;
+        height: 12%;
+        transform: rotate(180deg);
     }
+
+    /* 스크롤 속박스 */
     .scrollin{
-        width: 100%;
+        width: 1%;
         height: 100%;
+        border: none;
+        border-left: 1px solid #232a34;
     }
+
+    /* 스크롤 애니 가상요소 */
     .scrollin::before{
         width: 5px;
         height: 5px;
     }
+
+    /* 스크롤 글씨 */
     .scroll span{
-        top: 38px;
-        font-size: 1.3rem;
+        top: 30px;
+        left: 0;
+        font-size: 1.5rem;
+        transform: rotate(270deg);
+        white-space: nowrap;
     }   
 
     /* 인디케이터 */
