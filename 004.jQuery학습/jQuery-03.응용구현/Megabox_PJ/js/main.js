@@ -458,14 +458,136 @@ $(function () { //// jQB2 //////////////////////////
             tDrag = false;
         }); ////////////////// mouseleave 함수 /////////////////
 
+    
+    // 2-3-3. 비디오시간 표시하기 ///////////
+    //// [ 비디오 관련이벤트 ] 
+    // 1. timeupdate 이벤트: 비디오 태그가 재생 중 시간변경시 발생
+    // 2. loadedmetadata 이벤트: 비디오 기본정보 로딩완료시 발생
+
+    // 전체시간 변수
+    let ftm = $(".duration");
+    // 현재시간 변수
+    let ctm = $(".current");
 
 
+    // 비디오 기본정보 로딩완료시 전체시간 찍기 ////
+    mv.on("loadedmetadata",function(){
+        // 전체시간
+        let ftime = mv[0].duration;
+        ftime = Math.floor(ftime); // 소수점 아래 버리기
+        ftime = changeTime(ftime); // 시분초 변환함수 호출
+        // console.log("전체시간:"+ftime); 
+
+        // 화면에 출력
+        ftm.text(ftime);
+
+    }); ///////////// loadedmetadata 함수 //////////////
+
+    // 현재 진행시간 찍기 ////
+    mv.on("timeupdate",function(){
+        // 전체시간
+        let ctime = mv[0].currentTime;
+        ctime = Math.floor(ctime); // 소수점 아래 버리기
+        ctime = changeTime(ctime); // 시분초 변환함수 호출
+        // console.log("현재시간:"+ctime); 
+
+        // 화면에 출력
+        ctm.text(ctime);
+
+    }); ///////////// timeupdate 함수 //////////////
 
 
     // 2-4. 소리크기변경 기능
+
+    ///////// 볼륨컨트롤 구현하기 /////////////////////
+    //// 볼륨바 드래그 가능하게 설정!
+    $("#bar").draggable({
+        axis: "x", //x축고정
+        containment: "parent" // 작동범위부모고정
+    }); /////// draggable ///////
+
+    /// 바를 드래그 이동시 볼륨변경하기 //////
+    $("#bar").on("drag", function () {
+
+        //현재 볼륨바의 이동값
+        let barpos = $(this).position().left;
+        // position().left는 static이 아닌 부모박스기준 left
+        //console.log("바위치:"+barpos);
+
+
+        // 바이동 최소값: 0, 바이동 최대값: 54
+        // 비를 계산(최대값을 나눔)
+        let val = barpos / 54;
+        //console.log("볼륨비:"+val);
+
+        // 비디오에 볼륨적용하기
+        // volume의 값은 0~1 사이의 값을 적용한다!
+        // 우리가 위에서 구한 비가 곧 볼륨값이 된다!
+        mv[0].volume = val;
+
+
+    }); ////////// drag //////////////////
+    /////////////////////////////////////
+
+    /// 스크린에 마우스가 들어올때 볼륨 컨트롤바 위치//////
+    /// 현재 볼륨크기로 위치 이동하기 //////////////////
+    $("#screen").mouseenter(function () {
+
+        // 현재 볼륨 크기를 측정
+        let cvol = mv[0].volume;
+        //console.log("현재볼륨:"+cvol);
+
+        // 백분율로 변경하기
+        cvol = Math.floor(cvol * 100);
+        //console.log("볼륨%:" + cvol);
+
+        // 볼륨바의 위치 재설정하기
+        $("#bar").css({
+            left: cvol + "%"
+        }); //// css ////////
+
+    }); //////// mouseenter ////////////////////
+    ////////////////////////////////////////////
+
+    //// 스크린 축소/확대 기능 구현 ///////
+    // 원리: 미리 셋팅된 확대 클래스를 넣었다 뺐다함 ///
+    // 이벤트 대상: .expand a
+    // 변경 대상: #screen
+    $(".expand a").click(function (e) {
+
+        //기본이동막기
+        e.preventDefault();
+
+        //스크린에 클래스 "on" 넣기/빼기
+        $("#screen").toggleClass("on");
+        // toggleClass() 메서드는 
+        // 클래스가 없으면 넣고 있으면 뺌!
+
+    }); //////// click /////////////////
+
+
     // 2-5. 플레이어 축소/확대 기능
     // 2-6. 리스트 원상복귀 기능
 
 
 }); ////////////// jQB2 ///////////////////////////
 //////////////////////////////////////////////////
+
+/*///////////////////////////////////////
+   함수명: changeTime
+   기능: 초를 보내면 시분초 변환해주는 함수
+*/ ///////////////////////////////////////
+function changeTime(sec) { //sec 초단위값
+    "use strict"; //엄격한 문법적용
+    var pad = function (x) {
+        return (x < 10) ? "0" + x : x;
+    };
+    var res; //결과값
+    if (sec < 3600) { // 한시간이 넘지 않으면 분,초만 필요함
+        res = pad(parseInt(sec / 60 % 60)) + ":" + pad(sec % 60);
+    } else { // 한시간이 넘으면 시,분,초가 모두 필요함
+        res = pad(parseInt(sec / (60 * 60))) + ":" + pad(parseInt(sec / 60 % 60)) + ":" + pad(sec % 60);
+
+    }
+    return res;
+} ///////////////// changeTime함수 //////////////////////////////////////////////////////////

@@ -45,7 +45,7 @@
     <!-- 2-1. 영화예고편 페이지 -->
     <section id="pg1" class="page">
         <!-- 2-1-1. screen박스 -->
-        <div id="screen">
+        <div id="screen" class="disableselect disabledrag">
 
             <!-- 2-1-1-1. 동영상 -->
             <video src="mv/mv1.mp4" id="mv"></video>
@@ -67,6 +67,23 @@
             <!-- 2-1-1-4. 동영상 진행바 -->
             <div class="pBar ctrls">
                 <div class="tBar"></div>
+            </div>
+
+            <!-- 2-1-1-5. 동영상 시간표시 -->
+            <div class="ctime ctrls">
+                <span class="current">01:20</span> / 
+                <span class="duration">03:50</span>
+            </div>
+
+            <!-- 2-1-1-6. 볼륨버튼 -->
+            <div class="volume ctrls">
+                <span id="bar"></span>
+            </div>
+
+            <!-- 2-1-1-7. 축소/확대 버튼 -->
+            <div class="expand ctrls">
+                <a href="#" title="화면확대하기">▣</a>
+                <a href="#" title="화면축소하기">▦</a>
             </div>
 
         </div><!-- #screen -->

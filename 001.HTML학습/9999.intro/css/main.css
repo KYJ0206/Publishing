@@ -1394,26 +1394,18 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 로고 */
     #logo{
-        position: relative;
-        width: 21%;
-        left: 50%;
-        transform: translateX(-50%);
+        width: 30%;
         }
     
-        /* GNB메뉴 */
-        .gnb{
-            height: 50px;
-        }
-    
-        /* 햄버거버튼 */
-        .ham{
-            width: 30px;
-            top: 65%;
-            right: 3%;
-        }
-        .ham.on>ul{
-            width: 320px;
-        }
+    /* 햄버거버튼 */
+    .ham{
+        width: 30px;
+        top: 50%;
+        right: 5%;
+    }
+    .ham.on>ul{
+        width: 320px;
+    }
 
 
 

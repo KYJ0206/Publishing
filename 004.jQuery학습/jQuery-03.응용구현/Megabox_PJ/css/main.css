@@ -53,6 +53,32 @@ h3 {
 
 /* 공통 class */
 
+
+/*드래그 선택 안되게 하는 CSS*/
+.disableselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge*/
+    user-select: none;
+    /* Non-prefixed version, currently 
+    not supported by any browser */
+}
+
+.disabledrag {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
 /* 페이지 공통 class */
 .page {
     /* 한페이지 보이는 화면 채우기 */
@@ -218,7 +244,15 @@ h3 {
     width: 32.3%;
     /* outline: 2px dashed lime; */
     display: none;/* 처음에 안보임! */
+    transition: all 1s ease-in-out;
 }
+
+/*스크린 확대 class*/
+#screen.on{
+    width: 70%;
+    z-index: 1;
+}
+
 /* 스크린비율 가상요소 */
 #screen::before{
     content: '';
@@ -414,7 +448,63 @@ h3 {
     /* 크기를 안보이게 스케일 0으로 */
     transition: transform .2s;
 }
+
 /* .pBar에 마우스 오버시 진행바 꼭지를 원래 크기로 scale복원하기 */
 .pBar:hover .tBar::after{
     transform: scale(1);
+}
+
+/*동영상 시간표시 */
+.ctime{
+    position: absolute;
+    bottom: 8%;
+    right: 4%;
+    font: 10px verdana;
+    color: #fff;
+    text-shadow: 0 0 5px #777;
+}
+
+
+/*볼륨버튼*/
+.volume{
+    position: absolute;
+    bottom: 11%;
+    left: 8%;
+    width: 60px;
+    height: 1px;
+    background-color: #fff;
+}
+/*볼륨바*/
+#bar{
+    position: relative;
+    left: 20%;/*첫볼륨위치(JS에서 20%볼륨)*/
+    display: block;
+    width: 6px;
+    height: 11px;
+    background-color: #fff;
+    margin-top: -5px;
+    box-shadow: 0 0 3px #777 inset;/*안쪽그림자*/
+}
+
+/*축소/확대버튼*/
+.expand{
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    font: 16px Verdana;
+    color: #CCC;
+    text-shadow: 0 0 2px #777;
+}
+/*처음에 두번째 축소하기 버튼 숨기기*/
+.expand a:last-child{
+    display: none;
+}
+/*#screen에 클래스 "on"이 적용된 경우*/
+/*확대하기 버튼 숨기기*/
+#screen.on .expand a:first-child{
+    display: none;
+}
+/*축소하기 버튼 보이기*/
+#screen.on .expand a:last-child{
+    display: inline;
 }
