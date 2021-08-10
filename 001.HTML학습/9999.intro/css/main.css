@@ -531,9 +531,9 @@ h3 {
 }
 
 .mainBG img{
-    width: 70%;
+    width: 60%;
     position: absolute;
-    top: 50%;
+    top: 44%;
     left: 30%;
     transform: translate(-50%, -50%);
 }
@@ -1417,14 +1417,14 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .mainBG img{
         width: 150%;
         position: absolute;
-        top: 45%;
+        top: 43%;
         left: 50%;
     }
 
     /* 애니로고 */
     .anilogo{
         width: 65%;
-        height: 30%;
+        height: 35%;
         position: absolute;
         top: 42%;
         left: 50%;
@@ -1433,7 +1433,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* sec1 글자 */
     .typtit{
-        top: 23%;
+        top: 20%;
         right: 50%;
         transform: translateX(50%);
     }
@@ -1442,14 +1442,14 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
     /* 맨위 타이틀 */
     .subtyping{
-        top: 18%;
+        top: 15%;
         font-size: 2rem;
         right: 50%;
         transform: translateX(50%);
     }
     /* 맨아래 타이틀 */
     .subtyping2{
-        top: 63%;
+        top: 60%;
         font-size: 2.5rem;
         right: 50%;
         transform: translateX(50%);
@@ -1457,6 +1457,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* sec1 슬라이드 */
     /* 왼쪽 박스 */
+    .slidebox1{
+        bottom: 10px;
+    }
+
+
     .sboxtit{
         display: none;
     }
