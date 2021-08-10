@@ -111,20 +111,19 @@ $(function () { /// jQB ////////////////////////
         $("html,body").stop().animate({
             scrollTop: pos + "px"
         }, 1000, "easeOutQuint");
-
-
+        
         ///////////////////////////////////////////////
         // 6. 페이지번호(pno)에 맞는 GNB 메뉴 변경하기 //
         ///////////////////////////////////////////////
         // 변경대상: .gnb li, .indic li
         $(".gnb li").eq(pno).addClass("on")
-            .siblings().removeClass("on");
+        .siblings().removeClass("on");
         $(".indic li").eq(pno).addClass("on")
-            .siblings().removeClass("on");
+        .siblings().removeClass("on");
         // 선택된 li 이외의 li형제들 class="on"제거하기
-
+        
         pageAction();
-
+         
     }); /////////// touchend 이벤트함수 /////////////
 
 

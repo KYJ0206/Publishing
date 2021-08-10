@@ -217,7 +217,7 @@ h3 {
     transform: translate(-50%, -50%);
     width: 32.3%;
     /* outline: 2px dashed lime; */
-    display: none;/* 처음에 안보임 */
+    display: none;/* 처음에 안보임! */
 }
 /* 스크린비율 가상요소 */
 #screen::before{
@@ -236,8 +236,8 @@ h3 {
 }
 
 /* 2-1-2.예고편 선택박스 */
-/* 전체박스 */
-#gbx{
+/* 포스터 전체박스 */
+#gbx {    
     position: absolute;
     top: 50%;
     left: 50%;
@@ -245,7 +245,6 @@ h3 {
     width: 90%;
     /* outline: 4px dashed blue; */
 }
-
 /* 포스터박스 */
 .gbx{
     position: relative;
@@ -255,7 +254,6 @@ h3 {
     /* 최대크기지정 */
     margin: 0 auto;
 }
-
 .gbx::before{
     content: '';
     display: block;
@@ -270,7 +268,7 @@ h3 {
     width: 100%;
     box-shadow: 6px 6px 5px #333;
     border-radius: 15px;
-    cursor: pointer;
+    cursor: pointer;/* 손가락모양 */
 
     /* 트랜지션 */
     transition: all .4s ease-in-out;
@@ -313,7 +311,6 @@ h3 {
     cursor: default;
 }
 
-
 /* 이동버튼 공통 */
 .abtn{
     position: absolute;
@@ -337,61 +334,87 @@ h3 {
 }
 
 /* 동영상 제어버튼 */
+
 /* 공통 */
 .ctrls{
     opacity: 0;
     transition: opacity .3s;
 }
-
 /* 스크린 오버시 컨트롤 보이기 */
 #screen:hover .ctrls{
     opacity: 1;
 }
 
-/* 재생/멈춤 버튼 */
+/* 재생/멈춤버튼 */
 .btnpp{
     position: absolute;
-    /* 부모는 #screen */
+    /* 부모는? #screen */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 20%;
 }
-
 .btnpp img{
     width: 100%;
 }
 
-/* 스피커 */
+/* 소리표시버튼 */
 .btnsnd{
     position: absolute;
-    /* 부모는 #screen */
     top: 2%;
     right: 2%;
     width: 5%;
 }
-
 .btnsnd img{
     width: 100%;
 }
 
 /* 동영상 진행바 */
 /* 진행바 트랙 */
-.pBar{
+.pBar {
     position: absolute;
-    bottom: 3px;
-    width: 100%;
+    bottom: 4%;
+    left: 2%;
+    width: 96%;
     height: 6px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255,255,255,.5);
     cursor: pointer;
+    transform: scaleY(.5);
+    /* 스케일을 Y축으로 반으로 줄임 */
+    transition: transform .2s;
 }
-/* 시간진행바 */
+/* .pBar에 마우스 오버시 Y축 크기 복원하기 */
+.pBar:hover {
+    transform: scaleY(1);
+}
+
+/* 시간 진행바 */
 .tBar{
     position: absolute;
-    /* 부모는 .pBar */
+    /* 부모는? .pBar */
     top: 0;
     left: 0;
-    width: 50%;
+    width: 0%;/* 처음에 0% */
     height: 100%;
-    background-color: red;
+    background: red;
+}
+
+/* 진행바 꼭지 */
+.tBar::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #f00;
+    transform: scale(0);
+    /* 크기를 안보이게 스케일 0으로 */
+    transition: transform .2s;
+}
+/* .pBar에 마우스 오버시 진행바 꼭지를 원래 크기로 scale복원하기 */
+.pBar:hover .tBar::after{
+    transform: scale(1);
 }
