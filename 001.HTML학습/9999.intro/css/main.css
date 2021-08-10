@@ -346,7 +346,7 @@ h3 {
     cursor: pointer;
     display: block;
     background: #fff;
-    border: 1px solid #333;
+    border: 1px solid #232a34;
     box-sizing: border-box;
     border-radius: 5px;
     outline: 0;
@@ -366,7 +366,7 @@ h3 {
 .indic li:hover a,
 .indic li.on {
     width: 33px;
-    background: #314172;
+    background: #232a34;
 }
 
 /* 설명글자숨기기 */
@@ -1332,19 +1332,19 @@ html .swiper-pagination-bullet {
     border-radius: 50%;
     border: 1px solid #000;
     opacity: 1;
-    --swiper-theme-color: #357aa0;
+    --swiper-theme-color: #232a34;
     /* background: #fff; */
 }
 
 /* 스와이퍼 좌우버튼 스타일 */
 /* 왼쪽 */
 html .swiper-button-prev, html .swiper-container-rtl .swiper-button-next {
-    color: #357aa0;
+    color: #232a34;
 }
 
 /* 오른쪽 */
 html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
-    color: #357aa0;
+    color: #232a34;
 }
 
 
@@ -1689,10 +1689,27 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
 /********************* sec4 *********************/
 
+    /* 내부박스 */
     .minfo4{
     height: 75vh;
     top: 52%;
     }
+
+    /* 자기pr 텍스트 */
+    .minfo4 p {
+        font-size: 3vw;
+        line-height: 0;
+        font-weight: bold;
+        font-family: ng;
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .mainp{
+        margin-top: 25px;
+    }
+
+
 
 
 
