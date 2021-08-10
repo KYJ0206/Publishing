@@ -223,6 +223,21 @@ $(function () { /// jQB ////////////////////////////
       $(".ibox").remove();
     }); /////////// hover ///////////////////////////
 
+  /////////// 신상품 li 클릭시 상세페이지 이동하기 //////
+  $(".flist li a").click(function (e) {
+
+    // 1. 기본이동 막기
+    e.preventDefault();
+
+    // 2. li의 클래스 정보 읽어오기(a요소의 부모)
+    let cls = $(this).parent().attr("class");
+    console.log("넘길값:" + cls);
+
+    // 3. 상세페이지로 이동하기
+    location.href = "men_detail.html?gno=" + cls;
+
+  }); ///////////// click ////////////////////////////
+
   // 신상최초호출여부
   let nacall = 1; //1-호출전, 0-호출후
 

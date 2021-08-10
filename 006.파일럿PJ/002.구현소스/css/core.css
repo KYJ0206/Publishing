@@ -58,7 +58,7 @@
 
 
 /*드래그 선택 안되게 하는 CSS*/
-.disableselect {
+.nonesel {
     -webkit-touch-callout: none;
     /* iOS Safari */
     -webkit-user-select: none;
@@ -74,7 +74,7 @@
     not supported by any browser */
 }
 
-.disabledrag {
+.nonedrag {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;

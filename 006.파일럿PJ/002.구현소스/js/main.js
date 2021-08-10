@@ -6,7 +6,7 @@ let bseq = 0;
 
 $(function () { /// jQB ////////////////////////
 
-    
+
     // 메뉴 a요소 기본이동 막기!
     $(".gnb a,.indic a").click(function (e) {
         e.preventDefault();
@@ -59,23 +59,23 @@ $(function () { /// jQB ////////////////////////
             scrollTop: pos + "px"
         }, 1200, "easeOutQuint"); //// animate /////
 
-        
+
         // 4. 클릭된 li요소에 class="on" 넣기
         $(".gnb li").eq(idx).addClass("on")
-        .siblings().removeClass("on");
+            .siblings().removeClass("on");
         $(".indic li").eq(idx).addClass("on")
-        .siblings().removeClass("on");
+            .siblings().removeClass("on");
         //다른 형제 li들 class="on" 지움
-        
+
         // 6. li순번과 pno와 일치하기! /////////////////////
         pno = idx;
         //console.log("페이지번호:" + pno);
-        
+
         // 7. 페이지 이동과 동시에 showEle함수를 호출! 등장액션!
         showEle();
 
     }); ///////////// click ///////////////
-    
+
 
     // 배너블릿 //////////////////
     let bindic = $(".bindic li");
@@ -168,7 +168,7 @@ $(function () { /// jQB ////////////////////////
     ////////////////////////////////////////////
     /////// 배너이동 함수 : goSlide /////////////
     ////////////////////////////////////////////
-    let goSlide = function (dir) {        
+    let goSlide = function (dir) {
 
         // 매번 새로 화면 width구하기
         winW = $(window).width();
@@ -400,46 +400,49 @@ $(function () { /// jQB ////////////////////////
 
     }); ////////// click //////////////////////
 
-    //// 액숀 초기화 ///////////////////////
-    // 대상: .txtc h2 + .imgc
-    // 변경내용: transform: rotate(45deg) + opacity: 0
-    $(".txtc h2, .imgc").css({
-        transform: "rotate(15deg) translateY(100px)",
-        transformOrigin: "left top", //축변경
-        opacity: 0
-    }); /////////// css ///////////
-    
-    
+
+
+    if(!mob){ /// 모바일이 아닐때 실행 ///
+        //// 액숀 초기화 ///////////////////////
+        // 대상: .txtc h2 + .imgc
+        // 변경내용: transform: rotate(45deg) + opacity: 0
+        $(".txtc h2, .imgc").css({
+            transform: "rotate(15deg) translateY(100px)",
+            transformOrigin: "left top", //축변경
+            opacity: 0
+        }); /////////// css ///////////
+    }
+
 }); ///////////// jQB ////////////////////////
 
 
 /////////////////////////////////////////////
 ////// 페이지 등장액션 함수 //////////////////
 /////////////////////////////////////////////
-function showEle(){
+function showEle() {
 
     // 현재 페이지번호에 맞는 액션구현!
     // pno = 1,2,3만 액션이 있음
-    if(pno > 0 && pno < 4){
+    if (pno > 0 && pno < 4) {
         // console.log("액숀!"+pno);
         $(".page").eq(pno)
-        .find(".txtc h2, .imgc").css({
-            transform: "rotate(0deg) translateY(0px)",
-            opacity: 1,
-            transition: "1s ease-out .3s"
-        }); /////////// css ///////////
+            .find(".txtc h2, .imgc").css({
+                transform: "rotate(0deg) translateY(0px)",
+                opacity: 1,
+                transition: "1s ease-out .3s"
+            }); /////////// css ///////////
 
         // 글자만 트랜지션 지연시간주기
         $(".page").eq(pno)
-        .find(".txtc h2").css({
-            transitionDelay: ".9s"
-        }); /////////// css ///////////
+            .find(".txtc h2").css({
+                transitionDelay: ".9s"
+            }); /////////// css ///////////
 
         // 글자만 트랜지션 지연시간주기
         $(".page").eq(pno)
-        .find(".txtc h2.tw").css({
-            transitionDelay: "1.2s"
-        }); /////////// css ///////////
+            .find(".txtc h2.tw").css({
+                transitionDelay: "1.2s"
+            }); /////////// css ///////////
 
     } /////////// if문 ////////////////
 
