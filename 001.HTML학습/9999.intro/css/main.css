@@ -578,9 +578,10 @@ h3 {
     left: 50%;
     text-align: center;
     transform: translateX(-50%);
-    line-height: 70px;
+    border: 5px double #83878d;
+    box-sizing: border-box;
+    line-height: 55px;
     font-size: 1.7vw;
-    background-color: #fff;
     color: #434343;
     border-radius: 5px;
     font-family: UB;
@@ -709,6 +710,9 @@ h3 {
     border: 1px solid #232a34;
 }
 
+.slide1 li img{
+    object-fit: cover;
+}
 
 .slide1 li img:nth-child(1) {
     position: absolute;
@@ -1613,7 +1617,6 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .wrap{
         height: 75vh;
         top: 52%;
-        padding: 10px;
     }
 
     /* 속박스 */
@@ -1647,9 +1650,21 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     html .swiper-container {
         max-width: 65%;
         height: 180px;
-        padding: 50pX;
+        padding: 25px;
         padding-top: 70px;
         padding-bottom: 70px;
+    }
+
+    /* 왼쪽버튼 */
+    html .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+        left: -10%;
+        right: auto;
+    }
+
+    /* 오른쪽 버튼 */
+    html .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+        right: -20px;
+        left: auto;
     }
 
     html .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
