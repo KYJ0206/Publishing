@@ -395,26 +395,6 @@ h3 {
 }
 
 
-/* 페이지 제목 */
-.minfo>h1 {
-    font-size: 44px;
-    padding: 5px;
-    text-align: center;
-}
-
-/* 한자처리 */
-.minfo>h1>span {
-    font-size: 28px;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-/* 페이지 정보 */
-.minfo>h3 {
-    font-size: 28px;
-    padding: 3px;
-}
-
-
 
 /* 하단 공통 적용 */
 /* 스크롤 박스 */
@@ -441,17 +421,18 @@ h3 {
 .scrollin::before {
     content: "";
     position: absolute;
-    top: 80%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     width: 8px;
     height: 8px;
     background-color: #232a34;
-    animation: k_scroll 1.5s linear infinite;
+    border-radius: 50%;
+    animation: k_scroll 1.4s linear infinite;
 }
 @keyframes k_scroll {
     to {
-        top: 5%;
+        top: 70%;
         opacity: 0;
     }
 }
@@ -1743,7 +1724,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         top: 30%;
         left: 3%;
         width: 10%;
-        height: 12%;
+        height: 10%;
         transform: rotate(180deg);
     }
 
@@ -1755,15 +1736,30 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         border-left: 1px solid #232a34;
     }
 
-    /* 스크롤 애니 가상요소 */
-    .scrollin::before{
-        width: 5px;
-        height: 5px;
+    /* 스크롤 가상요소 */
+    .scrollin::before {
+        content: "";
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: #232a34;
+        width: 4px;
+        border-radius: 0;
+        animation: k_scroll 1.5s ease-out infinite;
+    }
+    @keyframes k_scroll {
+        to {
+            top: 5%;
+            opacity: 0;
+        }
     }
 
     /* 스크롤 글씨 */
-    .scroll span{
-        top: 30px;
+    .scroll span{   
+        top: 38%;
         left: 0;
         font-size: 1.5rem;
         transform: rotate(270deg);
