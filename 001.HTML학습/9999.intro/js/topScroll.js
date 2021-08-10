@@ -16,6 +16,7 @@ $(window).resize(chksz);
 
 $(function () { //////// jQB //////////////////
 
+
     $("html,body").animate({
         scrollTop: "0px"
     }, 1000, "easeOutQuint");
