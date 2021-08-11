@@ -3,8 +3,49 @@
 <head>
 <meta charset="utf-8">
 <title> 배경색 애니메이션 변경 </title>
-<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="jquery-ui.min.js"></script>
+<script src="jquery-1.7.2.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script>
+    $(function(){ /// jQB //////////////////
+        // 색상명에 맞는 색으로 버튼 배경색 셋팅하기
+        // for문을 쓰지 않고 each()메서드 사용!
+        $("#colorPicker div").each(function(idx,ele){
+            // idx-순번, ele-요소자신(this키워드와 동일)
+            
+            // 색상명 읽어오기
+            let color = $(ele).text();
+            //console.log("색상명:"+color);
+            
+            // 읽어온 색상명으로 div박스 배경색 넣기
+            $(ele).css({
+                backgroundColor: color
+            });///// css ///////////////
+            
+        });/////////// each /////////////////////
+        
+        // 색상버튼 클릭시 같은 색으로 배경색 변경 애니메이션
+        $("#colorPicker div").click(function(){
+            
+            // 대상: body
+            $("body").css({
+                backgroundColor: $(this).text(),
+                transition: "all .6s"
+            }); //// css //////
+            
+            // 해시코드가 아닌 색상명일 경우
+            // animate가 안되는 경우가있다(기본색이 아닐경우)
+            // jQuery UI에 등록되지 않았기 때문이다!
+            // 이럴땐 CSS로 처리하면 된다!
+            
+        });///////// click ////////////////////
+        
+        
+        
+        
+        
+    });////////// jQB //////////////////////
+    
+    </script>
 
 <style>
 body {
@@ -13,12 +54,14 @@ body {
 }
 #colorPicker div{
 	float:left;
-	width:70px;
-	height:70px;
+	width:120px;
+	height:120px;
 	text-align:center;
 	color:#000;
 	border:#000 thin solid;
 	margin-right:5px;
+    line-height: 120px;
+    cursor: pointer;/*손가락모양*/
 }
 </style>
 </head>
@@ -26,11 +69,16 @@ body {
 <body>
 
 <div id = "colorPicker">
-    <div>red</div>
+    <div>Crimson</div>
     <div>maroon</div>
     <div>brown</div>
     <div>orange</div>
     <div>yellow</div>
+    <div>DarkGoldenRod</div>
+    <div>DarkSeaGreen</div>
+    <div>DeepSkyBlue</div>
+    <div>Gold</div>
+    <div>LightGreen</div>
 </div>
       
 <!------------------------ jQuery 코드 ----------------------->

@@ -1,48 +1,137 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>슬라이더바를 사용한 컨텐츠 보기</title>
-<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="jquery-ui.min.js"></script>
-<style> 
-* {margin:0px; padding:0px;}
+    <meta charset="utf-8">
+    <title>슬라이더바를 사용한 컨텐츠 보기</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script>
+    $(function(){ /// jQB //////////////////
+        
+        // 드래그 셋팅대상: #bar
+        $("#bar").draggable({
+            axis: "x", //x축고정
+            containment: "parent" 
+            // 드래그범위를 부모박스에 한정!
+        });
+        /*
+        [ 바가 이동할때 큰 이미지 이동원리 ]
+        바의 이동거리와 이미지 이동거리간에 비례식을 세운다!
+            
+        바 최대이동값 : 바 이동값 = 이미지 최대이동값 : 이미지 이동값
+        
+        -> 우리가 구할 값은 이미지 이동값!!!
+            
+        이미지 이동값 = 바 이동값 * 이미지 최대이동값 / 바 최대이동값
+        
+        이이 = 바이 * 이최 / 바최
+        */
+        
+        /// 위치값 설정변수 ///
+        
+        // 바 최대이동값(바최)
+        let barmax = 570;//600-30
+        
+        // 바 이동값(바이)
+        let barpos;
+        
+        // 이미지 최대이동값(이최)
+        let imgmax = 400;//1000-600
+        
+        // 이미지 이동값(이이)
+        let imgpos;
+        
+        // 바를 드래그 이동 할때 이벤트 함수와 연결함!!
+        // on(이벤트명, 함수)
+        // 드래그 이벤트: drag
+        $("#bar").on("drag",function(){
+            
+            // 1.현재 바 이동값
+            barpos = $(this).position().left;
+            console.log("바이:"+barpos);
+            /*
+            [ offset() 은 화면기준! ]
+            offset().left 값은 화면 좌측 기준선으로 부터의 거리임
+            
+            [ position() 은 static이 아닌 부모기준! ]
+            position().left 는 부모박스 기준으로 부터의 거리임
+            (단, 부모박스가 최소한 position이 relative여야함!)
+            */
+            
+            // 2. 우리가 알고자 하는 이미지 이동값 구해오기
+            // 이이 = 바이 * 이최 / 바최
+            imgpos = barpos * imgmax / barmax;
+            
+            // 3. 이미지 이동 적용하기
+            // 대상: #content
+            $("#content").css({
+                left: -imgpos + "px"
+            });//////// css ///////////
+            
+        });///////// drag 함수 ///////////////
+        /////////////////////////////////////
+        
+        
+        
+    });////////// jQB //////////////////////
+    
+    </script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
 
-#wrap { 
-	width:600px;	
-	overflow:hidden;
-	background:#CF0;
-}
-#content {height:300px;}
+        #wrap {
+            width: 600px;
+            overflow: hidden;
+            background: #CF0;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
 
-#scrollBar {
-	width:600px;
-	height:30px;
-	background:#06C;	
-}
-#bar{
-	width:30px;
-	height:30px;
-	background:#FF0;	
-}
+        #content {
+            height: 300px;
+        }
 
-#content {	position:relative;	};
+        #scrollBar {
+            position: relative;
+            /*제이쿼리의 position().left를 위해
+            부모자격을 줘야함!!!*/
+            width: 600px;
+            height: 30px;
+            background: #bddeff;
+        }
 
-</style>
+        #bar {
+            width: 30px;
+            height: 30px;
+            background: #FF0;
+            border-radius: 50%;
+            box-shadow: 0 0 7px 3px #229101 inset;
+        }
+
+        #content {
+            position: relative;
+        }
+
+        ;
+    </style>
 </head>
 
 <body>
-<div id = "wrap">
-  <div id="content"> <img src="pg.jpg" /> </div>
-  
-  <div id ="scrollBar">
-    <div id="bar"></div>
-  </div> 
-  
-</div>
+    <div id="wrap">
+        <div id="content">
+            <img src="pg.jpg" alt="슬라이드 이미지">
+        </div>
 
-<script>
+        <div id="scrollBar">
+            <div id="bar"></div>
+        </div>
 
-</script>
-</body>
-</html>
+    </div>
+
+    <script>
+
+    </script>
+</body></html>

@@ -1,61 +1,147 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<title> ToolTip 도움말 효과 </title>
-<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <meta charset="utf-8">
+    <title> ToolTip 도움말 효과 </title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        $(function() { /// jQB //////////////////
+            // 내가 만드는 툴팁!
+            // 방법: a요소에 마우스 오버시 
+            // body에 #tip 박스를 새로 만들고
+            // a요소의 data-tit속성에서 값을 읽어서
+            // 이미지 클래스 .img 이면 이미지로 보여주고
+            // 아니면 글자로 넣어준다!
+            $("a").hover(
+                function() { // over ////////////////////////
+                    // 1. body에 #tip 박스 만들기
+                    $("body").append('<div id="tip"></div>');
+
+                    // 2. a요소 자신의 data-tip 속성값 읽어오기
+                    let data = $(this).attr("data-tit");
+                    //console.log("data:"+data);
+
+                    // 3. 클래스가 "img" 인 것은 이미지로 셋팅
+                    // 아니면 글자 텍스트로 셋팅하기!
+                    // 마우스 오버된 a요소의 클래스가 "img"인지 여부는
+                    // ->>>> is() 메서드를 사용!!!!!
+
+                    // $(선택자).is(특정요소명) 
+                    //  -> 선택요소에 특정요소가 있는지 검사하여 
+                    // true/false를 리턴함!
+
+                    //console.log("확인:"+$(this).is(".img"));
+
+                    //////// 이미지일 경우 /////////////
+                    if ($(this).is(".img")) {
+
+                        /// #tip안에 이미지넣기 ///
+                        $("#tip").append(
+                                '<img src="' + data +
+                                '" alt="이미지툴팁">')
+                            .css({
+                                width: "100px",
+                                height: "100px"
+                            }); ///// css ////////
+
+                    } //////// if /////////////////////
+
+                    ////// 이미지가 아닐경우 ////////////
+                    else {
+                        // #tip에 text넣기
+                        $("#tip").text(data);
+
+                    } ////////// else //////////////////
 
 
-<style>
-* {padding:0px; margin:0px;}
-body {
-	margin: 20px auto;
-	padding: 0;	
-	width: 400px;
-	font-size:13px;
-	font-family:Arial, Helvetica, sans-serif;
-}
-p{ line-height:1.5; margin-bottom:5px;}
+                },
+                function() { // out /////////////////////////
 
-#tip {
-	position:absolute;
-    width:300px;
-     color:#FFF;
-	 padding:5px;
-	display:none;
-	
-	background:#05184D;
-	               border-radius: 5px;
-               -moz-border-radius: 5px;
-               -webkit-border-radius: 5px;
-}
+                    // 팁박스 지우기
+                    $("#tip").remove();
+
+                }); ///// hover ////////////////////
+            ////////////////////////////////////////
+
+            ////////////////////////////////////////
+            /// 마우스가 링크 영역위에서 움직일때 ///////
+            /// 계속 위치변경하기 /////////////////////
+            $("a").mousemove(function(e) { // e-이벤트전달변수
+
+                // 1. top, left값 정하기(마우스포인터 위치기준)
+                let tpos = e.pageY + $(this).height();
+                let lpos = e.pageX - $("#tip").width() / 2;
+                // y축으로는 a요소의 높이만큼 더하고(아래쪽으로 내려감)
+                // x축으로는 툴팁박스의 가로폭 절반을 뺀다(중간위치)
+
+                // 2. 툴팁박스 위치변경하기
+                $("#tip").css({
+                    top: tpos + "px",
+                    left: lpos + "px"
+                }); ////// css ////////
+
+            }); /////// mousemove ////////////////
+            /////////////////////////////////////
 
 
 
-</style>
+
+        }); ////////// jQB //////////////////////
+    </script>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            margin: 20px auto;
+            padding: 0;
+            width: 400px;
+            font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        #tip {
+            position: absolute;
+            width: 300px;
+            color: #FFF;
+            padding: 5px;
+
+            background: #05184D;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div>
-<p>
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-</p>
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a <a href="#" title="There are many variations of passages of Lorem Ipsum available passages of Lorem Ipsum available passages of Lorem Ipsum available passages of ">galley</a> of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-</p>
-<p>
-Contrary to popular belief, <a href="http://www.lipsum.com/" title="img/site.jpg" class="img">Lorem Ipsum</a> is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-</p>
-</div> 
+    <div>
+        <p>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+        </p>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a <a href="#" data-tit="There are many variations of passages of Lorem Ipsum available passages of Lorem Ipsum available passages of Lorem Ipsum available passages of ">galley</a> of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </p>
+        <p>
+            Contrary to popular belief, <a href="http://www.lipsum.com/" data-tit="img/site.jpg" class="img">Lorem Ipsum</a> is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+        </p>
+    </div>
 
 
 
 
-<!------------------------ jQuery 코드 ----------------------->
-<script>
-	
-</script>
+    <!------------------------ jQuery 코드 ----------------------->
+    <script>
 
-</body>
-</html>
+    </script>
+
+</body></html>

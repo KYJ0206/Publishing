@@ -5,7 +5,38 @@
 <title> 직접 만들어 보는 이미지 hover 효과 </title>
 <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="jquery-ui.min.js"></script>
-
+<script>
+    $(function(){ /// jQB //////////////////
+        
+        // 기능: 
+        //div에 마우스 오버시 - 숨겼던 컬러이미지가
+        // 커진상태에서 원래크기로 작아지면서 나타나기
+        // div에 마우스 아웃시 - 사라지기
+        // 대상: div
+        $("div").hover(
+            function() { // over
+                $("img",this).css({
+                    width: "700px",
+                    top: "-50px",
+                    left: "-50px"
+                }) //// css //////
+                .stop().animate({
+                    width: "600px",
+                    top: "0",
+                    left: "0",
+                    opacity: 1
+                },400);/// animate ///
+            },
+            function() { // out
+                $("img",this).stop().fadeTo(400,0);
+                // fadeTo(시간,오파,이징,함수)
+                // opacity값만 애니메이션함
+            }); ///// hover ///////////
+        
+        
+        
+    });////////// jQB //////////////////////
+    </script>
 <style>
 body {
 	margin:20px auto;
@@ -23,8 +54,9 @@ div {
 }
 	 
 div img{
-	display:none;
+/*	display:none;*/
 	position:relative;
+    opacity: 0;
 }
 
 

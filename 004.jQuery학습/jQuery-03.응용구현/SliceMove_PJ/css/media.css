@@ -29,6 +29,8 @@
     /* 4.flex박스 파티션 li요소의 높이값 지정*/
     .wrap > ul > li {
         flex: none !important;
+        /* 기존 flex:1 등분할을 없애야 height값이 적용됨 */
+        /* 제이쿼리 인트로때문에 최우선순위를 줌! */
         height: 100vmax;
         /*화면기준 vmax는 가로,세로길이중 큰쪽기준*/
     }

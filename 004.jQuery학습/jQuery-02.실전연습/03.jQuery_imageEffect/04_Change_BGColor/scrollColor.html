@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>스크롤시 변경되는 배경색</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        $(function() { /// jQB //////////////////
+
+            let txt = "Mixing entertainment and shopping Streaming services are taking over the entertainment industry, appealing to a young and multicultural audience. As a result of this, a music focused media company such as Fuse needs to innovate in order to scale their offer. Alongside with the great team of Handsome, we came up with a cross-platform SVOD concept that do more than simply entertain people.We bring the focus on the “gear” highlighted in the FuseTV shows, giving the ability to save and shop the items seen in user’s favorite videos."
+
+            $("div").each(function(idx, ele) {
+                // 각 div에 글넣기
+                $(ele).text(txt);
+
+            }); ///////// each //////////////////
+
+
+            // 색상명
+            let color = ["white", "MediumBlue", "MediumPurple", "LightGreen", "Orchid", "RosyBrown", "Navy", "LightSteelBlue", "Indigo", "Khaki","Aquamarine"];
+            // 차이수
+            let gap = 500;
+
+
+            // 구간체크 함수 /////////////////////////
+            /*//////////////////////////////////////
+                함수명: chkSec
+                기능:스크롤위치에 따른 배경색변경 적용
+                    여부를 판단하여 실제 적용함
+            */ //////////////////////////////////////
+            let chkSec = function(seq, scTop) {
+                //seq - 순번, scTop - 스크롤위치값
+
+                let num = 500 * seq;
+                // 0,500,1000,1500,... 이런순서임!
+                // seq가 0,1,2,순서이므로 이를 곱함!
+                //console.log(num);
+
+                if (scTop > num && scTop < num + gap) {
+                    //console.log("여기");
+                    $("body").css({
+                        backgroundColor: color[seq],
+                        transition: "all .6s"
+                    }); ///////// css //////////
+                    
+                    //글자색변경하기////////////
+                    let fc = "#000";// 검정색글자
+                    
+                    if(seq===1 || seq===2 || 
+                       seq===6 || seq===8){/// 흰색글자
+                        fc = "#fff";
+                    }///// if /////////////
+                    
+                    //글자색변경 적용
+                    $("div").css({
+                        color: fc
+                    });//// css /////
+                    
+                } //////////// if ///////////////////
+
+            }; ////// chkSec 함수 //////
+
+
+
+            /// 스크롤시 색상변경하기
+            $(window).scroll(function() {
+
+                let scTop = $(this).scrollTop();
+                console.log("스위:" + scTop);
+
+                // 구간체크 함수호출!
+                // color.length는 색상배열개수
+                for (var i = 0; i < color.length; i++) {
+                    chkSec(i, scTop);
+                } ///// for ////////////////
+
+
+
+            }); /////// scroll ////////////
+
+
+        }); ////////// jQB //////////////////////
+    </script>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 5vw;
+        }
+
+        div {
+            width: 60vw;
+            border: 5px dotted pink;
+            padding: 15px;
+            font-size: 3vw;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Scrolling Change BG Color!</h1>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+
+
+
+</body></html>
