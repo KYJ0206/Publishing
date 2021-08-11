@@ -865,15 +865,15 @@ h3 {
 
 /* 사진 원박스 */
 .photoin {
-    position: absolute;
-    top: 28%;
-    left: 25%;
-    transform: translateX(-50%);
-    width: 30%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
     background: url(../images/K.Y.J.jpg) center top / cover no-repeat;
-    border-radius: 50%;
     box-shadow: 0 0 10px #777;
 }
+
 
 /* 비율밀기 */
 .photoin::before {
@@ -1145,17 +1145,6 @@ h3 {
     background-attachment: fixed;
 }
 
-/* 슬라이드 커버 */
-.cover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    /* background-color: #f00;
-    opacity: 0.5; */
-    display: none;
-}
 
 
 /* 양쪽이동버튼(영역+버튼) */
@@ -1212,6 +1201,20 @@ h3 {
     text-align: center;
     transition: all .1s;
     cursor: pointer;/* 손가락모양 */
+}
+
+/* 숫자형 블릿 */
+.numbtns{
+    display: flex;
+    width: 5%;
+    height: 3%;
+    position: absolute;
+    right: 17%;
+    bottom: 7%;
+    outline: 4px solid red;
+}
+.numbtn{
+    flex: 1;
 }
 
 
@@ -1391,7 +1394,48 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         right: 5%;
     }
     .ham.on>ul{
-        width: 320px;
+        left: -35%;
+        width: 60px;
+        height: auto;
+        line-height: 35px;
+    }
+
+    /* gnb 전체박스 */
+    .gnb ul {
+        position: absolute;
+        display: flex;
+        top: 295px;
+        left: 185%;
+        transition: .7s;
+        width: 60px;
+        height: auto;
+        line-height: 35px;
+        overflow: hidden;
+        opacity: 1;
+        flex-direction: column;
+    }
+
+    /* gnb 개별박스 */
+    .gnb li {
+        flex: 1;
+        background: #232a34;
+        margin: 10px 0;
+        border-radius: 15px 0 0 15px;
+    }
+
+    .gnb a {
+        position: relative;
+        display: block;
+        font-size: 1.4rem;
+        color: #fff;
+        font-weight: normal;
+        font-family: ub;
+        text-align: center;
+        width: 100%;
+    }
+
+    .gnb li a:before{
+        display: none;
     }
 
 
@@ -1521,13 +1565,6 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
 
     /* 증명사진박스 */
-    /* 증명사진 */
-    .photoin{
-        width: 65%;
-        position: static;
-        margin: 0 auto;
-        transform: none;
-    }
     /* 증명박스 이름 */
     .phobox span{
         font-size: 3vw;
@@ -1651,7 +1688,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
 
     html .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-        bottom: -20px;
+        bottom: 0;
     }
 
     /* 이동버튼 해제 */
