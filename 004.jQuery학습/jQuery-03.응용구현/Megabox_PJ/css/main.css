@@ -79,8 +79,11 @@ h3 {
     user-drag: none;
 }
 
+
 /* 페이지 공통 class */
 .page {
+    position: relative;
+    /* 부모자격 */
     /* 한페이지 보이는 화면 채우기 */
     width: 100%;
     height: 100%;
@@ -244,6 +247,8 @@ h3 {
     width: 32.3%;
     /* outline: 2px dashed lime; */
     display: none;/* 처음에 안보임! */
+    
+    /*트랜지션:속시이지*/
     transition: all 1s ease-in-out;
 }
 
@@ -252,7 +257,6 @@ h3 {
     width: 70%;
     z-index: 1;
 }
-
 /* 스크린비율 가상요소 */
 #screen::before{
     content: '';
@@ -448,27 +452,25 @@ h3 {
     /* 크기를 안보이게 스케일 0으로 */
     transition: transform .2s;
 }
-
 /* .pBar에 마우스 오버시 진행바 꼭지를 원래 크기로 scale복원하기 */
 .pBar:hover .tBar::after{
     transform: scale(1);
 }
 
-/*동영상 시간표시 */
-.ctime{
+/* 동영상 시간표시 */
+.ctime {
     position: absolute;
-    bottom: 8%;
-    right: 4%;
-    font: 10px verdana;
+    bottom: 7%;
+    right: 3%;
+    font: 10px Verdana;
     color: #fff;
     text-shadow: 0 0 5px #777;
 }
 
-
 /*볼륨버튼*/
 .volume{
     position: absolute;
-    bottom: 11%;
+    bottom: 9%;
     left: 8%;
     width: 60px;
     height: 1px;
@@ -508,3 +510,93 @@ h3 {
 #screen.on .expand a:last-child{
     display: inline;
 }
+
+
+/******** 2. 큐레이션 페이지: typed 플러그인 **********/
+.type-wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 620px;
+    height: 300px;
+    font: bold 20px/50px "맑은 고딕";
+    color: #fff;
+    text-shadow: 0 0 3px #777;
+    padding: 20px;
+    /*outline: 3px dotted lime;*/
+}
+/*플러그인 문구에 태그를 사용할 수 없으므로
+css에서 가상요소 첫번째줄만 적용하는 코딩이 필요!*/
+.type-wrap::first-line{
+    color: powderblue;
+    font-size: 40px;
+    line-height: 100px;
+}
+
+/************* 3. 영화관 페이지 : 스와이퍼 플러그인 ***********/
+/*스와이퍼 전체박스*/
+.swiper-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 250px;
+    height: 370px;
+    box-shadow: 0 0 10px 5px #fff;
+}
+/*스와이퍼 개별리스트*/
+.swiper-slide{
+    display: flex;
+    /*원래 flex는 부모박스에 잡지만
+    swiper는 자식요소에 셋팅한다!*/
+    justify-content: center;
+    align-content: center;
+}
+/*스와이퍼 이미지*/
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+}
+
+/***** 4.특별관 페이지 - photobox 플러그인 디자인***/
+#gallery{
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+}
+#gallery img{
+    height: 100px;
+    border: 1px solid #fff;
+    transition: all .4s ease-out;
+}
+#gallery img:hover{
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+/*특별관 타이틀박스*/
+.txts{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font: bold 2rem "맑은 고딕";
+    color: #fff;
+}
+/*패딩으로 띄어쓰기*/
+.pd{
+    padding-right: 10px;
+}
+/*float해제로 줄바꿈*/
+.ent{
+    clear: left;
+}
+/*글자초기셋팅*/
+.txts > li{
+    position: relative;
+    top: -100px;
+    left: 200px;
+    opacity: 0;
+}
+
