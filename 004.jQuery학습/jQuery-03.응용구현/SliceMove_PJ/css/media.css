@@ -28,6 +28,7 @@
 
     /* 4.flex박스 파티션 li요소의 높이값 지정*/
     .wrap > ul > li {
+        flex: none !important;
         height: 100vmax;
         /*화면기준 vmax는 가로,세로길이중 큰쪽기준*/
     }
