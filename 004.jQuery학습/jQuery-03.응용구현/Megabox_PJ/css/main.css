@@ -511,6 +511,17 @@ h3 {
     display: inline;
 }
 
+/* 되돌리기 버튼 */
+.rtn {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    display: none;
+}
+.rtn img{
+    width: 35px;
+}
+
 
 /******** 2. 큐레이션 페이지: typed 플러그인 **********/
 .type-wrap{
