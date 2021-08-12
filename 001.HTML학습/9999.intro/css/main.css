@@ -1282,6 +1282,180 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
 
 
+/***************** 모바일 미디어쿼리 : 900px이하 *****************/
+@media only screen and (max-width:900px){
+
+/* 햄버거 버튼 */
+.ham {
+    width: 25px;
+}
+
+/**************************** sec1 ****************************/
+
+/* 타이핑 글자 */
+#typing {
+    font-size: 4rem;
+}
+
+/* 맨위 글자 */
+.subtyping {
+    font-size: 2.5rem;
+}
+
+/* 맨아래 글자 */
+.subtyping2 {
+    font-size: 2.5rem;
+}
+
+/* 슬라이드 */
+/* 슬라이드 이미지 */
+.slide1 li img:nth-child(1) {
+    position: absolute;
+    width: 20vw;
+    height: 20vh;
+    top: 7%;
+}
+
+
+/* 왼쪽버튼 */
+.lback {
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+}
+
+/* 오른쪽 이동버튼 */
+.rback{
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+}
+
+
+/**************************** sec2 ****************************/
+    /* 전체 내부 박스 */
+    .packin {
+        height: 80vh;
+    }
+
+/**************************** sec3 ****************************/
+    /* 전체 내부 박스 */
+    .wrap{
+        height: 80vh;
+    }
+
+    html .swiper-container {
+        width: auto;
+        padding: 12px 107px;
+        padding-bottom: 15px;
+        min-width: 120px;
+        max-width: 150px;
+    }
+
+    /* 스와이퍼 이미지 */
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+    }
+
+    /* 블릿버튼 */
+    html .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: -20px;
+    }
+
+/**************************** sec4 ****************************/
+
+    /* 전체 내부 박스 */
+    .minfo{
+        height: 80vh;
+    }
+
+/********************* 공통 CSS *********************/
+
+    /* 탑버튼 */
+    .tbtn{
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    /* 탑버튼 업모양 */
+    .fi-angle-up:before {
+        content: "\e96b";
+        position: absolute;
+        top: -6px;
+        left: 18px;
+    }
+    /* 탑버튼 글씨 */
+    .tbtn p{
+        top: 10px;
+        font-size: 1.5rem;
+    }   
+
+    /* 스크롤 */
+    .scroll{
+        position: fixed;
+        top: 17%;
+        left: 5%;
+        width: 2%;
+        height: 20%;
+        transform: rotate(180deg);
+    }
+
+    /* 스크롤 속박스 */
+    .scrollin{
+        width: 1%;
+        height: 100%;
+        border: none;
+        border-left: 1px solid #232a34;
+    }
+
+    /* 스크롤 가상요소 */
+    .scrollin::before {
+        content: "";
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: #232a34;
+        width: 4px;
+        border-radius: 0;
+        opacity: 1;
+        animation: k_scroll 3s linear  infinite;
+    }
+    @keyframes k_scroll {
+        to {
+            top: 0%;
+            opacity: 0;
+        }
+    }
+
+    /* 스크롤 글씨 */
+    .scroll span{   
+        top: 38%;
+        left: 0;
+        font-size: 1.5rem;
+        transform: rotate(270deg);
+        white-space: nowrap;
+    }   
+
+    /* 인디케이터 */
+    .indic{
+        width: 12px;
+    }
+
+    /* 인디케이터 마우스 선택시 */
+    .indic li:hover a, .indic li.on{
+        width: 10px;
+    }
+
+} /* 미디어 쿼리 900px 이하 */
+
+
+
+
 
 
 
@@ -1598,18 +1772,20 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         left: auto;
     }
 
+    /* 블릿버튼박스 */
     html .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
         bottom: 0;
-    }
-
-    /* 이동버튼 해제 */
-    .ar1, .ar2{
-        display: none;
     }
 
     /* 블릿버튼 */
     html .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
         margin: 0px 5px;
+    }
+
+    /* 스와이퍼 이미지 */
+    .swiper-slide img {
+        display: block;
+        width: 100%;
     }
 
 
@@ -1726,4 +1902,4 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
 
 
-} /* 미디어 쿼리 */
+} /* 미디어 쿼리 500px 이하 */
