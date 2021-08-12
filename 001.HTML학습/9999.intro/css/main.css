@@ -126,7 +126,7 @@ h3 {
     position: fixed;
     width: 100%;
     z-index: 9999;
-    background-color: #232a34;
+    background-color: #10142c;
     box-shadow: 0 2px 5px rgb(0 0 0 / 60%);
 }
 
@@ -366,7 +366,7 @@ h3 {
 .indic li:hover a,
 .indic li.on {
     width: 33px;
-    background: #232a34;
+    background: #10142c;
 }
 
 /* 설명글자숨기기 */
@@ -414,7 +414,7 @@ h3 {
     box-sizing: border-box;
     width: 16px;
     height: 43px;
-    border: 3px solid #232a34;
+    border: 3px solid #10142c;
     border-radius: 7px;
 }
 
@@ -426,7 +426,7 @@ h3 {
     transform: translateX(-50%);
     width: 8px;
     height: 8px;
-    background-color: #232a34;
+    background-color: #10142c;
     border-radius: 50%;
     animation: k_scroll 1.4s linear infinite;
 }
@@ -441,12 +441,12 @@ h3 {
     position: absolute;
     top: 48px;
     left: 50%;
-    color: #232a34;
+    color: #10142c;
     font-family: UB;
     font-size: 1.8rem;
     transform: translateX(-50%);
-    text-shadow: 1px 0 0 #232a34, 0 1px 0 #232a34,
-        -1px 0 0 #232a34, 0 -1px 0 #232a34;
+    text-shadow: 1px 0 0 #10142c, 0 1px 0 #10142c,
+        -1px 0 0 #10142c, 0 -1px 0 #10142c;
     white-space: nowrap;
 }
 
@@ -508,7 +508,7 @@ h3 {
 
 /* 메인배경 */
 .mainBG{
-    background: #fff;
+    background: #ffffff;
     width: 100%;
     height: 100%;
 }
@@ -649,7 +649,7 @@ h3 {
     width: 100%;
     position: absolute;
     overflow: hidden;
-    bottom: 0;
+    bottom: 10px;
     height: 30%;
     transition: 1s linear 3s;
 }
@@ -1295,14 +1295,32 @@ html .swiper-container {
 .swiper-slide {
     background-position: center;
     background-size: cover;
+    overflow: hidden;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+/* 이미지박스 가상요소 */
+.swiper-slide::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000005a;
+    display: none;
+}
+
+/* 이미지박스 */
+.swiper-slide img:hover .swiper-slide::after {
+    display: block;
 }
 
 /* 이미지 */
 .swiper-slide img {
     display: block;
     width: 100%;
-    border: 1px solid #000;
-    box-sizing: border-box;
 }
 
 /* 스와이퍼 인디케이터 박스 */
