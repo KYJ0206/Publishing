@@ -459,7 +459,7 @@ h3 {
     height: 65px;
     text-align: center;
     line-height: 30px;
-    background-color: #232a34;
+    background-color: #10142c;
     color: #fff;
     opacity: 0.9;
     z-index: 999;
@@ -964,7 +964,7 @@ h3 {
     list-style: none;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #ddd;
+    background-color: #919191;
 }
 
 
@@ -1019,7 +1019,7 @@ h3 {
     width: 200%;
     height: 100%;
     animation: fcap 10s linear infinite;
-    background: #444;
+    background: rgb(16 20 44);
 }
 
 
@@ -1076,7 +1076,7 @@ h3 {
 .c1 {
     fill: none;
     /* 채우기-기본색은 검정색(transparent-투명,none-없음) */
-    stroke: #f00;
+    stroke: #fff;
     /* 선색(안쓰면 안나옴) */
     stroke-width: 10;
     /* 선두께는 안쓰면 1px, 단위없으면 px */
@@ -1104,8 +1104,8 @@ h3 {
     left: 0;
     transform: translate(-100%, -30%);
     font-size: 1.5vw;
-    text-shadow: 1px 1px 1px #333;
-    color: #333;
+    text-shadow: 1px 1px 5px #333;;
+    color: #fff;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -1171,15 +1171,15 @@ h3 {
 
 /* 프로젝트 영역 타이틀 */
 .pjbx h2 {
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 3rem;
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-align: center;
-    border: 2px solid rgba(0, 0, 0, 0.665);
+    border: 2px solid rgb(16 20 44);
     border-radius: 13px;
-    text-shadow: 0 0 1px #000;
-    box-shadow: 0 0 5px #000;
-    background-color: rgb(25 53 86);
+    text-shadow: rgb(0 0 0) 0px 0px 1px;
+    box-shadow: rgb(57 63 72) 0px 0px 5px;
+    background-color: rgb(57 63 72);
     line-height: 6vh;
 }
 
@@ -1521,7 +1521,9 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         position: static;
         height: 32%;
         flex-wrap: wrap;
+        border-radius: 13px;
     }
+
     .sec2box li{
         position: static
     };
