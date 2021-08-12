@@ -1396,10 +1396,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .scroll{
         position: fixed;
         top: 17%;
-        left: 5%;
-        width: 2%;
+        left: 3%;
+        width: 5%;
         height: 20%;
         transform: rotate(180deg);
+        overflow: hidden;
     }
 
     /* 스크롤 속박스 */
@@ -1414,7 +1415,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .scrollin::before {
         content: "";
         position: absolute;
-        top: 90%;
+        top: 110%;
         left: 50%;
         transform: translateX(-50%);
         width: 8px;
@@ -1427,7 +1428,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
     @keyframes k_scroll {
         to {
-            top: 0%;
+            top: -10%;
             opacity: 0;
         }
     }
@@ -1847,7 +1848,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         position: fixed;
         top: 30%;
         left: 3%;
-        width: 10%;
+        width: 13%;
         height: 10%;
         transform: rotate(180deg);
     }
@@ -1864,7 +1865,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .scrollin::before {
         content: "";
         position: absolute;
-        top: 90%;
+        top: 110%;
         left: 50%;
         transform: translateX(-50%);
         width: 8px;
@@ -1877,7 +1878,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     }
     @keyframes k_scroll {
         to {
-            top: 0%;
+            top: -10%;
             opacity: 0;
         }
     }
@@ -1885,7 +1886,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     /* 스크롤 글씨 */
     .scroll span{   
         top: 38%;
-        left: 0;
+        left: 5px;
         font-size: 1.5rem;
         transform: rotate(270deg);
         white-space: nowrap;
