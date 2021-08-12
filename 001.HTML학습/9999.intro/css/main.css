@@ -1119,104 +1119,6 @@ h3 {
     position: relative;
 }
 
-.pslide{
-    position: absolute;
-    top: 0;
-    /* 부모는? #ban */
-    display: flex;
-    /* 플랙스 박스 */
-    width: 200%;
-    height: 100%;
-}
-
-.pslide>li{
-    position: relative;
-    /* 배너타이틀의 부모자격! */
-    flex: 1;
-    /* 부모 flex박스 영역을 등분할 함!(height도 자동으로 100%) */
-}
-
-.psimg1{
-    background: #fff;
-    background-attachment: fixed;
-}
-.psimg2{
-    background:  #fff;
-    background-attachment: fixed;
-}
-
-
-
-/* 양쪽이동버튼(영역+버튼) */
-/* 영역공통 */
-.btna {
-    position: absolute;
-    width: 15%;
-    height: 100%;
-}
-/* 왼쪽영역 */
-.ar1 {
-    left: 0;
-    /* background-color: #ffafaf; */
-}
-/* 오른쪽영역 */
-.ar2 {
-    right: 0;
-    /* background-color: #769bff; */
-}
-
-/*팔로워*/
-.badge {
-    position: absolute;
-    width: 130px;
-    height: 130px;
-    transform: translate(-50%, -50%);
-}
-
-.inside {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(0);
-    border-radius: 50%;
-    background-color: #314172;
-    border: 2px solid #333;
-    transition: all .1s;
-}
-
-/*버튼글자박스*/
-.btntit {
-    position: absolute;
-    width: 200px;
-    height: 80px;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%) scale(0);
-    /*            outline: 1px solid red;*/
-    font: bold 3rem/80px ub;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    text-align: center;
-    transition: all .1s;
-    cursor: pointer;/* 손가락모양 */
-}
-
-/* 숫자형 블릿 */
-.numbtns{
-    display: flex;
-    width: 5%;
-    height: 3%;
-    position: absolute;
-    right: 17%;
-    bottom: 7%;
-    outline: 4px solid red;
-}
-.numbtn{
-    flex: 1;
-}
-
 
 /* 전체부모박스 */
 .wrap {
@@ -1300,22 +1202,6 @@ html .swiper-container {
     box-sizing: border-box;
 }
 
-/* 이미지박스 가상요소 */
-.swiper-slide::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0000005a;
-    display: none;
-}
-
-/* 이미지박스 */
-.swiper-slide img:hover .swiper-slide::after {
-    display: block;
-}
 
 /* 이미지 */
 .swiper-slide img {
@@ -1336,9 +1222,14 @@ html .swiper-pagination-bullet {
     border-radius: 50%;
     border: 1px solid #000;
     opacity: 1;
-    --swiper-theme-color: #232a34;
-    /* background: #fff; */
+    background-color: transparent;
 }
+
+html .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #10142c;
+}
+
 
 /* 스와이퍼 좌우버튼 스타일 */
 /* 왼쪽 */
