@@ -1367,7 +1367,13 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
 
     /* 전체 내부 박스 */
     .minfo{
-        height: 80vh;
+        font-size: 0.5vw;
+        line-height: 1PX;
+    }
+
+    /* 텍스트 */
+    .mainp {
+        margin-top: 15px;
     }
 
 /********************* 공통 CSS *********************/
