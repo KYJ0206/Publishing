@@ -871,7 +871,7 @@ h3 {
     transform: translate(-50%, -50%);
     width: 70%;
     background: url(../images/K.Y.J.jpg) center top / cover no-repeat;
-    box-shadow: 0 0 10px #777;
+    border: 1px solid #10142c;
 }
 
 
@@ -1198,7 +1198,7 @@ html .swiper-container {
     background-position: center;
     background-size: cover;
     overflow: hidden;
-    border: 1px solid #000;
+    border: 1px solid #10142c;
     box-sizing: border-box;
 }
 
