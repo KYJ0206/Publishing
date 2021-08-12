@@ -1697,7 +1697,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         width: 4px;
         border-radius: 0;
         opacity: 1;
-        animation: k_scroll 1.5s linear  infinite forwards;
+        animation: k_scroll 1.5s linear  infinite alternate-reverse;
     }
     @keyframes k_scroll {
         to {
