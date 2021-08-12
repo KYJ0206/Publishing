@@ -1688,7 +1688,7 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
     .scrollin::before {
         content: "";
         position: absolute;
-        top: 85%;
+        top: 90%;
         left: 50%;
         transform: translateX(-50%);
         width: 8px;
@@ -1697,11 +1697,11 @@ html .swiper-button-next, html .swiper-container-rtl .swiper-button-prev {
         width: 4px;
         border-radius: 0;
         opacity: 1;
-        animation: k_scroll 1.5s linear  infinite alternate-reverse;
+        animation: k_scroll 3s linear  infinite;
     }
     @keyframes k_scroll {
         to {
-            top: 5%;
+            top: 0%;
             opacity: 0;
         }
     }
